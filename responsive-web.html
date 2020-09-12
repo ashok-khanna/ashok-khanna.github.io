@@ -24,14 +24,18 @@
   
   <p>Firstly, note that browsers have default styles for HTML elements. So we should use a <b>"reset stylesheet"</b> to override these defaults and create a consistent baseline for all browsers to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on. We have used Eric Meyer's reset in our stylesheet.</p>
   
-  <p><b>Proportionate Fonts</b>: To create proportionate fonts that scale with the screen size, we calcuate its relative type size. For example, if we have designed a page (in a fixed form dimension such as A4) to have a header font of 24px, we call this size the <b>"target"</b> size. The baseline type size for most browser defaults (at 100%) is 16px, this gives us the <b>"context"</b> size. We calculate our relative type size ratio as <b>target / context</b>, which will be 24 / 16 = 1.5 in our example.</p>
+  <p><b>Proportionate Fonts</b>: To create proportionate fonts that scale with the screen size, we calcuate its relative type size. For example, if we have designed a page (in a fixed form dimension such as A4) to have a header font of 24px, we call this size the <b>"target"</b> size. The baseline type size for most browser defaults (at 100%) is 16px, this gives us the <b>"context"</b> size. We calculate our relative type size ratio as <b>target / context</b>, which will be 24 / 16 = 1.5 in our example. However, after setting our main H1 text to a certain font, if we want subelements such as links within H1 to have another font say 11px, we should scale it against the 24px of the original form (since that's where the 11px is shown, i.e. in the original it is 11 / 24 of the size of the header text).</p>
   
  <pre>
    h1 {
         font-size: 1.5em; /* 24px / 16px */
         font-style: italic;
         font-weight: normal;
-      }   
+      }
+      
+   h1 a {
+        font: bold 0.4583333333333em /* 11px / 24px */
+      }
   </pre>
   
       <p>Testing math</p>
