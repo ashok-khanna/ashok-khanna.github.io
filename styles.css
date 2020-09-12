@@ -54,3 +54,11 @@ h1 {
 	font-weight: normal;
 } 
 
+.page {
+	margin: 36px auto;
+	width: 90%;
+}
+
+img, embed, object, video {
+	max-width: 100%;
+}
