@@ -11,13 +11,28 @@
 </head>
 <body>
   <h1>Chapter 1: Our Responsive Web</h1>
-  <p>We should embrace the flexibility and variablity inherent to the web, and build sites that adapt to the media that renders them. Together with utilising standards-based technologies to ensure consistent implementation across browsers, responsive web design consists of three ingredients:
+  
+  <p>We should embrace the flexibility and variablity inherent to the web, and build sites that adapt to the media that renders them. We need to let go of our desire to control the medium in which audiences view our webpages and creating pixel-by-pixel perfect designs, but rather ensure fluidity in our approach such that any device can satisfactorily view our webpages. Together with utilising standards-based technologies to ensure consistent implementation across browsers, responsive web design consists of three ingredients:
     <li>
       <ol><b>A flexible, grid-based layout</b></ol>
       <ol><b>Flexible images and media</b>, and</ol>
       <ol><b>Media queries</b>, a module from the CSS3 specification</ol>
     </li>
   </p>
+  
+  <h1>Chapter 2: The Flexible Grid</h1>
+  
+  <p>Firstly, note that browsers have default styles for HTML elements. So we should use a <b>"reset stylesheet"</b> to override these defaults and create a consistent baseline for all browsers to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on. We have used Eric Meyer's reset in our stylesheet.</p>
+  
+  <p><b>Proportionate Fonts</b>: To create proportionate fonts that scale with the screen size, we calcuate its relative type size. For example, if we have designed a page (in a fixed form dimension such as A4) to have a header font of 24px, we call this size the <b>"target"</b> size. The baseline type size for most browser defaults (at 100%) is 16px, this gives us the <b>"context"</b> size. We calculate our relative type size ratio as <b>target / context</b>, which will be 24 / 16 = 1.5 in our example.</p>
+  
+ <code>
+   h1 {
+        font-size: 1.5em; /* 24px / 16px */
+        font-style: italic;
+        font-weight: normal;
+      }   
+  </code>
  
 </body>
 </html>
