@@ -32,18 +32,22 @@
   
   <p><b>Proportionate Fonts</b>: To create proportionate fonts that scale with the screen size, we calcuate its relative type size. For example, if we have designed a page (in a fixed form dimension such as A4) to have a header font of 24px, we call this size the <b>"target"</b> size. The baseline type size for most browser defaults (at 100%) is 16px, this gives us the <b>"context"</b> size. We calculate our relative type size ratio as <b>target / context</b>, which will be 24 / 16 = 1.5 in our example.</p>
   
- <code>
+ <pre>
    h1 {
         font-size: 1.5em; /* 24px / 16px */
         font-style: italic;
         font-weight: normal;
       }   
-  </code>
+  </pre>
   
   <pre><code class="lisp">(defun test-syntax-highlighter ()
   "Docstring explaining what this function does."
   (let ((hash (make-hash-table :test #'equal)))
     ...))</code></pre>
+  
+      <p>Testing math</p>
+    When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
  
 </body>
 </html>
