@@ -45,14 +45,17 @@ img, embed, object, video {
 
 }
 
-body {
+@media (max-width: 736px) {
+	body {
 	font-family: libre_baskervilleregular, Times New Roman;
-}
+	}
 
-b {
+	b {
 	font-family: libre_baskervillebold, Times New Roman;
+	}
+
+	i {
+	font-family: libre_baskervilleitalic, Times New Roman;
+	}
 }
 
-i {
-	font-family: libre_baskervilleitalic, Times New Roman;
-}
