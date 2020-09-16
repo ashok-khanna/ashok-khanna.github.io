@@ -75,6 +75,8 @@ body {
         grid-column: 1;
         grid-row: 3;
 	text-align: center;
+	background-color: coral;
+	color: white;
     }
 
     .menu-2 {
