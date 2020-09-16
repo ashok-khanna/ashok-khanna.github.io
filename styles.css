@@ -74,6 +74,7 @@ body {
     .menu-1 {
         grid-column: 1;
         grid-row: 3;
+	text-align: center;
     }
 
     .menu-2 {
@@ -91,7 +92,7 @@ body {
     .menu-4 {
         grid-column: 4;
         grid-row: 3;
-	text-align: right;
+	text-align: center;
     }
 
     .body-class {
