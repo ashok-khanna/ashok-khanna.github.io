@@ -6,6 +6,12 @@ This repo represents the static website of math.dev. This readme file will conta
 - Design Math.Dev Logo
 - Decide whether Math.Dev logo should have a color row at the top?
 - Notes on custom domains
+- Increase font on mobile screens
+- Change e-mail & linkedin to icons 
+- Install fontawesome set
+- Test on multiple devices
+- Hover on button color change
+- Decide on color scheme?
 
 ### Setup Notes
 
