@@ -12,6 +12,7 @@ This repo represents the static website of math.dev. This readme file will conta
 - Test on multiple devices
 - Hover on button color change
 - Decide on color scheme?
+- Add links to 4 main sections
 
 ### Setup Notes
 
