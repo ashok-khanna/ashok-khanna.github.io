@@ -53,7 +53,7 @@ body {
 .wrapper {
         display: grid;
     	grid-gap: 10px;
-        grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px  ;
+        grid-template-columns: repeat(4, 1fr)  ;
         /* grid-template-rows: [row] auto [row] auto [row] auto [row] auto [row] auto; */
         background-color: #fff;
         color: #444;
@@ -62,12 +62,12 @@ body {
     }
 
     .title-class {
-        grid-column: 1 / 4;
+        grid-column: 1 / 5;
         grid-row: 1;
     }
 
     .about-class {
-        grid-column: 1 / 4;
+        grid-column: 1 / 5;
         grid-row: 2;
     }
 
@@ -92,11 +92,11 @@ body {
     }
 
     .body-class {
-        grid-column: 1 / 4;
+        grid-column: 1 / 5;
         grid-row: 4;
     }
 
     .footer-class {
-        grid-column: 1 / 4;
+        grid-column: 1 / 5;
         grid-row: 5;
     }
