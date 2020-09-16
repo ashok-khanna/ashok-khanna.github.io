@@ -13,6 +13,8 @@ This repo represents the static website of math.dev. This readme file will conta
 - Hover on button color change
 - Decide on color scheme?
 - Add links to 4 main sections
+- Put quote at the end?
+- Delet about section? (Come up with good grid design)
 
 ### Setup Notes
 
