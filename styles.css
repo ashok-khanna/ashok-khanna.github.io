@@ -54,7 +54,7 @@ body {
         display: grid;
     	grid-gap: 10px;
         grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px  ;
-        grid-template-rows: [row] auto [row] auto [row] auto [row] auto [row] auto;
+        /* grid-template-rows: [row] auto [row] auto [row] auto [row] auto [row] auto; */
         background-color: #fff;
         color: #444;
 	margin: auto;
