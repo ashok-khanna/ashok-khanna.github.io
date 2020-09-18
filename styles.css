@@ -64,25 +64,15 @@ width: 95%;
 .title-class {
 grid-column: 1 / 5;
 grid-row: 1;
-background-color: lightsteelblue;
-color: black;
-font-family: libre_baskervilleregular, Times New Roman;
+background-color: black;
+color: white;
+font-family: Times New Roman;
 padding-left: 10px;
-}
-
-.about-class {
-grid-column: 1 / 5;
-grid-row: 2;
-}
-
-.quote-class {
-grid-column: 1 / 5;
-grid-row: 3;
 }
 
 .menu-1 {
 grid-column: 1;
-grid-row: 4;
+grid-row: 2;
 text-align: center;
 background-color: slategray;
 color: white;
@@ -90,7 +80,7 @@ color: white;
 
 .menu-2 {
 grid-column: 2;
-grid-row: 4;
+grid-row: 2;
 text-align: center;
 background-color: teal;
 color: white;
@@ -98,7 +88,7 @@ color: white;
 
 .menu-3 {
 grid-column: 3;
-grid-row: 4;
+grid-row: 2;
 text-align: center;
 background-color: teal;
 color: white;
@@ -106,13 +96,25 @@ color: white;
 
 .menu-4 {
 grid-column: 4;
-grid-row: 4;
+grid-row: 2;
 text-align: center;
 background-color: teal;
 color: white;
 }
 
+.top-divider {
+grid-column: 1 / 5;
+grid-row: 3;
+background-color: black;
+height: 20px;
+}
+
 .body-class {
+grid-column: 1 / 5;
+grid-row: 4;
+}
+
+.quote-class {
 grid-column: 1 / 5;
 grid-row: 5;
 }
