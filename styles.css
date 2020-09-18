@@ -67,7 +67,8 @@ grid-row: 1;
 background-color: black;
 color: white;
 font-family: Times New Roman;
-padding-left: 10px;
+text-align: center;
+/* padding-left: 10px; */
 }
 
 .menu-1 {
@@ -106,7 +107,7 @@ color: white;
 grid-column: 1 / 5;
 grid-row: 3;
 background-color: black;
-height: 20px;
+height: 10px;
 }
 
 .body-class {
