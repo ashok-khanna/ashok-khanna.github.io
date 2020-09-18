@@ -112,7 +112,7 @@ font-family: ibm_plex_sansregular;
 .body-wrapper {
 	margin: auto;
 	width: 95%;
-	padding-top: 2.6315789%; /* 2.5% of 100% */
+	/* padding-top: 2.6315789%; /* 2.5% of 100% */
 	padding-bottom: 2.6315789%;
 }
 
