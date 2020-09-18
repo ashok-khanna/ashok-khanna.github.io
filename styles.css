@@ -85,10 +85,10 @@ font-style: normal;
 	align: center;
 }
 
-top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:bold; }
-top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:bold; }
-top-menu-item a:hover { color: #FFF; text-decoration:underline; font-weight:bold; }
-top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:bold; }
+.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:bold; }
+.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:bold; }
+.top-menu-item a:hover { color: #FFF; text-decoration:underline; font-weight:bold; }
+.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:bold; }
 
 body {
 margin: 0px;
