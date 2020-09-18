@@ -95,7 +95,7 @@ font-style: normal;
 
 .top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; }
 .top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; }
-.top-menu-item a:hover { color: #FFF; text-decoration:underline; font-weight:normal; }
+.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal;}
 .top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; }
 
 body {
