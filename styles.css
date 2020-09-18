@@ -70,10 +70,11 @@ font-style: normal;
 .top-border {
 	background-color: blue;
 	width:100%;
-		height:10px;
+		height:40px;
 }
 
 body {
+margin: 0px;
 background-color: #f6f6ef;
 color: black;
 font-family: ibm_plex_sansregular;
