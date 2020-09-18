@@ -3,7 +3,15 @@ This repo represents the static website of math.dev. This readme file will conta
 
 ### Outstanding Tasks
 
-- Design Math.Dev Logo
+- Add hover on links
+- Add color selected / not selected
+- Finalise footer
+- Finalise gaps between body and footer
+- Increase font size for mobile
+- Research optimal media queries for all screens
+- 
+
+- Design Math.Dev Logo 
 - Decide whether Math.Dev logo should have a color row at the top?
 - Notes on custom domains
 - Increase font on mobile screens
