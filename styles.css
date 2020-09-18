@@ -64,7 +64,7 @@ width: 95%;
 .title-class {
 grid-column: 1 / 5;
 grid-row: 1;
-bacground-color: lightsteelblue;
+background-color: lightsteelblue;
 color: black;
 font-family: libre_baskervilleregular, Times New Roman;
 }
