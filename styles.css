@@ -48,6 +48,8 @@ font-style: normal;
 
 body {
 margin: 40px;
+background-color: lightyellow;
+color: black;
 }
 
 .wrapper {
