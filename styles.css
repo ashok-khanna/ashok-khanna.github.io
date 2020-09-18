@@ -4,14 +4,6 @@ max-width: 100%;
 
 html {
   font-size: 100%;
-	
-  @media (max-width: 768px) {
-	font-size: 150%;  
-  }
-
-  @media (min-width: 768px) {
-    font-size: 112.5%;
-  }
 }
 
 h1 {
@@ -75,7 +67,6 @@ font-style: normal;
 	font-family: ibm_plex_sansbold;
 	width:100%;
 	height:7.5%;
-	line-height:100%;
 }
 
 .top-logo {
@@ -91,7 +82,13 @@ font-style: normal;
 
 .top-menu-item {
 	width: 25%;
+	align: center;
 }
+
+a.top-menu-item:link { color:#FFF; text-decoration:none; font-weight:bold; }
+a.top-menu-item:visited { color: #FFF; text-decoration:none; font-weight:bold; }
+a.top-menu-item:hover { color: #FFF; text-decoration:underline; font-weight:bold; }
+a.top-menu-item:active { color: #FFF; text-decoration:none; font-weight:bold; }
 
 body {
 margin: 0px;
