@@ -88,15 +88,14 @@ font-style: normal;
 
 .top-menu-item {
 	margin: 0px;
-	padding: 10px;
 	flex-grow: 1;
 	align: center;
 }
 
-.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; }
-.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; }
-.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal;}
-.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; }
+.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; padding: 10px}
+.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
+.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px}
+.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
 
 body {
 margin: 0px;
