@@ -8,7 +8,6 @@ This repo represents the static website of math.dev. This readme file will conta
 - Notes on custom domains
 - Increase font on mobile screens
 - Change e-mail & linkedin to icons 
-- Install fontawesome set
 - Test on multiple devices
 - Hover on button color change
 - Decide on color scheme?
