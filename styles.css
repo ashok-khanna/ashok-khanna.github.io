@@ -62,11 +62,11 @@ font-style: normal;
 .top-border-flex-box {
 	display:flex;
 	flex-direction: row;
+	align-items: center;
 	background-color: black;
 	color: white;
 	font-family: ibm_plex_sansbold;
 	width:100%;
-	height:7.5%;
 }
 
 .top-logo {
@@ -77,6 +77,7 @@ font-style: normal;
 .top-menu-flex-box {
 	display:flex;
 	flex-direction: row;
+	align-items: center;
 	width:50%;
 }
 
