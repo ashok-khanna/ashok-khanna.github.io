@@ -57,6 +57,11 @@ font-style: normal;
 	i {
 	font-family: libre_baskervilleitalic, Times New Roman;
 	}
+	
+	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:hover { color: teal; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:active { color: teal; text-decoration:none; font-weight:normal;}
 }
 
 .top-border-flex-box {
@@ -92,10 +97,12 @@ font-style: normal;
 	align: center;
 }
 
-.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; padding: 10px}
-.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
-.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px}
-.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
+@media (min-width: 736px) {
+	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; padding: 10px}
+	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
+	.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px}
+	.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
+}
 
 body {
 margin: 0px;
