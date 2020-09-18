@@ -79,12 +79,18 @@ font-style: normal;
 }
 
 .top-logo {
-	margin-left:2.5%;
+	padding-left:2.5%;
+	width: 50%;
 }
 
 .top-menu-flex-box {
 	display:flex;
 	flex-direction: row;
+	width:50%;
+}
+
+.top-menu-item {
+	width: 25%;
 }
 
 body {
