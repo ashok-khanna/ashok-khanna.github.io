@@ -88,7 +88,7 @@ font-style: normal;
 
 .top-menu-item {
 	margin: 0px;
-	padding: 0px;
+	padding: 10px;
 	flex-grow: 1;
 	align: center;
 }
