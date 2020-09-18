@@ -4,6 +4,10 @@ max-width: 100%;
 
 html {
   font-size: 100%;
+	
+  @media (max-width: 768px) {
+	font-size: 150%;  
+  }
 
   @media (min-width: 768px) {
     font-size: 112.5%;
