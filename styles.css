@@ -67,7 +67,7 @@ grid-row: 1;
 background-color: lightsteelblue;
 color: black;
 font-family: libre_baskervilleregular, Times New Roman;
-padding: 5%;
+margin-left: 10px;
 }
 
 .about-class {
