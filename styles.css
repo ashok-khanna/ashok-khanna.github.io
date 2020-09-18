@@ -98,6 +98,13 @@ font-style: normal;
 .top-menu-item a:hover { color: #FFF; text-decoration:underline; font-weight:normal; }
 .top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; }
 
+.top-gutter {
+	margin: 0px;
+	padding: 0px;
+	height: 2.5%;
+	background-color: white;
+}
+
 body {
 margin: 0px;
 padding: 0px;
