@@ -50,7 +50,7 @@ h1 {
 
 .top-logo {
 	margin:0px;
-	padding-left:2.5%;
+	padding-left: 2.5vw;
 	width: 50%;
 }
 
@@ -89,12 +89,12 @@ font-family: ibm_plex_sansregular;
 
 .body-wrapper {
 	margin: 0 auto;
-	padding: 5vw;
+	padding: 2.5vw;
 }
 
 p {
 	margin: 0px;
-	padding-bottom: 2.61358%;
+	padding-bottom: 1em;
 }
 
 @font-face {
