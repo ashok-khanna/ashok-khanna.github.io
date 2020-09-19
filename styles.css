@@ -121,8 +121,8 @@ font-family: ibm_plex_sansregular;
 }
 
 p {
-	margin-top: 2.63158%;
-	margin-bottom: 2.61358%;
+	margin: 0px;
+	padding-bottom: 2.61358%;
 }
 
 @font-face {
