@@ -96,6 +96,7 @@ font-family: ibm_plex_sansregular;
 p {
 	margin: 0px;
 	padding-bottom: 1em;
+	text-indent: 1em;
 }
 
 @font-face {
