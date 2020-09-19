@@ -88,7 +88,8 @@ font-family: ibm_plex_sansregular;
 
 
 .body-wrapper {
-	margin: 5vw auto;
+	margin: 0 auto;
+	padding: 5vw;
 }
 
 p {
