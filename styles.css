@@ -20,18 +20,6 @@ b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 
 
 @media (max-width: 736px) {
-	body {
-	font-family: libre_baskervilleregular, Times New Roman;
-	}
-
-	b {
-	font-family: libre_baskervillebold, Times New Roman;
-	}
-
-	i {
-	font-family: libre_baskervilleitalic, Times New Roman;
-	}
-	
 	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal;}
 	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal;}
 	.top-menu-item a:hover { color: teal; text-decoration:none; font-weight:normal;}
@@ -96,6 +84,7 @@ font-family: Times New Roman;
 	display: grid;
 	grid-gap: 5vw;
 	grid-template-columns: 1fr 3fr;
+	padding-right: 2.5vw;
 }
 
 p {
