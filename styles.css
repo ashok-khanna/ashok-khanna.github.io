@@ -37,6 +37,9 @@ b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 	font-family: Oswald;
 	font-weight: bold;
 	width:100%;
+	
+	border-width: 2px;
+   	border-bottom: 2px #BCBBBB solid;
 }
 
 .top-logo {
