@@ -91,7 +91,7 @@ font-family: Times New Roman;
 	display: grid;
 	grid-gap: 5vw;
 	grid-template-columns: 3fr 1fr;
-	grid-template-rows: [row] auto [row] auto;
+	grid-template-rows: 40vh 1fr;
 	padding: 2.5vw;
 }
 
