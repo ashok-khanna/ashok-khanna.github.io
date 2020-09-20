@@ -14,6 +14,15 @@ h1 {
   }
 }
 
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+}
+
+b {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+}
 
 
 
