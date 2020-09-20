@@ -97,7 +97,7 @@ p {
 .sidebar {
 	grid-column: 1;
 	grid-row: 1;
-	background-color: white;
+	background-color: #b0e0e6;
 	color: black;
 	text-align: left;
 	padding: 0;
