@@ -92,6 +92,9 @@ font-family: Times New Roman;
 .body-wrapper {
 	margin: 0 auto;
 	padding: 2.5vw;
+	display: grid;
+	grid-gap: 2.5vw;
+	grid-template-columns: 1fr 3fr;
 }
 
 p {
@@ -104,6 +107,24 @@ p {
 .stix {
 	font-family: stix;
 	font-size: 1.25em;
+}
+
+.sidebar {
+	grid-column: 1;
+	grid-row: 1;
+	background-color: #222426;
+	color: white;
+	text-align: left;
+	padding: 0.5vw;
+}
+
+.content {
+	grid-column: 2;
+	grid-row: 1;
+	background-color: white;
+	color: black;
+	text-align: left;
+	padding: 0.5vw;
 }
 
 
