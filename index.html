@@ -1,99 +1,100 @@
 <html>
 <head>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="https://math.dev/styles.css">
-  <script id="MathJax-script" async src="https://math.dev/mathjax/tex-mml-chtml.js"></script>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type='text/css'>
-  
-  <script>
-    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="https://math.dev/styles.css">
+<script id="MathJax-script" async src="https://math.dev/mathjax/tex-mml-chtml.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type='text/css'>
+
+
+<style>
+
+.open-sans {
+font-family: 'Open Sans', serif;
 }
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
+.oswald {
+font-family: 'Oswald', serif;
 }
-  </script>
-  
-  <style>
-  
-   .open-sans {
-   font-family: 'Open Sans', serif;
-}
-    
-    .oswald {
-      font-family: 'Oswald', serif;
+
+
+</style>
+
+<script> 
+//* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
     }
-    
-    
-  </style>
-  
-  <script> 
-  $(function(){
-    $("#about").load("/helpers/about.html");
-    $("#quote").load("/helpers/quote.html");
-    $("#footer").load("/helpers/footer.html"); 
   });
+}
 </script> 
 </head>
 <body>
-  
-  
-  <div class="top-border-flex-box">
-    <!-- Top Black Border -->
-    <div class="top-logo"><h2>Math.Dev</h2></div>
-    <div class="top-menu-flex-box">
-      <div class="top-menu-item"><a href="/index.html">Home</a></div>
-      <div class="top-menu-item"><a href="/blog/index.html">Blog</a></div>
-      <div class="top-menu-item"><a href="/beta/index.html">Math</a></div>
-      <div class="top-menu-item"><a href="/lisp/indexl.html">Lisp</a></div>
-    </div>
-  </div>
-   
-  <div class="body-wrapper">
-    
-    <div class="sidebara">
-      <div class="unit-block"></div>
-      <p>Tiesto's clublife</p>
-      
-      <div id="mySidebar" class="sidebar">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
-      </div>
 
-      <div id="main">
-        <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button> 
-        <h2>Collapsed Sidebar</h2>
-        <p>Content...</p>
-      </div>
-    </div>
-   
-    <div class="content">
-      <h2 class="oswald">Preface Section 3.1 Open Sets & Closures</h2>
-      <p class="open-sans">It was with great delight that I learned of the imminent publication of an English-language edition of my introductory course on mathematical analysis under the editorship of Dr. R. A. Silverman. Since the literature already includes many fine books devoted to the same general subject matter, I would like to take this opportunity to point out the special features of my approach.
-        <b>Mathematical analysis</b> is a <i>large “continent”</i> concerned with <b><i>the concepts of function</i></b>, derivative, and integral. At present this continent consists of many “countries” such as differential equations (ordinary and partial), integral equations, functions of a complex variable, differential geometry, calculus of variations, etc. But even though the subject matter of mathematical analysis can be regarded as well-established, notable changes in its structure are still under way. In Goursat’s classical “cours d’analyse” of the twenties all of analysis is portrayed on a kind of “great plain,” on a single level of abstraction. In the books of our day, however, much attention is paid to the appearance in analysis of various “stages” of abstraction, i.e., to various “structures” (Bourbaki’s term) characterizing the mathematicological foundations of the original constructions. This emphasis on foundations clarifies the gist of the ideas involved, thereby freeing mathematics from concern with the idiosyncrasies of each object under consideration. At the same time, an understanding of the nub of the matter allows one to take account immediately of new objects of a different individual nature but of exactly the same “structural depth”.
-      Consider, for example, When \(\boldsymbol{a \ne 0}\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-        Picard’s proof of the existence and uniqueness of the solution of a differential equation in which the desired function is successively approximated on a given interval by other functions in accordance with certain rules. This proof had been known for some time when Banach and others formulated the “fixed point method.” The latter plainly reveals the nub of Picard’s proof, namely the presence of a contraction operator in a certain metric space. In this regard, the specific context of Picard’s problem, i.e., numerical functions on an interval, a differential equation, etc., turns out to be quite irrelevant. As a result, the fixed point method not only makes the “geometrical” proof of Picard’s theorem more transparent, but, by further developing the key idea of Picard’s proof, even leads to the proof of existence theorems involving neither functions on an interval nor a differential equation. Considerations 
-</p>
-        
-    </div>  
-    
-    <div class="footer" id="footer"></div>
-    
+
+<div class="top-border-flex-box">
+<!-- Top Black Border -->
+<div class="top-logo"><h2>Math.Dev</h2></div>
+<div class="top-menu-flex-box">
+<div class="top-menu-item"><a href="/index.html">Home</a></div>
+<div class="top-menu-item"><a href="/blog/index.html">Blog</a></div>
+<div class="top-menu-item"><a href="/beta/index.html">Math</a></div>
+<div class="top-menu-item"><a href="/lisp/indexl.html">Lisp</a></div>
+</div>
+</div>
+
+<div class="body-wrapper">
+
+<div class="sidebara">
+<div class="unit-block"></div>
+<p>Tiesto's clublife</p>
+
+<div class="sidenav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+  <button class="dropdown-btn">Dropdown 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
   </div>
+  <a href="#contact">Search</a>
+</div>
+  
+  
+</div>
+
+<div class="content">
+<h2 class="oswald">Preface Section 3.1 Open Sets & Closures</h2>
+<p class="open-sans">It was with great delight that I learned of the imminent publication of an English-language edition of my introductory course on mathematical analysis under the editorship of Dr. R. A. Silverman. Since the literature already includes many fine books devoted to the same general subject matter, I would like to take this opportunity to point out the special features of my approach.
+<b>Mathematical analysis</b> is a <i>large “continent”</i> concerned with <b><i>the concepts of function</i></b>, derivative, and integral. At present this continent consists of many “countries” such as differential equations (ordinary and partial), integral equations, functions of a complex variable, differential geometry, calculus of variations, etc. But even though the subject matter of mathematical analysis can be regarded as well-established, notable changes in its structure are still under way. In Goursat’s classical “cours d’analyse” of the twenties all of analysis is portrayed on a kind of “great plain,” on a single level of abstraction. In the books of our day, however, much attention is paid to the appearance in analysis of various “stages” of abstraction, i.e., to various “structures” (Bourbaki’s term) characterizing the mathematicological foundations of the original constructions. This emphasis on foundations clarifies the gist of the ideas involved, thereby freeing mathematics from concern with the idiosyncrasies of each object under consideration. At the same time, an understanding of the nub of the matter allows one to take account immediately of new objects of a different individual nature but of exactly the same “structural depth”.
+Consider, for example, When \(\boldsymbol{a \ne 0}\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+Picard’s proof of the existence and uniqueness of the solution of a differential equation in which the desired function is successively approximated on a given interval by other functions in accordance with certain rules. This proof had been known for some time when Banach and others formulated the “fixed point method.” The latter plainly reveals the nub of Picard’s proof, namely the presence of a contraction operator in a certain metric space. In this regard, the specific context of Picard’s problem, i.e., numerical functions on an interval, a differential equation, etc., turns out to be quite irrelevant. As a result, the fixed point method not only makes the “geometrical” proof of Picard’s theorem more transparent, but, by further developing the key idea of Picard’s proof, even leads to the proof of existence theorems involving neither functions on an interval nor a differential equation. Considerations 
+</p>
+
+</div>  
+
+<div class="footer" id="footer"></div>
+
+</div>
 </body>
 </html>
