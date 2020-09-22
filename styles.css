@@ -94,7 +94,7 @@ font-family: Times New Roman;
 }
 
 .collapsible {
-  background-color: #2a2c2f;
+  background-color: #7a8188;
   color: white;
   cursor: pointer;
   padding: 18px;
@@ -132,7 +132,7 @@ p {
 .sidebar {
 	grid-column: 2;
 	grid-row: 1;
-	background-color:#2a2c2f;
+	background-color:#7a8188;
 	color: black;
 	text-align: left;
 	padding: 0;
