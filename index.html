@@ -22,26 +22,48 @@ font-family: 'Open Sans', serif;
 font-family: 'Oswald', serif;
 }
 
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
 
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+  
 </style>
 
-<script> 
-//* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-var dropdown = document.getElementsByClassName("dropdown-btn");
+<script>
+var coll = document.getElementsByClassName("collapsible");
 var i;
 
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
     } else {
-      dropdownContent.style.display = "block";
+      content.style.display = "block";
     }
   });
 }
-</script> 
+</script>
+  
 </head>
 <body>
 
@@ -63,20 +85,26 @@ for (i = 0; i < dropdown.length; i++) {
 <div class="unit-block"></div>
 <p>Tiesto's clublife</p>
 
-<div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
-  <button class="dropdown-btn">Dropdown 
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-  <a href="#contact">Search</a>
+<h2>Collapsibles</h2>
+
+<p>A Collapsible:</p>
+<button type="button" class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<p>Collapsible Set:</p>
+<button type="button" class="collapsible">Open Section 1</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button type="button" class="collapsible">Open Section 2</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button type="button" class="collapsible">Open Section 3</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
   
   
