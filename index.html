@@ -11,6 +11,11 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type='text/css'>
 
+<script>
+$(function(){
+$("#sidebar-menu").load("/helpers/sidebar-menu.html");
+});
+</script>
 
 <style>
 
@@ -69,18 +74,7 @@ font-family: 'Oswald', serif;
 <div class="unit-block"></div>
 <p>Tiesto's clublife</p>
 
-<button type="button" class="collapsible">Real Numbers</button><button type="button" class="collapsible">SUP</button>
-<div class="contenta">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-<button type="button" class="collapsible">Open Section 2</button>
-<div class="contenta">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-<button type="button" class="collapsible">Open Section 3</button>
-<div class="contenta">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
+  <div class="sidebar-menu" id="sidebar-menu"></div>
   
  </div>
 
