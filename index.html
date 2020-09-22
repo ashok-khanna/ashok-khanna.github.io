@@ -11,12 +11,6 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type='text/css'>
 
-<script>
-$(function(){
-$("#sidebar-menu").load("/helpers/sidebar-menu.html");
-});
-</script>
-
 <style>
 
 .open-sans {
@@ -97,7 +91,8 @@ Picard’s proof of the existence and uniqueness of the solution of a differenti
 
 </div>
 
-  <script>
+<script>   
+$( "#sidebar-menu" ).load( "/helpers/sidebar-menu.html", function() {
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -110,8 +105,7 @@ for (i = 0; i < coll.length; i++) {
     } else {
       contenta.style.display = "block";
     }
-  });
-}
+});   
 </script>
   
 </body>
