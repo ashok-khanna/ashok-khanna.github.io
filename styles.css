@@ -62,28 +62,13 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 
 .body-grid { margin: 0 auto; padding: 2.5vw; }
 .content { }
-.sidebar { }
+.sidebar { display: none;}
 
 @media screen and (min-width: 736px) {
-	.body-grid { display: grid; }
-	.content { grid-area: content; }
-	.sidebar { grid-area: sidebar; display: visible; }
+	.body-grid { display: grid; grid-gap: 2.5vw; grid-template-columns: 3fr 1fr; grid-template-areas: "content sidebar"; justify-content: space-between;}
+	.content { max-width: 960px; grid-area: content; }
+	.sidebar { max-width: 320px; grid-area: sidebar; display: visible; }
 }
-
-@media screen and (min-width: 736px) {
-	.content { max-width: 960px; }
-	.sidebar { max-width: 320px; }
-}
-
-/* Total max space used is 1280px. 7.5% is used for padding and gap between columns. So total size is 1280/92.5 */
-@media screen and (min-width: 736px) and (max-width: 1383.78378px) { 
-	.body-grid { grid-gap: 2.5vw; grid-template-columns: 3fr 1fr; grid-template-areas: "content sidebar"; }
-}
-
-@media screen and (min-width: 1383.78378px) 
-	.body-grid { grid-gap: 0px; grid-template-columns: 960px 320px; grid-template-areas: "content sidebar"; justify-content: space-between;}
-}
-
 
 p {
 	margin: 0px;
