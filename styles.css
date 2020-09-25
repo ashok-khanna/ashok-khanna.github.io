@@ -61,12 +61,12 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 /* Main Container */
 
 .body-grid { margin: 0 auto; padding: 2.5vw; }
-.content { }
-.sidebar { }
+.content { max-width: 960px;}
+.sidebar { max-width: 320px;}
 
 @media screen and (min-width: 736px) {
 	.body-grid { display: grid; }
-	.content { grid-area: content; }
+	.content { grid-area: content;  }
 	.sidebar { grid-area: sidebar; display: visible; }
 }
 
