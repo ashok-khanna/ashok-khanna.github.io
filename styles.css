@@ -60,12 +60,25 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 
 /* Main Container */
 
-.body-grid {
-	margin: 0 auto; display: grid;
-	grid-gap: 0px; grid-template-columns: 2.5vw minmax(3fr, 960px) 1fr 2.5vw;
-	grid-template-rows: 1fr 200px;
-	padding: 2.5vw;
+.body-grid { margin: 0 auto; padding: 2.5vw; }
+.content { }
+.sidebar { display: none; }
+
+@media screen and (min-width: 736px) {
+	.body-grid { display: grid; }
+	.content { grid-area: content; }
+	.sidebar { grid-area: sidebar; display: visible; }
 }
+
+/* Total max space used is 1280px. 7.5% is used for padding and gap between columns. So total size is 1280/92.5 */
+@media screen and (min-width: 736px) and (max-width: 1383.78378px) { 
+	.body-grid { grid-gap: 2.5vw; grid-template-columns: 3fr 1fr; grid-template-areas: "content sidebar"; }
+}
+
+@media (min-width: 1383.78378px) 
+	.body-grid { grid-gap: 0px; grid-template-columns: 960px 1fr 320px 1fr; grid-template-areas: "content gap sidebar gap"; }
+}
+
 
 p {
 	margin: 0px;
