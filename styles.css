@@ -22,28 +22,24 @@ b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 .sidebar p { font-family: 'Oswald', sans-serif; font-weight: 400; }
 .sidebar b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
+.top-bar { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
+/* Layout */
 
+/* -- Top Bar -- */
+/* Same for all devices */
+/* Create a full width top gold bar which has two subitems - logo & menu box. Menu box then has menu items as elements. Left margin is 2.5% of screen size. */
+/* Logo is flush left and takes 50% of the bar. Remaining 50% is the Menu box, with its items equally spaced and centred */
 
-@media (max-width: 736px) {
-	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal;}
-	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal;}
-	.top-menu-item a:hover { color: teal; text-decoration:none; font-weight:normal;}
-	.top-menu-item a:active { color: teal; text-decoration:none; font-weight:normal;}
-}
-
-.top-border-flex-box {
+.top-bar-flex-box {
+	width: 100%;
 	margin: 0px;
 	padding: 0px;
-	display:flex;
+	display: flex; /* flex box */
 	flex-direction: row;
 	align-items: center;
-	background-color: #6E523D; /* #222426; */
+	background-color: 6E523D;
 	color: white;
-	font-family: Oswald;
-	font-weight: bold;
-	width:100%;
-
 }
 
 .top-logo {
@@ -64,16 +60,30 @@ b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 
 .top-menu-item {
 	margin: 0px;
-	flex-grow: 1;
+	flex-grow: 1; /* allows for items to center but also grow to the size of each individual element, since some menu items have longer words */
 	align: center;
+}
+
+/* Menu Item Styling */
+
+@media (max-width: 736px) {
+	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:hover { color: teal; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:active { color: teal; text-decoration:none; font-weight:normal;}
 }
 
 @media (min-width: 736px) {
 	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; padding: 10px}
 	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
-	.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px}
-	.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
+	.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px 20px 10px 20px}
+	.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px 20px 10px 20px}
 }
+
+/* Main Container */
+
+
+
 
 body {
 margin: 0px;
@@ -155,4 +165,5 @@ p {
 	color: black;
 	text-align: left;
 }
+
 
