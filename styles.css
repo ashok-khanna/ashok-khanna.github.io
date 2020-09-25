@@ -76,7 +76,7 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 }
 
 @media screen and (min-width: 1383.78378px) 
-	.body-grid { grid-gap: 0px; grid-template-columns: 960px 1fr 320px 1fr; grid-template-areas: "content . sidebar ."; }
+	.body-grid { grid-gap: 0px; grid-template-columns: 960px 320px; grid-template-areas: "content sidebar"; justify-content: space-between;}
 }
 
 
