@@ -38,7 +38,7 @@ b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 	display: flex; /* flex box */
 	flex-direction: row;
 	align-items: center;
-	background-color: 6E523D;
+	background-color: #6E523D;
 	color: white;
 }
 
