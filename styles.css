@@ -74,8 +74,8 @@ b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 }
 
 @media (min-width: 736px) {
-	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; padding: 10px}
-	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px}
+	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; padding: 10px 20px 10px 20px}
+	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px 20px 10px 20px}
 	.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px 20px 10px 20px}
 	.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px 20px 10px 20px}
 }
