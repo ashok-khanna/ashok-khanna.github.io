@@ -62,7 +62,7 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 
 .body-grid { margin: 0 auto; padding: 2.5vw; }
 .content { }
-.sidebar { display: none; }
+.sidebar { }
 
 @media screen and (min-width: 736px) {
 	.body-grid { display: grid; }
