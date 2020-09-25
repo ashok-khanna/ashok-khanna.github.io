@@ -86,26 +86,8 @@ p {
   overflow: auto;
 }
 
-.sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-}
- 
-.sidebar a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
 div.content {
-  padding: 1px 16px;
-  height: 1000px;
+  padding: 2.5vw;
   margin: 200px auto;
   max-width: 960px;
 }
