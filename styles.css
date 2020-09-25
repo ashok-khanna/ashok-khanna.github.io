@@ -68,15 +68,6 @@ p {
 }
 
 .sidebar {
-	background-color:#B26555;
-	color: black;
-	text-align: left;
-	padding: 0;
-
- }
-
-
-.sidebar {
   margin: 0;
   padding: 0;
   width: 200px;
@@ -86,11 +77,9 @@ p {
   overflow: auto;
 }
 
-div.content {
-  padding: 2.5vw;
-  margin: 200px auto;
-  max-width: 960px;
-}
+.content-container { margin-left: 200px; padding: 2.5vw;}
+
+.content { margin: 0px auto; max-width: 960px; }
 
 @media screen and (max-width: 700px) {
   .sidebar {
