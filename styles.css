@@ -11,17 +11,17 @@ h2 { font-size: 2rem; }
 nav { display: none; }
 @media screen and (min-width: 768px) and (orientation: landscape) {
 	 .page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; }
-	nav { margin: 0px; padding: 20px; width: 210px; display: block; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
+	 nav { display: block; }
 }
 
 
 /* Sidebar */
-
+nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 nav { font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 1.25rem; }
-nav b { font-weight: 700; }
+nav p { padding: 10px 20px 10px 20px; }
 .sidebar-submenu { font-size: 1.1rem; }
-.sidebar-submenu a:link { text-decoration:none; font-weight:normal; padding: 0px}
-.sidebar-submenu a:visited { text-decoration:none; font-weight:normal; padding: 0px}
+.sidebar-submenu a:link { text-decoration:none; font-weight:normal; }
+.sidebar-submenu a:visited { text-decoration:none; font-weight:normal; }
 
 .sidebar-submenu { display: none; }
 .collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; padding:0px; }
