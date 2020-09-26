@@ -1,5 +1,5 @@
 html { font-size: 100%; }
-body, main { margin: 0px; padding: 0px; background-color: white; color: black; }
+body { margin: 0px; padding: 0px; background-color: white; color: black; }
 img, embed, object, video { max-width: 100%; }
 
 h1 { font-size: 3rem; @media (min-width: 768px) { font-size: 3.5rem; } }
@@ -19,7 +19,7 @@ b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 .sidebar p { font-family: 'Oswald', sans-serif; font-weight: 400; }
 .sidebar b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
-p { margin: 0px; padding-top: 0px; padding-bottom: 1em; /* text-indent: 1em; */ }
+p { margin: 0px; padding-top: 0px; padding-bottom: 1em; }
 
 /* Layout */
 
