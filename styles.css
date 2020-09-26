@@ -3,13 +3,13 @@ html { font-size: 100%; }
 body { margin: 0px; padding: 0px; background-color: white; color: black; }
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
-footer { font-size: 0.8rem; color: gray; 'Montserrat', sans-serif; font-weight: 700; }
+footer { margin: 0px auto; padding: 2.5vw; max-width: 960px; font-size: 0.8rem; color: gray; 'Montserrat', sans-serif; font-weight: 700; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 img, embed, object, video { max-width: 100%; }
 figcaption { }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2rem; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
 
 /* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 0px; }
