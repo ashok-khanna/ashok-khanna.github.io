@@ -101,9 +101,8 @@ p {
 /* Sidebar Menu CSS */
 
 .sidebar-submenu {
-  padding: 0 18px;
+  padding: 20px;
   display: none;
-  overflow: hidden;
   background-color: #f1f1f1;
 }
 
