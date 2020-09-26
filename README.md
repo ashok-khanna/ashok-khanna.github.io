@@ -1,28 +1,6 @@
 This repo represents the static website of math.dev. This readme file will contain notes on the development and code of this website.
 
 
-### Outstanding Tasks
-
-- Add hover on links
-- Add color selected / not selected
-- Finalise footer
-- Finalise gaps between body and footer
-- Increase font size for mobile
-- Research optimal media queries for all screens
-- 
-
-- Design Math.Dev Logo 
-- Decide whether Math.Dev logo should have a color row at the top?
-- Notes on custom domains
-- Increase font on mobile screens
-- Change e-mail & linkedin to icons 
-- Test on multiple devices
-- Hover on button color change
-- Decide on color scheme?
-- Add links to 4 main sections
-- Put quote at the end?
-- Delet about section? (Come up with good grid design)
-
 ### Setup Notes
 
 **HTTPS**: Setting up HTTPS was a bit tricky. (1) Go into CloudFlare and adjust the SSL settings to be "Full" so that it encrypts end-to-end, using a self signed certificate on the server. (2) CNAME record in github should reference https, i.e. = https://math.dev . (3) The javascript & css references in html should refer math.dev (i.e. https://math.dev/styles.css) and not the github direct link (ashok-khanna.github.io/styles.css). If we do not do this, then moden browsers will block this content as it is being served over HTTP and not HTTPS, the latter which we require.
