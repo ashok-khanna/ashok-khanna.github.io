@@ -25,7 +25,7 @@ main { margin: 0px; padding: 2.5vw; }
 .text { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 .media { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 .table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
-.top-bar { width: 100%; margin: 0px; padding: 0px; display: flex; /* flex box */ flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
+.top-bar { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
 .top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; align-items: center;	width:50%; }
 .top-menu-item { margin: 0px; flex-grow: 1; align: center;} 
