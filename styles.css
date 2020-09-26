@@ -24,7 +24,7 @@ nav p { padding: 10px 20px 10px 20px; }
 .sidebar-submenu a:visited { text-decoration:none; font-weight:normal; }
 
 .sidebar-submenu { display: none; }
-.collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; padding:0px; }
+.collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Site Header */
