@@ -1,3 +1,4 @@
+/* Base Settings & Reset CSS */
 html { font-size: 100%; }
 body { margin: 0px; padding: 0px; background-color: white; color: black; }
 img, embed, object, video { max-width: 100%; }
@@ -7,35 +8,31 @@ h2 { font-size: 2rem; }
 h3 { font-size: 1rem; font-family: 'Open Sans', sans-serif; font-weight: 700; }
 
 
-/* Document Wide CSS */
+/* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 2.5vw; }
-@media screen and (min-width: 768px) and (orientation: landscape) { .page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; } }
+nav { display: none; }
+@media screen and (min-width: 768px) and (orientation: landscape) {
+	 .page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; }
+	nav { margin: 0px; padding: 20px; width: 210px; display: block; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
+}
 
 
-
-/* Sidebar (Large Screens Only) */
+/* Sidebar */
 
 nav { font-family: 'Oswald', sans-serif; font-weight: 400; }
 nav b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 .sidebar-submenu a:link { text-decoration:none; font-weight:normal; padding: 0px}
 .sidebar-submenu a:visited { text-decoration:none; font-weight:normal; padding: 0px}
 
-nav { display: none; }
-@media screen and (min-width: 768px) and (orientation: landscape) {
-	nav { margin: 0px; padding: 20px; width: 210px; display: block; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-}
-
 .sidebar-submenu { display: none; }
 .collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; padding:0px; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
-
-
-
 /* Site Header */
+
 header { font-family: 'Oswald', sans-serif; font-weight: 700; }
-header p { font-family: 'Oswald', sans-serif; font-weight: 400; }
-header b { font-family: 'Oswald', sans-serif; font-weight: 700; }
+header p { font-weight: 400; }
+header b { font-weight: 700; }
 .top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; }
 .top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; }
 
@@ -48,8 +45,8 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 
 /* Font Styles */
 body { font-family: 'Open Sans', sans-serif; font-weight: 400; }
-p { font-family: 'Open Sans', sans-serif; font-weight: 400; }
-b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
+p { font-weight: 400; }
+b { font-weight: 700; }
 
 p { margin: 0px; padding-top: 0px; padding-bottom: 1em; }
 
