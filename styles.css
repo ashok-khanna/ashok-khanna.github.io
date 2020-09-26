@@ -52,7 +52,7 @@ main { margin: 0px auto; padding: 2.5vw; }
 .table { margin: 0px auto; padding: 0; max-width: 1440px; }
 
 @media screen and (min-width: 768px) {
- 	main { padding: 2.5vw 2.5vw 2.5vw calc(2.5vw + 250px); }
+ 	main { padding: 2.5vw; margin-left: 250px;}
 	.sidebar { margin: 0px; padding: 20px; width: 250px; display: block;
 	background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 }
