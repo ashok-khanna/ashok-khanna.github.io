@@ -101,7 +101,6 @@ p {
 
 .collapsible {
   background-color: #f1f1f1;
-  color: white;
   cursor: pointer;
   padding: 14px;
   border: none;
@@ -113,6 +112,7 @@ p {
 
 .active, .collapsible:hover, .sidebar-submenu:hover {
   background-color: #555;
+	color: white;
 }
 
 
