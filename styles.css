@@ -17,9 +17,9 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Montserrat', 'Open Sans', sans-serif; font-weight: 400; font-size: 1.25rem; }
+nav { font-family: 'Montserrat', 'Open Sans', sans-serif; font-weight: 400; }
 nav p { padding: 10px 20px 10px 20px; }
-.sidebar-submenu { font-size: 1.1rem; }
+.sidebar-submenu { }
 .sidebar-submenu a:link { text-decoration:none; font-weight:normal; }
 .sidebar-submenu a:visited { text-decoration:none; font-weight:normal; }
 
