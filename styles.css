@@ -17,7 +17,7 @@ nav b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
 nav { display: none; }
 @media screen and (min-width: 768px) {
- 	.page-container { padding: 2.5vw; margin: 0px 0px 0px 250px;}
+ 	.page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; }
 	nav { margin: 0px; padding: 20px; width: 210px; display: block; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 }
 
@@ -51,19 +51,7 @@ p { margin: 0px; padding-top: 0px; padding-bottom: 1em; }
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
 .top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width:50%; }
-.top-menu-item { margin: 0px; flex-grow: 1; align: center;} 
-
-/* Sidebar for Desktop / Large Screens */
-
-
-/* Sidebar Menu CSS */
-
-
-
-.active, .collapsible:hover {
-  background-color: #555;
-	color: white;
-}
+.top-menu-item { margin: 0px; flex-grow: 1; } 
 
 
 /* Hyperlinks */
