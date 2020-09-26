@@ -45,17 +45,15 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 
 
 /* Base Layout: Mobile & Print */
-main { margin: 0px; padding: 2.5vw; }
+main { margin: 0px auto; padding: 2.5vw; }
 .sidebar { display: none; }
-.text { margin: 0px auto; padding: 0; }
-.media { margin: 0px auto; padding: 0; }
-.table { margin: 0px auto; padding: 0; }
+.text { margin: 0px auto; padding: 0; max-width: 960px; }
+.media { margin: 0px auto; padding: 0; max-width: 960px; }
+.table { margin: 0px auto; padding: 0; max-width: 1440px; }
 
 @media screen and (min-width: 768px) {
-	.text { margin: 0px 0px 0px 250px auto; padding: 0; max-width: 960px; }
-	.media { margin: 0px 0px 0px 250px auto; padding: 0; max-width: 960px; }
-	.table { margin: 0px 0px 0px 250px auto; padding: 0; max-width: 1440px; }
- 	 .sidebar { margin: 0px; padding: 20px; width: 250px; display: block;
+ 	main { padding: 2.5vw 2.5vw 2.5vw calc(2.5vw + 250px); }
+	.sidebar { margin: 0px; padding: 20px; width: 250px; display: block;
 	background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 }
 
