@@ -45,7 +45,7 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 
 
 /* Base Layout: Mobile & Print */
-main { margin: 0px auto; padding: 2.5vw; }
+main { margin: 0px; padding: 2.5vw; }
 .sidebar { display: none; }
 .text { margin: 0px auto; padding: 0; max-width: 960px; }
 .media { margin: 0px auto; padding: 0; max-width: 960px; }
