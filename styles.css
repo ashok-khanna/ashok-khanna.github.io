@@ -17,7 +17,7 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 1.25rem; }
+nav { font-family: 'Roboto', 'Open Sans', sans-serif; font-weight: 400; font-size: 1.25rem; }
 nav p { padding: 10px 20px 10px 20px; }
 .sidebar-submenu { font-size: 1.1rem; }
 .sidebar-submenu a:link { text-decoration:none; font-weight:normal; }
@@ -29,7 +29,7 @@ nav p { padding: 10px 20px 10px 20px; }
 
 /* Site Header */
 
-header { font-family: 'Oswald', sans-serif; font-weight: 700; }
+header { font-family: 'Roboto', 'Oswald', sans-serif; font-weight: 700; }
 header p { font-weight: 400; }
 header b { font-weight: 700; }
 .top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; }
