@@ -1,5 +1,4 @@
 html { font-size: 100%; } /* Give users flexibility and choice in choosing their font sizes */
-
 img, embed, object, video { max-width: 100%; } /* fallback to prevent images for breaking the page */
 
 h1 {
@@ -18,6 +17,9 @@ b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 .top-bar-flex-box b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 .sidebar p { font-family: 'Oswald', sans-serif; font-weight: 400; }
 .sidebar b { font-family: 'Oswald', sans-serif; font-weight: 700; }
+
+p { margin: 0px; padding-top: 0px; padding-bottom: 1em; /* text-indent: 1em; */ }
+
 
 .top-bar-flex-box { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
@@ -38,39 +40,21 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 .top-menu-flex-box { margin: 0px; padding: 0px;	display:flex; flex-direction: row; align-items: center;	width:50%; }
 .top-menu-item { margin: 0px; flex-grow: 1; align: center;} 
 
-/* Menu Item Styling */
-
-
-
 /* Main Container */
 
-p { margin: 0px; padding-top: 0px; padding-bottom: 1em; /* text-indent: 1em; */ }
-
-.sidebar {
-  margin: 0;
-  padding: 20px;
-  width: 250px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
-
-.content-container { margin-left: 200px; padding: 2.5vw;}
-
-.text { padding: 0; margin: 0px auto; max-width: 960px; }
-.table { padding: 0; margin: 0px auto; max-width: 90%; }
-.media { padding: 0; margin: 0px auto; max-width: 960px; }
 
 
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+/* Base Layout: Mobile & Print */
+main { margin: 0px; padding: 2.5vw}
+.sidebar { display: none; }
+.text { margin: 0px auto; padding: 0; max-width: 960px; }
+.media { margin: 0px auto; padding: 0; max-width: 960px; }
+.table { margin: 0px auto; padding: 0; max-width: 1440px; }
+
+@media screen and (min-width: 768px) {
+  main 	{ margin: 0px 0px 0px 250px; }
+  .sidebar { margin: 0; padding: 20px; width: 250px;
+	background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 }
 
 /* Sidebar Menu CSS */
