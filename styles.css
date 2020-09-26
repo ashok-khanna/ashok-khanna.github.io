@@ -11,7 +11,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; }
 p { font-family: 'Open Sans', sans-serif; font-weight: 400; }
 b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 
-.top-bar { font-family: 'Oswald', sans-serif' font-weight: 700; }
+.top-bar { font-family: 'Oswald', sans-serif, font-weight: 700; }
 .top-bar p { font-family: 'Oswald', sans-serif; font-weight: 400; }
 .top-bar b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
