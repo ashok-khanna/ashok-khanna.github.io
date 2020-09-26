@@ -91,18 +91,11 @@ p {
   div.content {margin-left: 0;}
 }
 
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-
-
 /* Sidebar Menu CSS */
 
 .sidebar-submenu {
   padding: 20px;
-  display: none !important;
+  display: none;
   background-color: #f1f1f1;
 }
 
