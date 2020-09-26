@@ -19,8 +19,9 @@ nav { display: none; }
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 nav { font-family: 'Montserrat', 'Open Sans', sans-serif; font-weight: 400; }
 nav p { padding: 10px 20px 10px 20px; }
-.sidebar-submenu { }
-.sidebar-submenu a:link { text-decoration:none; font-weight:normal; }
+.
+.sidebar-submenu { font-size: 0.8rem; color: black; }
+.sidebar-submenu a:link { text-decoration:none; font-weight:normal; color: black; }
 .sidebar-submenu a:visited { text-decoration:none; font-weight:normal; }
 
 .sidebar-submenu { display: none; }
@@ -29,14 +30,14 @@ nav p { padding: 10px 20px 10px 20px; }
 
 /* Site Header */
 
-header { font-family: 'Montserrat', 'Oswald', sans-serif; font-weight: 700; }
+header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 header p { font-weight: 400; }
 header b { font-weight: 700; }
 .top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; }
 .top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
-.top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
+.top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; font-family: 'Oswald', sans-serif;}
 .top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width:50%; }
 .top-menu-item { margin: 0px; flex-grow: 1; } 
 
