@@ -20,7 +20,8 @@ nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; posit
 nav { font-family: 'Montserrat', 'Open Sans', sans-serif; font-weight: 400; }
 nav p { padding: 10px 20px 10px 20px; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
-nav .sidebar-contact { padding: 20px 20px 10px 20px; font-weight: 700;}
+nav .sidebar-contact-header { padding: 20px 20px 10px 20px; font-weight: 700;}
+nav .sidebar-contact-body { padding: 10px 20px 10px 20px; font-weight: 400;}
 .sidebar-submenu { font-size: 0.8rem; color: black; }
 .sidebar-submenu a:link { color: black; text-decoration:none; font-weight:normal; }
 .sidebar-submenu a:visited { color: black; text-decoration:none; font-weight:normal; }
