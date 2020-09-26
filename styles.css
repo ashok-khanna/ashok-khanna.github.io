@@ -1,5 +1,5 @@
 html { font-size: 100%; }
-body { margin: 0px; padding: 0px; background-color: white; color: black; }
+body, main { margin: 0px; padding: 0px; background-color: white; color: black; }
 img, embed, object, video { max-width: 100%; }
 
 h1 { font-size: 3rem; @media (min-width: 768px) { font-size: 3.5rem; } }
@@ -26,7 +26,7 @@ p { margin: 0px; padding-top: 0px; padding-bottom: 1em; /* text-indent: 1em; */ 
 
 
 /* Base Layout */
-main { margin: 0px; padding: 2.5vw; }
+.page-container { margin: 0px; padding: 2.5vw; }
 .sidebar { display: none; }
 .text { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 .media { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
@@ -38,7 +38,7 @@ main { margin: 0px; padding: 2.5vw; }
 
 /* Sidebar for Desktop / Large Screens */
 @media screen and (min-width: 768px) {
- 	main { padding: 2.5vw; margin: 0px 0px 0px 250px;}
+ 	.page-container { padding: 2.5vw; margin: 0px 0px 0px 250px;}
 	.sidebar { margin: 0px; padding: 20px; width: 210px; display: block;
 	background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 }
