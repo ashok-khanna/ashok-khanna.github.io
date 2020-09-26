@@ -102,7 +102,7 @@ p {
 
 .sidebar-submenu {
   padding: 20px;
-  display: none;
+  display: none !important;
   background-color: #f1f1f1;
 }
 
