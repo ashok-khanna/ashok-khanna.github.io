@@ -3,8 +3,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="https://math.dev/styles.css">
-<script id="MathJax-script" async src="https://math.dev/mathjax/tex-mml-chtml.js"></script>
+<link rel="stylesheet" type="text/css" href="/site-wide/styles.css">
+<script id="MathJax-script" async src="/mathjax/tex-mml-chtml.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -48,29 +48,7 @@ Picard’s proof of the existence and uniqueness of the solution of a differenti
   
 </div>
 
-
-  
-<script>   
-$( "#sidebar-menu" ).load( "/helpers/sidebar-menu.html", function() {
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var contenta = this.nextElementSibling;
-    if (contenta.style.display === "block") {
-      contenta.style.display = "none";
-    } else {
-      contenta.style.display = "block";
-    }
-  });
-}
-});
-  
-$( "#site-footer" ).load( "/site-wide/footer.html" );
-  
-</script>
+<script id="ajax-loader" async src="/site-wide/loader.js"></script>
   
 </body>
 </html>
