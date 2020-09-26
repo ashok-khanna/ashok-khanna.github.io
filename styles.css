@@ -11,7 +11,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; }
 p { font-family: 'Open Sans', sans-serif; font-weight: 400; }
 b { font-family: 'Open Sans', sans-serif; font-weight: 700; }
 
-.top-bar { font-family: 'Oswald', sans-serif, font-weight: 700; }
+.top-bar { font-family: 'Oswald', sans-serif; font-weight: 700; }
 .top-bar p { font-family: 'Oswald', sans-serif; font-weight: 400; }
 .top-bar b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
@@ -33,7 +33,7 @@ p { margin: 0px; padding-top: 0px; padding-bottom: 1em; }
 .table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 .top-bar { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
-.top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; align-items: center;	width:50%; }
+.top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width:50%; }
 .top-menu-item { margin: 0px; flex-grow: 1; align: center;} 
 
 /* Sidebar for Desktop / Large Screens */
