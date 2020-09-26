@@ -15,9 +15,9 @@ header { font-family: 'Oswald', sans-serif; font-weight: 700; }
 header p { font-family: 'Oswald', sans-serif; font-weight: 400; }
 header b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
-.sidebar { font-family: 'Oswald', sans-serif; font-weight: 400; }
-.sidebar p { font-family: 'Oswald', sans-serif; font-weight: 400; }
-.sidebar b { font-family: 'Oswald', sans-serif; font-weight: 700; }
+nav { font-family: 'Oswald', sans-serif; font-weight: 400; }
+nav p { font-family: 'Oswald', sans-serif; font-weight: 400; }
+nav b { font-family: 'Oswald', sans-serif; font-weight: 700; }
 
 p { margin: 0px; padding-top: 0px; padding-bottom: 1em; }
 
