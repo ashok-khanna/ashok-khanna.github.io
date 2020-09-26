@@ -45,15 +45,15 @@ body { margin: 0px; padding: 0px; background-color: white; color: black; }
 
 
 /* Base Layout: Mobile & Print */
-main { margin: 0px; padding: 2.5vw}
-.sidebar { }
+main { margin: 0px; padding: 2.5vw; }
+.sidebar { display: none; }
 .text { margin: 0px auto; padding: 0; max-width: 960px; }
 .media { margin: 0px auto; padding: 0; max-width: 960px; }
 .table { margin: 0px auto; padding: 0; max-width: 1440px; }
 
 @media screen and (min-width: 768px) {
   main 	{ margin: 0px 0px 0px 250px; }
-  .sidebar { margin: 0; padding: 20px; width: 250px; display: visible;
+  .sidebar { margin: 0; padding: 20px; width: 250px; display: block;
 	background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 }
 
