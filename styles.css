@@ -27,7 +27,7 @@ p { margin: 0px; padding-top: 0px; padding-bottom: 1em; }
 
 /* Base Layout */
 .page-container { margin: 0px; padding: 2.5vw; }
-.sidebar { display: none; }
+nav { display: none; }
 .text { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 .media { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 .table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
@@ -40,7 +40,7 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 /* Sidebar for Desktop / Large Screens */
 @media screen and (min-width: 768px) {
  	.page-container { padding: 2.5vw; margin: 0px 0px 0px 250px;}
-	.sidebar { margin: 0px; padding: 20px; width: 210px; display: block;
+	nav { margin: 0px; padding: 20px; width: 210px; display: block;
 	background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 }
 
