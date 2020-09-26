@@ -69,7 +69,7 @@ p {
 
 .sidebar {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   width: 250px;
   background-color: #f1f1f1;
   position: fixed;
@@ -94,7 +94,6 @@ p {
 /* Sidebar Menu CSS */
 
 .sidebar-submenu {
-  padding: 20px;
   display: none;
   background-color: #f1f1f1;
 }
@@ -102,7 +101,6 @@ p {
 .collapsible {
   background-color: #f1f1f1;
   cursor: pointer;
-  padding: 14px;
   border: none;
   text-align: left;
   outline: none;
