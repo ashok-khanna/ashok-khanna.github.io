@@ -3,7 +3,7 @@ html { font-size: 120%; }
 body { margin: 0px; padding: 0px; background-color: white; color: black; }
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
-footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px; font-size: 0.8rem; color: gray; 'Montserrat', sans-serif; font-weight: 700; }
+footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px; font-size: 0.8rem; color: gray; 'Open Sans Condensed', sans-serif; font-weight: 300; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 img, embed, object, video { max-width: 100%; }
 figcaption { }
@@ -22,7 +22,7 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Open Sans Condensed', 'Open Sans', sans-serif; font-weight: 300; }
+nav { font-family: 'Open Sans Condensed', sans-serif; font-weight: 300; }
 nav p { padding: 10px 20px 10px 20px; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { font-size: 0.8rem; color: black; }
@@ -38,7 +38,7 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 /* Site Header */
 
 header { font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; }
-header p { font-family: 'Montserrat', 'Open Sans Condesed', san-serif: font-weight: 400; }
+header p { font-family: 'Open Sans Condensed', sans-serif; font-weight: 300; }
 header h2 { font-size: 1.75rem; font-weight: 700; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
