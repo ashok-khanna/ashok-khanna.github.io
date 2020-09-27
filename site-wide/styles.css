@@ -1,5 +1,5 @@
 /* Base Settings & Reset CSS */
-html { font-size: 100%; }
+html { font-size: 120%; }
 body { margin: 0px; padding: 0px; background-color: white; color: black; }
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
