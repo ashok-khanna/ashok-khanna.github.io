@@ -1,13 +1,13 @@
 var titleValue = document.getElementById("ajax-loader").getAttribute("data-title");
 var contentFile = document.getElementById("ajax-loader").getAttribute("data-content");
 
-$( "#site-head" ).on("load", "/site-wide/head.html", function() {
+$( "#site-head" ).load( "/site-wide/head.html", function() {
   $( "#page-title" ).append( titleValue );
 });
 
-$( "#site-body" ).on("load", "/site-wide/body.html", function() {
+$( "#site-body" ).load( "/site-wide/body.html", function() {
 
-  $( "#sidebar-menu" ).on("load", "/site-wide/sidebar.html", function() {
+  $( "#sidebar-menu" ).load( "/site-wide/sidebar.html", function() {
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -24,11 +24,8 @@ for (i = 0; i < coll.length; i++) {
 }
 });
 
-$( "#site-header" ).on("load", "/site-wide/header.html" );
-$( "#site-footer" ).on("load", "/site-wide/footer.html" );
-$( "#page-content" ).on("load", contentFile );
+$( "#site-header" ).load( "/site-wide/header.html" );
+$( "#site-footer" ).load( "/site-wide/footer.html" );
+$( "#page-content" ).load( contentFile );
 
 });
-
-
-
