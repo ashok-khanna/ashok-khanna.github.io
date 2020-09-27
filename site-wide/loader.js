@@ -1,4 +1,4 @@
-$( "#sidebar-menu" ).load( "/site-wide/sidebar-menu.html", function() {
+$( "#sidebar-menu" ).load( "/site-wide/sidebar.html", function() {
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
