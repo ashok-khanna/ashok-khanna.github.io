@@ -40,14 +40,25 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 header { font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; }
 header p { font-family: 'Montserrat', 'Open Sans Condesed', san-serif: font-weight: 400; }
 header h2 { font-size: 1.75rem; font-weight: 700; }
-.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; }
-.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
 .top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width:50%; }
 .top-menu-item { margin: 0px; flex-grow: 1; } 
 
+@media (max-width: 736px) {
+	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:hover { color: teal; text-decoration:none; font-weight:normal;}
+	.top-menu-item a:active { color: teal; text-decoration:none; font-weight:normal;}
+}
+
+@media (min-width: 736px) {
+	.top-menu-item a:link { color:#FFF; text-decoration:none; font-weight:normal; padding: 10px 20px 10px 20px}
+	.top-menu-item a:visited { color: #FFF; text-decoration:none; font-weight:normal; padding: 10px 20px 10px 20px}
+	.top-menu-item a:hover { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px 20px 10px 20px}
+	.top-menu-item a:active { color: #FFF; text-decoration:none; font-weight:normal; background-color: teal; padding: 10px 20px 10px 20px}
+}
 
 
 /* Font Styles */
