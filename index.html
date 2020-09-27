@@ -1,13 +1,8 @@
 <html> 
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="/site-wide/styles.css">
-<script id="MathJax-script" async src="/mathjax/tex-mml-chtml.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type='text/css'>
+<head id="site-head">
 <title>Home - Math.Dev</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- jQuery inserts site head here -->
 </head>
 <body>
 <nav id="sidebar-menu"><!-- jQuery inserts sidemenu here --></nav>
@@ -16,7 +11,7 @@
 <main id="page-content"></main>
 <footer id="site-footer"><!-- JQuery inserts footer here --></footer> 
 </div>
-<script id="ajax-loader" async src="/site-wide/loader.js"></script>
+<script id="ajax-loader" async src="/site-wide/loader.js"></script> 
 <script>$( "#page-content" ).load( "/content/index-c.html" );</script>
 </body>
 </html>
