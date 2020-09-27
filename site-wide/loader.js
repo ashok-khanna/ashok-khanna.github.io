@@ -1,3 +1,5 @@
+$( "#site-head" ).load( "/site-wide/head.html" );
+
 $( "#sidebar-menu" ).load( "/site-wide/sidebar.html", function() {
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -14,6 +16,7 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 });
-  
-$( "#site-footer" ).load( "/site-wide/footer.html" );
+
 $( "#site-header" ).load( "/site-wide/header.html" );
+$( "#site-footer" ).load( "/site-wide/footer.html" );
+
