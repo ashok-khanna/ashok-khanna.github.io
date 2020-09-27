@@ -16,3 +16,4 @@ for (i = 0; i < coll.length; i++) {
 });
   
 $( "#site-footer" ).load( "/site-wide/footer.html" );
+$( "#site-header" ).load( "/site-wide/header.html" );
