@@ -1,4 +1,4 @@
-var title = document.getElementById("ajax-loader").getAttribute("data-title");
+var titleValue = document.getElementById("ajax-loader").getAttribute("data-title");
 var contentFile = document.getElementById("ajax-loader").getAttribute("data-content");
 
 $( "#site-head" ).load( "/site-wide/head.html" );
@@ -25,6 +25,7 @@ for (i = 0; i < coll.length; i++) {
 $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
 $( "#page-content" ).load( contentFile );
+$( "#page-title" ).append( titleValue );
 
 });
 
