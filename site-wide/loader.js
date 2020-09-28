@@ -5,15 +5,7 @@ $( "#site-head" ).load( "/site-wide/head.html", function() {
   $( "#page-title" ).append( titleValue );
 });
 
-
-
-
-var script = document.createElement('script');
-  script.type = "text/javascript";
-  script.src  = "/mathjax/tex-mml-chtml.js";
-script.onload = function () {
-    
-  $( "#site-body" ).load( "/site-wide/body.html", function() {
+$( "#site-body" ).load( "/site-wide/body.html", function() {
 
   $( "#sidebar-menu" ).load( "/site-wide/sidebar.html", function() {
 var coll = document.getElementsByClassName("collapsible");
@@ -34,14 +26,6 @@ for (i = 0; i < coll.length; i++) {
 
 $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
-  
-$( "#page-content" ).load( contentFile,  function () {
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub,"page-content"]);
-});
+$( "#page-content" ).load( contentFile );
 
 });
-  
-  
-};
-
-document.head.appendChild(script);
