@@ -30,3 +30,5 @@ $( "#site-footer" ).load( "/site-wide/footer.html" );
 $( "#page-content" ).load( contentFile,  function () {
   MathJax.Hub.Queue(["Typeset",MathJax.Hub,"page-content"]);
 });
+
+});
