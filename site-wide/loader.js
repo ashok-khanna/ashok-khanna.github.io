@@ -1,14 +1,6 @@
-var titleValue = document.getElementById("ajax-loader").getAttribute("data-title");
-var contentFile = document.getElementById("ajax-loader").getAttribute("data-content");
-
-
-
 $.get("/site-wide/head.html", function(data){ 
   $(data).appendTo("#site-head");
-  $( "#page-title" ).append( titleValue );
 });
-
-$( "#site-body" ).load( "/site-wide/body.html", function() {
 
   $( "#sidebar-menu" ).load( "/site-wide/sidebar.html", function() {
 var coll = document.getElementsByClassName("collapsible");
@@ -29,11 +21,4 @@ for (i = 0; i < coll.length; i++) {
 
 $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
-$( "#page-content" ).load( contentFile, function() {
-  $("#page-content").append("<p>\\(A \\cup B\\)</p>");
-  
-  });
-$("#page-content").append("<p>\\(A \\cup B\\)</p>");
-MathJax.typeset();
-});
 
