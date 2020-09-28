@@ -10,6 +10,11 @@
             data-title="Home - Math.Dev"
             data-content="/content/index-c.html">
       
+        MathJax.Hub.Config({
+    showProcessingMessages: false,
+    tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] }
+  });
+      
       var titleValue = document.getElementById("ajax-loader").getAttribute("data-title");
 var contentFile = document.getElementById("ajax-loader").getAttribute("data-content");
 
