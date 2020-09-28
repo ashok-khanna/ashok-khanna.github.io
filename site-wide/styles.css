@@ -78,4 +78,4 @@ a:active { color: teal; text-decoration:none; font-weight:normal; padding: 0px}
 
 /* Body Styles */
 
-.page-container .callout { color: black: background-color: #EDD1BC; padding: 30px;}
+.page-container .callout { color: black: background-color: #EDD1BC; padding: 30px; display: inline-block;}
