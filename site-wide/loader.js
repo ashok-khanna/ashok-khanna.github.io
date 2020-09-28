@@ -26,6 +26,9 @@ for (i = 0; i < coll.length; i++) {
 
 $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
-$( "#page-content" ).load( contentFile );
+$( "#page-content" ).load( contentFile function() {
+  MathJax.typeset();
+  
+});
 
 });
