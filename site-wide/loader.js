@@ -5,7 +5,15 @@ $( "#site-head" ).load( "/site-wide/head.html", function() {
   $( "#page-title" ).append( titleValue );
 });
 
-$( "#site-body" ).load( "/site-wide/body.html", function() {
+
+
+
+var script = document.createElement('script');
+  script.type = "text/javascript";
+  script.src  = "/mathjax/tex-mml-chtml.js";
+script.onload = function () {
+    
+  $( "#site-body" ).load( "/site-wide/body.html", function() {
 
   $( "#sidebar-menu" ).load( "/site-wide/sidebar.html", function() {
 var coll = document.getElementsByClassName("collapsible");
@@ -32,3 +40,9 @@ $( "#page-content" ).load( contentFile,  function () {
 });
 
 });
+  
+  
+};
+script.src = something;
+
+document.head.appendChild(script);
