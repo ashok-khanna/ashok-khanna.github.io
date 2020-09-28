@@ -33,7 +33,7 @@ $( "#page-content" ).load( contentFile, function() {
   $("#page-content").append("<p>\\(A \\cup B\\)</p>");
   
   });
-
+$("#page-content").append("<p>\\(A \\cup B\\)</p>");
+MathJax.typeset();
 });
 
-MathJax.typeset();
