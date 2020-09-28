@@ -69,10 +69,13 @@ b { font-weight: 700; }
 p { margin: 0px; padding-top: 0px; padding-bottom: 1em; }
 
 
-
 /* Hyperlinks */
 
 a:link { color: blue; text-decoration:none; font-weight:normal; padding: 0px}
 a:visited { color: purple; text-decoration:none; font-weight:normal; padding: 0px}
 a:hover { color: teal; text-decoration:none; font-weight:normal; padding: 0px}
 a:active { color: teal; text-decoration:none; font-weight:normal; padding: 0px}
+
+/* Body Styles */
+
+.page-container .callout { color: black: background-color: #EDD1BC }
