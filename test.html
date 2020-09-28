@@ -13,15 +13,10 @@ Press "Update" to get math here.
 <p><input type="button" value="Update" onclick="DynamicMJ.update()" /></p>
 
 <script>
-var DynamicMJ = {
-  n: 0,
-  update: function () {
-    this.n++; if (this.n > 3) {this.n = 1}
-    $("#eq").load("/content/index-c.html",function () {
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub,"eq"]);
-    })
-  }
-};
+MathJax.Hub.Queue(
+				function () {$$("#eq").load("/content/index-c.html");},
+				["Typeset", MathJax.Hub, 'eq']
+			);
 </script>
 
 </body>
