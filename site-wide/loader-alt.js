@@ -1,7 +1,9 @@
 var titleValue = document.getElementById("ajax-loader").getAttribute("data-title");
 var contentFile = document.getElementById("ajax-loader").getAttribute("data-content");
 
-$( "#site-head" ).load( "/site-wide/head.html", function() {
+
+$.get("/site-wide/head.html", function(data){ 
+  $(data).appendTo("#site-head");
   $( "#page-title" ).append( titleValue );
 });
 
