@@ -32,9 +32,3 @@ $( "#page-content" ).load( contentFile, function() {
 });
 
 });
-
-   $(document).ready(function () {
-     $("#page-content").append("<p>\\(A \\cup B\\)</p>");
-                MathJax.typeset();
-            });
-
