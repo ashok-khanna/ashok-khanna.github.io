@@ -27,11 +27,7 @@ for (i = 0; i < coll.length; i++) {
 $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
 $( "#page-content" ).load( contentFile, function () {
-  (function () {
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src  = "/mathjax/tex-mml-chtml.js";
-  document.getElementsByTagName("head")[0].appendChild(script);
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,"page-content"]);
 })();
 });
 
