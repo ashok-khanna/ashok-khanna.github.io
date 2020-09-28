@@ -1,6 +1,9 @@
 <html>
 <head id="site-head">
     <title>Home - Math.Dev</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
 </head>
 <body id="site-body">
     <script id="ajax-loader"
@@ -8,8 +11,7 @@
             data-content="/content/index-c.html"
             async src="/site-wide/loader.js">
     </script> 
-        <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
+
            <script>
             $(document).ready(function () {
                 $("#page-content").append("<p>\\(A \\cup B\\)</p>");
