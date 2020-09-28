@@ -1,6 +1,6 @@
 /* Base Settings & Reset CSS */
 html { font-size: 120%; }
-body { margin: 0px; padding: 0px; color: black; background-color: black;}
+body { margin: 0px; padding: 0px; color: black; background-color: white;}
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px; font-size: 0.8rem; color: gray; 'Open Sans Condensed', sans-serif; font-weight: 300; }
@@ -78,4 +78,4 @@ a:active { color: teal; text-decoration:none; font-weight:normal; padding: 0px}
 
 /* Body Styles */
 
-.callout { color: red; background-color: #EDD1BC; padding: 30px; display: inline-block;}
+.callout { color: black; background-color: #EDD1BC; padding: 30px; display: inline-block;}
