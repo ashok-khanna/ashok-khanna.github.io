@@ -43,6 +43,5 @@ $( "#page-content" ).load( contentFile,  function () {
   
   
 };
-script.src = something;
 
 document.head.appendChild(script);
