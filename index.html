@@ -2,7 +2,8 @@
   
 <head id="site-head">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script id="MathJax-script" src="/mathjax/tex-mml-chtml.js"></script>
+    <script type="text/javascript" id="MathJax-script"
+                                       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </head>
   
 <body id="site-body">
@@ -49,7 +50,7 @@ $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
   
 $( "#page-content" ).load( contentFile,  function () {
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub,"page-content"]);
+  MathJax.typeset();
 });
 
 });
