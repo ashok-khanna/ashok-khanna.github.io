@@ -62,7 +62,7 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 
 
 /* Font Styles */
-body { font-family: 'Open Sans Condensed', sans-serif; font-weight: 300; }
+body { font-family: 'IBM Plex Sans', 'Open Sans Condensed', sans-serif; font-weight: 300; }
 p { font-weight: 300; }
 b { font-weight: 700; }
 
