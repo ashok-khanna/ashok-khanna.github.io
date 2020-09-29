@@ -24,6 +24,29 @@ That said, one of the hurdles in web development is that there is an overwhelmin
   <li>Do each part of the project piecemeal and test that everything works before moving on. This way you can isolate problems to small incremental changes in your project. For example, I first ensured I could achieve a working connection between the client browser and my linux server through HTTP, before then changing it to HTTPS, installing an SSL certificate and achieving the same over a secure connection. This way I could isolate my client and server to be working correctly, and then focus on the HTTPS pipe and the SSL certificate being set up correctly. If I did not do this, I wouldn’t know if the issue was with my SSL certificate, with my server not correctly listening to requests or with my client not correctly sending requests.</li>
   <li>Zone in on key terminology such as REST APIs, reverse proxying, CRUD, opening ports, SSL, CNAME, naked domains, etc. I have tried to list them in the tutorial but the more you pick up on the technical terms, the easier it will get when you are googling to find solutions for the problems you are facing.</li>
 </ol>
- 
+  
+  <h2>Introduction</h2>
+  <p>There will be four components in our web application:</p>
+  <ol>
+    <li><b>Client-facing User Interface displayed through the Web Browser</b: We will use Angular to create static webpages to achieve this.</li>
+    <li><b>Web Host for our website</b>: Our static webpages and can be hosted by any web host. We will use Amazon S3 and CloudFront in our tutorial.</li>
+      <li><b>Server-side database to store all user information</b>: We will use MySQL for this.</li>
+      <li>Node Express server</b>: Our node serve will interface with our database and serve and receive information to/from our client-facing website.</li>
+  </ol>
+
+  <p>Schematically, our set up looks like this:</p>
+  
+  <!-- Figure -->
+  
+  <h3>Very important note before beginning</h3>
+  <p>An important note before beginning. First, the below is quite an involved tutorial, so ideally you will be able to test your success intermittently through the project.</p>
+  
+  <p>A logical break point to test your application is when you complete Parts 2–6 to create your MySQL Database, Node Express Server and Angular App, but for a local environment (i.e. your computer) and not for the web (this is covered in the remaining parts). Unfortunately, our virtual linux server does not have a GUI interface (if you want, you can install this), so you won’t be able to test progress at this stage.</p>
+  
+<p>As alternative, consider doing Parts 2–6 first on your home PC and testing to make sure you get everything to work, before focusing on connecting this large codebase into the broader network infrastructure.</p>
+  
+<p>I found my free tier virtual linux server quite slow when it came to the Angular installations. As an alternative approach, you can complete the Angular part of this tutorial on your home PC as you don’t need for these files to sit on your linux server since we will ultimately host them on a seperate web server. However, to test locally, you need to have your MySQL and Node Express Server also installed on your home PC, as noted above.</p>
+  
+<p>Let's now get started with part one of the tutorial: <a href="crud-tutorial-part-1.html" type="text/html">Part 1 of the Tutotiral</a></p>
 
 </article>
