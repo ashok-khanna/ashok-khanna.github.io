@@ -36,3 +36,5 @@ $.get( contentFile, function(data){
   $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextURL + "\" type=\"text/html\">" + nextName + "</a></p>" );
   $( "#page-content" ).append( "<p class=\"last\">Last: <a href=\"" + lastURL + "\" type=\"text/html\">" + lastName + "</a></p>" );
 });
+
+});
