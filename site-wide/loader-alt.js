@@ -2,8 +2,8 @@ var titleValue = document.getElementById("ajax-loader").getAttribute("data-title
 var contentFile = document.getElementById("ajax-loader").getAttribute("data-content");
 var nextUrl = document.getElementById("ajax-loader").getAttribute("data-nextUrl");
 var lastUrl = document.getElementById("ajax-loader").getAttribute("data-lastUrl");
-var nextName = document.getElementById("ajax-loader").getAttribute("data-nextUrl");
-var lastName = document.getElementById("ajax-loader").getAttribute("data-lastUrl");
+var nextName = document.getElementById("ajax-loader").getAttribute("data-nextName");
+var lastName = document.getElementById("ajax-loader").getAttribute("data-lastName");
 
 $.get("/site-wide/head.html", function(data){
   $(data).appendTo("#site-head");
@@ -31,7 +31,8 @@ for (i = 0; i < coll.length; i++) {
 
 $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
-$( "#page-content" ).load( contentFile );
-    $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextURL + "\" type=\"text/html\">" + nextName + "</a></p>" );
-    $( "#page-content" ).append( "<p class=\"last\">Last: <a href=\"" + lastURL + "\" type=\"text/html\">" + lastName + "</a></p>" );
+
+$.get( contentFile, function(data){
+  $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextURL + "\" type=\"text/html\">" + nextName + "</a></p>" );
+  $( "#page-content" ).append( "<p class=\"last\">Last: <a href=\"" + lastURL + "\" type=\"text/html\">" + lastName + "</a></p>" );
 });
