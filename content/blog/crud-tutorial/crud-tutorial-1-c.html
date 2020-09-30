@@ -1,0 +1,1104 @@
+<figure>
+<img src="images/.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<article>
+<h1>Comprehensive Guide to Creating a Cloud-based Web App (contd.)</h1>
+
+<h2>Part 1 — Setting up our Linux Virtual Server</h2>
+<p>We will host both our MySQL database and our Node Express server on the same virtual server. We will utilise an Ubuntu distribution for our linux server.
+Amazon EC2 and Google Compute Engine are two viable platforms for this, and we will use Amazon EC2. That said, our setup is platform agnostic and does not utilise platform-specific technologies that will force vendor lock-in. You can apply the same concepts used throughout this tutorial with another cloud service provider or even host it yourself.</p>
+
+<h3>Amazon EC2</h3>
+<p>Navigate to Amazon EC2 from the AWS Management Console (create an Amazon AWS account if you do not already have one). Click into instances and then select launch instance to start the process to create a new virtual linux server.</p>
+<p>You will be asked which distribution to use, select an x86 Ubuntu distribution for the purposes of this tutorial (make sure it is a ‘free tier eligible’ distribution, there will be one there). On the next page again select the ‘free tier eligible’ instance type (should be t2.micro). Navigate through the remaining setting pages, leaving them as defaults or as you wish, until you get to Configure Security Group (should be step 6), which we will cover in the next section.</p>
+
+<h3>Firewall & Ports</h3>
+<p>In this section, we will configure our security group and open our linux server to the world on three ports — 22 (to allow us to SSH into the machine), 80 and 443 (to allow HTTP and HTTPS access to our server via web browsers).</p>
+<p>First, select create a new security group (this option will be selected by default) and name it as you will:</p>
+
+<figure>
+<img src="images/2.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Now click on the Add Rule button to add the following inbound rules:</p>
+
+<figure>
+<img src="images/3.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Click through the remaining pages. A message will popup asking you to use a new key pair or an existing one. Select create a new key pair, name it and then download it. It’s very important that you save this file somewhere secure and do not delete it. You only get one chance to download it and we need this to remote access into the machine.</p>
+
+<figure>
+<img src="images/4.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Click launch instance. Then navigate to your security group (same name as what you gave it in the above, the default name being launch-wizard-1) and set up the outbound rules:</p>
+
+<figure>
+<img src="images/5.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Finally, I find it useful during testing and debugging to monitor activity to a port, to see if traffic is actually reaching the port. This helps isolate the problem at either the client side or firewall side (if there is no activity at the port) or at the server side (if there is activity at the port). You can listen to a port with the following (below is an example for monitoring port 443):</p>
+
+<code>sudo tcpdump -i any port 443</code>
+
+<h3>Elastic IPs — Setting a permanent IP for your server</h3>
+<p>As of now, the external IP address of your virtual linux server will reset every time you reset your machine. Not an ideal situation, when you will be later pointing a domain to this IP. We can set a permanent external IP address to our machine via Amazon Elastic IPs.</p>
+<p>Within your EC2 Dashboard, navigate to Elastic IPs and then select allocate Elastic IP address. Select the default options to create an elastic IP address:</p>
+
+<figure>
+<img src="images/6.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Then select your Elastic IP and select associate Elastic IP address under actions to associate it to your instance, like below:</p>
+
+<figure>
+<img src="images/7.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>You will then be able to see the public IP address of your linux server, e.g.:</p>
+
+<figure>
+<img src="images/8.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<h3>SSH & Remote Access</h3>
+<p>As a final part of this section, let us learn how to remote access into our server via SSH.</p>
+<p>It’s very easy. Remember that you downloaded your private key file earlier, so so first restrict its settings (necessary for it to be used for SSH), replacing the below file with the path to where you saved your private key:</p>
+
+<code>sudo chmod 400 ~/Downloads/test-launch-key-pair.pem</code>
+
+<p>Then simply run the following command to SSH into your machine (replacing the private key location with the actual location of your file and replacing the IP address with the actual IP address of your server):</p>
+
+<code>ssh -i ~/Downloads/test-launch-key-pair.pem ubuntu@46.137.255.53</code>
+
+<p>When you run the above command for the first time, select yes when prompted whether you want to add the IP address to your known host file.</p>
+</p>In the future, sometimes if you have issues with the setup of your SSH connection, you may need to delete this entry from the host file (you can google to learn more about this). Hopefully you won’t have to face this but as I was experimenting a fair bit, I had to do it from time to time.</p>
+<p>You can exit your SSH session by running the exit command.</p>
+<p>Finally, again as a reminder, don’t lose your private key as its not that easy to fix afterwards.</p>
+
+<h3>Brief Detour — Basic Linux [Optional]</h3>
+<p>Before we move onto the next section, I want to briefly spend some time discussing some common linux commands and concepts that I found helpful in creating, testing and deploying this project. Most of these are not directly used, but rather were helpful during testing and debugging. This section is optional to read.
+Below are some commands you may use frequently.</p>
+
+<code>List all the folders and files in the current directory:
+ls
+Move to a subfolder (you can also enter the path of a folder to move to it, e.g. cd /etc/nginx):
+cd folder_name
+Move up one directory. Note that ".." represents the directory above while "." represents the current directory (see mv example at bottom of this list):
+cd .. ##
+Move to your home directory:
+cd ~
+Create a file:
+touch file_name
+Create a directory:
+mkdir folder_name
+Delete a file:
+rm file_name
+Delete a folder and all its files:
+rm -R folder_name
+Copy a file to another location:
+cp original_file new_filename_or_directory_location
+Copy multiple files (e.g. 3 files in example below) to another location:
+cp file1 file2 file3 new_location
+Copy all files in a folder to another location:
+cp * new_location
+Copy all files and subfolders to another location:
+cp -R * new_location
+Move files and folders up one folder (run this from parent folder). In general note that cp and mv operate in the same manner:
+mv subfolder/* subfolder/.* .
+Rename file (works for folders too):
+mv file_name new_file_name
+Admin/Super User access:
+sudo now_enter_your_command
+Check access settings for files in current folder:
+ls -l file_name_optional
+Only readable by you (need to do this to SSH files):
+chmod 400 file_name
+Give all users full read, write and execute access (don't do this):
+chmod 777 file_name
+Owner can read and write, others can read only:
+chmod 644 file_name
+Owner can read, write and execute, others can read and execute only:
+chmod 775 file_name
+Exit current process:
+CTRL + C</code>
+
+<p>Apt-Get: Apt-Get is a package manager for Ubuntu and is fantastic. Run the following code frequently to ensure your package managers are kept up to date:</p>
+<code>sudo apt-get update
+sudo apt-get upgrade</code>
+
+<p>Downloading files through wget (install via sudo apt-get install wget):</p>
+<code>wget file_http_url</code>
+
+<p>Version Control & GitHub: Install git via sudo apt-get install git</p>
+
+<p>Add the public key of your linux server (you will have to create this — google to see how) to your GitHub account to allow you to access / update your repos in GitHub.</p>
+
+<p>Initialise git on a folder (note that you have to create repositories on GitHub first to be able to push files to GitHub’s servers):</p>
+<code>git init</code>
+
+<p>Set your git remote to GitHub to allow you to pull / push files to GitHub:</p>
+<code>git remote set-url origin git@github.com:user-name/repo-name.git</code>
+
+<p>Pull files from GitHub:</p>
+<code>git pull origin</code>
+
+<p>Add files to git tracking (use -A for all current files — future files need to be added again):</p>
+<code>git add file_name</code>
+
+<p>Commit tracked files:</p>
+<code>git commit -m "commit message"</code>
+
+<p>Push committed files to GitHub:</p>
+<code>git push -u origin master</code>
+
+<p>You can use GitHub repos as a way of transferring files between your desktop computer and your linux server, or you can use an SFTP tool (I use Transmit on macOS).</p>
+
+<p>Text Editor & Emacs: As a final point, you will very frequently need to edit files. I utilised emacs for this as I think it is a great text editor, but feel free to use whatever you like. The code below assumes emacs, but you can replace the word emacs in the code below with the program name for your editor of choice (e.g. change sudo emacs → sudo nano).</p>
+
+<p>To install emacs:</p>
+<code>sudo apt-get install emacs</code>
+
+<p>Monitoring processes: Similar to CTRL + ALT + DEL on Windows, we can monitor what programs are running in the background on our linux machine via htop. First install it:</p>
+
+<code>sudo apt-get install htop</code>
+
+<p>You can then run it via the command htop. You can kill a process with the F9 key. Use F6 to select how you wish to sort the processes.</p>
+
+<h2>Part 2 — Creating a MySQL Database</h2>
+
+<p>First, install MySQL Server via the following:</p>
+<code>sudo apt-get install mysql-server</code>
+
+<p>Then log into MySQL via:</p>
+<code>sudo mysql -u root</code>
+
+<p>Now let us create a database and a user that can access this database. Note how each statement is executed by adding a ; to the end of the statement:</p<
+<code>create database timeline;
+use timeline;
+create user 'timeline'@'localhost' identified by 'password';
+grant all on timeline.* to 'timeline'@'localhost';
+ALTER USER 'timeline'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';</code>
+
+<p>Let us now create a table within this database. Note that the table creation is one statement (ended with;), just entered over multiple lines.</p>
+<code>create table events (
+  id INT AUTO_INCREMENT,
+  owner VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  date DATE,
+  PRIMARY KEY (id),
+  INDEX (owner, date)
+);</code>
+
+<p>That’s all we need for now, but I’m sure you will learn more about MySQL over time and start creating and manipulating data in advanced ways in the future. You can quit MySQL with the quit comand.</p>
+
+<h2>Part 3 — Creating an Express Server</h2>
+
+<p>Now we will create an Express server to send and receive information from the MySQL database we just created.</p>
+<p>First, install node and npm (node package manager):</p>
+<code>sudo apt-get install nodejs
+sudo apt-get install npm</code>
+
+<p>As a minor note, when replicating this process on an Ubuntu virtual server on Google Compute Engine, I needed to run the following to ensure the latest node package was installed</p>
+<code>sudo apt-get install curl
+sudo apt autoremove
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install nodejs</code>
+
+<p>Now let us install our Express server and some associated plugins in new folder:/p>
+<code>mkdir timeline-server
+cd timeline-server
+npm install express cors mysql</code>
+
+<p>Now lets create a subfolder timeline-server/src and create three files within it:</p>
+<code>mkdir src
+cd src
+touch index.js
+touch events.js
+touch auth.js</code>
+
+<p>The main file for the server is index.js. Open the file via emacs or your favourite text editor:</p>
+<code>emacs index.js</code>
+
+<p>Add the following code to this file:</p>
+<code>const bearerToken = require('express-bearer-token');
+const oktaAuth = require('./auth');
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+const events = require('./events');
+const connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'timeline',
+  password : 'password',
+  database : 'timeline'
+});
+connection.connect();
+const port = process.env.PORT || 8080;
+const app = express()
+  .use(cors())
+  .use(bodyParser.json())
+  .use(bearerToken())
+  .use(oktaAuth)
+  .use(events(connection));
+app.listen(port, () => {
+  console.log(`Express server listening on port ${port}`);
+});</code>
+
+<h2>Part 4 — Brief Detour — Adding User Authentication</h2>
+<p>In the above code, we have added user authentication via Okta into our Express server application. This is achieved by adding .use(bearerToken()) and .use(oktaAuth) to our Express server object app.</p>
+<p>Okta is a great third-party authenticator that is free to use for small projects and reasonably priced thereafter. Go to their website and sign up for a free developer account with Okta.</p>
+<p>Once you have set up an account, you will need to add a Single-Page App application to your profile, by first clicking the Application button at the top of your Okta Dashboard</p>
+
+<figure>
+<img src="images/9.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>And then select Add Application:</p>
+
+<figure>
+<img src="images/10.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Select Single-Page App and then next to go to configuring your Okta application:</p>
+
+<figure>
+<img src="images/11.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Change the 8080 in the below to 4200 for now. Later, you will replace these URI points to the actual domain of the website hosting your application. We use port 4200 as we will soon create a local Angular server (on port 4200) to partially test our application.</p>
+
+<figure>
+<img src="images/12.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Once your application is created, Okta will redirect to your application’s settings page. Copy the application’s client ID here as we will need it soon.</p>
+
+<figure>
+<img src="images/13.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>As a final step on the Okta Website, navigate to your dashboard and copy your Org URL from the top right hand side of your dashboard page:</p>
+
+<figure>
+<img src="images/14.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Whew! That’s a lot of work. Take a well-deserved break.</p>
+
+<h3>Configuring Express Server with Okta</h3>
+<p>Moving back to the command line, install the following libraries:</p>
+<code>sudo npm install express-bearer-token @okta/jwt-verifier</code>
+
+<p>Now, add the following to auth.js that you created earlier, replacing {yourClientId} with your application’s Client ID from above and {yourOktaDomain} with the your Org URL from above.</p>
+<code>const OktaJwtVerifier = require('@okta/jwt-verifier');
+const oktaJwtVerifier = new OktaJwtVerifier({
+  clientId: '{yourClientId}',
+  issuer: 'https://{yourOktaDomain}/oauth2/default'
+});
+async function oktaAuth(req, res, next) {
+  try {
+    const token = req.token;
+    if (!token) {
+      return res.status(401).send('Not Authorized');
+    }
+    const jwt = await oktaJwtVerifier.verifyAccessToken(token, ['api://default']);
+    req.user = {
+      uid: jwt.claims.uid,
+      email: jwt.claims.sub
+    };
+    next();
+  }
+  catch (err) {
+    console.log('AUTH ERROR: ', err);
+    return res.status(401).send(err.message);
+  }
+}
+
+module.exports = oktaAuth;</code>
+
+
+<h2>Part 5 — REST APIs & Connecting Express to MySQL</h2>
+<p>Now we will link our Express server to our MySQL Database through REST APIs. Add the following to the events.js file you created earlier to create events to handle posting, getting, putting and deleting to/from your MySQL database.</p>
+<p>It’s quite a bit of code! Right now, it allows you to Create, Read, Update and Delete records, but as you will keep revisiting this code in the future, I’m sure you will modify it to do more advanced database manipulations.</p>
+<code>const express = require('express');
+function createRouter(db) {
+  const router = express.Router();
+// the routes are defined here
+router.post('/event', (req, res, next) => {
+  const owner = req.user.email;
+  db.query(
+    'INSERT INTO events (owner, name, description, date) VALUES (?,?,?,?)',
+    [owner, req.body.name, req.body.description, new Date(req.body.date)],
+    (error) => {
+      if (error) {
+        console.error(error);
+        res.status(500).json({status: 'error'});
+      } else {
+        res.status(200).json({status: 'ok'});
+      }
+    }
+  );
+  });
+router.get('/event', function (req, res, next) {
+      const owner = req.user.email;
+  db.query(
+    'SELECT id, name, description, date FROM events WHERE owner=? ORDER BY date LIMIT 10 OFFSET ?',
+    [owner, 10*(req.params.page || 0)],
+    (error, results) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({status: 'error'});
+      } else {
+        res.status(200).json(results);
+      }
+    }
+  );
+  });
+router.put('/event/:id', function (req, res, next) {
+  const owner = req.user.email;
+  db.query(
+    'UPDATE events SET name=?, description=?, date=? WHERE id=? AND owner=?',
+    [req.body.name, req.body.description, new Date(req.body.date), req.params.id, owner],
+    (error) => {
+      if (error) {
+        res.status(500).json({status: 'error'});
+      } else {
+        res.status(200).json({status: 'ok'});
+      }
+    }
+  );
+  });
+router.delete('/event/:id', function (req, res, next) {
+  const owner = req.user.email;
+  db.query(
+    'DELETE FROM events WHERE id=? AND owner=?',
+    [req.params.id, owner],
+    (error) => {
+      if (error) {
+        res.status(500).json({status: 'error'});
+      } else {
+        res.status(200).json({status: 'ok'});
+      }
+    }
+  );
+  });
+return router;
+}
+module.exports = createRouter;</code>
+
+<p>Test to see if your Express server runs with the following command from within timeline-server/src:</p>
+<code>node index.js</code>
+
+<h3>Autolaunching your Express server in the background</h3>
+<p>It would be ideal to launch your Express server automatically and also in the background so that you can work on your main terminal, without having to create another terminal window. We can do that via PM2 , a powerful process manager for Node.js with a built-in load balancer.</p>
+<p>First install PM2 via:</p>
+<code>sudo npm install pm2 -g</code>
+
+<p>Then start your Express application (from within its src folder) to capture it within the PM2 daemon service:</p>
+<code>pm2 start index.js</code>
+
+<p>Your Express server will now run in the background and when your computer restarts. You can stop, restart and reload your server via thepm2 stop , pm2 restart and pm2 reload commands.</p>
+
+<h2>Part 6 — Angular & Creating the Web App</h2>
+<p>Now let’s create the client facing web app to serve your database and allow the user to interact with it. I did the following on my macOS as I found the free tier version of Amazon EC2 too slow, so you may also consider this option.</p>
+
+<h3>Setup</h3>
+<p>Install Angular via the following:</p>
+<code>sudo npm install -g @angular/cli</code>
+
+<p>Let’s create an Angular application with the following. When prompted during installation, answer yes to whether you would like to add Angular routing and accept the default answers for all other questions (including CSS for stylesheet format):</p>
+<code>ng new timeline-client</code>
+
+<p>Move into the newly created timeline-client directory. Let us now install the Bootstrap plugin to help us style our website:</p>
+<code>ng add ngx-bootstrap</code>
+
+<p>Let’s also install the timeline library and the Okta plugin for Angular with the below. Bootstrap and the timeline library are not essential, but I wanted to maintain 100% comptability to the example tutorial by the Okta team.</p>
+<code>sudo npm install ngx-timeline @okta/okta-angular</code>
+
+<p>Finally, let’s create Angular components for the home page and the timeline page and a service to connect to our linux server with the following:</p>
+<code>ng generate component home
+ng generate component timeline
+ng generate service server</code>
+
+<h3>Adding Angular code to App Component</h3>
+<p>Now, Navigate to the angular-client folder created, and replace the file src/app/app.component.ts with the following:</p>
+<code>import { Component } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'timeline-client';
+  isAuthenticated: boolean;
+constructor(public oktaAuth: OktaAuthService) {
+    this.oktaAuth.$authenticationState.subscribe(
+      (isAuthenticated: boolean)  => this.isAuthenticated = isAuthenticated
+    );
+  }
+ngOnInit() {
+    this.oktaAuth.isAuthenticated().then((auth) => {this.isAuthenticated = auth});
+  }
+login() {
+    this.oktaAuth.loginRedirect();
+  }
+logout() {
+    this.oktaAuth.logout('/');
+  }
+}</code>
+
+<p>Now replace src/app/app.component.html with the following:</p>
+<code><nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['']">
+    <i class="fa fa-clock-o"></i>
+  </a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['']">
+        Home
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['timeline']">
+        Timeline
+      </a>
+    </li>
+  </ul>
+  <span>
+    <button class="btn btn-primary" *ngIf="!isAuthenticated" (click)="login()"> Login </button>
+    <button class="btn btn-primary" *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
+  </span>
+</nav>
+<router-outlet></router-outlet></code>
+
+<p>Now replace src/app/app.module.ts with the following, changing the clientId to its relevant values per your Okta configuration:</p>
+<code>import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NgxTimelineModule } from 'ngx-timeline';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { HomeComponent } from './home/home.component';
+import { TimelineComponent } from './timeline/timeline.component';
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
+const oktaConfig = {
+      issuer: 'https://{yourOktaDomain}/oauth2/default',
+      redirectUri: 'http://localhost:4200/implicit/callback',
+      clientId: '{yourClientId}',
+      pkce: true
+}
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    TimelineComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
+    NgxTimelineModule,
+    ModalModule.forRoot(),
+    OktaAuthModule
+  ],
+  providers: [{ provide: OKTA_CONFIG, useValue: oktaConfig } ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }</code>
+
+<p>Finally, replace src/app/app-routing.module.ts with the following:</p>
+<code>import { HomeComponent } from './home/home.component';
+import { TimelineComponent } from './timeline/timeline.component';
+import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'timeline',
+    component: TimelineComponent,
+    canActivate: [OktaAuthGuard]
+  },
+  { path: 'implicit/callback', component: OktaCallbackComponent }
+];
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }</code>
+
+<h3>Adding Angular code for Home Component</h3>
+<p>Replace src/app/home/home.component.html with the following:</p>
+<code><div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Angular MySQL Timeline</h1>
+    </div>
+  </div>
+</div></code>
+
+<p>Replace src/app/home/home.component.css with the following:</p>
+<code>h1 {
+  margin-top: 50px;
+  text-align: center;
+}</code>
+
+<h3>Adding Angular code for Timeline Component</h3>
+<p>Replace src/app/timeline/timeline.component.html with the following:</p>
+<code><div class="container page-content">
+  <div class="row">
+    <div class="col-sm-12 col-md">
+      <ngx-timeline [events]="events">
+        <ng-template let-event let-index="rowIndex" timelineBody>
+          <div>{{event.body}}</div>
+          <div class="button-row">
+            <button type="button" class="btn btn-primary" (click)="editEvent(index, eventmodal)"><i class="fa fa-edit"></i></button>
+            <button type="button" class="btn btn-danger" (click)="deleteEvent(index)"><i class="fa fa-trash"></i></button>
+          </div>
+        </ng-template>
+      </ngx-timeline>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" (click)="addEvent(eventmodal)"><i class="fa fa-plus"></i> Add</button>
+    </div>
+  </div>
+</div>
+<ng-template #eventmodal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Event</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group full-width-input">
+        <label>Name</label>
+        <input class="form-control" placeholder="Event Name" formControlName="name" required>
+      </div>
+      <div class="form-group full-width-input">
+        <label>Description</label>
+        <input class="form-control" formControlName="description">
+      </div>
+      <div class="form-group full-width-input">
+        <label>Date</label>
+        <input class="form-control" formControlName="date" bsDatepicker>
+      </div>
+      <div class="button-row">
+        <button type="button" class="btn btn-primary" (click)="modalCallback()">Submit</button>
+        <button type="button" class="btn btn-light" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</ng-template></code>
+
+<p>Replace src/app/timeline/timeline.component.css with the following:</p>
+<code>.page-content {
+  margin-top: 2rem;
+}
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}</code>
+
+<p>Finally, replace src/app/timeline/timeline.component.ts with the following:</p>
+<code>import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { ServerService } from '../server.service';
+@Component({
+  selector: 'app-timeline',
+  templateUrl: './timeline.component.html',
+  styleUrls: ['./timeline.component.css']
+})
+export class TimelineComponent implements OnInit {
+  form: FormGroup;
+  modalRef: BsModalRef;
+events: any[] = [];
+  currentEvent: any = {id: null, name: '', description: '', date: new Date()};
+  modalCallback: () => void;
+constructor(private fb: FormBuilder,
+              private modalService: BsModalService,
+              private server: ServerService) { }
+ngOnInit() {
+    this.form = this.fb.group({
+      name: [this.currentEvent.name, Validators.required],
+      description: this.currentEvent.description,
+      date: [this.currentEvent.date, Validators.required],
+    });
+    this.getEvents();
+  }
+private updateForm() {
+    this.form.setValue({
+      name: this.currentEvent.name,
+      description: this.currentEvent.description,
+      date: new Date(this.currentEvent.date)
+    });
+  }
+private getEvents() {
+    this.server.getEvents().then((response: any) => {
+      console.log('Response', response);
+      this.events = response.map((ev) => {
+        ev.body = ev.description;
+        ev.header = ev.name;
+        ev.icon = 'fa-clock-o';
+        return ev;
+      });
+    });
+  }
+addEvent(template) {
+    this.currentEvent = {id: null, name: '', description: '', date: new Date()};
+    this.updateForm();
+    this.modalCallback = this.createEvent.bind(this);
+    this.modalRef = this.modalService.show(template);
+  }
+createEvent() {
+    const newEvent = {
+      name: this.form.get('name').value,
+      description: this.form.get('description').value,
+      date: this.form.get('date').value,
+    };
+    this.modalRef.hide();
+    this.server.createEvent(newEvent).then(() => {
+      this.getEvents();
+    });
+  }
+editEvent(index, template) {
+    this.currentEvent = this.events[index];
+    this.updateForm();
+    this.modalCallback = this.updateEvent.bind(this);
+    this.modalRef = this.modalService.show(template);
+  }
+updateEvent() {
+    const eventData = {
+      id: this.currentEvent.id,
+      name: this.form.get('name').value,
+      description: this.form.get('description').value,
+      date: this.form.get('date').value,
+    };
+    this.modalRef.hide();
+    this.server.updateEvent(eventData).then(() => {
+      this.getEvents();
+    });
+  }
+deleteEvent(index) {
+    this.server.deleteEvent(this.events[index]).then(() => {
+      this.getEvents();
+    });
+  }
+onCancel() {
+    this.modalRef.hide();
+  }
+}</code>
+
+<h3>Adding Angular code for Server Service</h3>
+<p>Replace src/app/server.service.ts with the following:</p>
+<code>import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { OktaAuthService } from '@okta/okta-angular';
+import { environment } from '../environments/environment';
+@Injectable({
+  providedIn: 'root'
+})
+export class ServerService {
+constructor(private http: HttpClient, public oktaAuth: OktaAuthService) {
+    }
+private async request(method: string, url: string, data?: any) {
+      const token = await this.oktaAuth.getAccessToken();
+const result = this.http.request(method, url, {
+        body: data,
+        responseType: 'json',
+        observe: 'body',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      return new Promise((resolve, reject) => {
+        result.subscribe(resolve, reject);
+      });
+    }
+getEvents() {
+      return this.request('GET', `${environment.serverUrl}/event`);
+    }
+createEvent(event) {
+      return this.request('POST', `${environment.serverUrl}/event`, event);
+    }
+updateEvent(event) {
+      return this.request('PUT', `${environment.serverUrl}/event/${event.id}`, event);
+    }
+deleteEvent(event) {
+      return this.request('DELETE', `${environment.serverUrl}/event/${event.id}`);
+    }
+}</code>
+
+<p>Finally, update src/environments/environment.ts with the following:</p>
+<code>export const environment = {
+  production: false,
+  serverUrl: 'http://localhost:8080'
+};</code>
+
+<h3>Running your Angular app locally</h3>
+<p>If you installed the MySQL, Express Server and the above Angular code all on the same machine, AND have access to a GUI web browser, you can test your angular app locally with the following command:</p>
+<code>ng serve</code>
+<p>Openhttp://localhost:4200 on your GUI web browser to test. Unfortunately, our virtual linux server is not yet installed with a GUI browser, so if you would like to test, I suggest replicating all the steps to date, but on your home PC, as noted at the start of this tutorial.</p>
+
+<h2>Part 7 — Hosting the Web App</h2>
+<p>In the last part, we ran ng serve to locally serve our Angular files, which we could access at http://localhost:4200/. Now, we need to transfer these files to our web host to make it accessible by the public.</p>
+<p>First, we need to update our src/environments/environment.prod.ts file with the configuration settings (namely serveUrl) that we recorded in src/environments/environment.ts. Replace environment.prod.ts with the following:</p>
+<code>export const environment = {
+  production: true,
+  serverUrl: 'http://localhost:8080/'
+};</.code>
+
+<p>Now we can create a production version of our Angular files by running the following command within our Angular project folder:</p>
+<code>ng build --prod</code>
+
+<p>This command will create the necessary static files for our website, saved in dist/project-name/ . We will now copy these files to our Amazon S3 store in the coming steps and then serve them over the web via CloudFront. Alternatively, you can transfer these files to any web host and serve them from there.</p>
+
+<h3>Setting up S3 Bucket</h3>
+<p>Navigate to Amazon S3 from the AWS Console and create a new S3 bucket. The settings don’t matter much, except make sure you allow public access by unticking the block all public access option:</p>
+
+<figure>
+<img src="images/15.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Navigate to your newly created bucket and enable static website hosting (note that we also set index.html as the index and error documents):</p>
+
+<figure>
+<img src="images/16.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>During this step, write down your bucket’s endpoint as we will point CloudFront to it.</p>
+<p>Now simply upload your angular files to your S3 bucket and make them public:</p>
+
+<figure>
+<img src="images/17.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>And that’s all we have to do with S3. In the future, every time you make changes to your Angular project, simply run ng build --prod and then copy/replace the files to S3 and set their permissions to public.</p>
+
+<h3>Setting up CloudFront</h3>
+<p>Navigate to Amazon CloudFront from the AWS Console and create a new CloudFront web distribution.</p>
+<p>Refer to the below screenshot for distribution settings to select. The origin domain name should be the same as the web hosting endpoint to your S3 bucket that you noted above (note that this is sligthly different to the autocomplete option provided by CloudFront, and includes the AWS region hosting your website). The origin ID is automatically populated from the origin domain name.</p>
+
+<figure>
+<img src="images/18.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Scrolling down the page, you will have to set your root object to index.html.</p>
+
+<figure>
+<img src="images/19.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>After filling out all the settings, click create distribution</p>
+
+<h3>Some more work…</h3>
+<p>A bit more work for us to do to finalise our CloudFront set up. Click into your newly created distribution and navigate to the error pages tab and click create custom error response:</p>
+
+<figure>
+<img src="images/20.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Add two error responses to redirect 403 and 404 errors to /index.html and return a 200 HTTP response code. Below is an example for 404 error:</p>
+
+<figure>
+<img src="images/21.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>The reason for this is that we are using Angular to route pages. As noted on the official Angular docs, A routed application should support “deep links”. A deep link is a URL that specifies a path to a component inside the app. For example, http://www.mysite.com/heroes/42 is a deep link to the hero detail page that displays the hero with id: 42.</p>
+
+<p>There is no issue when the user navigates to that URL from within a running client. The Angular router interprets the URL and routes to that page and hero. But clicking a link in an email, entering it in the browser address bar, or merely refreshing the browser while on the hero detail page — all of these actions are handled by the browser itself, outside the running application. The browser makes a direct request to the server for that URL, bypassing the router.</p>
+
+<p>A static server routinely returns index.html when it receives a request for http://www.mysite.com/. But it rejects http://www.mysite.com/heroes/42 and returns a 404 - Not Found error unless it is configured to return index.html instead.</p>
+
+<p>But we are okay, because we have configured our error responses above to account for this behaviour.</p>
+
+<h3>Final note on this section</h3>
+<p>We have successfully created an S3 bucket to host our files, and we serve them through CloudFront. However, as it stands, we are using the CloudFront distribution instance’s domain name. We want to replace this with our custom domain. To do this, we need to set up an SSL certificate, and we will revisit in the Part 10 below.</p>
+
+<h2>Part 8 — NGINX & Reverse Proxying</h2>
+<p>We have one issue here, and it tripped me up for some time. Our Angular app links to http://localhost:8080.</p>
+<p>This will work perfectly fine if we launch the app from the same server that is running our Express server, as we can send requests to port 8080, but it will not work once we launch the Angular App from our web server, which in our case, is necessarily different to the linux machine that is running our Express instance. The Angular app will search for port 8080 on the web server, and it will find nothing there.</p>
+
+<h3>How to Resolve?</h3>
+<p>I’m sure there are many ways to solve this problem, but what I have done is as follows: Host our linux server as a web server itself and then have our Angular App directly link to our linux web server and not ‘localhost’.</p>
+
+<p>Note that ports 80 and 443 are used for HTTP and HTTPS traffic (respectively), so to make our life easier, what we will do is create another server on our linux machine, that listens on ports 80 and 443 and redirects them to port 8080, which is the port our Express server is listening on. NGINX will be this server and this process is called ‘reverse proxying’.</p>
+
+<p>Diagrammatically, we can summarise the above as follows:</p>
+
+<figure>
+<img src="images/22.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Reverse proxying allows us to connect our static Angular website to our dynamic linux server that is hosting our database</p>
+
+<h3>Installing and Setting up NGINX</h3>
+<p>The following commands will install our NGINX server. This is a copy of the <a href="https://eladnava.com/binding-nodejs-port-80-using-nginx/" type="text/html">excellent tutorial by Elad Nava</a>.</p>
+
+<p>Install Nginx:</p>
+<code>sudo apt-get install nginx</code>
+
+<p>Nginx stores its configuration file in /etc/nginx/sites-enabled/default. Let’s delete this file:</p>
+<code>sudo rm /etc/nginx/sites-enabled/default</code>
+
+<p>We will now create our own configuration file, but in a different folder (sites-available):</p>
+<code>sudo emacs /etc/nginx/sites-available/node</code>
+
+<p>Paste the following code into this file, updating example.com to the domain or IP of our linux machine.</p>
+<code>server {
+   listen 80;
+   server_name example.com;
+location / {
+      proxy_set_header X-Forwarded-For $remote_addr;
+      proxy_set_header Host $http_host;
+      proxy_pass http://127.0.0.1:8080;
+   }
+}</code>
+
+<p>Now, we want to link the configuration file in sites-enabled (which is where nginx looks) to the above file in sites-available, done via the following symlink:</p>
+<code>sudo ln -s /etc/nginx/sites-available/node /etc/nginx/sites-enabled/node</code>
+
+<p>As a final step, restart the nginx server for the configuration file to take effect:</p>
+<code>sudo service nginx restart</code>
+
+<h3>Some minor notes</h3>
+<p>Note that nginx has another, much bigger configuration file in /etc/nginx/nginx.conf, but we don’t need to modify it for our purposes. Secondly, the above symlink ensures that whenever sites-available/node is updated, nginx will pick up the update as sites-enabled/node is simply a link back to the former file. This approach is preferable to directly editing and updating sites-enabled/node due to some more technical issues that are a bit too archaic to go into here.</p>
+
+<h2>Part 9 — Domains & DNS</h2>
+<p>In this section, we will connect our custom domain names to our web servers, one domain for the main website that faces the world and one for our Linux server (in the next part on security and SSL I will explain why we need this).</p>
+
+<p>I host my domains on Google, but you can modify the below to whichever domain provider you use (although you may need to do things slightly differently).</p>
+
+<h3>Linking your main website to a domain</h3>
+<p>In your domain’s DNS settings, add the following custom CNAME resource record. CNAME map your custom domain name to another domain (but not to an IP address).</p>
+
+<figure>
+<img src="images/23.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>In our example above, we are mapping www.yourdomain.com to the domain of your CloudFront server. You can get your CloudFront domain name from your CloudFront console:</p>
+
+<figure>
+<img src="images/24.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>CNAME cannot be used on the root domains (i.e. naked domains without the www). That means, you can point www.yourdomain.com to your CloudFront domain, but you cannot point yourdomain.com (without the www) to your CloudFront domain.</p>
+
+<p>In Google Domains, we can point yourdomain.com correctly via a synthetic record to forward all subdomains to www. See below:</p>
+
+<figure>
+<img src="images/25.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<h3>Linking your linux server to a domain</h3>
+<p>In your domain’s settings (this is for the domain you want to link to your linux server, which will be different to the domain above — i.e. you need two domain names for this tutorial), add the following custom records.</p>
+
+<p>When adding, replace the ip address 18.221.39.133 with the ip address of your linux server (refer to the start of the tutorial, where we set this).</p>
+
+<figure>
+<img src="images/26.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>The @ represents the root domain, so our A record is pointing our root domain, yourdomain.com (without the www), to the ip address of our linux server. We use A records to point to actual ip addresses.</p>
+
+<p>The CNAME record points www.yourdomain.com to yourdomain.com (which is then pointed to the server’s ip address).</p>
+
+<h2>Part 10 — Security & SSL</h2>
+<p>Cyber Security is very important and a topic of its own. Our setup would be incomplete without some basic cybersecurity measures, so let us add some now.</p>
+
+<h3>Okta Authentication</h3>
+<p>Your data is very important to you. In the above, we have actually exposed our linux server and database to the world — a scary thought.</p>
+
+<p>However, by adding, okta authentication above, we are able to restrict our database to only the users we want to grant access to. I’m sure that hackers can find a way around it, but for now, it is sufficient for us. When your app grows, you will need to invest in resources to strengthen its cyber security.</p>
+
+<p>Two additional steps here. Now that we are hosting both our main website on a public domain, let us add this information to our Okta configuration to ensure it works correctly.</p>
+
+<p>Within Okta, navigate to the General Settings of your Application, and change the URIs to reference the domain of your Angular website. Note that I changed the address to https as in the next step we will be enabling https for our domains and Okta requires https on public domains because of the additional security they provide.</p>
+
+<figure>
+<img src="images/27.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Finally, edit your src/app/app.module.ts file to reference this domain and not localhost.</p>
+
+<h3>SSL Certificates</h3>
+<p>Google Chrome and other browsers are now mandating websites to be delivered over a secure mechanism through SSL certificates.</p>
+<p>SSLs allow the client and the server to share encrypted information that can only be read if the correct key is possessed to decrypt (i.e. unlock) the message. At the start of the session, an SSL Handshake occurs between the client and server machines that establish a common session key to use for encryption and decryption.</p>
+
+<p>One issue is the initial setup of the SSL connection is done without encryption (as neither party shares a common encryption key). This allows nefarious parties the opporutnity to interject themselves in the middle and pose themselves as the server to intercept the messages sent to and received from the client. These are called Man in the Middle (MITM) attacks.</p>
+
+<p>To overcome this, web browsers use the concept of SSL certificates. SSL certificates are issued by reputable organisations (that browsers recognise as valid and reputable) and certify that the server that the client is talking to is indeed the end website that the client wants to visit and interact with.</p>
+
+<p>We will now add ssl certificates to both our main website and our linux server to allow secured connections via HTTPS (on port 443).</p>
+
+<h3>Adding an SSL certificate to our main website</h3>
+<p>CloudFront can automatically generate an SSL certificate for our main website domain. As noted earlier, we need to generate an SSL certificate to link our custom domain to our CloudFront distribution.</p>
+
+<p>Click into your CloudFront distribution and edit its general settings. Enter your custom domain into the Alternate Domain Names (CNAMEs) field. You will then need to click on the button to request a certificate from AWS Certificate Manager (ACM):</p>
+
+<figure>
+<img src="images/28.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Note — your page will look slightly different, as it will have the option ‘Default CloudFront Certificate’ selected</p>
+
+<p>We need to create a custom SSL certificate through ACM for our custom domain and cannot rely on the default CloudFront Certificate. This is because CloudFront does not know whether we truly own our domain, so we need to go through a process to verify this.</p>
+
+<p>Follow the steps to request a certificate in ACM, using the domain name *.yourdomain.com to capture all subdomains and root domains (we want all of them to be attached to our SSL certificate):</p>
+
+<figure>
+<img src="images/29.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>On the next page, select DNS validation as your validation method. In Step 3, there is no need to add any tags for our tutorial, so just progress through the remaining steps to generate your certificate. ACM will give us a CNAME record that we need to add to our domain (in Google Domains for me, as Google hosts my domain):</p>
+
+<figure>
+<img src="images/30.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Obviously, only somebody who has access to the domain can add a CNAME record, so this is an easy way for ACM to validate your claim to the domain.</p>
+
+<p>Once you add this CNAME record, you will have two CNAME records in the DNS settings for your main domain. One for pointing your domain to CloudFront and one for validating the domain with ACM for the SSL certificate.</p>
+
+<p>It will look something like the below (noting my CNAME record below is different to the above, because that was just an example — but in your case, the CNAME record you create above will be exactly what goes into the below):</p>
+
+<figure>
+<img src="images/31.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>It will take ACM a few minutes to validate your domain, and subsequently generate an SSL certificate.</p>
+<p>Now go back to your CloudFront distribution settings, select Custom SSL Certificate and link your recently created SSL to your domain (from the same page where you requested a custom SSL certificate, you can now find your newly created certificate and add it to your distribution). Save changes.</p>
+
+<h3>Adding an SSL certificate to your linux server</h3>
+<p>We will now add an SSL certificate to our linux server to allow us to access it via Angular through a secure HTTPS connection.</p>
+<p>ACM does not currently support generating SSL certificates for our linux server, so we will use Let’s Encrypt to achieve this. Let’s Encrypt is a free, nonprofit Certificate Authority that is backed by some of the biggest names in technology.</p>
+
+<p>Enter the following commands to install CertBot, a free linux application to create and install Let’s Encrypt certificates for nginx servers:</p>
+<code>sudo apt-get update
+sudo apt-get install software-properties-common
+sudo apt-get-repository universe
+sudo apt-get update
+sudo apt-get install certbot python3-certbot-nginx</code>
+
+<p>Now, before we run CertBot, let us amend our nginx configuration file /etc/nginx/sites-available/node to reference the custom domain we linked to our linux server at the end of Part 8. It should look like the below:</p>
+<code>server {
+   listen 80;
+   server_name www.yourlinuxdomain.com yourlinuxdomain.com;
+location / {
+      proxy_set_header X-Forwarded-For $remote_addr;
+      proxy_set_header Host $http_host;
+      proxy_pass “http://127.0.0.1:8080”;
+   }
+}</code>
+
+<p>We can now run certbot via the following command to get a certificate and have Certbot automatically edit your Nginx configuration to serve it:</p>
+<code>sudo certbot --nginx</code>
+
+<p>When prompted during the installation, select all the domains you want the certificate to apply to and then select to ‘Redirect — make all requests redirect to secure HTTPS access’.</p>
+<p>Your nginx configuration file sites-available/node should update to something like this:</p>
+<code>server {
+   server_name www.yourlinuxdomain.com yourdomain.com;
+   location / {
+      proxy_set_header X-Forwarded-For $remote_addr;
+      proxy_set_header Host $http_host;
+      proxy_pass "http://127.0.0.1:8080";
+   }
+listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/yourlinuxdomain.com/fullchain.pem; # managed b
+y Certbot
+    ssl_certificate_key /etc/letsencrypt/live/yourlinuxdomain.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}server {
+    if ($host = www.yourlinuxdomain.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+if ($host = yourdomain.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+listen 80;
+   server_name www.yourlinuxdomain.com yourlinuxdomain.com;
+    return 404; # managed by Certbot
+}</code>
+
+<p>Restart your nginx server for the changes to take effect:</p>
+<code>sudo service nginx restart</code>
+
+<p>And that’s it! Your connection to your linux serve is now secure.</p>
+<p>Note: It took me a few attempts to correctly set up the above SSL. The following helped in debugging:</p>
+<ul>
+<li>Checking the JavaScript Console in my client side web browser to see what the error message (e.g. at first it said the certificate was invalid, and later it said it could not connect — for the first issue I had to fix my SSL configurations and for the second issue I had to start up my Express Server as it was not running at the time)</li>
+<li>Deleting CertBot history via sudo certbot delete and then re-running sudo certbot --nginx</li>
+<li>Checking that there were no errors in my nginx file via sudo nginx -t</li>
+<li>Killing all my nginx servers via sudo killall nginx as I had 2 servers accidentally running at the same time and causing havoc</li>
+<li>Monitoring activity on my 443 port via sudo tcpdump -i any port 443</li>
+<li>Update your Angular app to point to your domain</li>
+</ul>
+
+<p>We can now update our Angular app to point to our custom domain that is hosting our linux server over https. Within your Angular project folder, open src/environments/environment.prod.ts to reference your custom domain (noting that we are now pointing to a https server):</p>
+<code>export const environment = {
+  production: true,
+  serverUrl: 'https://www.yourlinuxdomain.com'
+};</code>
+
+<p>Rebuild your Angular project via ng build --prod and upload its files to your S3 bucket and making them public for the changes to take effect (deleting the previous files in S3 of course).</p>
+
+<h2>Next Steps</h2>
+<p>You have now established the foundational infrastructure of your web app. Test it out! Debug and get it working.</p>
+<p>Time to move on to actually building your app and adding the necessary functionality to make it a success. Without having to worry about the network side of things for some time.</p>
+<p>I would recommend studying more on MySQL (to understand how databases work and how you can manipulate them), a bit on Express.js (to understand how to interface with your database), a lot on Angular (to do the main programming for your web app) and some HTML & CSS (to improve the visual design of your app). Javascript powers both Node Express and Angular, so is worth learning too.</p>
+<p>Enjoy!</p>
+<p>P.s. let me know any bugs or suggestions for the above tutorial</p>
+
+</article>
