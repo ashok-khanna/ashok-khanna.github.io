@@ -32,8 +32,8 @@ for (i = 0; i < coll.length; i++) {
 $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
 
-$.get( contentFile, function(data){
-
+$.get( contentFile , function(data){
+  $(data).appendTo("#page-content");
   if(nextName != "null") {
     $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + "</a></p>" );
   };
