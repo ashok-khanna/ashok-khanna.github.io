@@ -1,0 +1,174 @@
+<article>
+<h1>Comprehensive Guide to Creating a Cloud-based Web App (contd.)</h1>
+
+<h2>Part 1 — Setting up our Linux Virtual Server</h2>
+<p>We will host both our MySQL database and our Node Express server on the same virtual server. We will utilise an Ubuntu distribution for our linux server.
+Amazon EC2 and Google Compute Engine are two viable platforms for this, and we will use Amazon EC2. That said, our setup is platform agnostic and does not utilise platform-specific technologies that will force vendor lock-in. You can apply the same concepts used throughout this tutorial with another cloud service provider or even host it yourself.</p>
+
+<h3>Amazon EC2</h3>
+<p>Navigate to Amazon EC2 from the AWS Management Console (create an Amazon AWS account if you do not already have one). Click into instances and then select launch instance to start the process to create a new virtual linux server.</p>
+<p>You will be asked which distribution to use, select an x86 Ubuntu distribution for the purposes of this tutorial (make sure it is a ‘free tier eligible’ distribution, there will be one there). On the next page again select the ‘free tier eligible’ instance type (should be t2.micro). Navigate through the remaining setting pages, leaving them as defaults or as you wish, until you get to Configure Security Group (should be step 6), which we will cover in the next section.</p>
+
+<h3>Firewall & Ports</h3>
+<p>In this section, we will configure our security group and open our linux server to the world on three ports — 22 (to allow us to SSH into the machine), 80 and 443 (to allow HTTP and HTTPS access to our server via web browsers).</p>
+<p>First, select create a new security group (this option will be selected by default) and name it as you will:</p>
+
+<figure>
+<img src="images/2.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Now click on the Add Rule button to add the following inbound rules:</p>
+
+<figure>
+<img src="images/3.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Click through the remaining pages. A message will popup asking you to use a new key pair or an existing one. Select create a new key pair, name it and then download it. It’s very important that you save this file somewhere secure and do not delete it. You only get one chance to download it and we need this to remote access into the machine.</p>
+
+<figure>
+<img src="images/4.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Click launch instance. Then navigate to your security group (same name as what you gave it in the above, the default name being launch-wizard-1) and set up the outbound rules:</p>
+
+<figure>
+<img src="images/5.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Finally, I find it useful during testing and debugging to monitor activity to a port, to see if traffic is actually reaching the port. This helps isolate the problem at either the client side or firewall side (if there is no activity at the port) or at the server side (if there is activity at the port). You can listen to a port with the following (below is an example for monitoring port 443):</p>
+
+<code>sudo tcpdump -i any port 443</code>
+
+<h3>Elastic IPs — Setting a permanent IP for your server</h3>
+<p>As of now, the external IP address of your virtual linux server will reset every time you reset your machine. Not an ideal situation, when you will be later pointing a domain to this IP. We can set a permanent external IP address to our machine via Amazon Elastic IPs.</p>
+<p>Within your EC2 Dashboard, navigate to Elastic IPs and then select allocate Elastic IP address. Select the default options to create an elastic IP address:</p>
+
+<figure>
+<img src="images/6.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Then select your Elastic IP and select associate Elastic IP address under actions to associate it to your instance, like below:</p>
+
+<figure>
+<img src="images/7.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>You will then be able to see the public IP address of your linux server, e.g.:</p>
+
+<figure>
+<img src="images/8.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<h3>SSH & Remote Access</h3>
+<p>As a final part of this section, let us learn how to remote access into our server via SSH.</p>
+<p>It’s very easy. Remember that you downloaded your private key file earlier, so so first restrict its settings (necessary for it to be used for SSH), replacing the below file with the path to where you saved your private key:</p>
+
+<code>sudo chmod 400 ~/Downloads/test-launch-key-pair.pem</code>
+
+<p>Then simply run the following command to SSH into your machine (replacing the private key location with the actual location of your file and replacing the IP address with the actual IP address of your server):</p>
+
+<code>ssh -i ~/Downloads/test-launch-key-pair.pem ubuntu@46.137.255.53</code>
+
+<p>When you run the above command for the first time, select yes when prompted whether you want to add the IP address to your known host file.</p>
+</p>In the future, sometimes if you have issues with the setup of your SSH connection, you may need to delete this entry from the host file (you can google to learn more about this). Hopefully you won’t have to face this but as I was experimenting a fair bit, I had to do it from time to time.</p>
+<p>You can exit your SSH session by running the exit command.</p>
+<p>Finally, again as a reminder, don’t lose your private key as its not that easy to fix afterwards.</p>
+
+<h3>Brief Detour — Basic Linux [Optional]</h3>
+<p>Before we move onto the next section, I want to briefly spend some time discussing some common linux commands and concepts that I found helpful in creating, testing and deploying this project. Most of these are not directly used, but rather were helpful during testing and debugging. This section is optional to read.
+Below are some commands you may use frequently.</p>
+
+<code>List all the folders and files in the current directory:
+ls
+Move to a subfolder (you can also enter the path of a folder to move to it, e.g. cd /etc/nginx):
+cd folder_name
+Move up one directory. Note that ".." represents the directory above while "." represents the current directory (see mv example at bottom of this list):
+cd .. ##
+Move to your home directory:
+cd ~
+Create a file:
+touch file_name
+Create a directory:
+mkdir folder_name
+Delete a file:
+rm file_name
+Delete a folder and all its files:
+rm -R folder_name
+Copy a file to another location:
+cp original_file new_filename_or_directory_location
+Copy multiple files (e.g. 3 files in example below) to another location:
+cp file1 file2 file3 new_location
+Copy all files in a folder to another location:
+cp * new_location
+Copy all files and subfolders to another location:
+cp -R * new_location
+Move files and folders up one folder (run this from parent folder). In general note that cp and mv operate in the same manner:
+mv subfolder/* subfolder/.* .
+Rename file (works for folders too):
+mv file_name new_file_name
+Admin/Super User access:
+sudo now_enter_your_command
+Check access settings for files in current folder:
+ls -l file_name_optional
+Only readable by you (need to do this to SSH files):
+chmod 400 file_name
+Give all users full read, write and execute access (don't do this):
+chmod 777 file_name
+Owner can read and write, others can read only:
+chmod 644 file_name
+Owner can read, write and execute, others can read and execute only:
+chmod 775 file_name
+Exit current process:
+CTRL + C</code>
+
+<p>Apt-Get: Apt-Get is a package manager for Ubuntu and is fantastic. Run the following code frequently to ensure your package managers are kept up to date:</p>
+<code>sudo apt-get update
+sudo apt-get upgrade</code>
+
+<p>Downloading files through wget (install via sudo apt-get install wget):</p>
+<code>wget file_http_url</code>
+
+<p>Version Control & GitHub: Install git via sudo apt-get install git</p>
+
+<p>Add the public key of your linux server (you will have to create this — google to see how) to your GitHub account to allow you to access / update your repos in GitHub.</p>
+
+<p>Initialise git on a folder (note that you have to create repositories on GitHub first to be able to push files to GitHub’s servers):</p>
+<code>git init</code>
+
+<p>Set your git remote to GitHub to allow you to pull / push files to GitHub:</p>
+<code>git remote set-url origin git@github.com:user-name/repo-name.git</code>
+
+<p>Pull files from GitHub:</p>
+<code>git pull origin</code>
+
+<p>Add files to git tracking (use -A for all current files — future files need to be added again):</p>
+<code>git add file_name</code>
+
+<p>Commit tracked files:</p>
+<code>git commit -m "commit message"</code>
+
+<p>Push committed files to GitHub:</p>
+<code>git push -u origin master</code>
+
+<p>You can use GitHub repos as a way of transferring files between your desktop computer and your linux server, or you can use an SFTP tool (I use Transmit on macOS).</p>
+
+<p>Text Editor & Emacs: As a final point, you will very frequently need to edit files. I utilised emacs for this as I think it is a great text editor, but feel free to use whatever you like. The code below assumes emacs, but you can replace the word emacs in the code below with the program name for your editor of choice (e.g. change sudo emacs → sudo nano).</p>
+
+<p>To install emacs:</p>
+<code>sudo apt-get install emacs</code>
+
+<p>Monitoring processes: Similar to CTRL + ALT + DEL on Windows, we can monitor what programs are running in the background on our linux machine via htop. First install it:</p>
+
+<code>sudo apt-get install htop</code>
+
+<p>You can then run it via the command htop. You can kill a process with the F9 key. Use F6 to select how you wish to sort the processes.</p>
+
+
+</article>

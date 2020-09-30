@@ -1,0 +1,166 @@
+<article>
+<h1>Comprehensive Guide to Creating a Cloud-based Web App (contd.)</h1>
+
+<h2>Part 2 — Creating a MySQL Database</h2>
+
+<p>First, install MySQL Server via the following:</p>
+<code>sudo apt-get install mysql-server</code>
+
+<p>Then log into MySQL via:</p>
+<code>sudo mysql -u root</code>
+
+<p>Now let us create a database and a user that can access this database. Note how each statement is executed by adding a ; to the end of the statement:</p<
+<code>create database timeline;
+use timeline;
+create user 'timeline'@'localhost' identified by 'password';
+grant all on timeline.* to 'timeline'@'localhost';
+ALTER USER 'timeline'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';</code>
+
+<p>Let us now create a table within this database. Note that the table creation is one statement (ended with;), just entered over multiple lines.</p>
+<code>create table events (
+  id INT AUTO_INCREMENT,
+  owner VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  date DATE,
+  PRIMARY KEY (id),
+  INDEX (owner, date)
+);</code>
+
+<p>That’s all we need for now, but I’m sure you will learn more about MySQL over time and start creating and manipulating data in advanced ways in the future. You can quit MySQL with the quit comand.</p>
+
+<h2>Part 3 — Creating an Express Server</h2>
+
+<p>Now we will create an Express server to send and receive information from the MySQL database we just created.</p>
+<p>First, install node and npm (node package manager):</p>
+<code>sudo apt-get install nodejs
+sudo apt-get install npm</code>
+
+<p>As a minor note, when replicating this process on an Ubuntu virtual server on Google Compute Engine, I needed to run the following to ensure the latest node package was installed</p>
+<code>sudo apt-get install curl
+sudo apt autoremove
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install nodejs</code>
+
+<p>Now let us install our Express server and some associated plugins in new folder:/p>
+<code>mkdir timeline-server
+cd timeline-server
+npm install express cors mysql</code>
+
+<p>Now lets create a subfolder timeline-server/src and create three files within it:</p>
+<code>mkdir src
+cd src
+touch index.js
+touch events.js
+touch auth.js</code>
+
+<p>The main file for the server is index.js. Open the file via emacs or your favourite text editor:</p>
+<code>emacs index.js</code>
+
+<p>Add the following code to this file:</p>
+<code>const bearerToken = require('express-bearer-token');
+const oktaAuth = require('./auth');
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+const events = require('./events');
+const connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'timeline',
+  password : 'password',
+  database : 'timeline'
+});
+connection.connect();
+const port = process.env.PORT || 8080;
+const app = express()
+  .use(cors())
+  .use(bodyParser.json())
+  .use(bearerToken())
+  .use(oktaAuth)
+  .use(events(connection));
+app.listen(port, () => {
+  console.log(`Express server listening on port ${port}`);
+});</code>
+
+<h2>Part 4 — Brief Detour — Adding User Authentication</h2>
+<p>In the above code, we have added user authentication via Okta into our Express server application. This is achieved by adding .use(bearerToken()) and .use(oktaAuth) to our Express server object app.</p>
+<p>Okta is a great third-party authenticator that is free to use for small projects and reasonably priced thereafter. Go to their website and sign up for a free developer account with Okta.</p>
+<p>Once you have set up an account, you will need to add a Single-Page App application to your profile, by first clicking the Application button at the top of your Okta Dashboard</p>
+
+<figure>
+<img src="images/9.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>And then select Add Application:</p>
+
+<figure>
+<img src="images/10.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Select Single-Page App and then next to go to configuring your Okta application:</p>
+
+<figure>
+<img src="images/11.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Change the 8080 in the below to 4200 for now. Later, you will replace these URI points to the actual domain of the website hosting your application. We use port 4200 as we will soon create a local Angular server (on port 4200) to partially test our application.</p>
+
+<figure>
+<img src="images/12.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Once your application is created, Okta will redirect to your application’s settings page. Copy the application’s client ID here as we will need it soon.</p>
+
+<figure>
+<img src="images/13.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>As a final step on the Okta Website, navigate to your dashboard and copy your Org URL from the top right hand side of your dashboard page:</p>
+
+<figure>
+<img src="images/14.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Whew! That’s a lot of work. Take a well-deserved break.</p>
+
+<h3>Configuring Express Server with Okta</h3>
+<p>Moving back to the command line, install the following libraries:</p>
+<code>sudo npm install express-bearer-token @okta/jwt-verifier</code>
+
+<p>Now, add the following to auth.js that you created earlier, replacing {yourClientId} with your application’s Client ID from above and {yourOktaDomain} with the your Org URL from above.</p>
+<code>const OktaJwtVerifier = require('@okta/jwt-verifier');
+const oktaJwtVerifier = new OktaJwtVerifier({
+  clientId: '{yourClientId}',
+  issuer: 'https://{yourOktaDomain}/oauth2/default'
+});
+async function oktaAuth(req, res, next) {
+  try {
+    const token = req.token;
+    if (!token) {
+      return res.status(401).send('Not Authorized');
+    }
+    const jwt = await oktaJwtVerifier.verifyAccessToken(token, ['api://default']);
+    req.user = {
+      uid: jwt.claims.uid,
+      email: jwt.claims.sub
+    };
+    next();
+  }
+  catch (err) {
+    console.log('AUTH ERROR: ', err);
+    return res.status(401).send(err.message);
+  }
+}
+
+module.exports = oktaAuth;</code>
+
+
+
+</article>

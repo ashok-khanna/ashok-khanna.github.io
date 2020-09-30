@@ -1,11 +1,11 @@
 <article>  
-  
+
   <h1>Comprehensive Guide to Creating a Cloud-based Web App</h1>
-  
+
   <p class="intro">In this tutorial, we will walkthrough the steps to create a simple browser-based application that has a database back-end, allowing users to create, read, update and delete records (of information). There is quite a bit of information below, so eyeball through the sections to get an idea for the structure of the tutorial and then either complete the tutorial from start to finish or jump to the sections most relevant to you.</p>
-  
+
   <div class="callout">The following tutorial by Okta was excellent and helped me start my journey on this topic. A big thank you to the Okta team, and please sign up with them for their authentication service if you find my tutorial helpful. In fact, I use their example code in this tutorial, so a lot of credit needs to be given to them. You may wish to start off on it as a more gentle introduction to the subject: <a href="https://developer.okta.com/blog/2019/08/16/angular-mysql-express" type="text/html">Okta Angular MySql Guide</a></div>
-  
+
   <h2>Motivations</h2>
   <p>The importance and benefits of the <i>cloud-based web app</i> we build in this tutorial are significant and noted below. There is a lot to cover in this tutorial but it will provide you a very solid foundation for your future development efforts.</p>
   <ul>
@@ -15,7 +15,7 @@
 That said, one of the hurdles in web development is that there is an overwhelming amount of different concepts and technologies to understand to effectively set up the network infrastructure of your web application. This tutorial will guide you through these concepts and help you create a relatively sound foundation for your web application. You can then focus on its core functionality and revisit your network infrastructure once your application grows sufficiently.</li>
     <li><b>Platform Agnostic</b>: There are many readymade cloud solutions that are much easier to setup that what we will cover. However, these have limited functionalities (which I find are okay for hobby project but not for anything more serious and involved) and also lock you into a particular cloud vendor and their pricing (which can get quite high).</li>
   </ul>
-  
+
   <h2>Disclaimer & Note</h2>
   <p>This tutorial was written on a macOS machine and should work equally well on a linux machine. For Windows users, you will need to adjust some sections, but hopefully you can easily figure out the equivalent commands on your machine.</p>
   <p>Secondly, this tutorial covers many concepts and is relatively advanced. It is likely that you will make mistakes, and parts of the below may not work on your setup. I had to read many different tutorials to figure out all the pieces to make it work for me. You may have to do the same, but you will walk out with a stronger understanding of the concepts and the confidence to build your own web-based applications with robust network infrastructure.</p>
@@ -24,7 +24,7 @@ That said, one of the hurdles in web development is that there is an overwhelmin
   <li>Do each part of the project piecemeal and test that everything works before moving on. This way you can isolate problems to small incremental changes in your project. For example, I first ensured I could achieve a working connection between the client browser and my linux server through HTTP, before then changing it to HTTPS, installing an SSL certificate and achieving the same over a secure connection. This way I could isolate my client and server to be working correctly, and then focus on the HTTPS pipe and the SSL certificate being set up correctly. If I did not do this, I wouldn’t know if the issue was with my SSL certificate, with my server not correctly listening to requests or with my client not correctly sending requests.</li>
   <li>Zone in on key terminology such as REST APIs, reverse proxying, CRUD, opening ports, SSL, CNAME, naked domains, etc. I have tried to list them in the tutorial but the more you pick up on the technical terms, the easier it will get when you are googling to find solutions for the problems you are facing.</li>
 </ol>
-  
+
   <h2>Introduction</h2>
   <p>There will be four components in our web application, noted below.</p>
   <ol>
@@ -35,21 +35,21 @@ That said, one of the hurdles in web development is that there is an overwhelmin
   </ol>
 
   <p>Schematically, our set up looks like this:</p>
-  
+
   <figure>
   <img src="images/1.png" alt="Schematic Diagram">
   <figcaption>Fig.1 - Schematic Diagram of our Set up</figcaption>
 </figure>
-  
+
   <h3>Very important note before beginning</h3>
   <p>An important note before beginning. First, the below is quite an involved tutorial, so ideally you will be able to test your success intermittently through the project.</p>
-  
+
   <p>A logical break point to test your application is when you complete Parts 2–6 to create your MySQL Database, Node Express Server and Angular App, but for a local environment (i.e. your computer) and not for the web (this is covered in the remaining parts). Unfortunately, our virtual linux server does not have a GUI interface (if you want, you can install this), so you won’t be able to test progress at this stage.</p>
-  
+
 <p>As alternative, consider doing Parts 2–6 first on your home PC and testing to make sure you get everything to work, before focusing on connecting this large codebase into the broader network infrastructure.</p>
-  
+
 <p>I found my free tier virtual linux server quite slow when it came to the Angular installations. As an alternative approach, you can complete the Angular part of this tutorial on your home PC as you don’t need for these files to sit on your linux server since we will ultimately host them on a seperate web server. However, to test locally, you need to have your MySQL and Node Express Server also installed on your home PC, as noted above.</p>
-  
+
 <p>Let's now get started with part one of the tutorial: <a href="crud-tutorial-part-1.html" type="text/html">Part 1 of the Tutotiral</a></p>
 
 </article>

@@ -33,8 +33,16 @@ $( "#site-header" ).load( "/site-wide/header.html" );
 $( "#site-footer" ).load( "/site-wide/footer.html" );
 
 $.get( contentFile, function(data){
-  $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + "</a></p>" );
-  $( "#page-content" ).append( "<p class=\"last\">Last: <a href=\"" + lastUrl + "\" type=\"text/html\">" + lastName + "</a></p>" );
+
+  if(nextName != "null") {
+    $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + "</a></p>" );
+  };
+
+  if(lastName !="null") {
+      $( "#page-content" ).append( "<p class=\"last\">Last: <a href=\"" + lastUrl + "\" type=\"text/html\">" + lastName + "</a></p>" );
+  };
+
+
 });
 
 });

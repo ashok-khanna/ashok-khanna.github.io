@@ -1,0 +1,136 @@
+<article>
+<h1>Comprehensive Guide to Creating a Cloud-based Web App (contd.)</h1>
+
+<h2>Part 7 — Hosting the Web App</h2>
+<p>In the last part, we ran ng serve to locally serve our Angular files, which we could access at http://localhost:4200/. Now, we need to transfer these files to our web host to make it accessible by the public.</p>
+<p>First, we need to update our src/environments/environment.prod.ts file with the configuration settings (namely serveUrl) that we recorded in src/environments/environment.ts. Replace environment.prod.ts with the following:</p>
+<code>export const environment = {
+  production: true,
+  serverUrl: 'http://localhost:8080/'
+};</.code>
+
+<p>Now we can create a production version of our Angular files by running the following command within our Angular project folder:</p>
+<code>ng build --prod</code>
+
+<p>This command will create the necessary static files for our website, saved in dist/project-name/ . We will now copy these files to our Amazon S3 store in the coming steps and then serve them over the web via CloudFront. Alternatively, you can transfer these files to any web host and serve them from there.</p>
+
+<h3>Setting up S3 Bucket</h3>
+<p>Navigate to Amazon S3 from the AWS Console and create a new S3 bucket. The settings don’t matter much, except make sure you allow public access by unticking the block all public access option:</p>
+
+<figure>
+<img src="images/15.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Navigate to your newly created bucket and enable static website hosting (note that we also set index.html as the index and error documents):</p>
+
+<figure>
+<img src="images/16.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>During this step, write down your bucket’s endpoint as we will point CloudFront to it.</p>
+<p>Now simply upload your angular files to your S3 bucket and make them public:</p>
+
+<figure>
+<img src="images/17.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>And that’s all we have to do with S3. In the future, every time you make changes to your Angular project, simply run ng build --prod and then copy/replace the files to S3 and set their permissions to public.</p>
+
+<h3>Setting up CloudFront</h3>
+<p>Navigate to Amazon CloudFront from the AWS Console and create a new CloudFront web distribution.</p>
+<p>Refer to the below screenshot for distribution settings to select. The origin domain name should be the same as the web hosting endpoint to your S3 bucket that you noted above (note that this is sligthly different to the autocomplete option provided by CloudFront, and includes the AWS region hosting your website). The origin ID is automatically populated from the origin domain name.</p>
+
+<figure>
+<img src="images/18.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Scrolling down the page, you will have to set your root object to index.html.</p>
+
+<figure>
+<img src="images/19.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>After filling out all the settings, click create distribution</p>
+
+<h3>Some more work…</h3>
+<p>A bit more work for us to do to finalise our CloudFront set up. Click into your newly created distribution and navigate to the error pages tab and click create custom error response:</p>
+
+<figure>
+<img src="images/20.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Add two error responses to redirect 403 and 404 errors to /index.html and return a 200 HTTP response code. Below is an example for 404 error:</p>
+
+<figure>
+<img src="images/21.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>The reason for this is that we are using Angular to route pages. As noted on the official Angular docs, A routed application should support “deep links”. A deep link is a URL that specifies a path to a component inside the app. For example, http://www.mysite.com/heroes/42 is a deep link to the hero detail page that displays the hero with id: 42.</p>
+
+<p>There is no issue when the user navigates to that URL from within a running client. The Angular router interprets the URL and routes to that page and hero. But clicking a link in an email, entering it in the browser address bar, or merely refreshing the browser while on the hero detail page — all of these actions are handled by the browser itself, outside the running application. The browser makes a direct request to the server for that URL, bypassing the router.</p>
+
+<p>A static server routinely returns index.html when it receives a request for http://www.mysite.com/. But it rejects http://www.mysite.com/heroes/42 and returns a 404 - Not Found error unless it is configured to return index.html instead.</p>
+
+<p>But we are okay, because we have configured our error responses above to account for this behaviour.</p>
+
+<h3>Final note on this section</h3>
+<p>We have successfully created an S3 bucket to host our files, and we serve them through CloudFront. However, as it stands, we are using the CloudFront distribution instance’s domain name. We want to replace this with our custom domain. To do this, we need to set up an SSL certificate, and we will revisit in the Part 10 below.</p>
+
+<h2>Part 8 — NGINX & Reverse Proxying</h2>
+<p>We have one issue here, and it tripped me up for some time. Our Angular app links to http://localhost:8080.</p>
+<p>This will work perfectly fine if we launch the app from the same server that is running our Express server, as we can send requests to port 8080, but it will not work once we launch the Angular App from our web server, which in our case, is necessarily different to the linux machine that is running our Express instance. The Angular app will search for port 8080 on the web server, and it will find nothing there.</p>
+
+<h3>How to Resolve?</h3>
+<p>I’m sure there are many ways to solve this problem, but what I have done is as follows: Host our linux server as a web server itself and then have our Angular App directly link to our linux web server and not ‘localhost’.</p>
+
+<p>Note that ports 80 and 443 are used for HTTP and HTTPS traffic (respectively), so to make our life easier, what we will do is create another server on our linux machine, that listens on ports 80 and 443 and redirects them to port 8080, which is the port our Express server is listening on. NGINX will be this server and this process is called ‘reverse proxying’.</p>
+
+<p>Diagrammatically, we can summarise the above as follows:</p>
+
+<figure>
+<img src="images/22.png" alt="">
+<figcaption>Fig. - </figcaption>
+</figure>
+
+<p>Reverse proxying allows us to connect our static Angular website to our dynamic linux server that is hosting our database</p>
+
+<h3>Installing and Setting up NGINX</h3>
+<p>The following commands will install our NGINX server. This is a copy of the <a href="https://eladnava.com/binding-nodejs-port-80-using-nginx/" type="text/html">excellent tutorial by Elad Nava</a>.</p>
+
+<p>Install Nginx:</p>
+<code>sudo apt-get install nginx</code>
+
+<p>Nginx stores its configuration file in /etc/nginx/sites-enabled/default. Let’s delete this file:</p>
+<code>sudo rm /etc/nginx/sites-enabled/default</code>
+
+<p>We will now create our own configuration file, but in a different folder (sites-available):</p>
+<code>sudo emacs /etc/nginx/sites-available/node</code>
+
+<p>Paste the following code into this file, updating example.com to the domain or IP of our linux machine.</p>
+<code>server {
+   listen 80;
+   server_name example.com;
+location / {
+      proxy_set_header X-Forwarded-For $remote_addr;
+      proxy_set_header Host $http_host;
+      proxy_pass http://127.0.0.1:8080;
+   }
+}</code>
+
+<p>Now, we want to link the configuration file in sites-enabled (which is where nginx looks) to the above file in sites-available, done via the following symlink:</p>
+<code>sudo ln -s /etc/nginx/sites-available/node /etc/nginx/sites-enabled/node</code>
+
+<p>As a final step, restart the nginx server for the configuration file to take effect:</p>
+<code>sudo service nginx restart</code>
+
+<h3>Some minor notes</h3>
+<p>Note that nginx has another, much bigger configuration file in /etc/nginx/nginx.conf, but we don’t need to modify it for our purposes. Secondly, the above symlink ensures that whenever sites-available/node is updated, nginx will pick up the update as sites-enabled/node is simply a link back to the former file. This approach is preferable to directly editing and updating sites-enabled/node due to some more technical issues that are a bit too archaic to go into here.</p>
+
+</article>
