@@ -178,7 +178,7 @@ b { font-weight: 700; }
 p { padding: 0; margin: 0 0 0.8rem 0; }
 article h2 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0.5rem 0; font-weight: 600; color: #6E523D;}
 article h3 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0 0; font-weight: 600; color: #6E523D;}
-article h1 { font-fmaily: 'Montserrat', color: #6E523D;}
+article h1 { font-fmaily: 'Montserrat'; color: ##3B1F0A;}
 
 /* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
