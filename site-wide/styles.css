@@ -172,7 +172,7 @@ template {
 
 /* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
-figure { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
+figure { margin: 0px auto; padding: 2.5vw; width: 60%; max-width: 576px; }
 footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px; font-size: 0.8rem;
   color: gray; 'Open Sans Condensed', sans-serif; font-weight: 300; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
