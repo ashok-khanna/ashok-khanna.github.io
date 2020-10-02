@@ -7,7 +7,7 @@ Amazon EC2 and Google Compute Engine are two viable platforms for this, and we w
 
 <h3>Amazon EC2</h3>
 <p>Navigate to Amazon EC2 from the AWS Management Console (create an Amazon AWS account if you do not already have one). Click into instances and then select launch instance to start the process to create a new virtual linux server.</p>
-<p>You will be asked which distribution to use, select an x86 Ubuntu distribution for the purposes of this tutorial (make sure it is a ‘free tier eligible’ distribution, there will be one there). On the next page again select the ‘free tier eligible’ instance type (should be t2.micro). Navigate through the remaining setting pages, leaving them as defaults or as you wish, until you get to Configure Security Group (should be step 6), which we will cover in the next section.</p>
+<p>You will be asked which distribution to use, select an x86 Ubuntu distribution for the purposes of this tutorial (make sure it is a ‘free tier eligible’ distribution, there will be one there). On the next page again select the ‘free tier eligible’ instance type (should be t2.micro). Navigate through the remaining setting pages, leaving them as defaults or as you wish, until you get to <b>Configure Security Group</b> (should be step 6), which we will cover in the next section.</p>
 
 <h3>Firewall & Ports</h3>
 <p>In this section, we will configure our security group and open our linux server to the world on three ports — 22 (to allow us to SSH into the machine), 80 and 443 (to allow HTTP and HTTPS access to our server via web browsers).</p>
@@ -25,7 +25,7 @@ Amazon EC2 and Google Compute Engine are two viable platforms for this, and we w
 <figcaption>Fig. - </figcaption>
 </figure>
 
-<p>Click through the remaining pages. A message will popup asking you to use a new key pair or an existing one. Select create a new key pair, name it and then download it. It’s very important that you save this file somewhere secure and do not delete it. You only get one chance to download it and we need this to remote access into the machine.</p>
+<p>Click through the remaining pages. A message will popup asking you to use a new key pair or an existing one. Select create a new key pair, name it and then download it. <b>It’s very important that you save this file somewhere secure and do not delete it. You only get one chance to download it and we need this to remote access into the machine.</b></p>
 
 <figure>
 <img src="images/4.png" alt="">
@@ -44,7 +44,7 @@ Amazon EC2 and Google Compute Engine are two viable platforms for this, and we w
 <code>sudo tcpdump -i any port 443</code>
 
 <h3>Elastic IPs — Setting a permanent IP for your server</h3>
-<p>As of now, the external IP address of your virtual linux server will reset every time you reset your machine. Not an ideal situation, when you will be later pointing a domain to this IP. We can set a permanent external IP address to our machine via Amazon Elastic IPs.</p>
+<p>As of now, the external IP address of your virtual linux server will reset every time you reset your machine. Not an ideal situation, when you will be later pointing a domain to this IP. We can set a permanent external IP address to our machine via <b>Amazon Elastic IPs</b>.</p>
 <p>Within your EC2 Dashboard, navigate to Elastic IPs and then select allocate Elastic IP address. Select the default options to create an elastic IP address:</p>
 
 <figure>
