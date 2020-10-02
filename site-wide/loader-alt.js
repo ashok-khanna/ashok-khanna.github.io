@@ -36,7 +36,7 @@ $( "#site-footer" ).load( "/site-wide/footer.html" );
 $.get( contentFile , function(data){
   $(data).appendTo("#page-content");
 
-  $( "#page-nav" ).load( "/site-wide/body.html", function() {
+  $( "#page-links" ).load( "/site-wide/page-links.html", function() {
 
     if(lastName !="null") {
         $( "#page-back" ).append( "<a href=\"" + lastUrl + "\" type=\"text/html\"> <<< " + lastName + "</a></p>" );
