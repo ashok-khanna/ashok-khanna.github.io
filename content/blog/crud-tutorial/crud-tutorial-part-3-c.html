@@ -4,7 +4,7 @@
 <h2>Part 5 — REST APIs & Connecting Express to MySQL</h2>
 <p>Now we will link our Express server to our MySQL Database through REST APIs. Add the following to the events.js file you created earlier to create events to handle posting, getting, putting and deleting to/from your MySQL database.</p>
 <p>It’s quite a bit of code! Right now, it allows you to Create, Read, Update and Delete records, but as you will keep revisiting this code in the future, I’m sure you will modify it to do more advanced database manipulations.</p>
-<code>const express = require('express');
+<pre><code>const express = require('express');
 function createRouter(db) {
   const router = express.Router();
 // the routes are defined here
@@ -68,7 +68,7 @@ router.delete('/event/:id', function (req, res, next) {
   });
 return router;
 }
-module.exports = createRouter;</code>
+module.exports = createRouter;</code></pre>
 
 <p>Test to see if your Express server runs with the following command from within timeline-server/src:</p>
 <code>node index.js</code>
@@ -133,7 +133,7 @@ logout() {
 }</code>
 
 <p>Now replace src/app/app.component.html with the following:</p>
-<code><nav class="navbar navbar-expand navbar-light bg-light">
+<pre><code class="html"><nav class="navbar navbar-expand navbar-light bg-light">
   <a class="navbar-brand" [routerLink]="['']">
     <i class="fa fa-clock-o"></i>
   </a>
@@ -154,7 +154,7 @@ logout() {
     <button class="btn btn-primary" *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
   </span>
 </nav>
-<router-outlet></router-outlet></code>
+<router-outlet></router-outlet></code></pre>
 
 <p>Now replace src/app/app.module.ts with the following, changing the clientId to its relevant values per your Okta configuration:</p>
 <code>import { BrowserModule } from '@angular/platform-browser';
