@@ -211,8 +211,8 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Site Header */
-header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-header p { font-family: 'Montserrat', sans-serif; font-weight: 400; margin: 0; }
+header { font-family: 'Lato', sans-serif; font-weight: 700; }
+header p { font-family: 'Lato', sans-serif; font-weight: 400; margin: 0; }
 header h2 { font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
