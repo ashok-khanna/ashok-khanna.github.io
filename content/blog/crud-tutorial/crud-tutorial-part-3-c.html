@@ -106,7 +106,7 @@ ng generate service server</code>
 
 <h3>Adding Angular code to App Component</h3>
 <p>Now, Navigate to the angular-client folder created, and replace the file src/app/app.component.ts with the following:</p>
-<code>import { Component } from '@angular/core';
+<div class="code"><code>import { Component } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 @Component({
   selector: 'app-root',
@@ -130,10 +130,10 @@ login() {
 logout() {
     this.oktaAuth.logout('/');
   }
-}</code>
+}</code></div>
 
 <p>Now replace src/app/app.component.html with the following:</p>
-<pre><xmp><nav class="navbar navbar-expand navbar-light bg-light">
+<div class="code"><pre><xmp><nav class="navbar navbar-expand navbar-light bg-light">
   <a class="navbar-brand" [routerLink]="['']">
     <i class="fa fa-clock-o"></i>
   </a>
@@ -154,7 +154,7 @@ logout() {
     <button class="btn btn-primary" *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
   </span>
 </nav>
-<router-outlet></router-outlet></xmp></pre>
+<router-outlet></router-outlet></xmp></pre></div>
 
 <p>Now replace src/app/app.module.ts with the following, changing the clientId to its relevant values per your Okta configuration:</p>
 <code>import { BrowserModule } from '@angular/platform-browser';
