@@ -171,8 +171,8 @@ template {
 /* START OF MAIN CSS */
 
 /* Typography */
-body { font-family: 'Barlow Condensed', 'Open Sans Condensed', sans-serif; font-weight: 300; font-size: 115%; }
-p { font-weight: 300; }
+body { font-family: 'Open Sans', sans-serif; font-weight: 400; }
+p { font-weight: 400; }
 b { font-weight: 700; }
 p { padding: 0; margin: 0 0 0.8rem 0; }
 h2 { font-family: 'Montserrat'; padding: 0; margin: 2.25rem 0 0.5rem 0; }
