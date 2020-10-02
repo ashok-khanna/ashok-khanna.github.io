@@ -35,15 +35,16 @@ $( "#site-footer" ).load( "/site-wide/footer.html" );
 $.get( contentFile , function(data){
   $(data).appendTo("#page-content");
 
-  $( "#page-content" ).append("<div class=\"page-nav\"><div class=\"page-back\">)
+  $( "#page-content" ).append( "<div class=\"page-nav\"><div class=\"page-back\">" );
 
   if(lastName !="null") {
       $( "#page-content" ).append( "<p class=\"last\">Last: <a href=\"" + lastUrl + "\" type=\"text/html\">" + lastName + "</a></p>" );
   };
-  $( "#page-content" ).append("</div>")
 
-  $( "#page-content" ).append("<div class=\"page-next\"><div class=\"page-back\">)
-  
+  $( "#page-content" ).append("</div>");
+
+  $( "#page-content" ).append( "<div class=\"page-nav\"><div class=\"page-next\">" );
+
   if(nextName != "null") {
     $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + "</a></p>" );
   };
