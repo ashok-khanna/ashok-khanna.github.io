@@ -133,7 +133,7 @@ logout() {
 }</code>
 
 <p>Now replace src/app/app.component.html with the following:</p>
-<pre><code class="html"><nav class="navbar navbar-expand navbar-light bg-light">
+<pre><xmp><nav class="navbar navbar-expand navbar-light bg-light">
   <a class="navbar-brand" [routerLink]="['']">
     <i class="fa fa-clock-o"></i>
   </a>
@@ -154,7 +154,7 @@ logout() {
     <button class="btn btn-primary" *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
   </span>
 </nav>
-<router-outlet></router-outlet></code></pre>
+<router-outlet></router-outlet></xmp></pre>
 
 <p>Now replace src/app/app.module.ts with the following, changing the clientId to its relevant values per your Okta configuration:</p>
 <code>import { BrowserModule } from '@angular/platform-browser';

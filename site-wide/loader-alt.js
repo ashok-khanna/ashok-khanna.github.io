@@ -42,8 +42,6 @@ $.get( contentFile , function(data){
       $( "#page-content" ).append( "<p class=\"last\">Last: <a href=\"" + lastUrl + "\" type=\"text/html\">" + lastName + "</a></p>" );
   };
 
-  hljs.initHighlightingOnLoad();
-
 });
 
 });
