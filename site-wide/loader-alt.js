@@ -38,7 +38,7 @@ $.get( contentFile , function(data){
   $( "#page-content" ).append( "<div class=\"page-nav\"><div class=\"page-back\">" );
 
   if(lastName !="null") {
-      $( "#page-content" ).append( "<p class=\"last\">Last: <a href=\"" + lastUrl + "\" type=\"text/html\">" + lastName + "</a></p>" );
+      $( "#page-content" ).append( "<a href=\"" + lastUrl + "\" type=\"text/html\"> <<< " + lastName + "</a></p>" );
   };
 
   $( "#page-content" ).append("</div>");
@@ -46,7 +46,7 @@ $.get( contentFile , function(data){
   $( "#page-content" ).append( "<div class=\"page-next\">" );
 
   if(nextName != "null") {
-    $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + "</a></p>" );
+    $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + " >>></a></p>" );
   };
   $( "#page-content" ).append("</div>")
 
