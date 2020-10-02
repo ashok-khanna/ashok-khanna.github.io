@@ -10,6 +10,7 @@ $.get("/site-wide/head.html", function(data){
   $( "#page-title" ).append( titleValue );
 });
 
+
 $( "#site-body" ).load( "/site-wide/body.html", function() {
 
   $( "#sidebar-menu" ).load( "/site-wide/sidebar.html", function() {
@@ -35,20 +36,17 @@ $( "#site-footer" ).load( "/site-wide/footer.html" );
 $.get( contentFile , function(data){
   $(data).appendTo("#page-content");
 
-  $( "#page-content" ).append( "<div class=\"page-nav\"><div class=\"page-back\">" );
+  $( "#page-nav" ).load( "/site-wide/body.html", function() {
 
-  if(lastName !="null") {
-      $( "#page-content" ).append( "<a href=\"" + lastUrl + "\" type=\"text/html\"> <<< " + lastName + "</a></p>" );
-  };
+    if(lastName !="null") {
+        $( "#page-back" ).append( "<a href=\"" + lastUrl + "\" type=\"text/html\"> <<< " + lastName + "</a></p>" );
+    };
 
-  $( "#page-content" ).append("</div>");
+    if(nextName != "null") {
+      $( "#page-next" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + " >>></a></p>" );
+    };
 
-  $( "#page-content" ).append( "<div class=\"page-next\">" );
-
-  if(nextName != "null") {
-    $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + " >>></a></p>" );
-  };
-  $( "#page-content" ).append("</div>")
+  });
 
 });
 
