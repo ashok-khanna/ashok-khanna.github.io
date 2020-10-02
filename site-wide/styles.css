@@ -176,8 +176,9 @@ p { font-weight: 300; }
 article p { font-weight: 200;}
 b { font-weight: 700; }
 p { padding: 0; margin: 0 0 0.8rem 0; }
-h2 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0.5rem 0; font-weight: 600;}
-h3 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0 0; font-weight: 600;}
+article h2 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0.5rem 0; font-weight: 600; color: #6E523D;}
+article h3 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0 0; font-weight: 600; color: #6E523D;}
+article h1 { font-fmaily: 'Montserrat', color: #6E523D;}
 
 /* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
@@ -213,8 +214,8 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 /* Site Header */
 header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-header p { font-family: 'Montserrat', sans-serif; font-weight: 400; margin: 0; }
-header h2 { font-size: 2.25rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
+header p { font-family: 'Montserrat', sans-serif; font-weight: 300; margin: 0; }
+header h2 { font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
