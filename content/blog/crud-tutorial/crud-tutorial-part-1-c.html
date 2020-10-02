@@ -41,7 +41,7 @@ Amazon EC2 and Google Compute Engine are two viable platforms for this, and we w
 
 <p>Finally, I find it useful during testing and debugging to monitor activity to a port, to see if traffic is actually reaching the port. This helps isolate the problem at either the client side or firewall side (if there is no activity at the port) or at the server side (if there is activity at the port). You can listen to a port with the following (below is an example for monitoring port 443):</p>
 
-<code>sudo tcpdump -i any port 443</code>
+<pre><code>sudo tcpdump -i any port 443</code></pre>
 
 <h3>Elastic IPs — Setting a permanent IP for your server</h3>
 <p>As of now, the external IP address of your virtual linux server will reset every time you reset your machine. Not an ideal situation, when you will be later pointing a domain to this IP. We can set a permanent external IP address to our machine via <b>Amazon Elastic IPs</b>.</p>
@@ -70,11 +70,11 @@ Amazon EC2 and Google Compute Engine are two viable platforms for this, and we w
 <p>As a final part of this section, let us learn how to remote access into our server via SSH.</p>
 <p>It’s very easy. Remember that you downloaded your private key file earlier, so so first restrict its settings (necessary for it to be used for SSH), replacing the below file with the path to where you saved your private key:</p>
 
-<code>sudo chmod 400 ~/Downloads/test-launch-key-pair.pem</code>
+<pre><code>sudo chmod 400 ~/Downloads/test-launch-key-pair.pem</code></pre>
 
 <p>Then simply run the following command to SSH into your machine (replacing the private key location with the actual location of your file and replacing the IP address with the actual IP address of your server):</p>
 
-<code>ssh -i ~/Downloads/test-launch-key-pair.pem ubuntu@46.137.255.53</code>
+<pre><code>ssh -i ~/Downloads/test-launch-key-pair.pem ubuntu@46.137.255.53</code></pre>
 
 <p>When you run the above command for the first time, select yes when prompted whether you want to add the IP address to your known host file.</p>
 </p>In the future, sometimes if you have issues with the setup of your SSH connection, you may need to delete this entry from the host file (you can google to learn more about this). Hopefully you won’t have to face this but as I was experimenting a fair bit, I had to do it from time to time.</p>
@@ -85,7 +85,7 @@ Amazon EC2 and Google Compute Engine are two viable platforms for this, and we w
 <p>Before we move onto the next section, I want to briefly spend some time discussing some common linux commands and concepts that I found helpful in creating, testing and deploying this project. Most of these are not directly used, but rather were helpful during testing and debugging. This section is optional to read.
 Below are some commands you may use frequently.</p>
 
-<code>List all the folders and files in the current directory:
+<pre><code>List all the folders and files in the current directory:
 ls
 Move to a subfolder (you can also enter the path of a folder to move to it, e.g. cd /etc/nginx):
 cd folder_name
@@ -126,47 +126,47 @@ chmod 644 file_name
 Owner can read, write and execute, others can read and execute only:
 chmod 775 file_name
 Exit current process:
-CTRL + C</code>
+CTRL + C</code></pre>
 
 <p>Apt-Get: Apt-Get is a package manager for Ubuntu and is fantastic. Run the following code frequently to ensure your package managers are kept up to date:</p>
-<code>sudo apt-get update
-sudo apt-get upgrade</code>
+<pre><code>sudo apt-get update
+sudo apt-get upgrade</code></pre>
 
 <p>Downloading files through wget (install via sudo apt-get install wget):</p>
-<code>wget file_http_url</code>
+<pre><code>wget file_http_url</code></pre>
 
 <p>Version Control & GitHub: Install git via sudo apt-get install git</p>
 
 <p>Add the public key of your linux server (you will have to create this — google to see how) to your GitHub account to allow you to access / update your repos in GitHub.</p>
 
 <p>Initialise git on a folder (note that you have to create repositories on GitHub first to be able to push files to GitHub’s servers):</p>
-<code>git init</code>
+<pre><code>git init</code></pre>
 
 <p>Set your git remote to GitHub to allow you to pull / push files to GitHub:</p>
-<code>git remote set-url origin git@github.com:user-name/repo-name.git</code>
+<pre><code>git remote set-url origin git@github.com:user-name/repo-name.git</code></pre>
 
 <p>Pull files from GitHub:</p>
-<code>git pull origin</code>
+<pre><code>git pull origin</code></pre>
 
 <p>Add files to git tracking (use -A for all current files — future files need to be added again):</p>
-<code>git add file_name</code>
+<pre><code>git add file_name</code></pre>
 
 <p>Commit tracked files:</p>
-<code>git commit -m "commit message"</code>
+<pre><code>git commit -m "commit message"</code></pre>
 
 <p>Push committed files to GitHub:</p>
-<code>git push -u origin master</code>
+<pre><code>git push -u origin master</code></pre>
 
 <p>You can use GitHub repos as a way of transferring files between your desktop computer and your linux server, or you can use an SFTP tool (I use Transmit on macOS).</p>
 
 <p>Text Editor & Emacs: As a final point, you will very frequently need to edit files. I utilised emacs for this as I think it is a great text editor, but feel free to use whatever you like. The code below assumes emacs, but you can replace the word emacs in the code below with the program name for your editor of choice (e.g. change sudo emacs → sudo nano).</p>
 
 <p>To install emacs:</p>
-<code>sudo apt-get install emacs</code>
+<pre><code>sudo apt-get install emacs</code></pre>
 
 <p>Monitoring processes: Similar to CTRL + ALT + DEL on Windows, we can monitor what programs are running in the background on our linux machine via htop. First install it:</p>
 
-<code>sudo apt-get install htop</code>
+<pre><code>sudo apt-get install htop</code></pre>
 
 <p>You can then run it via the command htop. You can kill a process with the F9 key. Use F6 to select how you wish to sort the processes.</p>
 
