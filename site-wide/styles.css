@@ -241,4 +241,4 @@ a:active { color: teal; }
 body { font-family: 'IBM Plex Sans', 'Open Sans Condensed', sans-serif; font-weight: 300; }
 p { font-weight: 300; }
 b { font-weight: 700; }
-p { margin: 0px; padding-top: 0px; padding-bottom: 1em; }
+p { padding: 0px; margin: 0 0 1em 0; }
