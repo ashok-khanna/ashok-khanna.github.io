@@ -176,8 +176,8 @@ p { font-weight: 300; }
 article p { font-size: 125%; font-weight: 200;}
 b { font-weight: 700; }
 p { padding: 0; margin: 0 0 0.8rem 0; }
-h2 { font-family: 'Titillium Web', sans-serif; padding: 0; margin: 2.25rem 0 0.5rem 0; font-size:200%; font-weight: 600;}
-h3 { font-family: 'Titillium Web', sans-serif; padding: 0; margin: 2.25rem 0 0 0; font-size: 150%; font-weight: 600;}
+h2 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0.5rem 0; font-size:200%; font-weight: 600;}
+h3 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0 0; font-size: 150%; font-weight: 600;}
 
 /* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
@@ -198,7 +198,7 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Titillium Web', 'Open Sans Condensed', sans-serif; font-weight: 400; font-size: 120%; }
+nav { font-family: 'Montserrat', 'Open Sans Condensed', sans-serif; font-weight: 400; font-size: 125%; }
 nav p { padding: 10px 20px 10px 20px; margin: 0; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { font-size: 0.9rem; color: black; }
@@ -212,9 +212,9 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Site Header */
-header { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
-header p { font-family: 'Titillium Web', sans-serif; font-weight: 400; margin: 0; }
-header h2 { font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
+header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+header p { font-family: 'Montserrat', sans-serif; font-weight: 400; margin: 0; }
+header h2 { font-size: 2.25rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
