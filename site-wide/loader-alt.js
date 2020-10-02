@@ -53,12 +53,3 @@ $.get( contentFile , function(data){
 });
 
 });
-
-
-<div class="top-logo"><h2>Math.Dev</h2></div>
-<div class="top-menu">
-<div class="top-menu-item"><a href="/index.html">Home</a></div>
-<div class="top-menu-item"><a href="/blog/index.html">Blog</a></div>
-<div class="top-menu-item"><a href="/beta/index.html">Math</a></div>
-<div class="top-menu-item"><a href="/lisp/index.html">Lisp</a></div>
-</div>
