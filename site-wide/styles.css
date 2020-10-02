@@ -3,7 +3,7 @@
 html {
   line-height: 1.4; /* `Correct the line height in all browsers. */
   -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
-  font-size: 100%;
+  font-size: 110%;
 }
 
 body, pre, code {
