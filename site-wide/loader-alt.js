@@ -43,7 +43,7 @@ $.get( contentFile , function(data){
 
   $( "#page-content" ).append("</div>");
 
-  $( "#page-content" ).append( "<div class=\"page-nav\"><div class=\"page-next\">" );
+  $( "#page-content" ).append( "<div class=\"page-next\">" );
 
   if(nextName != "null") {
     $( "#page-content" ).append( "<p class=\"next\">Next: <a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + "</a></p>" );
