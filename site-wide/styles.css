@@ -173,6 +173,7 @@ template {
 /* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 0px auto; padding: 2.5vw; width: 60%; max-width: 576px; }
+figcaption { margin: 0px auto; padding: 2.5vw; width: 80%; max-width: 768px; font-style: italic; }
 footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px; font-size: 0.8rem;
   color: gray; 'Open Sans Condensed', sans-serif; font-weight: 300; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
@@ -227,7 +228,7 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 /* Special Content Styles */
 .callout { color: black; background-color: #EDD1BC; padding: 20px; }
 .code { background-color: #f1f1f1; color: black; width: 100%; padding: 20px;}
-figcaption { }
+
 
 /* Hyperlinks */
 a:link { color: blue; }
