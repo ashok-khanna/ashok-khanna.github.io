@@ -170,6 +170,14 @@ template {
 
 /* START OF MAIN CSS */
 
+/* Typography */
+body { font-family: 'IBM Plex Sans', 'Open Sans Condensed', sans-serif; font-weight: 300; }
+p { font-weight: 300; }
+b { font-weight: 700; }
+p { padding: 0; margin: 0 0 2.25rem 0; }
+h2 { padding: 0; margin: 2.5rem 0 1rem 0; }
+h3 { padding: 0; margin: 2.5rem 0 0.25rem 0; }
+
 /* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
@@ -190,7 +198,7 @@ nav { display: none; }
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 nav { font-family: 'Open Sans Condensed', sans-serif; font-weight: 300; }
-nav p { padding: 10px 20px 10px 20px; }
+nav p { padding: 10px 20px 10px 20px; margin: 0; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { font-size: 0.8rem; color: black; }
 .sidebar-submenu a:link { color: black; }
@@ -204,7 +212,7 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 /* Site Header */
 header { font-family: 'Open Sans Condensed', sans-serif; font-weight: 700; }
-header p { font-family: 'Open Sans Condensed', sans-serif; font-weight: 300; }
+header p { font-family: 'Open Sans Condensed', sans-serif; font-weight: 300; margin: 0; }
 header h2 { font-size: 1.75rem; font-weight: 700; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
@@ -236,11 +244,3 @@ a:link { color: blue; }
 a:visited { color: purple; }
 a:hover { color: teal; }
 a:active { color: teal; }
-
-/* Typography */
-body { font-family: 'IBM Plex Sans', 'Open Sans Condensed', sans-serif; font-weight: 300; }
-p { font-weight: 300; }
-b { font-weight: 700; }
-p { padding: 0; }
-h2 { padding: 0; margin: 2.5rem 0 1rem 0; }
-h3 { padding: 0; margin: 2.5rem 0 0.25rem 0; }
