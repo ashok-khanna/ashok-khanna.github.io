@@ -222,14 +222,7 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 .top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width:50%; }
 .top-menu-item { margin: 0px; flex-grow: 1; border-radius: 4px;}
 
-#page-links { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: teal; color: white; }
-#page-back { margin:0px;	padding: 2.5vw; width: 50%; text-align: left;}
-#page-next { margin:0px;	padding: 2.5vw; width: 50%; text-align: right;}
 
-#page-links a:link { color: white; font-size: 1.5rem;}
-#page-links a:visited { color: white; font-size: 1.5rem;}
-#page-links a:hover { color: red; font-size: 1.5rem;}
-#page-links a:active { color: red; font-size: 1.5rem;}
 
 @media (max-width: 736px) {
 	.top-menu-item a:link { color:#FFF; }
@@ -243,6 +236,22 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 	.top-menu-item a:visited { color: #FFF; padding: 10px 20px 10px 20px}
 	.top-menu-item a:hover { color: #FFF; background-color: teal; padding: 10px 20px 10px 20px}
 	.top-menu-item a:active { color: #FFF; background-color: teal; padding: 10px 20px 10px 20px}
+}
+
+@media (max-width: 736px) {
+  #page-links { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
+
+}
+
+@media (min-width: 736px) {
+  #page-links { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: teal; color: white; }
+  #page-back { margin:0px;	padding: 2.5vw; width: 50%; text-align: left;}
+  #page-next { margin:0px;	padding: 2.5vw; width: 50%; text-align: right;}
+
+  #page-links a:link { color: white; font-size: 1.5rem;}
+  #page-links a:visited { color: white; font-size: 1.5rem;}
+  #page-links a:hover { color: red; font-size: 1.5rem;}
+  #page-links a:active { color: red; font-size: 1.5rem;}
 }
 
 /* Special Content Styles */
