@@ -174,9 +174,9 @@ template {
 body { font-family: 'IBM Plex Sans', 'Open Sans Condensed', sans-serif; font-weight: 300; }
 p { font-weight: 300; }
 b { font-weight: 700; }
-p { padding: 0; margin: 0 0 2.25rem 0; }
-h2 { padding: 0; margin: 2.5rem 0 1rem 0; }
-h3 { padding: 0; margin: 2.5rem 0 0.25rem 0; }
+p { padding: 0; margin: 0 0 1rem 0; }
+h2 { padding: 0; margin: 2.25rem 0 1rem 0; }
+h3 { padding: 0; margin: 2.25rem 0 0 0; }
 
 /* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
