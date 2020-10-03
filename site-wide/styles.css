@@ -224,7 +224,6 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 .top-menu-item { margin: 0px; flex-grow: 1; border-radius: 4px;}
 
 
-
 @media (max-width: 736px) {
 	.top-menu-item a:link { color:#FFF; }
 	.top-menu-item a:visited { color: #FFF; }
@@ -241,7 +240,7 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 
 @media (max-width: 736px) {
   #page-links { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
-
+  .lisp-link { display: none; }
 }
 
 @media (min-width: 736px) {
