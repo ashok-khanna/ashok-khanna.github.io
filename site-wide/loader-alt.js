@@ -35,7 +35,7 @@ $( "#site-footer" ).load( "/site-wide/footer.html" );
 
 $.get( contentFile , function(data){
   $(data).appendTo("#page-content");
-  if(lastName !="null" && nextName !="null"){
+  if(lastName !="null" || nextName !="null"){
   $( "#page-links" ).load( "/site-wide/page-links.html", function() {
 
     if(lastName !="null") {
