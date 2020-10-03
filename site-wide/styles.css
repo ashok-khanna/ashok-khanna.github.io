@@ -177,7 +177,7 @@ p { font-weight: 300; }
 article p { font-weight: 200;}
 b { font-weight: 700; }
 p { padding: 0; margin: 0 0 0.8rem 0; }
-ol, ul { padding: 0; margin: 0 0 0.5rem 0; }
+ol, ul { margin-bottom: 1rem; }
 article h2 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0.5rem 0; font-weight: 600; border-bottom: 2px solid black}
 article h3 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0 0; font-weight: 600; }
 article h1 { font-family: 'Montserrat'; color: #3B1F0A;}
