@@ -37,7 +37,6 @@ pre {
 
 a {
   background-color: transparent; /* Remove the gray background on active links in IE 10. */
-  text-decoration:none;
 }
 
 abbr[title] {
@@ -256,11 +255,3 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 
 /* Special Content Styles */
 .callout { color: black; background-color: #EDD1BC; padding: 20px; }
-
-
-
-/* Hyperlinks */
-a:link { color: blue; }
-a:visited { color: purple; }
-a:hover { color: teal; }
-a:active { color: teal; }
