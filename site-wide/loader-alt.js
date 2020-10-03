@@ -5,15 +5,15 @@ var lastUrl = document.getElementById("ajax-loader").getAttribute("data-lastUrl"
 var nextName = document.getElementById("ajax-loader").getAttribute("data-nextName");
 var lastName = document.getElementById("ajax-loader").getAttribute("data-lastName");
 
-$.get("/site-wide/head.html", function(data){
+$.get("https://www.math.dev/site-wide/head.html", function(data){
   $(data).appendTo("#site-head");
   $( "#page-title" ).append( titleValue );
 });
 
 
-$( "#site-body" ).load( "/site-wide/body.html", function() {
+$( "#site-body" ).load( "https://www.math.dev/site-wide/body.html", function() {
 
-  $( "#sidebar-menu" ).load( "/site-wide/sidebar.html", function() {
+  $( "#sidebar-menu" ).load( "https://www.math.dev/site-wide/sidebar.html", function() {
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -30,13 +30,13 @@ for (i = 0; i < coll.length; i++) {
 }
 });
 
-$( "#site-header" ).load( "/site-wide/header.html" );
-$( "#site-footer" ).load( "/site-wide/footer.html" );
+$( "#site-header" ).load( "https://www.math.dev/site-wide/header.html" );
+$( "#site-footer" ).load( "https://www.math.dev/site-wide/footer.html" );
 
 $.get( contentFile , function(data){
   $(data).appendTo("#page-content");
 
-  $( "#page-links" ).load( "/site-wide/page-links.html", function() {
+  $( "#page-links" ).load( "https://www.math.dev/site-wide/page-links.html", function() {
 
     if(lastName !="null") {
         $( "#page-back" ).append( "<a href=\"" + lastUrl + "\" type=\"text/html\"> <<< " + lastName + "</a>" );
