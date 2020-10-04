@@ -340,9 +340,9 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Oswald', 'Open Sans Condensed', sans-serif; font-weight: 400; }
-nav p { font-family: 'Oswald'; padding: 10px 20px 10px 20px; margin: 0; }
-nav a { font-family: 'Oswald'; font-size: 1rem; text-decoration: none; }
+nav { font-family: 'Mada', 'Open Sans Condensed', sans-serif; font-weight: 400; }
+nav p { font-family: 'Mada'; padding: 10px 20px 10px 20px; margin: 0; }
+nav a { font-family: 'Mada'; font-size: 1rem; text-decoration: none; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { font-size: 0.9rem; color: black; }
 .sidebar-submenu a:link { color: black; }
@@ -355,10 +355,10 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Site Header */
-header { font-family: 'Oswald', sans-serif; font-weight: 700; }
-header p { font-family: 'Oswald', sans-serif; font-weight: 300; margin: 0; }
-header h2 { font-family: 'Oswald', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
-header a { text-decoration: none; }
+header { font-family: 'Mada', sans-serif; font-weight: 700; }
+header p { font-family: 'Mada', sans-serif; font-weight: 300; margin: 0; }
+header h2 { font-family: 'Mada', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
+header a { font-family: 'Mada'; text-decoration: none; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
