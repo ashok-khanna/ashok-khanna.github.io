@@ -340,9 +340,9 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Maven Pro', 'Open Sans Condensed', sans-serif; font-weight: 400; }
-nav p { font-family: 'Maven Pro'; padding: 10px 20px 10px 20px; margin: 0; }
-nav a { font-family: 'Maven Pro'; font-size: 1rem; text-decoration: none; }
+nav { font-family: 'Montserrat', 'Open Sans Condensed', sans-serif; font-weight: 400; }
+nav p { font-family: 'Montserrat'; padding: 10px 20px 10px 20px; margin: 0; }
+nav a { font-family: 'Montserrat'; font-size: 1rem; text-decoration: none; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { font-size: 0.9rem; color: black; }
 .sidebar-submenu a:link { color: black; }
@@ -355,10 +355,10 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Site Header */
-header { font-family: 'Maven Pro', sans-serif; font-weight: 700; }
-header p { font-family: 'Maven Pro', sans-serif; font-weight: 300; margin: 0; }
-header h2 { font-family: 'Maven Pro', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
-header a { font-family: 'Maven Pro'; text-decoration: none; }
+header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+header p { font-family: 'Montserrat', sans-serif; font-weight: 300; margin: 0; }
+header h2 { font-family: 'charterbold', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
+header a { font-family: 'Montserrat'; text-decoration: none; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
