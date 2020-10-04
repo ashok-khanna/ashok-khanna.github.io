@@ -340,9 +340,9 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Montserrat', 'Open Sans Condensed', sans-serif; font-weight: 400; }
-nav p { font-family: 'Montserrat'; padding: 10px 20px 10px 20px; margin: 0; }
-nav a { font-family: 'Montserrat'; font-size: 1rem; text-decoration: none; }
+nav { font-family: 'Raleway', 'Open Sans Condensed', sans-serif; font-weight: 400; }
+nav p { font-family: 'Raleway'; padding: 10px 20px 10px 20px; margin: 0; }
+nav a { font-family: 'Raleway'; font-size: 1rem; text-decoration: none; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { font-size: 0.9rem; color: black; }
 .sidebar-submenu a:link { color: black; }
