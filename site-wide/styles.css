@@ -310,3 +310,89 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 
 /* Special Content Styles */
 .callout { color: black; background-color: #EDD1BC; padding: 20px; }
+
+/* Medium style sheet */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
+
+h1, h2, p, i, a, .first-letter, .authorName a {
+  color: rgba(0, 0, 0, 0.84);
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem; /* 48px */
+  text-align: left;
+  margin-bottom: 0.5rem; /* 8px */
+}
+
+h2 {
+  font-family: "charterbold", sans-serif;
+  font-size: 1.625rem; /* 26px */
+  font-weight: 700;
+  padding: 0;
+  margin: 3.5rem 0 -0.8125rem -0.1177rem; /* 56px */ /* -13px */ /* -1.883px */
+  text-align: left;
+  line-height: 2.1562rem; /* 34.5px */
+  letter-spacing: -0.0281rem; /* -0.45px */
+}
+
+p, i, a {
+  margin-top: 1.3125rem; /* 21px */
+  font-family: "charterregular";
+  font-size: 1.3125rem; /* 21px */
+  letter-spacing: -0.0019rem; /* -0.03px */
+  line-height: 1.58;
+}
+
+b {
+  font-family: "charterbold";
+}
+
+a {
+  text-decoration: underline;
+}
+
+blockquote {
+  font-family: "Playfair Display", serif;
+  font-size: 1.875rem; /* 30px */
+  font-style: italic;
+  letter-spacing: -0.0225rem; /* -0.36px */
+  line-height: 2.775rem; /* 44.4px */
+  overflow-wrap: break-word;
+  margin: 3.4375rem 0 2.0625rem 0; /* 55px */ /* 33px */
+  /* text-align: center; */
+  color: rgba(0, 0, 0, 0.68);
+  padding: 0 0 0 3.125rem; /* 50px */
+}
+
+code {
+  font-size: 1.125rem; /* 18px */
+  background: rgba(0,0,0,.05);
+  border-radius: 0.125rem; /* 2px */
+  padding: 0.1875rem 0.3125rem; /* 3px */ /* 5px */
+}
+
+mark, .highlighted {
+  background: #7DFFB3;
+}
+
+.first-letter {
+  overflow-wrap: break-word;
+  font-family: "Playfair Display", serif;
+  font-size: 3.75rem; /* 60px */
+  line-height: 3.75rem; /* 60px */
+  display: block;
+  position: relative;
+  float: left;
+  margin: 0px 0.4375rem 0 -0.3125rem; /* 7px */ /* -5px */
+}
+
+.subtitle {
+  font-family: "charterregular", sans-serif;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0 0 1.5rem 0; /* 24px */
+}
+
+::selection{background-color: lavender}
