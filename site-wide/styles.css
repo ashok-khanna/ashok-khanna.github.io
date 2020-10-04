@@ -245,14 +245,14 @@ h1, h2, p, i, a, .first-letter, .authorName a {
 }
 
 h1 {
-  font-family: "charterregular", serif;
+  font-family: "Montserrat", serif;
   font-size: 2rem; /* 48px */ /* reduced to 32px */
   text-align: left;
   margin-bottom: 0.5rem; /* 8px */
 }
 
 h2 {
-  font-family: "charterbold", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.625rem; /* 26px */
   font-weight: 700;
   padding: 0;
@@ -304,7 +304,7 @@ mark, .highlighted {
 
 .first-letter {
   overflow-wrap: break-word;
-  font-family: "charterbold", serif;
+  font-family: "Montserrat", serif;
   font-size: 3.75rem; /* 60px */
   line-height: 3.75rem; /* 60px */
   display: block;
@@ -314,7 +314,7 @@ mark, .highlighted {
 }
 
 .subtitle {
-  font-family: "charterregular", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: rgba(0, 0, 0, 0.54);
   margin: 0 0 1.5rem 0; /* 24px */
 }
@@ -356,9 +356,9 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 /* Site Header */
 header { font-family: 'Montserrat', sans-serif; font-weight: 400; }
-header p { font-family: 'Montserrat', sans-serif; font-weight: 300; margin: 0; }
+header p { font-family: 'Montserrat', sans-serif; font-weight: 400; margin: 0; }
 header h2 { font-family: 'Montserrat', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
-header a { font-family: 'Montserrat'; text-decoration: none; }
+header a { font-family: 'Montserrat'; text-decoration: none; font-size: 1rem; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
