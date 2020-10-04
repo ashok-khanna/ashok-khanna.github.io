@@ -357,8 +357,8 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 /* Site Header */
 header { font-family: 'Montserrat', sans-serif; font-weight: 400; }
 header p { font-family: 'Montserrat', sans-serif; font-weight: 400; margin: 0; }
-header h2 { font-family: 'Bungee', sans-serif; color: white; font-size: 1.75rem; font-weight: 400; margin: 1.5rem 0 1.5rem 0; padding: 0; }
-header a { font-family: 'Montserrat'; text-decoration: none; font-size: 1rem; }
+header h2 { font-family: 'Gruppo', sans-serif; color: white; font-size: 2rem; font-weight: 400; margin: 1.5rem 0 1.5rem 0; padding: 0; }
+header a { font-family: 'Gruppo'; text-decoration: none; font-size: 1.5rem; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
