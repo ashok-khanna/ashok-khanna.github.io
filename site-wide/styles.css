@@ -228,7 +228,7 @@ template {
 body { font-family: 'charterregular', sans-serif; }
 p { font-weight: 300; }
 article p { font-weight: 200;}
-b { font-family: 'charterbolder'; }
+b { font-family: 'charterbold'; }
 p { padding: 0; margin: 0 0 0.8rem 0; }
 li { margin-bottom: 1rem; }
 article h2 { font-family: 'Montserrat', sans-serif; padding: 0; margin: 2.25rem 0 0.5rem 0; font-weight: 600; border-bottom: 2px solid black}
@@ -245,8 +245,8 @@ h1, h2, p, i, a, .first-letter, .authorName a {
 }
 
 h1 {
-  font-family: "Maven Pro", serif;
-  font-size: 3rem; /* 48px */
+  font-family: "charterregular", serif;
+  font-size: 2rem; /* 48px */ /* reduced to 32px */
   text-align: left;
   margin-bottom: 0.5rem; /* 8px */
 }
@@ -264,14 +264,14 @@ h2 {
 
 p, i, a {
   margin-top: 1.125rem ; /* 21px */ /* Reduced to 18px */
-  font-family: "charterregular";
+  font-family: "Montserrat";
   font-size: 1.125rem; /* 21px */
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
 }
 
 b {
-  font-family: "charterbold";
+  font-family: "Montserrat";
 }
 
 a {
@@ -279,7 +279,7 @@ a {
 }
 
 blockquote {
-  font-family: "Maven Pro", serif;
+  font-family: "Montserrat", serif;
   font-size: 1.875rem; /* 30px */
   font-style: italic;
   letter-spacing: -0.0225rem; /* -0.36px */
@@ -304,7 +304,7 @@ mark, .highlighted {
 
 .first-letter {
   overflow-wrap: break-word;
-  font-family: "Maven Pro", serif;
+  font-family: "charterbold", serif;
   font-size: 3.75rem; /* 60px */
   line-height: 3.75rem; /* 60px */
   display: block;
