@@ -355,10 +355,10 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Site Header */
-header { font-family: 'Itim', sans-serif; font-weight: 700; }
-header p { font-family: 'Itim', sans-serif; font-weight: 300; margin: 0; }
-header h2 { font-family: 'Itim', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
-header a { font-family: 'Itim'; text-decoration: none; }
+header { font-family: 'Montserrat', sans-serif; font-weight: 400; }
+header p { font-family: 'Montserrat', sans-serif; font-weight: 300; margin: 0; }
+header h2 { font-family: 'Montserrat', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
+header a { font-family: 'Montserrat'; text-decoration: none; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
