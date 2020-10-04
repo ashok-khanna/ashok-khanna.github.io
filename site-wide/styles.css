@@ -245,7 +245,7 @@ h1, h2, p, i, a, .first-letter, .authorName a {
 }
 
 h1 {
-  font-family: "Oswald", serif;
+  font-family: "Maven Pro", serif;
   font-size: 3rem; /* 48px */
   text-align: left;
   margin-bottom: 0.5rem; /* 8px */
@@ -263,9 +263,9 @@ h2 {
 }
 
 p, i, a {
-  margin-top: 1.3125rem; /* 21px */
+  margin-top: 1.125rem ; /* 21px */ /* Reduced to 18px */
   font-family: "charterregular";
-  font-size: 1.3125rem; /* 21px */
+  font-size: 1.125rem; /* 21px */
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
 }
@@ -279,7 +279,7 @@ a {
 }
 
 blockquote {
-  font-family: "Oswald", serif;
+  font-family: "Maven Pro", serif;
   font-size: 1.875rem; /* 30px */
   font-style: italic;
   letter-spacing: -0.0225rem; /* -0.36px */
@@ -304,7 +304,7 @@ mark, .highlighted {
 
 .first-letter {
   overflow-wrap: break-word;
-  font-family: "Oswald", serif;
+  font-family: "Maven Pro", serif;
   font-size: 3.75rem; /* 60px */
   line-height: 3.75rem; /* 60px */
   display: block;
@@ -340,9 +340,9 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Mada', 'Open Sans Condensed', sans-serif; font-weight: 400; }
-nav p { font-family: 'Mada'; padding: 10px 20px 10px 20px; margin: 0; }
-nav a { font-family: 'Mada'; font-size: 1rem; text-decoration: none; }
+nav { font-family: 'Maven Pro', 'Open Sans Condensed', sans-serif; font-weight: 400; }
+nav p { font-family: 'Maven Pro'; padding: 10px 20px 10px 20px; margin: 0; }
+nav a { font-family: 'Maven Pro'; font-size: 1rem; text-decoration: none; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { font-size: 0.9rem; color: black; }
 .sidebar-submenu a:link { color: black; }
@@ -355,10 +355,10 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Site Header */
-header { font-family: 'Mada', sans-serif; font-weight: 700; }
-header p { font-family: 'Mada', sans-serif; font-weight: 300; margin: 0; }
-header h2 { font-family: 'Mada', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
-header a { font-family: 'Mada'; text-decoration: none; }
+header { font-family: 'Maven Pro', sans-serif; font-weight: 700; }
+header p { font-family: 'Maven Pro', sans-serif; font-weight: 300; margin: 0; }
+header h2 { font-family: 'Maven Pro', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
+header a { font-family: 'Maven Pro'; text-decoration: none; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
