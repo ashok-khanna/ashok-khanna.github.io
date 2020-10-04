@@ -237,7 +237,7 @@ article h1 { font-family: 'Montserrat'; color: #3B1F0A;}
 
 /* Medium style sheet */
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Lora|Playfair+Display:700i,900');
 
 h1, h2, p, i, a, .first-letter, .authorName a {
   color: rgba(0, 0, 0, 0.84);
@@ -245,7 +245,7 @@ h1, h2, p, i, a, .first-letter, .authorName a {
 }
 
 h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Oswald", serif;
   font-size: 3rem; /* 48px */
   text-align: left;
   margin-bottom: 0.5rem; /* 8px */
@@ -279,7 +279,7 @@ a {
 }
 
 blockquote {
-  font-family: "Playfair Display", serif;
+  font-family: "Oswald", serif;
   font-size: 1.875rem; /* 30px */
   font-style: italic;
   letter-spacing: -0.0225rem; /* -0.36px */
@@ -304,7 +304,7 @@ mark, .highlighted {
 
 .first-letter {
   overflow-wrap: break-word;
-  font-family: "Playfair Display", serif;
+  font-family: "Oswald", serif;
   font-size: 3.75rem; /* 60px */
   line-height: 3.75rem; /* 60px */
   display: block;
@@ -340,9 +340,9 @@ nav { display: none; }
 
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-family: 'Playfair Display', 'Open Sans Condensed', sans-serif; font-weight: 400; }
-nav p { font-family: 'Playfair Display'; padding: 10px 20px 10px 20px; margin: 0; }
-nav a { font-family: 'Playfair Display'; font-size: 1rem; text-decoration: none; }
+nav { font-family: 'Oswald', 'Open Sans Condensed', sans-serif; font-weight: 400; }
+nav p { font-family: 'Oswald'; padding: 10px 20px 10px 20px; margin: 0; }
+nav a { font-family: 'Oswald'; font-size: 1rem; text-decoration: none; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { font-size: 0.9rem; color: black; }
 .sidebar-submenu a:link { color: black; }
@@ -355,9 +355,9 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Site Header */
-header { font-family: 'Playfair Display', sans-serif; font-weight: 700; }
-header p { font-family: 'Playfair Display', sans-serif; font-weight: 300; margin: 0; }
-header h2 { font-family: 'Playfair Display', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
+header { font-family: 'Oswald', sans-serif; font-weight: 700; }
+header p { font-family: 'Oswald', sans-serif; font-weight: 300; margin: 0; }
+header h2 { font-family: 'Oswald', sans-serif; color: white; font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 1.5rem 0; padding: 0; }
 header a { text-decoration: none; }
 
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
