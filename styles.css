@@ -333,3 +333,6 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 
 /* Special Content Styles */
 .callout { color: black; background-color: #EDD1BC; padding: 20px; }
+
+/* Mailchimp Styles */
+#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
