@@ -288,9 +288,9 @@ header a { text-decoration: none; font-size: 1.5rem; font-weight: 300; }
 
 @media (min-width: 736px) {
 	.top-menu-item a:link { color: white; padding: 15px 30px 30px 15px}
-	.top-menu-item a:visited { color: w; padding: 15px 30px 30px 15px}
-	.top-menu-item a:hover { color: #FFF; background-color: teal; padding: 15px 30px 30px 15px}
-	.top-menu-item a:active { color: #FFF; background-color: teal; padding: 15px 30px 30px 15px}
+	.top-menu-item a:visited { color: white; padding: 15px 30px 30px 15px}
+	.top-menu-item a:hover { color: white; background-color: teal; padding: 15px 30px 30px 15px}
+	.top-menu-item a:active { color: white; background-color: teal; padding: 15px 30px 30px 15px}
 }
 
 @media (max-width: 736px) {
