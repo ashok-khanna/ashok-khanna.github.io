@@ -321,7 +321,7 @@ nav { display: none; }
 }
 
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-weight: 400; }
+nav { font-weight: 300; }
 nav p { padding: 10px 20px 10px 20px; margin: 0; }
 nav a { font-size: 1rem; text-decoration: none; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
@@ -330,7 +330,7 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-sublink:hover { background-color: teal; color: white; }
 .sidebar-submenu p { font-size: 0.8rem; color: black; }
 .sidebar-submenu a { color: inherit; }
-.collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; }
+.collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:80%; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 
