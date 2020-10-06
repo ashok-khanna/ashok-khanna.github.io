@@ -279,13 +279,10 @@ header a { text-decoration: none; font-size: 1.5rem; font-weight: 300; }
 header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin:0px;	padding-top: 0px; padding-bottom:0px; padding-left: 2.5vw; padding-right: 0px; width: 50%; }
 .top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width:50%; }
-.top-menu-item { margin: 0px; flex-grow: 1; border-radius: 4px;}
+.top-menu-item { margin: 0px; flex-grow: 1; color: white;}
+.top-menu-item a { color: inherit; }
+.top-menu-item:hover { background-color: teal; }
 
-
-.top-menu-item a:link { color:#FFF; }
-.top-menu-item a:visited { color: #FFF; }
-.top-menu-item a:hover { color: teal; }
-.top-menu-item a:active { color: teal; }
 
 
 
