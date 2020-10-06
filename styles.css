@@ -327,14 +327,12 @@ nav a { font-size: 1rem; text-decoration: none; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 .sidebar-submenu { display: none; }
-.sidebar-submenu p, a { font-size: 0.8rem; color: black; }
-.sidebar-submenu a:link { color: black; }
-.sidebar-submenu a:visited { color: black; }
-.sidebar-submenu a:hover { color: white; }
-.sidebar-submenu a:active { color: white; }
+.sidebar-sublink:hover { background-color: teal; color: white; }
+.sidebar-submenu p { font-size: 0.8rem; color: black; }
+.sidebar-submenu a { color: inherit; }
 .collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
-.sidebar-sublink:hover { background-color: teal; color: white; }
+
 
 
 /* Footer */
