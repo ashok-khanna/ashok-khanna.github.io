@@ -266,27 +266,9 @@ table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 
 /* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 0px; }
-nav { display: none; }
-@media screen and (min-width: 768px) and (orientation: landscape) {
-	 .page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; }
-	 nav { display: block; }
-}
 
-/* Sidebar */
-nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
-nav { font-weight: 400; }
-nav p { padding: 10px 20px 10px 20px; margin: 0; }
-nav a { font-size: 1rem; text-decoration: none; }
-nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
-.sidebar-submenu { font-size: 0.9rem; color: black; }
-.sidebar-submenu a:link { color: black; }
-.sidebar-submenu a:visited { color: black; }
-.sidebar-submenu a:hover { color: teal; }
-.sidebar-submenu a:active { color: teal; }
 
-.sidebar-submenu { display: none; }
-.collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; }
-.active, .collapsible:hover {  background-color: #555;	color: white; }
+
 
 /* Site Header */
 header { font-weight: 400; }
@@ -330,10 +312,33 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
   #page-links a:active { color: red; font-size: 1.5rem;}
 }
 
+/* Sidebar */
+
+nav { display: none; }
+@media screen and (min-width: 768px) and (orientation: landscape) {
+	 .page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; }
+	 nav { display: block; }
+}
+
+nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
+nav { font-weight: 400; }
+nav p { padding: 10px 20px 10px 20px; margin: 0; }
+nav a { font-size: 1rem; text-decoration: none; }
+nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
+
+.sidebar-submenu { display: none; }
+.sidebar-submenu p, a { font-size: 0.8rem; color: black; }
+.sidebar-submenu a:link { color: black; }
+.sidebar-submenu a:visited { color: black; }
+.sidebar-submenu a:hover { color: teal; }
+.sidebar-submenu a:active { color: teal; }
+.collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; }
+.active, .collapsible:hover {  background-color: #555;	color: white; }
+
 
 /* Footer */
 footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px;  }
-footer p { font-size: 0.75rem; color: gray; font-weight: 200; }
+footer p, a { font-size: 0.8rem; color: gray; font-weight: 200; }
 
 /* Special Content Styles */
 .callout { color: black; background-color: #EDD1BC; padding: 20px; }
