@@ -330,8 +330,8 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu p, a { font-size: 0.8rem; color: black; }
 .sidebar-submenu a:link { color: black; }
 .sidebar-submenu a:visited { color: black; }
-.sidebar-submenu a:hover { color: teal; }
-.sidebar-submenu a:active { color: teal; }
+.sidebar-submenu hover { color: teal; }
+.sidebar-submenu active { color: teal; }
 .collapsible { cursor: pointer; border: none; text-align: left; outline: none; width:100%; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
