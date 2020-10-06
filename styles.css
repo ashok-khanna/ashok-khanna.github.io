@@ -260,7 +260,7 @@ mark, .highlighted {
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
 figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
-footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px; font-size: 0.7rem; color: gray; font-weight: 200; }
+
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 .code { background-color: #f1f1f1; color: black; width: 100%; padding: 20px; margin: 2rem auto; }
 
@@ -329,6 +329,11 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
   #page-links a:hover { color: red; font-size: 1.5rem;}
   #page-links a:active { color: red; font-size: 1.5rem;}
 }
+
+
+/* Footer */
+footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px;  }
+footer p { font-size: 0.75rem; color: gray; font-weight: 200; }
 
 /* Special Content Styles */
 .callout { color: black; background-color: #EDD1BC; padding: 20px; }
