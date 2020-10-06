@@ -175,7 +175,6 @@ template {
 /* Typography */
 p { font-weight: 400; }
 article p { font-weight: 400;}
-b { font-family: 'Montserrat'; }
 p { padding: 0; margin: 0 0 0.8rem 0; }
 li { margin-bottom: 1rem; }
 article h1 { padding: 0; margin: 2.25rem 0 1rem 0; font-weight: 600; border-bottom: 2px solid black}
@@ -271,6 +270,7 @@ table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 
 
 /* Site Header */
+
 header { font-weight: 400; }
 header p { font-weight: 400; margin: 0; }
 header h2 { color: white; font-size: 3rem; font-weight: 200; margin: 1.5rem 0 1.5rem 0; padding: 0; }
@@ -282,19 +282,12 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 .top-menu-item { margin: 0px; flex-grow: 1; border-radius: 4px;}
 
 
-@media (max-width: 736px) {
-	.top-menu-item a:link { color:#FFF; }
-	.top-menu-item a:visited { color: #FFF; }
-	.top-menu-item a:hover { color: teal; }
-	.top-menu-item a:active { color: teal; }
-}
+.top-menu-item a:link { color:#FFF; }
+.top-menu-item a:visited { color: #FFF; }
+.top-menu-item a:hover { color: teal; }
+.top-menu-item a:active { color: teal; }
 
-@media (min-width: 736px) {
-	.top-menu-item a:link { color:#FFF; padding: 10px 20px 10px 20px}
-	.top-menu-item a:visited { color: #FFF; padding: 10px 20px 10px 20px}
-	.top-menu-item a:hover { color: #FFF; background-color: teal; padding: 10px 20px 10px 20px}
-	.top-menu-item a:active { color: #FFF; background-color: teal; padding: 10px 20px 10px 20px}
-}
+
 
 @media (max-width: 736px) {
   #page-links { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
