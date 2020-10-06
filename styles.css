@@ -274,23 +274,23 @@ header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: 
 header p { font-weight: 400; margin: 0; }
 header h2 { color: white; font-size: 3rem; font-weight: 200; margin: 1.5rem 0 1.5rem 0; padding: 0; }
 header a { text-decoration: none; font-size: 1.5rem; font-weight: 300; }
-.top-logo { margin: 0px;	padding: 0px 2.5vw 0px 0px; width: 50%; }
-.top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width:50%; }
+.top-logo { margin: 0px;	padding: 0 0 2.5vw 0; width: 50%; }
+.top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width: 50%; }
 .top-menu-item { margin: 0px; flex-grow: 1; border-radius: 4px;}
 
 
 @media (max-width: 736px) {
-	.top-menu-item a:link { color:#FFF; }
-	.top-menu-item a:visited { color: #FFF; }
+	.top-menu-item a:link { color: white; }
+	.top-menu-item a:visited { color: white; }
 	.top-menu-item a:hover { color: teal; }
 	.top-menu-item a:active { color: teal; }
 }
 
 @media (min-width: 736px) {
-	.top-menu-item a:link { color:#FFF; padding: 10px 20px 10px 20px}
-	.top-menu-item a:visited { color: #FFF; padding: 10px 20px 10px 20px}
-	.top-menu-item a:hover { color: #FFF; background-color: teal; padding: 10px 20px 10px 20px}
-	.top-menu-item a:active { color: #FFF; background-color: teal; padding: 10px 20px 10px 20px}
+	.top-menu-item a:link { color: white; padding: 15px 30px 30px 15px}
+	.top-menu-item a:visited { color: w; padding: 15px 30px 30px 15px}
+	.top-menu-item a:hover { color: #FFF; background-color: teal; padding: 15px 30px 30px 15px}
+	.top-menu-item a:active { color: #FFF; background-color: teal; padding: 15px 30px 30px 15px}
 }
 
 @media (max-width: 736px) {
