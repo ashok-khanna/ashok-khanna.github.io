@@ -203,7 +203,7 @@ article h3 { padding: 0; margin: 2.25rem 0 0 0; font-weight: 600; }
   letter-spacing: -0.0281rem; /* -0.45px */
 }
 
-.page-container p, i, a {
+main p, main i, main a {
   margin-top: 1.125rem ; /* 21px */ /* Reduced to 18px */
   font-size: 1.125rem; /* 21px */
   letter-spacing: -0.0019rem; /* -0.03px */
