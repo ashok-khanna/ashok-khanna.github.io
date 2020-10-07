@@ -255,6 +255,9 @@ mark, .highlighted {
 
 ::selection{background-color: lavender}
 
+/* Document-wide Responsive Layout */
+.page-container { margin: 0px; padding: 0px; }
+
 /* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
@@ -263,34 +266,35 @@ figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 .code { background-color: #f1f1f1; color: black; width: 100%; padding: 20px; margin: 2rem auto; }
 
-/* Document-wide Responsive Layout */
-.page-container { margin: 0px; padding: 0px; }
+
 
 
 
 
 /* Site Header */
-header { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
-header p { font-weight: 400; margin: 0; }
-header h2 { color: white; font-size: 3rem; font-weight: 200; margin: 1.5rem 0 1.5rem 0; padding: 0; }
-header a { text-decoration: none; font-size: 1.5rem; font-weight: 300; }
+
+header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
+header p, a { font-weight: 400; margin: 0; padding: 0; text-decoration: none; font-size: 1.25rem; }
+header h2 { font-size: 2.5rem; font-weight: 300; margin: 0; padding: 0; }
 .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%; }
 .top-menu { margin: 0px; padding: 0px;	display:flex; flex-direction: row; width: 50%; }
-.top-menu-item { margin: 0px; flex-grow: 1; border-radius: 4px;}
 
+/* Mobile */
 
 @media (max-width: 736px) {
+  .top-menu-item { margin: 0px; flex-grow: 1; }
 	.top-menu-item a:link { color: white; }
 	.top-menu-item a:visited { color: white; }
 	.top-menu-item a:hover { color: teal; }
 	.top-menu-item a:active { color: teal; }
 }
 
+/* Desktop & Tablet */
+
 @media (min-width: 736px) {
-	.top-menu-item a:link { color: white; padding: 15px 30px 30px 15px}
-	.top-menu-item a:visited { color: white; padding: 15px 30px 30px 15px}
-	.top-menu-item a:hover { color: white; background-color: teal; padding: 15px 30px 30px 15px}
-	.top-menu-item a:active { color: white; background-color: teal; padding: 15px 30px 30px 15px}
+  .top-menu-item { margin: 0px; width: 25%; box-sizing: border-box; }
+	.top-menu-item a { color: white; }
+	.top-menu-item:hover { background-color: teal; }
 }
 
 @media (max-width: 736px) {
@@ -327,7 +331,7 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-sublink:hover { background-color: teal; color: white; }
 .sidebar-submenu p { font-size: 0.8rem; color: black; }
 .sidebar-submenu a { color: inherit; }
-.collapsible { cursor: pointer; border: none; text-align: left; outline: none; width: 100%; box-sizing: border-box;}
+.collapsible { cursor: pointer; border: none; text-align: left; outline: none; width: 100%; box-sizing: border-box; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 
