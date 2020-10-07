@@ -334,7 +334,7 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 /* Footer */
 footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px;  }
-footer p, a { font-size: 0.8rem; color: gray; font-weight: 200; }
+footer p { font-size: 0.8rem; color: gray; font-weight: 200; }
 
 /* Special Content Styles */
 .callout { color: black; background-color: #EDD1BC; padding: 20px; }
