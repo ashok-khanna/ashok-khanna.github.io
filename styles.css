@@ -183,18 +183,18 @@ article h3 { padding: 0; margin: 2.25rem 0 0 0; font-weight: 600; }
 
 /* Medium style sheet */
 
-h1, h2, p, i, a, .first-letter, .authorName a {
+.page-container h1, h2, p, i, a, .first-letter, .authorName a {
   color: rgba(0, 0, 0, 0.84);
   text-rendering: optimizeLegibility;
 }
 
-h1 {
+.page-container h1 {
   font-size: 2rem; /* 48px */ /* reduced to 32px */
   text-align: left;
   margin-bottom: 0.5rem; /* 8px */
 }
 
-h2 {
+.page-container h2 {
   font-size: 1.625rem; /* 26px */
   font-weight: 700;
   padding: 0;
@@ -204,18 +204,14 @@ h2 {
   letter-spacing: -0.0281rem; /* -0.45px */
 }
 
-p, i, a {
+.page-container p, i, a {
   margin-top: 1.125rem ; /* 21px */ /* Reduced to 18px */
   font-size: 1.125rem; /* 21px */
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
 }
 
-a {
-  text-decoration: underline;
-}
-
-blockquote {
+.page-container blockquote {
   font-size: 1.875rem; /* 30px */
   font-style: italic;
   letter-spacing: -0.0225rem; /* -0.36px */
@@ -227,14 +223,14 @@ blockquote {
   padding: 0 0 0 3.125rem; /* 50px */
 }
 
-code {
+.page-container code {
   font-size: 1.125rem; /* 18px */
   background: rgba(0,0,0,.05);
   border-radius: 0.125rem; /* 2px */
   padding: 0.1875rem 0.3125rem; /* 3px */ /* 5px */
 }
 
-mark, .highlighted {
+.page-container mark, .highlighted {
   background: #7DFFB3;
 }
 
