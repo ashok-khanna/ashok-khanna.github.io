@@ -274,16 +274,14 @@ header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; fl
 .top-menu { margin: 0px; padding: 0 1.5rem 0 0;	display:flex; flex-direction: row; width: 50%; font-size: 1.25rem; font-weight: 400; }
 
 /* Mobile */
-
 @media (max-width: 736px) {
   .top-menu-item { margin: 0px; flex-grow: 1; }
 	.top-menu-item a:link { color: white; }
 	.top-menu-item a:visited { color: white; }
 	.top-menu-item a:hover { color: teal; }
 	.top-menu-item a:active { color: teal; }
+  .lisp-link { display: none; }
 }
-
-/* Desktop & Tablet */
 
 @media (min-width: 736px) {
   .top-menu-item { margin: 0px; width: 25%; box-sizing: border-box; padding: 1rem 0 1rem 0; text-align: center; }
@@ -293,24 +291,9 @@ header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; fl
 
 
 
-@media (max-width: 736px) {
-  #page-links { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
-  .lisp-link { display: none; }
-}
 
-@media (min-width: 736px) {
-  #page-links { width: 100%; margin: 0px; padding: 0px; display: flex; flex-direction: row; align-items: center; background-color: teal; color: white; }
-  #page-back { margin:0px;	padding: 2.5vw; width: 50%; text-align: left;}
-  #page-next { margin:0px;	padding: 2.5vw; width: 50%; text-align: right;}
-
-  #page-links a:link { color: white; font-size: 1.5rem;}
-  #page-links a:visited { color: white; font-size: 1.5rem;}
-  #page-links a:hover { color: red; font-size: 1.5rem;}
-  #page-links a:active { color: red; font-size: 1.5rem;}
-}
 
 /* Sidebar */
-
 nav { display: none; }
 @media screen and (min-width: 768px) and (orientation: landscape) {
 	 .page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; }
@@ -331,9 +314,25 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
 
+/* Page Links */
+@media (max-width: 736px) {
+  #page-links { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
+}
+
+@media (min-width: 736px) {
+  #page-links { width: 100%; margin: 0 auto; padding: 2.5vw; max-width: 1440px; display: flex; flex-direction: row; align-items: center; background-color: teal; color: white; }
+  #page-back { margin:0px;	padding: 2.5vw; width: 50%; text-align: left;}
+  #page-next { margin:0px;	padding: 2.5vw; width: 50%; text-align: right;}
+
+  #page-links a:link { color: white; font-size: 1.5rem;}
+  #page-links a:visited { color: white; font-size: 1.5rem;}
+  #page-links a:hover { color: red; font-size: 1.5rem;}
+  #page-links a:active { color: red; font-size: 1.5rem;}
+}
+
 
 /* Footer */
-footer { margin: 0px auto; padding: 2.5vw; max-width: 1440px;  }
+footer { margin: 0 auto; padding: 2.5vw; max-width: 1440px;  }
 footer p { font-size: 0.8rem; color: gray; font-weight: 200; }
 
 /* Special Content Styles */
