@@ -270,7 +270,8 @@ table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 /* Site Header */
 
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
-.top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%; font-size: 2.5rem; font-weight: 300; }
+.top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%;  }
+.top-log a { font-size: 2.5rem; font-weight: 300; color: inherit; }
 .top-menu { margin: 0px; padding: 0 1.5rem 0 0;	display:flex; flex-direction: row; width: 50%; font-size: 1.25rem; font-weight: 400; }
 
 /* Mobile */
