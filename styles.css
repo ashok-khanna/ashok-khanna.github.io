@@ -131,13 +131,9 @@ nav .active, nav .collapsible:hover {  background-color: #555;	color: white; }
 /* Footer */
 #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
 #site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray;}
-#page-links a { color: inherit; }
 
 @media (min-width: 736px) {
   #page-links { display: flex; flex-direction: row; align-items: center;  }
   #page-back { margin: 0 0 0 -1.5rem;	padding: 0; width: 50%; line-height: calc(1rem + 3rem); text-align: left; box-sizing: border-box; }
   #page-next { margin: 0 0 0 1.5rem;	padding: 0; width: 50%; line-height: calc(1rem + 3rem); text-align: right; box-sizing: border-box; }
-  #page-links a { padding: 1.5rem; font-weight: 700; }
-  #page-links a:hover { background-color: #6E523D; color: white; }
-  #page-links a:active { background-color: #6E523D; color: white; }
 }
