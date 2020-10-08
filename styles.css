@@ -32,6 +32,10 @@ a {
   font-weight: bolder;
 }
 
+a:hover, a:active {
+  color: teal;
+}
+
 b, strong {
   font-weight: bolder; /* Add the correct font weight in Chrome, Edge, and Safari. */
 }
@@ -119,7 +123,7 @@ header a { color: inherit; font-weight: 400; }
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.125rem; font-weight: 300; background-color: #f1f1f1; color: black; }
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
-nav a { font-weight: 300; }
+nav a { color: inherit; font-weight: 300; }
 
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 nav .sidebar-submenu { display: none; border: 1.5px solid #555; }
