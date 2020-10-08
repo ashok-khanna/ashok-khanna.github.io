@@ -1,4 +1,3 @@
-/* Notes */
 
 /* Normalisation & Page-wide */
 html {
@@ -108,15 +107,13 @@ header a { color: inherit; font-weight: 400; }
 @media (max-width: 736px) {
   header .top-logo a { font-size: 1.25rem; font-weight: 700; }
   header .top-menu-item { margin: 0px; flex-grow: 1; }
-	header .top-menu-item a:hover { color: teal; }
-	header .top-menu-item a:active { color: teal; }
 }
 
 @media (min-width: 736px) {
   header .top-logo a { font-size: 2.5rem; font-weight: 300; }
   header .top-menu-item { margin: 0; width: 25%; text-align: center; font-size: 1.25rem; box-sizing: border-box; }
   header .top-menu-item a { padding: 1rem 0 1rem 0; width: 100%; display:inline-block; }
-	header .top-menu-item a:hover { background-color: teal; }
+	header .top-menu-item a:hover { background-color: teal; color: white; }
 }
 
 
@@ -134,7 +131,7 @@ nav .active, nav .collapsible:hover {  background-color: #555;	color: white; bor
 
 /* Footer */
 #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
-#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray;}
+#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray; }
 
 @media (min-width: 736px) {
   #page-links { display: flex; flex-direction: row; align-items: center; }
