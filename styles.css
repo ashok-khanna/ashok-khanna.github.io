@@ -124,7 +124,7 @@ nav a { color: inherit; font-weight: 300; display: block; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 nav .sidebar-submenu { display: none; }
 nav .sidebar-submenu a { margin: 0; padding: 10px 20px 10px 20px; font-size: 0.8em; }
-nav .sidebar-sublink a:hover { background-color: teal; color: white; }
+nav .sidebar-sublink:hover { background-color: teal; color: white; }
 nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left; outline: none; box-sizing: border-box; }
 nav .active, nav .collapsible:hover {  background-color: #555;	color: white; }
 
