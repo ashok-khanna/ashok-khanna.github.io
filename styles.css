@@ -66,13 +66,14 @@ figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 nav { display: none; }
 
+@media (max-width: 736px) {
+  header .lisp-link { display: none; }
+  #site-footer { display: none }
+}
+
 @media screen and (min-width: 768px) and (orientation: landscape) {
 	 .page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; }
 	 nav { display: block; }
-}
-
-@media (max-width: 736px) {
-  header .lisp-link { display: none; }
 }
 
 
@@ -100,7 +101,7 @@ header .top-menu { margin: 0px; padding: 0 1.5rem 0 0; width: 50%; display:flex;
 header a { color: inherit; font-weight: 400; }
 
 @media (max-width: 736px) {
-  header .top-logo a { font-weight: 700; }
+  header .top-logo a { font-size: 1.5rem; font-weight: 700; }
   header .top-menu-item { margin: 0px; flex-grow: 1; }
 	header .top-menu-item a:hover { color: teal; }
 	header .top-menu-item a:active { color: teal; }
