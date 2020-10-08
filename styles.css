@@ -97,18 +97,19 @@ main .code { background-color: #f1f1f1; color: black; width: 100%; padding: 20px
 
 /* Site Header */
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
-header .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%;  }
-header .top-logo a { font-size: 2.5rem; font-weight: 300; }
-header .top-menu { margin: 0px; padding: 0 1.5rem 0 0;	display:flex; flex-direction: row; width: 50%; font-size: 1.25rem; font-weight: 400; }
+header .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%; }
+header .top-menu { margin: 0px; padding: 0 1.5rem 0 0; width: 50%; display:flex; flex-direction: row; }
 
 @media (max-width: 736px) {
+  header .top-logo a { font-weight: 700; }
   header .top-menu-item { margin: 0px; flex-grow: 1; }
 	header .top-menu-item a:hover { color: teal; }
 	header .top-menu-item a:active { color: teal; }
 }
 
 @media (min-width: 736px) {
-  header .top-menu-item { margin: 0px; width: 25%; padding: 1rem 0 1rem 0; text-align: center; box-sizing: border-box; }
+  header .top-logo a { font-size: 2.5rem; font-weight: 300; }
+  header .top-menu-item { margin: 0px; width: 25%; padding: 1rem 0 1rem 0; text-align: center; font-size: 1.25rem; font-weight: 400; box-sizing: border-box; }
 	header .top-menu-item:hover { background-color: teal; }
 }
 
