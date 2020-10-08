@@ -91,7 +91,7 @@ main h1 { margin: 2.25rem 0 1rem 0; font-size: 2rem; font-weight: 600; }
 main h2 { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
 main h3 { margin: 2.25rem 0 0 0; font-size: 1rem; font-weight: 600; }
 
-main a { }
+main a { color: initial; text-decoration: underline; }
 main mark { background: #7DFFB3; }
 main aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: black; }
 main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f1f1f1; color: black; }
