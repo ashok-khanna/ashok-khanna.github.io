@@ -321,9 +321,9 @@ footer p { font-size: 0.8rem; color: gray; font-weight: 200; }
 /* Page Links */
 
 @media (min-width: 736px) {
-  #page-links { display: grid; grid-auto-rows: 1fr; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; align-items: center;  }
-  #page-back { margin: 0;	padding: 1.125vw; display: flex; text-align: left; box-sizing: border-box; background-color: teal; color: white; }
-  #page-next { margin: 0;	padding: 1.125vw; display: flex; text-align: right; box-sizing: border-box; background-color: teal; color: white; }
+  #page-links { display: flex; flex-direction: row; align-items: center;  }
+  #page-back { margin: 0 ;	padding: 1.125vw; min-height: calc(2.5vw + 1.125rem); width: 50%; text-align: left; box-sizing: border-box; background-color: teal; color: white; }
+  #page-next { margin: 0 ;	padding: 1.125vw; min-height: calc(2.5vw + 1.125rem); width: 50%; text-align: right; box-sizing: border-box; background-color: teal; color: white; }
 
   #page-links a:link { color: white; font-size: 1.125rem;}
   #page-links a:visited { color: white; font-size: 1.125rem;}
