@@ -122,7 +122,7 @@ nav p { margin: 0; padding: 10px 20px 10px 20px; }
 nav a { color: inherit; font-weight: 300; }
 
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
-nav .sidebar-submenu { display: none; border-bottom: 1px solid black; }
+nav .sidebar-submenu { display: none; border-bottom: 2px solid #555; }
 nav .sidebar-sublink { margin: 0; padding: 10px 20px 10px 20px; font-size: 0.8em; display: block; }
 nav .sidebar-sublink:hover { background-color: teal; color: white; }
 nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left; outline: none; box-sizing: border-box; }
