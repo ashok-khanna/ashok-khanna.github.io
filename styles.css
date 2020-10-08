@@ -41,6 +41,7 @@ pre {
 a {
   background-color: transparent; /* Remove the gray background on active links in IE 10. */
   text-decoration: none;
+  color: inherit;
 }
 
 
@@ -139,7 +140,7 @@ table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 /* Site Header */
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%;  }
-.top-logo a { font-size: 2.5rem; font-weight: 300; color: inherit; }
+.top-logo a { font-size: 2.5rem; font-weight: 300; }
 .top-menu { margin: 0px; padding: 0 1.5rem 0 0;	display:flex; flex-direction: row; width: 50%; font-size: 1.25rem; font-weight: 400; }
 
 @media (max-width: 736px) {
@@ -173,7 +174,6 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .sidebar-submenu { display: none; }
 .sidebar-sublink:hover { background-color: teal; color: white; }
 .sidebar-submenu p { font-size: 0.8rem; color: black; }
-.sidebar-submenu a { color: inherit; }
 .collapsible { cursor: pointer; border: none; text-align: left; outline: none; width: 100%; box-sizing: border-box; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
