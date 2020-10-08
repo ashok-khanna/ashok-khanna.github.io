@@ -83,14 +83,12 @@ main p, main a, main li {
   font-size: 1.125rem;
 }
 
-main p, main a { margin-top: 1.125rem; }
-main li { margin-bottom: 1rem; }
+main p, main a, main li { margin-bottom: 1.125rem; }
 
 main h1 { margin: 2.25rem 0 1rem 0; font-size: 2rem; font-weight: 600; }
 main h2 { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
-main h3 { margin: 2.25rem 0 0 0; font-size: 1rem; font-weight: 600; }
+main h3 { margin: 2.25rem 0 0 0; font-size: 1.125rem; font-weight: 600; }
 
-main a { font-weight: bolder; }
 main mark { background: #7DFFB3; }
 main aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: black; }
 main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f1f1f1; color: black; }
@@ -99,7 +97,7 @@ main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 header .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%; }
 header .top-menu { margin: 0px; padding: 0 1.5rem 0 0; width: 50%; display:flex; flex-direction: row; }
-header a { color: inherit; }
+header a { color: inherit; font-weight: 400; }
 
 @media (max-width: 736px) {
   header .top-logo a { font-weight: 700; }
@@ -110,7 +108,7 @@ header a { color: inherit; }
 
 @media (min-width: 736px) {
   header .top-logo a { font-size: 2.5rem; font-weight: 300; }
-  header .top-menu-item { margin: 0px; width: 25%; padding: 1rem 0 1rem 0; text-align: center; font-size: 1.25rem; font-weight: 400; box-sizing: border-box; }
+  header .top-menu-item { margin: 0px; width: 25%; padding: 1rem 0 1rem 0; text-align: center; font-size: 1.25rem; box-sizing: border-box; }
 	header .top-menu-item:hover { background-color: teal; }
 }
 
@@ -119,7 +117,7 @@ header a { color: inherit; }
 nav { margin: 0px; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; background-color: #f1f1f1; }
 nav { font-weight: 300; }
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
-nav a { color: inherit; }
+nav a { color: inherit; font-weight: 300; }
 
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 nav .sidebar-submenu { display: none; }
