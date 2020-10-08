@@ -308,7 +308,7 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 @media (min-width: 736px) {
   #page-links { display: flex; flex-direction: row; align-items: center;  }
   #page-back { margin: 0;	padding: 0 0 0 1.125vw; line-height: calc(1rem + 3rem); width: 37.5%; text-align: left; box-sizing: border-box; background-color: teal; color: white; }
-  #page-gap { margin: 0;	padding: 0 0 0 1.125vw; line-height: calc(1rem + 3rem); width: 25%; box-sizing: border-box; }
+  #page-gap { margin: 0;	padding: 0 0 0 1.125vw; line-height: calc(1rem + 3rem); min-width: 25%; box-sizing: border-box; }
   #page-next { margin: 0;	padding: 0 1.125vw 0 0; line-height: calc(1rem + 3rem); width: 37.5%; text-align: right; box-sizing: border-box; background-color: teal; color: white; }
   #page-links a { padding: 0.5625vw; color: white; font-size: 1rem; }
   #page-links a:hover { background-color: #6E523D; }
