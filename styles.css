@@ -5,6 +5,7 @@ html {
   line-height: 1.4; /* `Correct the line height in all browsers. */
   -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
   font-size: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body, pre, code {
@@ -81,13 +82,6 @@ li { margin-bottom: 1rem; }
 article h1 { padding: 0; margin: 2.25rem 0 1rem 0; font-weight: 600; border-bottom: 2px solid black}
 article h2 { padding: 0; margin: 2.25rem 0 0.5rem 0; font-weight: 600; border-bottom: 2px solid black}
 article h3 { padding: 0; margin: 2.25rem 0 0 0; font-weight: 600; }
-
-/* Medium style sheet */
-
-.page-container h1, h2, p, i, a, .first-letter, .authorName a {
-  color: rgba(0, 0, 0, 0.84);
-  text-rendering: optimizeLegibility;
-}
 
 .page-container h1 {
   font-size: 2rem; /* 48px */ /* reduced to 32px */
@@ -190,8 +184,8 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 @media (min-width: 736px) {
   #page-links { display: flex; flex-direction: row; align-items: center;  }
-  #page-back { margin: 0;	padding: 0 0 0 1.125vw; line-height: calc(1rem + 3rem); width: 50%; text-align: left; box-sizing: border-box; }
-  #page-next { margin: 0;	padding: 0 1.125vw 0 0; line-height: calc(1rem + 3rem); width: 50%; text-align: right; box-sizing: border-box; }
+  #page-back { margin: 0;	padding: 0; line-height: calc(1rem + 3rem); width: 50%; text-align: left; box-sizing: border-box; }
+  #page-next { margin: 0;	padding: 0; line-height: calc(1rem + 3rem); width: 50%; text-align: right; box-sizing: border-box; }
   #page-links a { padding: 1.5rem; font-size: 1rem; font-weight: 700; }
   #page-links a:hover { background-color: #6E523D; color: white; font-weight: 400; }
   #page-links a:active { background-color: #6E523D; color: white; font-weight: 400; }
