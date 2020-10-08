@@ -119,11 +119,11 @@ header a { color: inherit; font-weight: 400; }
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.125rem; font-weight: 300; background-color: #f1f1f1; color: black; }
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
-nav a { color: inherit; font-weight: 300; display: block; }
+nav a { color: inherit; font-weight: 300; }
 
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
-nav .sidebar-submenu { display: none; }
-nav .sidebar-sublink { margin: 0; padding: 10px 20px 10px 20px; font-size: 0.8em; }
+nav .sidebar-submenu { display: none; background-color: #F6F6F6; }
+nav .sidebar-sublink { margin: 0; padding: 10px 20px 10px 20px; font-size: 0.8em; display: block; }
 nav .sidebar-sublink:hover { background-color: teal; color: white; }
 nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left; outline: none; box-sizing: border-box; }
 nav .active, nav .collapsible:hover {  background-color: #555;	color: white; }
