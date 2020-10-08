@@ -243,13 +243,6 @@ main p, main i, main a {
   margin: 0px 0.4375rem 0 -0.3125rem; /* 7px */ /* -5px */
 }
 
-.subtitle {
-  color: rgba(0, 0, 0, 0.54);
-  margin: 0 0 1.5rem 0; /* 24px */
-}
-
-::selection{background-color: lavender}
-
 /* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 0px; }
 
@@ -257,7 +250,7 @@ main p, main i, main a {
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
 figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
-
+aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: black; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 .code { background-color: #f1f1f1; color: black; width: 100%; padding: 20px; margin: 2rem auto; }
 
@@ -267,13 +260,11 @@ table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 
 
 /* Site Header */
-
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
 .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%;  }
 .top-logo a { font-size: 2.5rem; font-weight: 300; color: inherit; }
 .top-menu { margin: 0px; padding: 0 1.5rem 0 0;	display:flex; flex-direction: row; width: 50%; font-size: 1.25rem; font-weight: 400; }
 
-/* Mobile */
 @media (max-width: 736px) {
   .top-menu-item { margin: 0px; flex-grow: 1; }
 	.top-menu-item a:link { color: white; }
@@ -288,9 +279,6 @@ header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; fl
 	.top-menu-item a { color: white; }
 	.top-menu-item:hover { background-color: teal; }
 }
-
-
-
 
 
 /* Sidebar */
@@ -313,7 +301,6 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 .collapsible { cursor: pointer; border: none; text-align: left; outline: none; width: 100%; box-sizing: border-box; }
 .active, .collapsible:hover {  background-color: #555;	color: white; }
 
-
 /* Footer */
 #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
 #site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; }
@@ -321,12 +308,10 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 @media (min-width: 736px) {
   #page-links { display: flex; flex-direction: row; align-items: center;  }
-  #page-back { margin: 0;	padding: 0 0 0 1.125vw; line-height: calc(1rem + 3rem); width: 50%; text-align: left; box-sizing: border-box; background-color: teal; color: white; }
-  #page-next { margin: 0;	padding: 0 1.125vw 0 0; line-height: calc(1rem + 3rem); width: 50%; text-align: right; box-sizing: border-box; background-color: teal; color: white; }
+  #page-back { margin: 0;	padding: 0 0 0 1.125vw; line-height: calc(1rem + 3rem); width: 37.5%; text-align: left; box-sizing: border-box; background-color: teal; color: white; }
+  #page-gap { margin: 0;	padding: 0 0 0 1.125vw; line-height: calc(1rem + 3rem); width: 25%; box-sizing: border-box; }
+  #page-next { margin: 0;	padding: 0 1.125vw 0 0; line-height: calc(1rem + 3rem); width: 37.5%; text-align: right; box-sizing: border-box; background-color: teal; color: white; }
   #page-links a { padding: 0.5625vw; color: white; font-size: 1rem; }
   #page-links a:hover { background-color: #6E523D; }
   #page-links a:active { background-color: #6E523D; }
 }
-
-/* Special Content Styles */
-aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: black; }
