@@ -44,7 +44,6 @@ a {
   color: inherit;
 }
 
-
 b, strong {
   font-weight: bolder; /* Add the correct font weight in Chrome, Edge, and Safari. */
 }
@@ -58,28 +57,12 @@ small {
   font-size: 80%; /* Add the correct font size in all browsers. */
 }
 
-sub, sup { /* Prevent `sub` and `sup` elements from affecting the line height in all browsers. */
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub { /* See above */
-  bottom: -0.25em;
-}
-
-sup { /* See above */
-  top: -0.5em;
-}
-
-/* START OF MAIN CSS */
-
 /* Typography */
-p { font-weight: 400; }
-article p { font-weight: 400;}
+
 p { padding: 0; margin: 0 0 0.8rem 0; }
+
 li { margin-bottom: 1rem; }
+
 article h1 { padding: 0; margin: 2.25rem 0 1rem 0; font-weight: 600; border-bottom: 2px solid black}
 article h2 { padding: 0; margin: 2.25rem 0 0.5rem 0; font-weight: 600; border-bottom: 2px solid black}
 article h3 { padding: 0; margin: 2.25rem 0 0 0; font-weight: 600; }
@@ -109,16 +92,6 @@ main p, main i, main a {
 
 .page-container mark, .highlighted {
   background: #7DFFB3;
-}
-
-.first-letter {
-  overflow-wrap: break-word;
-  font-size: 3.75rem; /* 60px */
-  line-height: 3.75rem; /* 60px */
-  display: block;
-  position: relative;
-  float: left;
-  margin: 0px 0.4375rem 0 -0.3125rem; /* 7px */ /* -5px */
 }
 
 /* Document-wide Responsive Layout */
@@ -179,14 +152,13 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 /* Footer */
 #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
-#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; }
-#site-footer p { font-size: 0.8rem; color: gray; font-weight: 200; }
+#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; color: gray; font-weight: 200; }
 
 @media (min-width: 736px) {
   #page-links { display: flex; flex-direction: row; align-items: center;  }
   #page-back { margin: 0 0 0 -1.5rem;	padding: 0; line-height: calc(1rem + 3rem); width: 50%; text-align: left; box-sizing: border-box; }
   #page-next { margin: 0 0 0 1.5rem;	padding: 0; line-height: calc(1rem + 3rem); width: 50%; text-align: right; box-sizing: border-box; }
   #page-links a { padding: 1.5rem; font-size: 1rem; font-weight: 700; }
-  #page-links a:hover { background-color: #6E523D; color: white; font-weight: 400; }
-  #page-links a:active { background-color: #6E523D; color: white; font-weight: 400; }
+  #page-links a:hover { background-color: #6E523D; color: white; }
+  #page-links a:active { background-color: #6E523D; color: white; }
 }
