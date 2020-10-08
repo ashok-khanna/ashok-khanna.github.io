@@ -103,39 +103,36 @@ header .top-menu { margin: 0px; padding: 0 1.5rem 0 0;	display:flex; flex-direct
 
 @media (max-width: 736px) {
   header .top-menu-item { margin: 0px; flex-grow: 1; }
-	header .top-menu-item a:link { color: white; }
-	header .top-menu-item a:visited { color: white; }
 	header .top-menu-item a:hover { color: teal; }
 	header .top-menu-item a:active { color: teal; }
 }
 
 @media (min-width: 736px) {
-  header .top-menu-item { margin: 0px; width: 25%; box-sizing: border-box; padding: 1rem 0 1rem 0; text-align: center; }
-	header .top-menu-item a { color: white; }
+  header .top-menu-item { margin: 0px; width: 25%; padding: 1rem 0 1rem 0; text-align: center; box-sizing: border-box; }
 	header .top-menu-item:hover { background-color: teal; }
 }
 
 
 /* Sidebar */
-nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
+nav { margin: 0px; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; background-color: #f1f1f1; }
 nav { font-weight: 300; }
-nav p { padding: 10px 20px 10px 20px; margin: 0; }
+nav p { margin: 0; padding: 10px 20px 10px 20px; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 nav .sidebar-submenu { display: none; }
 nav .sidebar-sublink:hover { background-color: teal; color: white; }
-nav .sidebar-submenu p { font-size: 0.8rem; color: black; }
-nav .collapsible { cursor: pointer; border: none; text-align: left; outline: none; width: 100%; box-sizing: border-box; }
+nav .sidebar-submenu p { font-size: 0.8rem; }
+nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left; outline: none; box-sizing: border-box; }
 nav .active, nav .collapsible:hover {  background-color: #555;	color: white; }
 
 /* Footer */
 #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
-#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; color: gray; font-weight: 200; }
+#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray;}
 
 @media (min-width: 736px) {
   #page-links { display: flex; flex-direction: row; align-items: center;  }
-  #page-back { margin: 0 0 0 -1.5rem;	padding: 0; line-height: calc(1rem + 3rem); width: 50%; text-align: left; box-sizing: border-box; }
-  #page-next { margin: 0 0 0 1.5rem;	padding: 0; line-height: calc(1rem + 3rem); width: 50%; text-align: right; box-sizing: border-box; }
+  #page-back { margin: 0 0 0 -1.5rem;	padding: 0; width: 50%; line-height: calc(1rem + 3rem); text-align: left; box-sizing: border-box; }
+  #page-next { margin: 0 0 0 1.5rem;	padding: 0; width: 50%; line-height: calc(1rem + 3rem); text-align: right; box-sizing: border-box; }
   #page-links a { padding: 1.5rem; font-weight: 700; }
   #page-links a:hover { background-color: #6E523D; color: white; }
   #page-links a:active { background-color: #6E523D; color: white; }
