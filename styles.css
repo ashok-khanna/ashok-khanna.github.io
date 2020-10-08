@@ -36,10 +36,6 @@ b, strong {
   font-weight: bolder; /* Add the correct font weight in Chrome, Edge, and Safari. */
 }
 
-li {
-  font-size: 1rem;
-}
-
 small {
   font-size: 80%; /* Add the correct font size in all browsers. */
 }
@@ -76,17 +72,19 @@ figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 
 /* Main Typography & Formatting */
-main p, main a {
-  margin-top: 1.125rem ; /* Reduced to 18px */
+main p, main a, main li {
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
+  font-size: 1.1rem;
 }
+
+main p, main a { margin-top: 1.125rem ; }
+main li { margin-bottom: 1rem; }
 
 main h1 { margin: 2.25rem 0 1rem 0; font-size: 2rem; font-weight: 600; }
 main h2 { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
 main h3 { margin: 2.25rem 0 0 0; font-size: 1rem; font-weight: 600; }
 
-li { margin-bottom: 1rem; }
 .code { background-color: #f1f1f1; color: black; width: 100%; padding: 20px; margin: 2rem auto; }
 
 /* Site Header */
