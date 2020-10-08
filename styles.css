@@ -315,8 +315,9 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 
 /* Footer */
-footer { margin: 0 auto; padding: 2.5vw; max-width: 1440px;  }
-footer p { font-size: 0.8rem; color: gray; font-weight: 200; }
+#page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
+#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; }
+#site-footer p { font-size: 0.8rem; color: gray; font-weight: 200; }
 
 /* Page Links */
 
