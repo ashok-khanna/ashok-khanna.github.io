@@ -1,5 +1,6 @@
-/*! Includes normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Notes */
 
+/* Normalisation & Page-wide */
 html {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.4; /* `Correct the line height in all browsers. */
@@ -17,25 +18,12 @@ main {
   display: block; /* Render the `main` element consistently in IE. */
 }
 
-img {
-  max-width: 100%; /* prevent overflow */
-  border-style: none;
+h1, h2, h3 {
+  padding: 0;
 }
 
-h1 {
-  font-size: 2em; /* Correct the font size and margin on `h1` elements within `section` and article` contexts in Chrome, Firefox, and Safari. */
-  margin: 0.67em 0; /* Same as above */
-}
-
-hr {
-  box-sizing: content-box; /* Add the correct box sizing in Firefox. */
-  height: 0; /* See above */
-  overflow: visible; /* Show the overflow in Edge and IE. */
-}
-
-pre {
-  font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
-  font-size: 1em; /* Correct the odd `em` font sizing in all browsers. */
+p {
+  padding: 0;
 }
 
 a {
@@ -48,67 +36,58 @@ b, strong {
   font-weight: bolder; /* Add the correct font weight in Chrome, Edge, and Safari. */
 }
 
-code, kbd, samp {
-  font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
-  font-size: 1em; /* Correct the odd `em` font sizing in all browsers. */
+li {
+  font-size: 1rem;
 }
 
 small {
   font-size: 80%; /* Add the correct font size in all browsers. */
 }
 
-/* Typography */
-
-p { padding: 0; margin: 0 0 0.8rem 0; }
-
-li { margin-bottom: 1rem; }
-
-article h1 { padding: 0; margin: 2.25rem 0 1rem 0; font-weight: 600; border-bottom: 2px solid black}
-article h2 { padding: 0; margin: 2.25rem 0 0.5rem 0; font-weight: 600; border-bottom: 2px solid black}
-article h3 { padding: 0; margin: 2.25rem 0 0 0; font-weight: 600; }
-
-.page-container h1 {
-  font-size: 2rem; /* 48px */ /* reduced to 32px */
-  text-align: left;
-  margin-bottom: 0.5rem; /* 8px */
-}
-
-.page-container h2 {
-  font-size: 1.625rem; /* 26px */
-  font-weight: 700;
-  padding: 0;
-  margin: 3.5rem 0 -0.8125rem -0.1177rem; /* 56px */ /* -13px */ /* -1.883px */
-  text-align: left;
-  line-height: 2.1562rem; /* 34.5px */
-  letter-spacing: -0.0281rem; /* -0.45px */
-}
-
-main p, main i, main a {
-  margin-top: 1.125rem ; /* 21px */ /* Reduced to 18px */
-  font-size: 1.125rem; /* 21px */
-  letter-spacing: -0.0019rem; /* -0.03px */
-  line-height: 1.58;
-}
-
-.page-container mark, .highlighted {
+mark {
   background: #7DFFB3;
+}
+
+aside {
+  margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: black;
+}
+
+pre, code {
+  font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
+  font-size: 1rem; /* Correct the odd `em` font sizing in all browsers. */
+}
+
+hr {
+  box-sizing: content-box; /* Add the correct box sizing in Firefox. */
+  height: 0; /* See above */
+  overflow: visible; /* Show the overflow in Edge and IE. */
+}
+
+img {
+  max-width: 100%; /* prevent overflow */
+  border-style: none;
 }
 
 /* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 0px; }
-
-/* Main layout classes */
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
 figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
-aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: black; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
+
+/* Main Typography & Formatting */
+main p, main a {
+  margin-top: 1.125rem ; /* Reduced to 18px */
+  letter-spacing: -0.0019rem; /* -0.03px */
+  line-height: 1.58;
+}
+
+main h1 { margin: 2.25rem 0 1rem 0; font-size: 2rem; font-weight: 600; }
+main h2 { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
+main h3 { margin: 2.25rem 0 0 0; font-size: 1rem; font-weight: 600; }
+
+li { margin-bottom: 1rem; }
 .code { background-color: #f1f1f1; color: black; width: 100%; padding: 20px; margin: 2rem auto; }
-
-
-
-
-
 
 /* Site Header */
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
@@ -141,7 +120,6 @@ nav { display: none; }
 nav { margin: 0px; padding: 20px; width: 210px; background-color: #f1f1f1; position: fixed; height: 100%; overflow: auto; }
 nav { font-weight: 300; }
 nav p { padding: 10px 20px 10px 20px; margin: 0; }
-nav a { font-size: 1rem; text-decoration: none; }
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
 
 .sidebar-submenu { display: none; }
@@ -158,7 +136,7 @@ nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
   #page-links { display: flex; flex-direction: row; align-items: center;  }
   #page-back { margin: 0 0 0 -1.5rem;	padding: 0; line-height: calc(1rem + 3rem); width: 50%; text-align: left; box-sizing: border-box; }
   #page-next { margin: 0 0 0 1.5rem;	padding: 0; line-height: calc(1rem + 3rem); width: 50%; text-align: right; box-sizing: border-box; }
-  #page-links a { padding: 1.5rem; font-size: 1rem; font-weight: 700; }
+  #page-links a { padding: 1.5rem; font-weight: 700; }
   #page-links a:hover { background-color: #6E523D; color: white; }
   #page-links a:active { background-color: #6E523D; color: white; }
 }
