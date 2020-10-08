@@ -75,7 +75,7 @@ table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
 main p, main a, main li {
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
 }
 
 main p, main a { margin-top: 1.125rem ; }
