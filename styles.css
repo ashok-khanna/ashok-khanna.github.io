@@ -110,7 +110,7 @@ header a { color: inherit; font-weight: 400; }
 
 @media (min-width: 736px) {
   header .top-logo a { font-size: 2.5rem; font-weight: 300; }
-  header .top-menu-item a { margin: 0px; min-width: 25%; padding: 1rem 0 1rem 0; text-align: center; font-size: 1.25rem; box-sizing: border-box; }
+  header .top-menu-item a { margin: 0px; width: 25%; padding: 1rem 0 1rem 0; text-align: center; font-size: 1.25rem; box-sizing: border-box; display:inline-block; }
 	header .top-menu-item a:hover { background-color: teal; }
 }
 
