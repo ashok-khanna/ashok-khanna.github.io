@@ -50,7 +50,7 @@ aside {
 
 pre, code {
   font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
-  font-size: 1rem; /* Correct the odd `em` font sizing in all browsers. */
+  font-size: 1em; /* Correct the odd `em` font sizing in all browsers. */
 }
 
 hr {
@@ -64,12 +64,14 @@ img {
   border-style: none;
 }
 
+
 /* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 0px; }
 article { margin: 0px auto; padding: 2.5vw; max-width: 960px; }
 figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
 figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
 table { margin: 0px auto; padding: 2.5vw; max-width: 1440px; }
+
 
 /* Main Typography & Formatting */
 main p, main a, main li {
@@ -86,6 +88,7 @@ main h2 { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; borde
 main h3 { margin: 2.25rem 0 0 0; font-size: 1rem; font-weight: 600; }
 
 .code { background-color: #f1f1f1; color: black; width: 100%; padding: 20px; margin: 2rem auto; }
+
 
 /* Site Header */
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
@@ -107,6 +110,7 @@ header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; fl
 	.top-menu-item a { color: white; }
 	.top-menu-item:hover { background-color: teal; }
 }
+
 
 /* Sidebar */
 nav { display: none; }
