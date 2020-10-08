@@ -225,7 +225,7 @@ main p, main i, main a {
 .page-container code {
   font-size: 1.125rem; /* 18px */
   background: rgba(0,0,0,.05);
-  border-radius: 0.125rem; /* 2px */
+  border-radius: 0.5rem; /* 2px */
   padding: 0.1875rem 0.3125rem; /* 3px */ /* 5px */
 }
 
@@ -279,7 +279,6 @@ header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; fl
 	.top-menu-item a { color: white; }
 	.top-menu-item:hover { background-color: teal; }
 }
-
 
 /* Sidebar */
 nav { display: none; }
