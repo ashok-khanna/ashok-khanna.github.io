@@ -102,7 +102,7 @@ header .top-menu { margin: 0px; padding: 0 1.5rem 0 0; width: 50%; display:flex;
 header a { color: inherit; font-weight: 400; }
 
 @media (max-width: 736px) {
-  header .top-logo a { font-size: 1.5rem; font-weight: 700; }
+  header .top-logo a { font-size: 1.25rem; font-weight: 700; }
   header .top-menu-item { margin: 0px; flex-grow: 1; }
 	header .top-menu-item a:hover { color: teal; }
 	header .top-menu-item a:active { color: teal; }
@@ -110,7 +110,7 @@ header a { color: inherit; font-weight: 400; }
 
 @media (min-width: 736px) {
   header .top-logo a { font-size: 2.5rem; font-weight: 300; }
-  header .top-menu-item a { margin: 0px; width: 25%; padding: 1rem 0 1rem 0; text-align: center; font-size: 1.25rem; box-sizing: border-box; display:inline-block; }
+  header .top-menu-item a { margin: 0px; min-width: 25%; padding: 1rem 0 1rem 0; text-align: center; font-size: 1.25rem; box-sizing: border-box; display:inline-block; }
 	header .top-menu-item a:hover { background-color: teal; }
 }
 
