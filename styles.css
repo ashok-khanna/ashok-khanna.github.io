@@ -99,7 +99,7 @@ figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
 figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
 
 /* Tables */
-table { margin: 0px auto; padding: 2.5vw; width: 100%; max-width: 1440px; table-layout: fixed; border-collapse: collapse; border: none; }
+table { margin: 2.25rem 0 0.5rem 0; padding: 2.5vw; width: 100%; max-width: 1440px; table-layout: fixed; border-collapse: collapse; border: none; }
 th, td { padding: 0.625rem; text-align: left; vertical-align: top; }
 thead th { background-color: teal; color: white; font-weight: 400; }
 caption { padding: 1.25rem; caption-side: top; }
@@ -165,7 +165,7 @@ nav .active, nav .collapsible:hover {  background-color: #555;	color: white; bor
 
 /* Footer */
 #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
-#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray; }
+#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; }
 
 @media (min-width: 736px) {
   #page-links { display: flex; flex-direction: row; align-items: center; }
