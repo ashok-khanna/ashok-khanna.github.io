@@ -13,6 +13,10 @@ body {
   padding: 0;
 }
 
+.page-container {
+  margin: 0; padding: 0;
+}
+
 main {
   display: block; /* Render the `main` element consistently in IE. */
   margin: 0 auto;
@@ -65,7 +69,6 @@ img {
 
 
 /* Document-wide Responsive Layout */
-.page-container { margin: 0px; padding: 0px; }
 article { max-width: 960px; }
 nav { display: none; }
 
@@ -75,7 +78,7 @@ nav { display: none; }
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {
-	 main { margin: 0px 0px 0px 250px; padding: 2.5vw;  }
+	 page-container { margin: 0px 0px 0px 250px; padding: 0; }
 	 nav { display: block; }
 }
 
