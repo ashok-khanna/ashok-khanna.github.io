@@ -100,7 +100,7 @@ main li { margin: 0; padding: 0.625rem; }
 main ol, ul { margin-top: 0.625rem; margin-bottom: 1.125rem; }
 
 /* Code & Highlights */
-main mark { background: #7DFFB3; }
+main mark { background: #7DFFB3; font-weight: bolder; }
 main aside { margin: 2rem auto; padding: 1.25rem; width: 75%; max-width: 720px; background-color: #EDD1BC; color: black; }
 main .code { margin: 2rem auto; padding: 1.25rem; width: 90%; max-width: 720px; background-color: #f1f1f1; color: black; }
 
