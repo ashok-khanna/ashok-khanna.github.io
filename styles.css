@@ -90,7 +90,7 @@ main p, main a, main li, main caption {
 }
 
 main p { margin-top: 0; margin-bottom: 1.125rem; padding: 0; }
-main li { margin-top: 0; margin-bottom: 1.125rem; padding: 0.625rem; }
+main li { margin: 0; padding: 0.625rem; }
 main h1 { margin: 0 0 1rem 0; font-size: 2rem; font-weight: 600; }
 main h2 { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
 main h3 { margin: 2.25rem 0 0 0; font-size: 1.125rem; font-weight: 600; }
