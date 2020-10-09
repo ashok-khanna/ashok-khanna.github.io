@@ -99,13 +99,33 @@ main aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: bl
 main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f1f1f1; color: black; }
 
 /* Tables */
-table { table-layout: fixed; border-collapse: collapse; border: 1.5px solid #555; background-color: #f1f1f1; }
+table { table-layout: fixed; border-collapse: collapse; border: 1.5px solid #555; background-color: #f1f1f1; color: black; }
 th, td { padding: 0.625rem; text-align: left; }
 th { background-color: #555; color: white; font-weight: 400; }
-tbody tr:nth-child(odd) { background-color: #f1f1f1; }
-tbody tr:nth-child(even) { background-color: #f1f1f1; }
 
+/* Math Table Special Styling */
+.math-table thead th:nth-child(1) { width: 5%; }
+.math-table thead th:nth-child(2) { width: 70%; }
+.math-table thead th:nth-child(3) { width: 25%; }
 
+@media (max-width: 736px) {
+  /* Force table to not be like tables anymore */
+  .math-table table, .math-table thead, .math-table tbody, .math-table th, .math-table td, .math-table tr { display: block; }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .math-table thead tr { position: absolute; top: -9999px; left: -9999px; }
+
+  /* Hide first column since its step */
+  .math-table td:nth-of-type(1) { position: absolute; top: -9999px; left: -9999px; }
+
+  .math-table tr { border: 1px solid #ccc; }
+
+  /* Behave  like a "row" */
+  .math-table td {
+  		border: none;
+  		position: relative;
+    }
+}
 
 /* Site Header */
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
