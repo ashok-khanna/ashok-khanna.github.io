@@ -54,6 +54,7 @@ pre, code {
   font-size: 1em; /* Correct the odd `em` font sizing in all browsers. */
   margin: 0; /* Remove the margin in all browsers. */
   padding: 0;
+  white-space: pre-wrap;
 }
 
 hr {
