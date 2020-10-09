@@ -78,7 +78,7 @@ nav { display: none; }
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {
-	 .page-container { margin: 0px 0px 0px 250px; padding: 0; }
+	 .page-container { margin: 0px 0px 0px 250px; padding: 2.5vw; }
 	 nav { display: block; }
 }
 
@@ -132,7 +132,7 @@ caption { padding: 1.25rem; caption-side: top; }
 }
 
 /* Site Header */
-header { margin: 0 2.5vw 0 2.5vw; padding: 1.5rem 0 1.5rem 0; width: calc(100% - 5vw); display: flex; flex-direction: row;
+header { margin: 0; padding: 1.5rem 0 1.5rem 0; width: 100%; display: flex; flex-direction: row;
   align-items: center; background-color: #6E523D;  color: white;
 }
 
