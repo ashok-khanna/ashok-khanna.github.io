@@ -100,11 +100,11 @@ main ol, ul { margin-top: 0.625rem; margin-bottom: 1.125rem; }
 
 /* Code & Highlights */
 main mark { background: #7DFFB3; }
-main aside { margin: 2rem auto; padding: 1.25rem; width: 75%; background-color: #EDD1BC; color: black; }
-main .code { margin: 2rem auto; padding: 1.25rem; width: 75%; background-color: #f1f1f1; color: black; }
+main aside { margin: 2rem auto; padding: 1.25rem; width: 75%; max-width: 720px; background-color: #EDD1BC; color: black; }
+main .code { margin: 2rem auto; padding: 1.25rem; width: 75%; max-width: 720px; background-color: #f1f1f1; color: black; }
 
 /* Figures */
-figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
+figure { margin: 2rem auto; width: 75%; max-width: 720px; }
 figcaption { margin: 0 auto; padding: 1.25rem 0 0 0; }
 
 /* Tables */
