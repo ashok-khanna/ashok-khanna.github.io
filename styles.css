@@ -19,8 +19,8 @@ body {
 
 main {
   display: block; /* Render the `main` element consistently in IE. */
-  margin: 0 auto;
-  padding: 0 2.5vw 0 2.5vw;
+  margin: 0;
+  padding: 2.5vw;
 }
 
 h1, h2, h3 {
@@ -166,7 +166,7 @@ nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left;
 nav .active, nav .collapsible:hover {  background-color: #555;	color: white; border: 1.5px solid #555; }
 
 /* Footer */
-#page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
+#page-links { margin: 0 auto; padding: 0 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
 #site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; }
 
 @media (min-width: 736px) {
