@@ -15,6 +15,8 @@ body {
 
 main {
   display: block; /* Render the `main` element consistently in IE. */
+  margin: 0 auto;
+  padding: 0 2.5vw 0 2.5vw;
 }
 
 h1, h2, h3 {
@@ -64,12 +66,12 @@ img {
 
 /* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 0px; }
-article { margin: 0px auto; padding: 0 2.5vw 0 2.5vw; max-width: 960px; }
+article { margin: 0px auto; max-width: 960px; }
 nav { display: none; }
 
 @media (max-width: 736px) {
   header .lisp-link { display: none; }
-  #site-footer { display: none }
+  footer #site-footer { display: none }
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {
@@ -78,7 +80,7 @@ nav { display: none; }
 }
 
 /* Main Typography & Formatting */
-main p, main a, main li {
+main p, main a, main li, main caption {
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
   font-size: 1.125rem;
@@ -100,6 +102,7 @@ figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
 table { margin: 0px auto; padding: 2.5vw; width: 100%; max-width: 1440px; table-layout: fixed; border-collapse: collapse; border: none; }
 th, td { padding: 0.625rem; text-align: left; vertical-align: top; }
 thead th { background-color: teal; color: white; font-weight: 400; }
+caption { padding: 1.25rem; caption-side: top; }
 
 .article-table table { background-color: #f1f1f1; color: black; }
 
@@ -126,7 +129,10 @@ thead th { background-color: teal; color: white; font-weight: 400; }
 }
 
 /* Site Header */
-header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
+header { margin: 0px; padding: 1.5rem 0 1.5rem 0; width: 100%; display: flex; flex-direction: row;
+  align-items: center; background-color: #6E523D;  color: white;
+}
+
 header .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%; }
 header .top-logo a:hover, header .top-logo a:active { color: white; }
 header .top-menu { margin: 0px; padding: 0 1.5rem 0 0; width: 50%; display:flex; flex-direction: row; }
@@ -158,11 +164,11 @@ nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left;
 nav .active, nav .collapsible:hover {  background-color: #555;	color: white; border: 1.5px solid #555; }
 
 /* Footer */
-#page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
-#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray; }
+footer #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
+footer #site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray; }
 
 @media (min-width: 736px) {
-  #page-links { display: flex; flex-direction: row; align-items: center; }
+  footer #page-links { display: flex; flex-direction: row; align-items: center; }
   #page-back { margin: 0;	padding: 0; width: 50%; line-height: calc(1rem + 3rem); text-align: left; box-sizing: border-box; }
   #page-next { margin: 0;	padding: 0; width: 50%; line-height: calc(1rem + 3rem); text-align: right; box-sizing: border-box; }
 }
