@@ -71,7 +71,7 @@ nav { display: none; }
 
 @media (max-width: 736px) {
   header .lisp-link { display: none; }
-  footer #site-footer { display: none }
+  #site-footer { display: none }
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {
@@ -164,11 +164,11 @@ nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left;
 nav .active, nav .collapsible:hover {  background-color: #555;	color: white; border: 1.5px solid #555; }
 
 /* Footer */
-footer #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
-footer #site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray; }
+#page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
+#site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; color: gray; }
 
 @media (min-width: 736px) {
-  footer #page-links { display: flex; flex-direction: row; align-items: center; }
+  #page-links { display: flex; flex-direction: row; align-items: center; }
   #page-back { margin: 0;	padding: 0; width: 50%; line-height: calc(1rem + 3rem); text-align: left; box-sizing: border-box; }
   #page-next { margin: 0;	padding: 0; width: 50%; line-height: calc(1rem + 3rem); text-align: right; box-sizing: border-box; }
 }
