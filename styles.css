@@ -119,7 +119,7 @@ caption { padding: 1.25rem; caption-side: top; }
 /* Math Table Special Styling */
 .math-table thead th:nth-child(1) { width: 5%; }
 .math-table thead th:nth-child(2) { width: 70%; }
-.math-table thead th:nth-child(3) { width: 25%; }
+.math-table thead th:nth-child(3) { width: 25%; font-style: italic; }
 
 @media (max-width: 736px) {
   /* Force table to not be like tables anymore */
@@ -127,9 +127,6 @@ caption { padding: 1.25rem; caption-side: top; }
 
   /* Hide table headers (but not display: none;, for accessibility) */
   .math-table th { position: absolute; top: -9999px; left: -9999px; }
-
-  /* Hide first column since its step */
-  .math-table tr { border: 1px solid #ccc; }
 
   /* Behave  like a "row" */
   .math-table td {
