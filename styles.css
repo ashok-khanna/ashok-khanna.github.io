@@ -100,9 +100,9 @@ main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f
 
 /* Tables */
 table { table-layout: fixed; border-collapse: collapse; border: 3px solid #727272; background-color: #f1f1f1; }
-th, td { padding: 0.625rem; }
+th, td { padding: 0.625rem; text-align: left; }
 tbody tr:nth-child(odd) { background-color: #f1f1f1; }
-tbody tr:nth-child(even) { background-color: ##B1B1B1; }
+tbody tr:nth-child(even) { background-color: #B1B1B1; }
 
 
 
