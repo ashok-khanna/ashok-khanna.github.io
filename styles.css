@@ -99,9 +99,9 @@ main aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: bl
 main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f1f1f1; color: black; }
 
 /* Tables */
-table { table-layout: fixed; border-collapse: collapse; border: 1.5px solid #555; }
+table { table-layout: fixed; border-collapse: collapse; border: none; }
 th, td { padding: 0.625rem; text-align: left; }
-th { background-color: #555; color: white; font-weight: 400; }
+.article-table th { background-color: #555; color: white; font-weight: 400; }
 .article-table table { background-color: #f1f1f1; color: black; }
 
 /* Math Table Special Styling */
