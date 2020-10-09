@@ -65,9 +65,6 @@ img {
 /* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 0px; }
 article { margin: 0px auto; padding: 0 2.5vw 0 2.5vw; max-width: 960px; }
-figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
-figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
-table { margin: 0px auto; padding: 2.5vw; width: 100%; max-width: 1440px; }
 nav { display: none; }
 
 @media (max-width: 736px) {
@@ -80,7 +77,6 @@ nav { display: none; }
 	 nav { display: block; }
 }
 
-
 /* Main Typography & Formatting */
 main p, main a, main li {
   letter-spacing: -0.0019rem; /* -0.03px */
@@ -89,17 +85,19 @@ main p, main a, main li {
 }
 
 main p, main a, main li { margin-bottom: 1.125rem; }
-
 main h1 { margin: 2.25rem 0 1rem 0; font-size: 2rem; font-weight: 600; }
 main h2 { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
 main h3 { margin: 2.25rem 0 0 0; font-size: 1.125rem; font-weight: 600; }
-
 main mark { background: #7DFFB3; }
 main aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: black; }
 main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f1f1f1; color: black; }
 
+/* Figures */
+figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
+figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
+
 /* Tables */
-table { table-layout: fixed; border-collapse: collapse; border: none; }
+table { margin: 0px auto; padding: 2.5vw; width: 100%; max-width: 1440px; table-layout: fixed; border-collapse: collapse; border: none; }
 th, td { padding: 0.625rem; text-align: left; vertical-align: top; }
 thead th { background-color: teal; color: white; font-weight: 400; }
 
