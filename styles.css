@@ -104,6 +104,7 @@ th, td { padding: 0.625rem; text-align: left; }
 th { background-color: #555; color: white; font-weight: 400; }
 
 /* Math Table Special Styling */
+.math-table table { background-color: inherit; color: inherit; }
 .math-table thead th:nth-child(1) { width: 5%; }
 .math-table thead th:nth-child(2) { width: 70%; }
 .math-table thead th:nth-child(3) { width: 25%; }
