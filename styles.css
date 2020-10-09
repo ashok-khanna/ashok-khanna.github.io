@@ -113,11 +113,9 @@ th { background-color: #555; color: white; font-weight: 400; }
   .math-table table, .math-table thead, .math-table tbody, .math-table th, .math-table td, .math-table tr { display: block; }
 
   /* Hide table headers (but not display: none;, for accessibility) */
-  .math-table thead tr { position: absolute; top: -9999px; left: -9999px; }
+  .math-table th { position: absolute; top: -9999px; left: -9999px; }
 
   /* Hide first column since its step */
-  .math-table td:nth-of-type(1) { position: absolute; top: -9999px; left: -9999px; }
-
   .math-table tr { border: 1px solid #ccc; }
 
   /* Behave  like a "row" */
