@@ -69,7 +69,7 @@ img {
 
 
 /* Document-wide Responsive Layout */
-article { max-width: 960px; }
+article { margin: 0 auto; max-width: 960px; }
 nav { display: none; }
 
 @media (max-width: 736px) {
