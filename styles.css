@@ -153,7 +153,6 @@ header a { color: inherit; font-weight: 400; }
 	header .top-menu-item a:hover { background-color: teal; color: white; border: 1.5px solid white; }
 }
 
-
 /* Sidebar */
 nav { margin: 0px; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.125rem; font-weight: 300; background-color: #f1f1f1; color: black; }
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
