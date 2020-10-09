@@ -66,7 +66,7 @@ img {
 
 /* Document-wide Responsive Layout */
 .page-container { margin: 0px; padding: 0px; }
-article { margin: 0px auto; max-width: 960px; }
+article { max-width: 960px; }
 nav { display: none; }
 
 @media (max-width: 736px) {
@@ -75,7 +75,7 @@ nav { display: none; }
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {
-	 .page-container { padding: 2.5vw; margin: 0px 0px 0px 250px; }
+	 main { margin: 0px 0px 0px 250px; padding: 2.5vw;  }
 	 nav { display: block; }
 }
 
