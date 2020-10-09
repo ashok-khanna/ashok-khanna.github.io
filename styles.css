@@ -99,9 +99,12 @@ main aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: bl
 main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f1f1f1; color: black; }
 
 /* Tables */
-table {
-  table-layout: fixed; border-collapse: collapse; border: 3px solid #555;
-}
+table { table-layout: fixed; border-collapse: collapse; border: 3px solid #727272; background-color: #f1f1f1; }
+th, td { padding: 0.625rem; }
+tbody tr:nth-child(odd) { background-color: #f1f1f1; }
+tbody tr:nth-child(even) { background-color: ##B1B1B1; }
+
+
 
 /* Site Header */
 header { width: 100%; margin: 0px; padding: 1.5rem 0 1.5rem 0; display: flex; flex-direction: row; align-items: center; background-color: #6E523D; color: white; }
@@ -129,11 +132,11 @@ nav p { margin: 0; padding: 10px 20px 10px 20px; }
 nav a { color: inherit; font-weight: 300; }
 
 nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
-nav .sidebar-submenu { display: none; border: 1.5px solid #555; }
+nav .sidebar-submenu { display: none; border: 1.5px solid #727272; }
 nav .sidebar-sublink { margin: 6px; padding: 10px 14px 10px 14px; font-size: 0.8em; display: block; }
 nav .sidebar-sublink:hover { background-color: teal; color: white; }
 nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left; outline: none; box-sizing: border-box; border: 1.5px solid #f1f1f1; }
-nav .active, nav .collapsible:hover {  background-color: #555;	color: white; border: 1.5px solid #555; }
+nav .active, nav .collapsible:hover {  background-color: #727272;	color: white; border: 1.5px solid #727272; }
 
 /* Footer */
 #page-links { margin: 0 auto; padding: 2.5vw 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
