@@ -101,13 +101,15 @@ main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f
 /* Tables */
 table { table-layout: fixed; border-collapse: collapse; border: none; }
 th, td { padding: 0.625rem; text-align: left; }
-.article-table th { background-color: #555; color: white; font-weight: 400; }
+
 .article-table table { background-color: #f1f1f1; color: black; }
+.article-table thead th { background-color: #555; color: white; font-weight: 400; }
 
 /* Math Table Special Styling */
 .math-table thead th:nth-child(1) { width: 5%; }
 .math-table thead th:nth-child(2) { width: 70%; }
 .math-table thead th:nth-child(3) { width: 25%; }
+.math-table thead th { background-color: teal; color: white; font-weight: 400; }
 
 @media (max-width: 736px) {
   /* Force table to not be like tables anymore */
