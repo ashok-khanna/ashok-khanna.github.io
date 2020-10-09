@@ -89,18 +89,23 @@ main p, main a, main li, main caption {
   font-size: 1.125rem;
 }
 
-main p { margin-top: 0; margin-bottom: 1.125rem; padding: 0; }
-main li { margin: 0; padding: 0.625rem; }
+main p { margin: 0 0 1.125rem 0; padding: 0; }
 main h1 { margin: 0 0 1rem 0; font-size: 2rem; font-weight: 600; }
 main h2 { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
 main h3 { margin: 2.25rem 0 0 0; font-size: 1.125rem; font-weight: 600; }
+
+/* Lists */
+main li { margin: 0; padding: 0.625rem; }
+main ol, ul { margin-top: 0.625rem; margin-bottom: 1.125rem; }
+
+/* Code & Highlights */
 main mark { background: #7DFFB3; }
-main aside { margin: 0px; padding: 1.25rem; background-color: #EDD1BC; color: black; }
-main .code { margin: 2rem auto; padding: 20px; width: 100%; background-color: #f1f1f1; color: black; }
+main aside { margin: 2rem auto; padding: 1.25rem; width: 75%; background-color: #EDD1BC; color: black; }
+main .code { margin: 2rem auto; padding: 1.25rem; width: 75%; background-color: #f1f1f1; color: black; }
 
 /* Figures */
 figure { margin: 2rem auto; width: 75%%; max-width: 720px; }
-figcaption { margin: 0px auto; padding: 1.25rem 0 0 0; }
+figcaption { margin: 0 auto; padding: 1.25rem 0 0 0; }
 
 /* Tables */
 table { margin: 2.25rem 0 0.5rem 0; padding: 2.5vw; width: 100%; max-width: 1440px; table-layout: fixed; border-collapse: collapse; border: none; }
