@@ -39,11 +39,11 @@ $.get( contentFile , function(data){
   $( "#page-links" ).load( "/loader/page-links.html", function() {
 
     if(lastName !="null") {
-        $( "#page-back" ).append( "<a href=\"" + lastUrl + "\" type=\"text/html\"> <<< " + lastName + "</a>" );
+        $( "#page-back" ).append( "<a href=\"" + lastUrl + "\" type=\"text/html\">< " + lastName + "</a>" );
     };
 
     if(nextName != "null") {
-      $( "#page-next" ).append( "<a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + " >>></a>" );
+      $( "#page-next" ).append( "<a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + " ></a>" );
     };
 
   });
