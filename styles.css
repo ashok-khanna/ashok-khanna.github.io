@@ -84,7 +84,7 @@ nav { display: none; }
 }
 
 /* Main Typography & Formatting */
-main p, main a, main li, main caption {
+main p, main a, main li, main caption, main .code {
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
   font-size: 1.125rem;
