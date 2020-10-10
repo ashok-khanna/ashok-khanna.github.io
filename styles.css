@@ -136,7 +136,7 @@ caption { padding: 1.25rem; caption-side: top; }
 }
 
 /* Site Header */
-header { margin: 0; padding: 1.5rem 0 1.5rem 0; width: 100%; display: flex; flex-direction: row;
+header { margin: 0; padding: 0; width: 100%; display: flex; flex-direction: row;
   align-items: center; background-color: #6E523D;  color: white;
 }
 
@@ -151,7 +151,7 @@ header a { color: inherit; font-weight: 400; }
 }
 
 @media (min-width: 736px) {
-  header .top-logo a { font-size: 2.5rem; font-weight: 300; }
+  header .top-logo a { font-size: 1.25rem; font-weight: 700; }
   header .top-menu-item { margin: 2px; width: 24%; text-align: center; font-size: 1.25rem; box-sizing: border-box; }
   header .top-menu-item a { padding: 1rem 0 1rem 0; width: 100%; display:inline-block; border: 1.5px solid #6E523D; }
 	header .top-menu-item a:hover { background-color: teal; color: white; border: 1.5px solid white; }
