@@ -57,6 +57,11 @@ pre, code, xmp {
   white-space: pre-wrap;
 }
 
+p > code {
+  background-color: #f1f1f1;
+  color: black;
+}
+
 hr {
   box-sizing: content-box; /* Add the correct box sizing in Firefox. */
   height: 0; /* See above */
