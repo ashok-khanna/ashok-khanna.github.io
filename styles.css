@@ -142,6 +142,7 @@ header .top-logo { margin: 0;	padding: 0 0 0 2.25rem; width: 50%; }
 header .top-logo a:hover, header .top-logo a:active { color: teal; }
 header .top-menu { margin: 0; padding: 0; width: 50%; display:flex; flex-direction: row; }
 header a { font-weight: 400; }
+header a:visited { color: inherit; }
 
 @media (max-width: 736px) {
   header .top-logo { padding: 0.6025rem 0 0.6025rem 1.125rem; }
