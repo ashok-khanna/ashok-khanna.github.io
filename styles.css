@@ -144,7 +144,7 @@ caption { padding: 1.25rem; caption-side: top; }
 /* Site Header */
 header { margin: 0; padding: 0; width: 100%; display: flex; flex-direction: row; align-items: center; font-size: 1.25rem; background-color: #f1f1f1;  color: black; }
 header .top-logo { margin: 0;	padding: 0 0 0 2.5vw; width: 50%; }
-header .top-logo a { font-weight: 700; }
+header .top-logo a { font-weight: 400; }
 header .top-menu { margin: 0; padding: 0; width: 50%; display:flex; flex-direction: row; }
 header a { color: inherit; font-weight: 400; }
 
@@ -167,7 +167,7 @@ nav { margin: 0; padding: 20px; width: 210px; height: 100%; position: fixed; ove
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
 nav a { color: inherit; font-weight: 300; }
 
-nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 700; }
+nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 400; }
 nav .sidebar-submenu { display: none; border: 1.5px solid teal; }
 nav .sidebar-sublink { margin: 6px; padding: 10px 14px 10px 14px; font-size: 0.8em; display: block; }
 nav .sidebar-sublink:hover { background-color: teal; color: white; }
