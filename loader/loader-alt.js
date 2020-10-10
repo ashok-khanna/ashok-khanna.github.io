@@ -35,19 +35,5 @@ $( "#site-footer" ).load( "/loader/footer.html" );
 
 $.get( contentFile , function(data){
   $(data).appendTo("#page-content");
-  if(lastName !="null" || nextName !="null"){
-  $( "#page-links" ).load( "/loader/page-links.html", function() {
-
-    if(lastName !="null") {
-        $( "#page-back" ).append( "<a href=\"" + lastUrl + "\" type=\"text/html\">< " + lastName + "</a>" );
-    };
-
-    if(nextName != "null") {
-      $( "#page-next" ).append( "<a href=\"" + nextUrl + "\" type=\"text/html\">" + nextName + " ></a>" );
-    };
-
-  });
-};
 });
-
 });
