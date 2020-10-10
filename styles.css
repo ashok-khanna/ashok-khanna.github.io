@@ -137,7 +137,7 @@ caption { padding: 1.25rem; caption-side: top; }
 
 /* Site Header */
 header { margin: 0; padding: 0; width: 100%; display: flex; flex-direction: row;
-  align-items: center; background-color: maroon;  color: white;
+  align-items: center; background-color: #f1f1f1;  color: black;
 }
 
 header .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%; }
@@ -158,7 +158,7 @@ header a { color: inherit; font-weight: 400; }
 }
 
 /* Sidebar */
-nav { margin: 0px; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.125rem; font-weight: 300; background-color: #f1f1f1; color: black; }
+nav { margin: 0px; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.0625rem; font-weight: 300; background-color: #f1f1f1; color: black; }
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
 nav a { color: inherit; font-weight: 300; }
 
