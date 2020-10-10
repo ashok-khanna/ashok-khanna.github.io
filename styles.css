@@ -51,7 +51,7 @@ small {
 
 pre, code, xmp {
   font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
-  font-size: 1.125rem; /* Correct the odd `em` font sizing in all browsers. */
+  font-size: 1.0625em; /* Correct the odd `em` font sizing in all browsers. */
   margin: 0; /* Remove the margin in all browsers. */
   padding: 0;
   white-space: pre-wrap;
@@ -87,7 +87,7 @@ nav { display: none; }
 main p, main a, main li, main caption, main {
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
 }
 
 main p { margin: 0 0 1.125rem 0; padding: 0; }
