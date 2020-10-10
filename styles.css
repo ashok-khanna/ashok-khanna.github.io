@@ -1,7 +1,7 @@
 
 /* Normalisation & Page-wide */
 html {
-  font-family: /* 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.4; /* `Correct the line height in all browsers. */
   -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
   font-size: 100%;
