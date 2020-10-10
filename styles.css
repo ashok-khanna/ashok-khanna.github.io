@@ -170,6 +170,7 @@ nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left;
 nav .active, nav .collapsible:hover {  background-color: #555;	color: white; border: 1.5px solid #555; }
 
 /* Math Index */
+article p.sidebar-title { display: none; }
 article p.collapsible { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
 article a.sidebar-sublink { font-weight: 400; display: block; }
 
