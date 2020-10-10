@@ -169,6 +169,10 @@ nav .sidebar-sublink:hover { background-color: teal; color: white; }
 nav .collapsible { width: 100%; cursor: pointer; border: none; text-align: left; outline: none; box-sizing: border-box; border: 1.5px solid #f1f1f1; }
 nav .active, nav .collapsible:hover {  background-color: #555;	color: white; border: 1.5px solid #555; }
 
+/* Math Index */
+article p.collapsible { margin: 2.25rem 0 0.5rem 0; font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid black; }
+article a.sidebar-sublink { font-weight: 400; display: block; }
+
 /* Footer */
 #page-links { margin: 0 auto; padding: 0 2.5vw 1.5rem 2.5vw; max-width: 1440px; }
 #site-footer { margin: 0 auto; padding: 0 2.5vw 2.5vw 2.5vw; max-width: 1440px; font-weight: 200; }
