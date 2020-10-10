@@ -146,6 +146,7 @@ header .top-menu { margin: 0px; padding: 0 1.5rem 0 0; width: 50%; display:flex;
 header a { color: inherit; font-weight: 400; }
 
 @media (max-width: 736px) {
+  header .top-logo { padding: 0.5rem 0 0.5rem 2.5vw; }
   header .top-logo a { font-size: 1.25rem; font-weight: 700; }
   header .top-menu-item { margin: 0px; flex-grow: 1; }
 }
