@@ -79,7 +79,7 @@ nav { display: none; }
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {
-	 .page-container { margin: 0 0 0 250; padding: 1.875vw 2.5vw 3.75vw 2.5vw; }
+	 .page-container { margin: 0 0 0 250; padding: 1.5vw 2.5vw 4vw 2.5vw; }
 	 nav { display: block; }
 }
 
@@ -136,7 +136,7 @@ caption { padding: 1.25rem; caption-side: top; }
 }
 
 /* Site Header */
-header { margin: 0; padding: 0; width: 100%; display: flex; flex-direction: row; align-items: center; background-color: #f1f1f1;  color: black; }
+header { margin: 0; padding: 0; width: 100%; display: flex; flex-direction: row; align-items: center; font-size: 1.25rem; background-color: #f1f1f1;  color: black; }
 header .top-logo { margin: 0;	padding: 0 0 0 2.5vw; width: 50%; }
 header .top-logo a:hover, header .top-logo a:active { color: teal; }
 header .top-menu { margin: 0; padding: 0; width: 50%; display:flex; flex-direction: row; }
@@ -144,15 +144,15 @@ header a { color: inherit; font-weight: 400; }
 
 @media (max-width: 736px) {
   header .top-logo { padding: 0.6025rem 0 0.6025rem 1.125rem; }
-  header .top-logo a { font-size: 1.25rem; font-weight: 700; }
+  header .top-logo a { font-weight: 700; }
   header .top-menu-item { margin: 0px; flex-grow: 1; }
 }
 
 @media (min-width: 736px) {
-  header .top-logo { padding: 0; }
+  header .top-logo { margin: 0; padding: 0; }
   header .top-logo a { padding: 1.125rem 2.5vw 1.125rem 2.5vw; text-align: center; display:inline-block; }
   header .top-logo a:hover { background-color: teal; color: white; }
-  header .top-menu-item { width: 25%; text-align: center; font-size: 1.25rem; box-sizing: border-box; }
+  header .top-menu-item { width: 25%; text-align: center; box-sizing: border-box; }
   header .top-menu-item a { padding: 1.125rem 0 1.125rem 0; width: 100%; display:inline-block; }
 	header .top-menu-item a:hover { background-color: teal; color: white; }
 }
