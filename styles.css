@@ -79,7 +79,7 @@ nav { display: none; }
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {
-	 .page-container { margin: 0px 0px 0px 250px; padding: 2.5vw; }
+	 .page-container { margin: 0 0 0 250; padding: 2.25rem; }
 	 nav { display: block; }
 }
 
@@ -140,7 +140,7 @@ header { margin: 0; padding: 0; width: 100%; display: flex; flex-direction: row;
   align-items: center; background-color: #f1f1f1;  color: black;
 }
 
-header .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%; }
+header .top-logo { margin: 0px;	padding: 0 0 0 2.25rem; width: 50%; }
 header .top-logo a:hover, header .top-logo a:active { color: white; }
 header .top-menu { margin: 0px; padding: 0 0 0 0; width: 50%; display:flex; flex-direction: row; }
 header a { color: inherit; font-weight: 400; }
@@ -154,7 +154,7 @@ header a { color: inherit; font-weight: 400; }
 @media (min-width: 736px) {
   header .top-logo a { font-size: 1.25rem; }
   header .top-menu-item { width: 25%; text-align: center; font-size: 1.25rem; box-sizing: border-box; }
-  header .top-menu-item a { padding: 1rem 0 1rem 0; width: 100%; display:inline-block; }
+  header .top-menu-item a { padding: 1.125rem 0 1.125rem 0; width: 100%; display:inline-block; }
 	header .top-menu-item a:hover { background-color: teal; color: white; }
 }
 
