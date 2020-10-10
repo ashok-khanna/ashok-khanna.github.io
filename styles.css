@@ -20,7 +20,7 @@ body {
 main {
   display: block; /* Render the `main` element consistently in IE. */
   margin: 0;
-  padding: 2.5vw;
+  padding: 2.25rem;
 }
 
 h1, h2, h3 {
@@ -157,7 +157,7 @@ header a { font-weight: 400; }
 }
 
 /* Sidebar */
-nav { margin: 0px; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.0625rem; font-weight: 300; background-color: #f1f1f1; color: black; }
+nav { margin: 0; padding: 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.0625rem; font-weight: 300; background-color: #f1f1f1; color: black; }
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
 nav a { color: inherit; font-weight: 300; }
 
