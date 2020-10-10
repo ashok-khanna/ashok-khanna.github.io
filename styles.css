@@ -87,7 +87,7 @@ nav { display: none; }
 main p, main a, main li, main caption, main {
   letter-spacing: -0.0019rem; /* -0.03px */
   line-height: 1.58;
-  font-size: 1.0625rem;
+  font-size: 1rem;
 }
 
 main p { margin: 0 0 1.125rem 0; padding: 0; }
