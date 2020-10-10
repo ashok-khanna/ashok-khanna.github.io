@@ -142,7 +142,7 @@ header { margin: 0; padding: 0; width: 100%; display: flex; flex-direction: row;
 
 header .top-logo { margin: 0px;	padding: 0 0 0 2.5vw; width: 50%; }
 header .top-logo a:hover, header .top-logo a:active { color: white; }
-header .top-menu { margin: 0px; padding: 0 1.5rem 0 0; width: 50%; display:flex; flex-direction: row; }
+header .top-menu { margin: 0px; padding: 0 0 0 0; width: 50%; display:flex; flex-direction: row; }
 header a { color: inherit; font-weight: 400; }
 
 @media (max-width: 736px) {
