@@ -36,4 +36,5 @@ $( "#site-footer" ).load( "/loader/footer.html" );
 $.get( contentFile , function(data){
   $(data).appendTo("#page-content");
 });
+
 });
