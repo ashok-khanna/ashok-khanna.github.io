@@ -163,11 +163,11 @@ header a { color: inherit; font-weight: 400; }
 }
 
 /* Sidebar */
-nav { margin: 0; padding: calc(1.125rem + 1.5vw - 20px) 20px 20px 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.0625rem; font-weight: 300; background-color: #f1f1f1; color: black; }
+nav { margin: 0; padding: calc(1.125rem + 1.5vw - 10px) 20px 20px 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.0625rem; font-weight: 300; background-color: #f1f1f1; color: black; }
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
 nav a { color: inherit; font-weight: 300; }
 
-nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 400; font-size: 1.25rem; }
+nav .sidebar-title { padding: 10px 20px 20px 20px; font-weight: 400; font-size: 1.25rem; text-align: center; }
 nav .sidebar-submenu { display: none; border: 1.5px solid teal; }
 nav .sidebar-sublink { margin: 6px; padding: 10px 14px 10px 14px; font-size: 0.8em; display: block; }
 nav .sidebar-sublink:hover { background-color: teal; color: white; }
