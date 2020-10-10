@@ -20,7 +20,7 @@ body {
 main {
   display: block; /* Render the `main` element consistently in IE. */
   margin: 0;
-  padding: 2.25rem;
+  padding: 2.5vw;
 }
 
 h1, h2, h3 {
@@ -79,7 +79,7 @@ nav { display: none; }
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {
-	 .page-container { margin: 0 0 0 250; padding: 1.5vw 2.5vw 5vw 2.5vw; }
+	 .page-container { margin: 0 0 0 250; padding: 1.5vw 2.5vw 3.5vw 2.5vw; }
 	 nav { display: block; }
 }
 
