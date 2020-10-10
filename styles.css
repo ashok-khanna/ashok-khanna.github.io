@@ -75,6 +75,7 @@ nav { display: none; }
 
 @media (max-width: 736px) {
   header .lisp-link { display: none; }
+  header .home-link { display: none; }
   #site-footer { display: none }
 }
 
