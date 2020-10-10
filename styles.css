@@ -163,7 +163,7 @@ header a { color: inherit; font-weight: 400; }
 }
 
 /* Sidebar */
-nav { margin: 0; padding: calc(1.125rem + 1.5vw - 10px) 20px 20px 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.0625rem; font-weight: 300; background-color: #f1f1f1; color: black; }
+nav { margin: 0; padding: calc(1.125rem + 1.5vw - 10px) 20px 20px 20px; width: 210px; height: 100%; position: fixed; overflow: auto; font-size: 1.125rem; font-weight: 300; background-color: #f1f1f1; color: black; }
 nav p { margin: 0; padding: 10px 20px 10px 20px; }
 nav a { color: inherit; font-weight: 300; }
 
