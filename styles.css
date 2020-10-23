@@ -121,6 +121,7 @@ thead th { background-color: teal; color: white; font-weight: 400; }
 caption { padding: 1.25rem; caption-side: top; }
 
 .article-table table { background-color: #f1f1f1; color: black; }
+.docu-table table { background-color: #f1f1f1; color: black; border: 2px; }
 
 /* Math Table Special Styling */
 .math-table thead th:nth-child(1) { width: 5%; }
