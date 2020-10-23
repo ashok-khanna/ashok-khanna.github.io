@@ -41,7 +41,7 @@ a:hover, a:active {
   color: teal;
 }
 
-b, i, strong {
+b, strong {
   font-weight: bolder; /* Add the correct font weight in Chrome, Edge, and Safari. */
 }
 
