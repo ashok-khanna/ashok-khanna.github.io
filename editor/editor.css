@@ -44,6 +44,16 @@ html {
   	-moz-osx-font-smoothing: grayscale;
 }
 
+@media print { 
+	#github, #star, #text, #top-gutter, #second-gutter, #editor-button,
+#preview-button, #char-button, #help-button, #third-gutter {
+		display: none !important;
+	}
+}
+
+	@page { size: auto;  margin: 0mm; }
+
+
 .button {
 	text-align: center;
 	display: flex;
@@ -74,23 +84,24 @@ html {
 
 
 body {
-	margin: 40px;
+	margin: 14px;
 	background-color: white;
 	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
 }
 
 main {
+	margin: 26px;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: auto 1rem 1rem 2rem 1rem auto;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: auto 1rem 1rem 2rem 1rem 1rem auto;
 	grid-column-gap: 2.5vw;
 	grid-template-areas:
-		"github star text text text"
-		"top-gutter top-gutter top-gutter top-gutter top-gutter"
-		"second-gutter second-gutter second-gutter second-gutter second-gutter"
-		"editor-button preview-button html-button latex-button help-button"
-		"third-gutter third-gutter third-gutter third-gutter third-gutter"
-		"main-screen main-screen main-screen main-screen main-screen";
+		"github star text text"
+		"top-gutter top-gutter top-gutter top-gutter"
+		"second-gutter second-gutter second-gutter second-gutter"
+		"editor-button preview-button shortcut-button help-button"
+		"third-gutter third-gutter third-gutter third-gutter"
+		"main-screen main-screen main-screen main-screen";
 }
 
 #text {
@@ -133,17 +144,12 @@ main {
 	grid-area: preview-button;
 }
 
+#shortcut-button {
+	grid-area: shortcut-button;
+}
+
 #help-button {
 	grid-area: help-button;
-}
-
-#html-button {
-	grid-area: html-button;
-}
-
-#latex-button {
-	grid-area: latex-button;
-
 }
 
 #third-gutter {
@@ -161,10 +167,16 @@ main {
 
 #editor {
   grid-area: A;
-  color: #626262;
-  min-height: 360px;
-  display: block;
-  border: 1px solid #dedede;
+  color: black;
+}
+
+#tinymce {
+	  background-color: #FFEFD5;
+}
+
+#char {
+	grid-area: char;
+	display: none;
 }
 
 #preview {
@@ -172,29 +184,18 @@ main {
 	display: none;
 }
 
-#html {
+#shortcut {
 	grid-area: C;
 	display: none;
 }
 
-#latex {
+#help {
 	grid-area: D;
 	display: none;
 }
 
-#help {
-	grid-area: E;
-	display: none;
-}
+/* Pushes last three buttons in TinyMCE toolbar to the right */
+.tox-toolbar__group:last-child { margin-left: auto!important; }
 
-.dfree-body {
-	padding-left: 1rem;
-	padding-right: 1rem;
-	padding-bottom: 1rem;
-	line-height: 1rem !important;
-	font-size: 1rem !important;
-}
-
-.dfree-body:focus {
-	outline: none;
-}
+.tox:not([dir=rtl]) {border:none;}
+.tox-toolbar {border: 1px;}

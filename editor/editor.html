@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Math Writer</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="editor.css">
@@ -8,20 +9,23 @@
   <script src="editor.js" referrerpolicy="origin"></script>
   <script src="https://buttons.github.io/buttons.js"></script>
   <script>
-
 window.MathJax = {
-    extensions: ["asciimath2jax.js"],
-    jax: ["input/AsciiMath", "output/HTML-CSS"],
+    "fast-preview": {
+                disabled: true
+        },
+    extensions: ["tex2jax.js", "asciimath2jax.js"],
+    jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+    displayAlign: "left",
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
       processEscapes: true
     }, 
     asciimath2jax: {
-      delimiters: [['$','$'], ['`','`']]},
+      delimiters: [['$','$'], ['`','`']],
+      preview: [""]},
     "HTML-CSS": { fonts: ["STIX"] }
   }
-
   </script>
 <script type="text/javascript" sync
   src="MathJax-2.7.7/MathJax.js">
@@ -38,16 +42,14 @@ window.MathJax = {
   <div id="second-gutter"></div>
   <div id="editor-button" class="button bt-active" onclick="editor()">Editor</div>
   <div id="preview-button" class="button bt-inactive" onclick="preview()">Preview</div>
-  <div id="html-button" class="button bt-inactive" onclick="html()">HTML</div>
-  <div id="latex-button" class="button bt-inactive" onclick="latex()">LaTex</div>
+  <div id="shortcut-button" class="button bt-inactive" onclick="shortcut()">Shortcuts</div>
   <div id="help-button" class="button bt-inactive" onclick="help()">Read Me</div>
   <div id="third-gutter"></div>
 
-  <div id="main-screen"><div id="editor"><div id="tinymce" class="dfree-body" contenteditable="true" style="position: relative;" spellcheck="false"></div>
-    </div>
+  <div id="main-screen"><div id="editor">
+    <div id="tinymce" class="dfree-body" contenteditable="true" style="position: relative;" spellcheck="false"></div></div>
     <div id="preview">`sum_(i=1)^n i^3=((n(n+1))/2)^2`</div>
-    <div id="html"></div>
-    <div id="latex"></div>
+    <div id="shortcut">Add shortcuts here</div>
     <div id="help">
       <p>1.0 Parsing Logic
   - * - * - * - * - * - * -
