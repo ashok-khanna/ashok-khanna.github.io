@@ -4,11 +4,11 @@ html { font-family: 'Roboto', sans-serif; font-weight: 300; }
 body { padding: 4rem; margin: 0px auto; max-width: 800px; }
 b { font-weight: 500; }
 h1 { border-bottom: 0.25rem solid black; margin-bottom: 1rem; padding-bottom: 1rem; }
-h2 { border-bottom: 0.1875rem solid black; margin-top: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; }
-h3 { border-bottom: 1px solid black; margin-top: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; }
+h2 { border-bottom: 0.1875rem solid black; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; }
+h3 { border-bottom: 1px solid black; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; }
 p {	text-align: justify; line-height: 1.4rem; }
 ul li { padding: 0.5rem 0px; }
-a { color: #347dbd; }
+a { color: #347dbd; text-decoration: none; }
 a:hover { color: #FC814A; }
 mark { color: purple; background-color: inherit; }
 light-mark { color: purple; }
