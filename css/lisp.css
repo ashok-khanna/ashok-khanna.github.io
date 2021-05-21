@@ -25,4 +25,4 @@ figcaption { caption-side: top; padding-bottom: 0.75rem;
 
 /* Code Typography */
 code { white-space: pre; padding:  1rem; }
-.copy-btn { float:  right; }
+.copy-btn { float:  right; padding:  0.5rem; background-color:  blue; color:  white; border: solid 1px black; }
