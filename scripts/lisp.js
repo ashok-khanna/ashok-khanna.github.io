@@ -6,14 +6,12 @@ $(document).ready(function() {
   $('code button.copy-btn').click(function(e) {
     var text = $(this).parent().text(); //.text();
     var newText = text.substring(0, text.length - 18);
-    console.log(newText);
     var copyHex = document.createElement('textarea');
-    copyHex.style.whiteSpace = "pre";
+    // copyHex.style.whiteSpace = "pre";
     copyHex.value = newText;
     document.body.appendChild(copyHex);
     copyHex.select();
     document.execCommand('copy');
     console.log(copyHex.value)
-    // document.body.removeChild(copyHex);
   });
 })
