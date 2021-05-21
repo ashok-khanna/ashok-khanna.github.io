@@ -38,12 +38,44 @@
 
 html { font-family: 'Roboto', sans-serif; }
 body { padding: 4rem; margin: 0px auto; max-width: 800px; }
-h1 { border-bottom: 0.25rem solid black; margin-bottom: 1rem; padding-bottom: 1rem; }
-h2 { border-bottom: 0.1875rem solid black; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; }
-h3 { border-bottom: 0.1875rem solid black; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; }
 p {	text-align: justify; line-height: 1.4rem; }
 a { text-decoration: none; }
 
+h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
+h2 { border-bottom: 0.1875rem solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
+p {	text-align: justify; line-height: 1.4rem; }
+a { color: #347dbd; }
+a:hover { color: #FC814A; }
+mark { color: purple; background-color: inherit; }
+light-mark { color: purple; }
+img { max-width: calc(100% - 3rem); }
+.img-75mm { height: 75mm; }
+
+center { border: 0.5px solid gray; padding: 1.5rem; }
+
+
+
+figure {
+	margin-block-start: 2rem; margin-block-end: 2rem;
+	margin-inline-start: 0rem; margin-inline-end: 0rem;
+}
+figcaption { caption-side: top; padding-bottom: 0.75rem;
+	border-bottom: 0.5px solid gray; margin-bottom: 1.5rem;
+	color: gray; font-weight: bold;} 
+
 
 /* Code Typography */
-code { font-family: 'Roboto Mono', monospace; }
+
+pre {
+	background-color: #f0f0f0; font-family: 'Roboto Mono', monospace;
+	padding: 1rem; font-size: smaller; white-space: pre-wrap; }
+}
+
+code { margin-bottom: 1.5rem; display: block;}
+
+
+
+/* - * - * - * - * - * - * - * - * - * - */
+/* 2.0 General Formatting */
+
+
