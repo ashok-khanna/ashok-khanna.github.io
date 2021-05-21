@@ -10,6 +10,7 @@ $(document).ready(function() {
       newText = text.substring(1);
     }
     if (newText.substring(newText.length -1) == '\n') {
+      console.log("okay")
       newText = newText.substring(0, newText.length - 1);
     }
 
