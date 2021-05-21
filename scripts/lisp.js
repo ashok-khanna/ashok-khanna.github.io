@@ -2,7 +2,7 @@ $(document).ready(function() {
   $('code').append('<button class="copy-btn">Copy to Clipboard</button>');
 
   $('code button.copy-btn').click(function(e) {
-    var text = $(this).parent().text().trim(); //.text();
+    var text = $(this).parent().first().text().trim(); //.text();
     var copyHex = document.createElement('input');
     copyHex.value = text
     document.body.appendChild(copyHex);
