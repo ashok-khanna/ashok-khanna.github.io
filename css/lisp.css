@@ -24,5 +24,5 @@ figcaption { caption-side: top; padding-bottom: 0.75rem;
 
 
 /* Code Typography */
-code { white-space: pre; }
+code { white-space: pre; padding:  1rem; }
 .copy-btn { float:  right; }
