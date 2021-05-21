@@ -1,4 +1,40 @@
-/* Fonts */
+/* Main Typography and Layout */
+
+html { font-family: 'Times New Roman', Serif; }
+body { padding: 4rem; margin: 0px auto; max-width: 800px; }
+p {	text-align: justify; line-height: 1.4rem; }
+a { text-decoration: none; }
+
+p {	text-align: justify; line-height: 1.4rem; }
+a { color: #347dbd; }
+a:hover { color: #FC814A; }
+
+img { max-width: calc(100% - 3rem); }
+.img-75mm { height: 75mm; }
+
+center { border: 0.5px solid gray; padding: 1.5rem; }
+
+figure {
+	margin-block-start: 2rem; margin-block-end: 2rem;
+	margin-inline-start: 0rem; margin-inline-end: 0rem;
+}
+figcaption { caption-side: top; padding-bottom: 0.75rem;
+	border-bottom: 0.5px solid gray; margin-bottom: 1.5rem;
+	color: gray; font-weight: bold;} 
+
+
+/* Code Typography */
+
+pre {
+	background-color: #f0f0f0; font-family: 'Courier', monospace;
+	padding: 1rem; font-size: smaller; white-space: pre-wrap; }
+}
+
+code { margin-bottom: 1.5rem; display: block;}
+
+
+
+/* Alternate Fonts 
 
 @font-face { font-family: 'Roboto';
 	src: url('/fonts/roboto/Roboto-Light.ttf') format('truetype');
@@ -33,49 +69,6 @@
 	src: url('/fonts/roboto-mono/RobotoMono-MediumItalic.ttf') format('truetype');
 	font-weight: bold; font-style: italic; }
 
-
-/* Main Typography and Layout */
-
-html { font-family: 'Roboto', sans-serif; }
-body { padding: 4rem; margin: 0px auto; max-width: 800px; }
-p {	text-align: justify; line-height: 1.4rem; }
-a { text-decoration: none; }
-
-h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
-h2 { border-bottom: 0.1875rem solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
-p {	text-align: justify; line-height: 1.4rem; }
-a { color: #347dbd; }
-a:hover { color: #FC814A; }
-mark { color: purple; background-color: inherit; }
-light-mark { color: purple; }
-img { max-width: calc(100% - 3rem); }
-.img-75mm { height: 75mm; }
-
-center { border: 0.5px solid gray; padding: 1.5rem; }
-
-
-
-figure {
-	margin-block-start: 2rem; margin-block-end: 2rem;
-	margin-inline-start: 0rem; margin-inline-end: 0rem;
-}
-figcaption { caption-side: top; padding-bottom: 0.75rem;
-	border-bottom: 0.5px solid gray; margin-bottom: 1.5rem;
-	color: gray; font-weight: bold;} 
-
-
-/* Code Typography */
-
-pre {
-	background-color: #f0f0f0; font-family: 'Roboto Mono', monospace;
-	padding: 1rem; font-size: smaller; white-space: pre-wrap; }
-}
-
-code { margin-bottom: 1.5rem; display: block;}
-
-
-
-/* - * - * - * - * - * - * - * - * - * - */
-/* 2.0 General Formatting */
+*/
 
 
