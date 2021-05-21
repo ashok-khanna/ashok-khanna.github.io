@@ -14,8 +14,8 @@
   copyButton.classList.add("copy-btn");
   copyButton.textContent = "Copy to Clipboard"
 
-  copyButton.onclick = function(e) {
-    var text = $(this).parent().text().substring(17); //.text();
+  copyButton.onclick = function() {
+    var text = this.parentElement.textContent.substring(17); //.text();
     var newText = text.trim();
     var copyHex = document.createElement('textarea');
     // copyHex.style.whiteSpace = "pre";
@@ -29,7 +29,6 @@
 
   for (code of codes){
     code.prepend(copyButton);
-    $('code button.copy-btn')
   }
 
   // $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
