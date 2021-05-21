@@ -32,7 +32,7 @@ body { padding: 2rem; margin: 0px auto; max-width: 900px; }
 p, li, .note {	text-align: justify; line-height: 1.4rem; }
 a { text-decoration: none; }
 
-a { color: #347dbd; }
+a { color: #008080; }
 a:hover { color: #FC814A; }
 
 img { max-width: calc(100% - 3rem); }
