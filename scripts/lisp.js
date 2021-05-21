@@ -10,6 +10,9 @@ $(document).ready(function() {
 
   $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
 
+  $('code').style.padding = "1rem";
+  $('code').style.border = "solid 1px black";
+
   $('code button.copy-btn').click(function(e) {
     var text = $(this).parent().text().substring(17); //.text();
     var newText = text.trim();
