@@ -35,7 +35,7 @@ code {
 /* From CSS Tricks:  https://css-tricks.com/overriding-default-button-styles/ */
 
 button {
-    border-radius:  2px;
+    border-radius:  0px;
     border:  solid 1px steelblue;
     padding: 0.5rem;
     margin: 0;
