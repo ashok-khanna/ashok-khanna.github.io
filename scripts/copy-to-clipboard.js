@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-  var copyButton = document.createElement("button");
+  var copyButton = document.createElement("h1");
   copyButton.classList.add("copy-btn");
   copyButton.textContent = "Copy to Clipboard"
 
