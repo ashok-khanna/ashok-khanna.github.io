@@ -5,7 +5,7 @@ $(document).ready(function() {
     console.log("hellow")
     text = $(this).parent().select(); //.text();
     copiedText = $.trim(text);
-    console.log(copiedText);
+    console.log(text.value);
     document.execCommand("copy");
   });
 })
