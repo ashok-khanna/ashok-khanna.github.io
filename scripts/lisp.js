@@ -1,6 +1,13 @@
 // https://stackoverflow.com/questions/62857743/how-to-copy-to-clipboard-text-from-code-and-pre-tags-using-jquery-and-js
 
 $(document).ready(function() {
+
+  const codes = document.getElementsByTagName("code");
+
+  for (code of codes){
+    code.value = code.value.trim();
+  }
+
   $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
 
   $('code button.copy-btn').click(function(e) {
