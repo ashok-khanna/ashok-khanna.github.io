@@ -12,7 +12,6 @@
 <p>Sunday, 23 May 2021</p>
 <br />
 <p>This guide introduces the Common Lisp Condition System</p>
-	<p>Test out <b>bold</b> and <i>italics</i> and <b><i>bolded italics</i></b></p>
 
 
 <h2>Conceptual Background</h2>
@@ -235,13 +234,11 @@ If an exit occurs before completion of the incf operation the decf operation wil
     </code>
 <h2>Notes</h2>
 <h3>Comparison to Other Languages</h3>
+
+
 <h3>Acknowledgements</h3>
-<p>Apart from Chapter 29 of CLTL2e, the following resources were helpful to me to understand the Common Lisp Condition System, and thus must be given credit for the above.</p>
-<ul>
-	<li><a href="https://www.apress.com/gp/book/9781484211779">Common Lisp Recipes by Edmun Weitz</a>. In particular for its excellent walkthrough of restart-bind and the call stack. This was one of the best books I purchased recently, highly recommend it for any intermediate Lisp programmer</li>
-	<li><a href="https://lispcookbook.github.io/cl-cookbook/error_handling.html">Common Lisp Cookbook - Error and exception handling</a>. In particular for their examples on restart-case</li>
-	<li><a href="http://www.lispworks.com/documentation/lw50/CLHS/Body/c_condit.htm">Common Lisp HyperSpec</a></li>
-</ul>
+<p>Apart from Chapter 29 of CLTL2e, <a href="https://www.apress.com/gp/book/9781484211779">Common Lisp Recipes by Edmun Weitz</a> and the <a href="https://lispcookbook.github.io/cl-cookbook/error_handling.html">Common Lisp Cookbook</a> were helpful to me to understand the Common Lisp Condition System. Professor Weitz's book is notable for its excellent walkthrough of the restard-bind and its illustration of how the call stack unwinds. The CL Cookbook had very clear walk throughs of the restart-case macro, which I believe was based on the blog article <a href="https://z0ltan.wordpress.com/2016/08/06/conditions-and-restarts-in-common-lisp/">Conditions and Restarts in Common Lisp</a> by Timmy Jose.
+
 <h3>Further Reading</h3>
 <p>The second part of Chapter 29 of CLTL2e, <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node334.html">Program Interface to Condition System</a> and the Common Lisp HyperSpec will be relevant further reading after digesting this article. In addition, while browsing online materials, I saw Michal Herda has written a detailed book, <a href="https://www.apress.com/gp/book/9781484261330">The Common Lisp Condition System: Beyond Exception Handling with Control Flow Mechanisms</a>, that provides detailed information about the Lisp condition system and its control flow mechanisms; it also describes an example ANSI-conformant implementation of the condition system. I haven't read it, but it has <a href="https://www.amazon.ae/Common-Lisp-Condition-System-Mechanisms/dp/148426133X#customerReviews">good reviews online</a>. 
 
