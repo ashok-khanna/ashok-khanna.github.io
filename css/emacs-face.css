@@ -1,9 +1,9 @@
 /**
  * Inspired by github's default code highlighting
  */
- 
-pre code.hl-highlighted {white-space: pre; margin: 0; padding: 0; background: none; border: none; overflow-x: auto; font-size: 13px;}
-code.hl-highlighted {margin: 0 2px; padding: 0 5px; white-space: nowrap; font-family: Consolas, "Liberation Mono", Courier, monospace; background: #f8f8f8; border: 1px solid #eaeaea; border-radius: 3px;}
+
+pre code.hl-highlighted {white-space: pre; margin: 0; padding: 0; background: none; border: none; overflow-x: auto; }
+code.hl-highlighted {margin: 0 2px; padding: 0 5px; white-space: nowrap; border: 1px solid #eaeaea; border-radius: 3px;}
 
 code.hl-highlighted {color: #008080;}
 code.hl-highlighted .function {color: #008080;}
