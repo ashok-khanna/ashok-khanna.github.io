@@ -1,11 +1,11 @@
 $(document).ready(function() {
-  $('pre').append('<button class="copy-btn">Copy to Clipboard</button>');
+  $('code').append('<button class="copy-btn">Copy to Clipboard</button>');
 
   $('.copy-btn').click(function(e) {
     console.log("hellow")
-    text = $(this).parent().first().select(); //.text();
+    text = $(this).parent().select(); //.text();
     copiedText = $.trim(text);
-    console.log(text.value);
+    console.log(copiedText);
     document.execCommand("copy");
   });
 })

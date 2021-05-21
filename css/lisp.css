@@ -36,9 +36,9 @@ pre {
   right: 5px;
 }
 
-pre:hover > .copy-btn {
+code:hover > .copy-btn {
   display: block;
-    top: 5px;
+  top: 5px;
   right: 5px;
 }
 
