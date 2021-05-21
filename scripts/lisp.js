@@ -11,7 +11,7 @@ $(document).ready(function() {
   $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
 
   $('code button.copy-btn').click(function(e) {
-    var text = $(this).parent().text().substring(18); //.text();
+    var text = $(this).parent().text().substring(17); //.text();
     var newText = text.trim();
     var copyHex = document.createElement('textarea');
     // copyHex.style.whiteSpace = "pre";
