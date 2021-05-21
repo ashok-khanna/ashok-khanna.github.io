@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   $('.copy-btn').click(function(e) {
     console.log("hellow")
-    text = $(this).parent().select(); //.text();
+    text = $(this).parent().first().first().select(); //.text();
     copiedText = $.trim(text);
     console.log(text.value);
     document.execCommand("copy");
