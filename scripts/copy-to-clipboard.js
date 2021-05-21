@@ -2,11 +2,15 @@
 
 $(document).ready(function() {
 
+  var copyButton = document.createElement("button");
+  copyButton.class = "copy-btn"
+  copyButton.textContent = "Copy to Clipboard"
+
   const codes = document.getElementsByTagName("code");
 
   for (code of codes){
     code.textContent = code.textContent.trim();
-    code.prepend('<button class="copy-btn">Copy to Clipboard</button>');
+    code.prepend(copyButton);
   }
 
   HighlightLisp.highlight_auto();
