@@ -31,7 +31,6 @@ body { padding: 2rem; margin: 0px auto; max-width: 900px; }
 .note { background-color: #f0f0f0; padding:  1rem; }
 p, li, .note {	text-align: justify; line-height: 1.4rem; }
 a { text-decoration: none; }
-i { color: blue; }
 a { color: #008080; }
 a:hover { color: #FC814A; }
 
@@ -55,9 +54,7 @@ code {
 	white-space: pre !important;
 	padding:  1rem !important;
     background:  #f0f0f0;
-	/* border:  solid 1px black !important; */
     font-family:  monospace;
-    font-size:  100%;
 }
 .copy-btn { float:  right; }
 
