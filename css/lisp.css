@@ -44,5 +44,5 @@ code:hover > .copy-btn {
 
 code { margin-bottom: 1.5rem; display: block; white-space: pre; }
 
-
+input { white-space: pre; }
 
