@@ -2,19 +2,23 @@
 
 $(document).ready(function() {
 
-  var copyButton = document.createElement("h1");
-  copyButton.classList.add("copy-btn");
-  copyButton.textContent = "Copy to Clipboard"
-
   const codes = document.getElementsByTagName("code");
 
   for (code of codes){
     code.textContent = code.textContent.trim();
-    code.appendChild(copyButton);
   }
 
   HighlightLisp.highlight_auto();
   HighlightLisp.paren_match();
+
+
+  var copyButton = document.createElement("button");
+  copyButton.classList.add("copy-btn");
+  copyButton.textContent = "Copy to Clipboard"
+
+  for (code of codes){
+    code.prepend(copyButton);
+  }
 
   // $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
 
