@@ -14,7 +14,7 @@
   copyButton.classList.add("copy-btn");
   copyButton.textContent = "Copy to Clipboard"
 
-  copyButton.click = function(e) {
+  copyButton.onclick = function(e) {
     var text = $(this).parent().text().substring(17); //.text();
     var newText = text.trim();
     var copyHex = document.createElement('textarea');
