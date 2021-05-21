@@ -7,7 +7,7 @@ $(document).ready(function() {
     var text = $(this).parent().text(); //.text();
     var newText = text.substring(0, text.length - 18);
     console.log(newText);
-    var copyHex = document.createElement('input');
+    var copyHex = document.createElement('textarea');
     copyHex.style.whiteSpace = "pre";
     copyHex.value = newText;
     document.body.appendChild(copyHex);
