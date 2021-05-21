@@ -10,48 +10,207 @@
 	<h1>Guide: Common Lisp Condition System</h1>
 	<p>This guide introduces the Common Lisp Condition System</p>
 	<p>Test out <b>bold</b> and <i>italics</i> and <b><i>bolded italics</i></b></p>
+
+
+<h2>Concepts</h2>
+
+
+<h2>Starting Notes</h2>
+<p>We will use a contrived example of calculating the width from a rectangle when its area and height are known to illustrate the main concepts of the Common Lisp Condition System.</p>
+
+<p>A simple version of this function is as follows.</p>
+
+<code>
+(defun rect-width (area height)
+  (/ area height))
+ </code>
+ 
+<h2>Conditions</h2>
+
+
+<h2>Signalling Conditions</h2>
+<p>
+
+
+
+
+
+
+<h2>Handling Conditions</h2>
+
+
+
+<h2>Restarts</h2>
+
+
+
+
 	<code>
 ;; This is a comment
 ;; This too
 
-(defun my-function ()
-  "Return Nil")
+;; Basic Function
 
-(defun math-list (text)
-  "Returns a list of math objects that exists within a string. Wrapper of math-structural-form"
-  (let ((structural-form (structural-form text))
-	(word-list (helper::string-to-list text)))
-    (math-structural-form word-list structural-form)))
 
-(defun math-structural-form (word-list structural-form &key (prior-list nil) (prior-struct nil))
-  "Returns a list of the math objects that exist within a string"
-  (cond ((null structural-form) prior-list)
-	(t (let* ((word (car word-list))
-		  (struct (car structural-form))
-		  (current-list (cond
-				  ((not (find #\% struct)) prior-list)
-				  ((null prior-list) (list word))
-				  ((or (equal prior-struct "%,")
-				       (equal prior-struct "%;")
-				       (equal prior-struct "%.")
-				       (not (find #\% prior-struct)))
-				   (append prior-list (list (if (or (equal struct "%,")
-								      (equal struct "%;")
-								      (equal struct "%."))
-								  (subseq word 0 (- (length word) 1))
-								  word))))
-				  (t
-				   (append (butlast prior-list)
-					   (list (concatenate 'string (car (last prior-list))
-							      (if (or (equal struct "%,")
-								      (equal struct "%;")
-								      (equal struct "%."))
-								  (subseq word 0 (- (length word) 1))
-								  word))))))))
-	     (math-structural-form (rest word-list)
-				   (rest structural-form)
-				   :prior-list current-list
-				   :prior-struct struct)))))
+
+
+;; Trap Errors
+
+(defun rect-width-ignore-errors (area height)
+  (ignore-errors
+   (/ area height)))
+
+
+
+
+;; Define Conditions
+
+(define-condition divide-by-zero (error) ())
+
+(define-condition negative-value ()
+  ((desc :initarg :desc :reader desc))
+  (:report (lambda (condition stream)
+             (format stream "Condition: ~a."
+                     (desc condition)))))
+
+
+;; Function with Signalling:
+
+(defun rect-width-v2 (area height)
+  (cond ((equal height 0)
+         (error "You divided by zero"))
+        ((< height 0)
+         (signal (make-condition 'negative-value :desc "Height is Negative")))
+        ((< area 0)
+         (signal 'negative-value :desc "Area is Negative"))
+        (t (/ area height))))
+
+
+;; Wrapped within a Condition Handler:
+
+(defun rect-width-handler-case (area height)
+  (handler-case (rect-width-v2 area height)
+    (divide-by-zero (condition)
+      (values 0 condition))
+    (negative-value (condition)
+      (values 0 (let ((*print-escape* nil))
+                  (write condition))))
+    (error (condition)
+      (values nil condition))))
+
+
+;; Example of Block - Return-From:
+
+(defun rect-width-block-return-from (area height)
+  (let ((tag (gensym)))
+    (block tag
+      (cond ((equal height 0)
+             (return-from tag (values 0 "Error - Divide by Zero")))
+            ((< height 0)
+             (return-from tag (values 0 "Error - Height is Negative")))
+            ((< area 0)
+             (return-from tag (values 0 "Error - Area is Negative")))
+            (t
+             (rect-width-v2 area height))))))
+
+
+;; Wrapped within a handler-bind:
+
+(defun example-handler-function (condition)
+  (let ((*print-escape* nil))
+    (values 0 (write condition))))
+
+
+(defun rect-width-handler-bind-bad (area height)
+  (handler-bind
+      ((divide-by-zero #'(lambda (condition)
+                           (declare (ignore condition))
+                          (values nil condition)))
+       (negative-value #'example-handler-function)
+       (error (lambda (condition)
+                (values nil condition))))
+    (rect-width-v2 area height)))
+
+
+(defun rect-width-handler-bind-good (area height)
+  (let ((tag (gensym)))
+    (block tag
+      (handler-bind
+          ((divide-by-zero #'(lambda (condition)
+                               (return-from tag
+                                 (values nil condition))))
+           (negative-value #'example-handler-function)
+           (error #'(lambda (condition)
+                      (return-from tag (values nil condition)))))
+        (rect-width-v3 area height)))))
+
+(defun rect-width-v3 (area height)
+  (cond ((equal height 0)
+         (signal 'divide-by-zero))
+        ((< height 0)
+         (signal (make-condition 'negative-value :desc "Height is Negative")))
+        ((< area 0)
+         (signal 'negative-value :desc "Area is Negative"))
+        (t (/ area height))))
+
+
+;; Example of Restart Case:
+
+;; Credits Common Lisp Cookbook
+
+(defun prompt-value (prompt)
+  (format *query-io* prompt)  ;; *query-io*: the special stream to make user queries.
+  (force-output *query-io*)   ;; Ensure the user sees what he types.
+  (list (read *query-io*)))   ;; We must return a list.
+
+
+(defun rect-width-restart-case (area height)
+  (restart-case (rect-width-v2 area height)
+    (return-zero ()
+      :report "Return 0"
+      0)
+    (new-height (value)
+      :report "Enter a new height (non-negative number)"
+      :interactive (lambda () (prompt-value "Please enter a new height"))
+      (rect-width-v2 area value))
+    (new-width (value)
+      :report "Enter a new area (non-negative number)"
+      :interactive (lambda () (prompt-value "Please enter a new area"))
+      (rect-width-v2 value height))))
+
+
+;; Unwind-Protect Example
+
+(defun rect-width-unwind-protect (area height)
+  ((unwind-protect (rect-width-v4 area height))))
+
+(unwind-protect 
+     (progn (start-motor) 
+            (drill-hole)) 
+  (stop-motor))
+If drill-hole does a throw that attempts to quit out of the unwind-protect, then (stop-motor) will be executed.
+
+This example assumes that it is correct to call stop-motor even if the motor has not yet been started. Remember that an error or interrupt may cause an exit even before any initialization forms have been executed. Any state restoration code should operate correctly no matter where in the protected code an exit occurred. For example, the following code is not correct:
+
+(unwind-protect 
+     (progn (incf *access-count*) 
+            (perform-access)) 
+  (decf *access-count*))
+
+This example assumes that it is correct to call stop-motor even if the motor has not yet been started. Remember that an error or interrupt may cause an exit even before any initialization forms have been executed. Any state restoration code should operate correctly no matter where in the protected code an exit occurred. For example, the following code is not correct:
+
+(unwind-protect 
+     (progn (incf *access-count*) 
+            (perform-access)) 
+  (decf *access-count*))
+If an exit occurs before completion of the incf operation the decf operation will be executed anyway, resulting in an incorrect value for *access-count*. The correct way to code this is as follows:
+
+(let ((old-count *access-count*)) 
+  (unwind-protect 
+       (progn (incf *access-count*) 
+              (perform-access)) 
+    (setq *access-count* old-count)))
+
 
     </code>
 	    <br />
