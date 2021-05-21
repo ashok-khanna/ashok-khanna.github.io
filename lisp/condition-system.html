@@ -34,7 +34,7 @@
 <p></p>
 
 <h2>Starting Notes</h2>
-<p>We will use a contrived example of calculating the width from a rectangle when its area and height are known to illustrate the main concepts of the Common Lisp Condition System. A simple version of this function is as follows.</p>
+<p>For the rest of this guide, we will use a contrived example of calculating the width from a rectangle when its area and height are known. The "normal" definition of this function would be to return the width of a rectangle when its area and height are known, and possible exceptional situations include non-numerical inputs for either of area and height, passing a value of zero for height (i.e. divide by zero error) or passing in negative values for either of area and height. A simple version of this function is as follows.</p>
 
 <code>
 (defun rect-width (area height)
