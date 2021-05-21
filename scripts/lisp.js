@@ -1,15 +1,8 @@
 $(document).ready(function() {
-  $('code, pre').append('<span class="command-copy">Copy to Clipboard</span>');
+  $('pre').append('<button class="copy-btn">Copy to Clipboard</btn>');
 
-  $('code span.command-copy').click(function(e) {
+  $('pre copy-btn').click(function(e) {
     text = $(this).parent().select(); //.text();
-    copiedText = $.trim(text);
-    document.execCommand("copy");
-  });
-
-
-  $('pre span.command-copy').click(function(e) {
-    text = $(this).parent().parent().select(); //.text();
     copiedText = $.trim(text);
     document.execCommand("copy");
   });
