@@ -57,6 +57,7 @@ code {
     background:  #f0f0f0;
 	/* border:  solid 1px black !important; */
     font-family:  monospace;
+    font-size:  100%;
 }
 .copy-btn { float:  right; }
 
