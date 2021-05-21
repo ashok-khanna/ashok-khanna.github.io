@@ -24,8 +24,8 @@ code.hl-highlighted .string, code.hl-highlighted .string * {color: #d14 !importa
 code.hl-highlighted .comment,
 code.hl-highlighted .comment *,
 code.hl-highlighted .comment .string
-code.hl-highlighted .comment .string * {color: #cf278f !important;}
-code.hl-highlighted .string .comment {color: #d14 !important;}
+code.hl-highlighted .comment .string * {color: #b22222 !important;}
+code.hl-highlighted .string .comment {color: #cf278f !important;}
 
 code.hl-highlighted .list.active {display: inline-block; background: #aefff7;}
 
