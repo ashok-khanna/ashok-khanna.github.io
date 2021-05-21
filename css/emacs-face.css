@@ -20,7 +20,7 @@ code.hl-highlighted .variable.constant {color: #229;}
 code.hl-highlighted .nil {color: #f00;}
 code.hl-highlighted .list {color: #222;}
 
-code.hl-highlighted .string, code.hl-highlighted .string * {color: #d14 !important;}
+code.hl-highlighted .string, code.hl-highlighted .string * {color: #cf278f !important;}
 code.hl-highlighted .comment,
 code.hl-highlighted .comment *,
 code.hl-highlighted .comment .string
