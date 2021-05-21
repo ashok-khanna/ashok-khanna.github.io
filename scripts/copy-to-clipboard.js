@@ -1,7 +1,5 @@
 // https://stackoverflow.com/questions/62857743/how-to-copy-to-clipboard-text-from-code-and-pre-tags-using-jquery-and-js
 
-$(document).ready(function() {
-
   const codes = document.getElementsByTagName("code");
 
   for (code of codes){
@@ -34,4 +32,3 @@ $(document).ready(function() {
     console.log(copyHex.value)
     document.body.removeChild(copyHex);
   });
-})
