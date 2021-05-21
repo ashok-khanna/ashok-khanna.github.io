@@ -30,8 +30,7 @@ pre {
 	padding: 1rem; white-space: pre-wrap; }
 
 .copy-btn {
-  display: block;
-  text-align:  right;
+  float:  right;
 }
 
 code { margin-bottom: 1.5rem; display: block; white-space: pre; }
