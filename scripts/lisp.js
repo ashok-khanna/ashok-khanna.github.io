@@ -1,12 +1,15 @@
 $(document).ready(function() {
   $('code').append('<button class="copy-btn">Copy to Clipboard</button>');
 
-  $('.copy-btn').click(function(e) {
-    console.log("hellow")
-    text = $(this).parent().select(); //.text();
-    copiedText = $.trim(text);
-    console.log(text.value);
-    document.execCommand("copy");
+  $('code button.copy-btn').click(function(e) {
+    var text = $(this).parent().text().trim(); //.text();
+    var copyHex = document.createElement('input');
+    copyHex.value = text
+    document.body.appendChild(copyHex);
+    copyHex.select();
+    document.execCommand('copy');
+    console.log(copyHex.value)
+    document.body.removeChild(copyHex);
   });
 })
 
