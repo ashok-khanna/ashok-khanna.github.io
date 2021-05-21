@@ -58,7 +58,6 @@ button:focus {
 
 button:focus {
     outline: 0;
-    box-shadow: 0 0 3pt 2pt red;
     /* outline-offset: -4px; */
 }
 
