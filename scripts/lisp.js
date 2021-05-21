@@ -8,7 +8,7 @@ $(document).ready(function() {
     code.textContent = code.textContent.trim();
   }
 
-  HighlightLisp.highlight_auto({className: null});
+  HighlightLisp.highlight_auto();
   HighlightLisp.paren_match();
 
   $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
