@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('code, pre').append('<span class="command-copy" ><i class="fa fa-clipboard" aria-hidden="true"></i></span>');
+  $('code, pre').append('<span class="command-copy">Copy to Clipboard</span>');
 
   $('code span.command-copy').click(function(e) {
     text = $(this).parent().select(); //.text();
