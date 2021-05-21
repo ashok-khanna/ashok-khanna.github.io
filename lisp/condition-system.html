@@ -234,15 +234,33 @@ If an exit occurs before completion of the incf operation the decf operation wil
     </code>
 <h2>Notes</h2>
 <h3>Comparison to Other Languages</h3>
+<p>One of the main distinctions between Common Lisp's error handling from that of other programming languages is that Common Lisp decouples the act of signalling an error and handling one. This is well explained by Peter Seibel in <a href="http://www.gigamonkeys.com/book/beyond-exception-handling-conditions-and-restarts.html">Chapter 19 Beyond Error Handling of Practical Common Lisp</a>, so let us re-use some extracts from that chapter:</p>
+<div class="note"><p>The condition system is more flexible than exception systems because instead of providing a two-part division between the code that signals an error1 and the code that handles it,2 the condition system splits the responsibilities into three parts--signaling a condition, handling it, and restarting.</p>
 
+<p>...</p>
+
+<p>In most languages, errors are handled by returning from a failing function and giving the caller the choice of either recovering or failing itself. Some languages use the normal function return mechanism, while languages with exceptions return control by throwing or raising an exception. Exceptions are a vast improvement over using normal function returns, but both schemes suffer from a common flaw: while searching for a function that can recover, the stack unwinds, which means code that might recover has to do so without the context of what the lower-level code was trying to do when the error actually occurred.</p>
+
+<p>...</p>
+
+<p>Consider the hypothetical call chain of high, medium, low. If low fails and medium can't recover, the ball is in high's court. For high to handle the error, it must either do its job without any help from medium or somehow change things so calling medium will work and call it again. The first option is theoretically clean but implies a lot of extra code--a whole extra implementation of whatever it was medium was supposed to do. And the further the stack unwinds, the more work that needs to be redone. The second option--patching things up and retrying--is tricky; for high to be able to change the state of the world so a second call into medium won't end up causing an error in low, it'd need an unseemly knowledge of the inner workings of both medium and low, contrary to the notion that each function is a black box.</p>
+
+<p>...</p>
+
+<h4>The Lisp Way</h4>
+
+<p>Common Lisp's error handling system gives you a way out of this conundrum by letting you separate the code that actually recovers from an error from the code that decides how to recover. Thus, you can put recovery code in low-level functions without committing to actually using any particular recovery strategy, leaving that decision to code in high-level functions.</p>
+</div>
+
+<p>At the end of the day, one can implement any system within any language. With that note, the main benefit here of Common Lisp is being more naturally expressive of the useful distinction between normal situations, exceptional situations and the process for handling them. Thus, the conceptual background noted above is a worthwhile section to re-read, to ingrain some of the important conceptual benefits of carefully selecting appropriate error handling in your code.</p>
 
 <h3>Acknowledgements</h3>
-<p>Apart from Chapter 29 of CLTL2e, <a href="https://www.apress.com/gp/book/9781484211779">Common Lisp Recipes by Edmun Weitz</a> and the <a href="https://lispcookbook.github.io/cl-cookbook/error_handling.html">Common Lisp Cookbook</a> were helpful to me to understand the Common Lisp Condition System. Professor Weitz's book is notable for its excellent walkthrough of the restard-bind and its illustration of how the call stack unwinds. The CL Cookbook had very clear walk throughs of the restart-case macro, which I believe was based on the blog article <a href="https://z0ltan.wordpress.com/2016/08/06/conditions-and-restarts-in-common-lisp/">Conditions and Restarts in Common Lisp</a> by Timmy Jose. Full credit for parts of the above article should go to these resources.</p>
+<p>Apart from Chapter 29 of CLTL2e, <a href="https://www.apress.com/gp/book/9781484211779">Common Lisp Recipes by Edmun Weitz</a>, <a href="http://www.gigamonkeys.com/book/">Practical Common Lisp by Peter Seibel</a> and the <a href="https://lispcookbook.github.io/cl-cookbook/error_handling.html">Common Lisp Cookbook</a> were helpful to me to understand the Common Lisp Condition System. Professor Weitz's book is notable for its excellent walkthrough of the restard-bind and its illustration of how the call stack unwinds. The CL Cookbook had very clear walk throughs of the restart-case macro, which I believe was based on the blog article <a href="https://z0ltan.wordpress.com/2016/08/06/conditions-and-restarts-in-common-lisp/">Conditions and Restarts in Common Lisp</a> by Timmy Jose. I have referenced Practical Common Lisp directly above, it provided a very good explaination of the benefits of the Common Lisp approach. Full credit for parts of the above article should go to these resources.</p>
 
 <h3>Further Reading</h3>
 <p>The second part of Chapter 29 of CLTL2e, <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node334.html">Program Interface to Condition System</a> and the Common Lisp HyperSpec will be relevant further reading after digesting this article. An excellent follow up would also be Kent Pitman's paper <a href="https://www.nhplace.com/kent/Papers/Condition-Handling-2001.html">Condition Handling in the Lisp Language Family</a>, which is a must read for anybody who wants to seriously apply and understand the Common Lisp Condition system. Finally, while browsing online materials, I saw Michal Herda has written a detailed book, <a href="https://www.apress.com/gp/book/9781484261330">The Common Lisp Condition System: Beyond Exception Handling with Control Flow Mechanisms</a>, that provides detailed information about the Lisp condition system and its control flow mechanisms; it also describes an example ANSI-conformant implementation of the condition system. I haven't read it, but it has <a href="https://www.amazon.ae/Common-Lisp-Condition-System-Mechanisms/dp/148426133X#customerReviews">good reviews online</a>.</p>
 
-<p>If you have written or aware of any other useful resources to add here, do drop me an e-mail at ashok dot khanna at hotmail dot com.</p>
+<p>If you have written or aware of any other useful resources to add here, do drop me an e-mail at ashok dot khanna at hotmail dot com. Feel free to also send any suggestions for improvement for the above article.</p>
 
 </main>
 	<script src="/scripts/copy-to-clipboard.js"></script>
