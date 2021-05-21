@@ -9,25 +9,24 @@
   HighlightLisp.highlight_auto();
   HighlightLisp.paren_match();
 
-
-  var copyButton = document.createElement("button");
-  copyButton.classList.add("copy-btn");
-  copyButton.textContent = "Copy to Clipboard"
-
-  copyButton.onclick = function() {
-    var text = this.parentElement.textContent.substring(17); //.text();
-    var newText = text.trim();
-    var copyHex = document.createElement('textarea');
-    // copyHex.style.whiteSpace = "pre";
-    copyHex.value = newText;
-    document.body.appendChild(copyHex);
-    copyHex.select();
-    document.execCommand('copy');
-    console.log(copyHex.value)
-    document.body.removeChild(copyHex);
-  }
-
   for (code of codes){
+      var copyButton = document.createElement("button");
+      copyButton.classList.add("copy-btn");
+      copyButton.textContent = "Copy to Clipboard"
+
+      copyButton.onclick = function() {
+        var text = this.parentElement.textContent.substring(17); //.text();
+        var newText = text.trim();
+        var copyHex = document.createElement('textarea');
+  
+        copyHex.value = newText;
+        document.body.appendChild(copyHex);
+        copyHex.select();
+        document.execCommand('copy');
+        console.log(copyHex.value)
+        document.body.removeChild(copyHex);
+      }
+
     code.prepend(copyButton);
   }
 
