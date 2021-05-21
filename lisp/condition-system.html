@@ -12,7 +12,17 @@
 	<p>Test out <b>bold</b> and <i>italics</i> and <b><i>bolded italics</i></b></p>
 
 
-<h2>Concepts</h2>
+<h2>Concepts (Extract Kent Pitman's Exceptional Situations in Lisp) [1]</h2>
+
+<p>The separation of normal and exceptional situations is useful for a number of reasons, including the following:</p>
+
+<ul>
+	<li>Simplifying Assumptions: A programmer may speed the development of a program by assuming that the program will be needed only for some normal case. In so doing, the programmer pushes off worrying about a level of detail that would only be distracting during the prototyping phase. Later, after it has been shown that the program works satisfactorily in normal situations, the programmer can "tighten up" the program to handle exceptional situations</li>
+	<li>Presentation: Simplifying assumptions can also be important after a program has been developed--when it is being read by another programmer. The person reading the code may want to first understand what it does in the normal situation and then later refine his understanding of it by inspecting its behavior in exceptional situations. If the code for dealing with the normal situation is thickly interspersed with code attempting to recognize and deal with exceptional situations, the reader's ability to decipher the intent of the program may be greatly diminished</li>
+	<li>Modularity: It frequently happens that the same exceptional situation can occur in many different places in a program; and, in many cases, the way it should be handled is the same throughout the program. For example, consider a program which is compiling a file from a remote machine. If the remote machine crashes, the compilation will probably want to simply fail no matter what routine was running. Languages should provide some way of centralizing the information about a program's behavior in such an exceptional situation so that it doesn't have to be needlessly repeated throughout the code for the program</li>
+	<li>Efficiency: In some cases, there may be efficiency reasons for considering some cases to be exceptional. For example, the compiled code for + will be less efficient if it must contain explicit checks for its arguments being non-numbers. Thus, an implementation may choose the interpreted + function to "signal an error" if invoked with bad arguments, but allow compiled calls to + to do just "do the wrong thing" if that situation arises.</li>
+</ul>
+
 
 
 <h2>Starting Notes</h2>
@@ -24,7 +34,7 @@
 (defun rect-width (area height)
   (/ area height))
  </code>
- 
+
 <h2>Conditions</h2>
 
 
@@ -213,8 +223,11 @@ If an exit occurs before completion of the incf operation the decf operation wil
 
 
     </code>
-	    <br />
-		<br />
+
+<h2>References & Notes</h2>
+
+<p>[1] https://www.nhplace.com/kent/Papers/Exceptional-Situations-1990.html</p>
+
 </main>
 	<script src="/scripts/copy-to-clipboard.js"></script>
 </body>

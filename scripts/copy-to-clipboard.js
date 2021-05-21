@@ -30,6 +30,3 @@
     code.prepend(copyButton);
   }
 
-  // $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
-
-
