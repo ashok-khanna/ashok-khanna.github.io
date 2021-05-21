@@ -20,7 +20,7 @@
   "Return Nil")
 
 (defun math-list (text)
-"Returns a list of math objects that exists within a string. Wrapper of math-structural-form"
+  "Returns a list of math objects that exists within a string. Wrapper of math-structural-form"
   (let ((structural-form (structural-form text))
 	(word-list (helper::string-to-list text)))
     (math-structural-form word-list structural-form)))
