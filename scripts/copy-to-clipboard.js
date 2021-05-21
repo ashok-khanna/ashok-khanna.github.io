@@ -3,7 +3,7 @@
 $(document).ready(function() {
 
   var copyButton = document.createElement("button");
-  copyButton.class = "copy-btn"
+  copyButton.classList.add("copy-btn");
   copyButton.textContent = "Copy to Clipboard"
 
   const codes = document.getElementsByTagName("code");
