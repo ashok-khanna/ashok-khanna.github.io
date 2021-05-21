@@ -93,6 +93,12 @@ button:active {
     transform: scale(0.95);
 }
 
+/*  List Styles */
+
+li {
+    margin-bottom:  1rem;
+}
+
 /* Automatic Counters */
 body {
     counter-reset: sectionNumber;
