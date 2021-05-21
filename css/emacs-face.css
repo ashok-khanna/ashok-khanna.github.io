@@ -5,8 +5,8 @@
 pre code.hl-highlighted {white-space: pre; margin: 0; padding: 0; background: none; border: none; overflow-x: auto; }
 code.hl-highlighted {margin: 0 2px; padding: 0 5px; white-space: nowrap; border: 1px solid #eaeaea; }
 
-code.hl-highlighted {color: #008080;}
-code.hl-highlighted .function {color: #0432fe;} /* Done */
+code.hl-highlighted {color: #0432fe;}
+code.hl-highlighted .function {color: #0432fe;} 
 code.hl-highlighted .function.known {color: #932092;} /* Done */
 code.hl-highlighted .function.known.special {color: #2d2d2d; font-weight: bold;}
 code.hl-highlighted .keyword {color: #990073;}
