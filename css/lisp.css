@@ -26,7 +26,7 @@
 
 /* Main Typography and Layout */
 
-html { font-family: 'Roboto', sans-serif; }
+html { font-family: sans-serif; }
 body { padding: 2rem; margin: 0px auto; max-width: 1200px; }
 p {	line-height: 1.4rem; }
 a { text-decoration: none; }
@@ -55,7 +55,7 @@ code {
 	white-space: pre !important;
 	padding:  1rem !important;
 	border:  solid 1px black !important;
-    font-family:  'Roboto Mono', monospace;
+    font-family:  monospace;
 }
 .copy-btn { float:  right; }
 
