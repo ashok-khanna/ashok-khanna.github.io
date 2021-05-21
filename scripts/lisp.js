@@ -6,7 +6,8 @@ $(document).ready(function() {
   $('code button.copy-btn').click(function(e) {
     var text = $(this).parent().text(); //.text();
     var newText = text.substring(0, text.length - 18);
-    var copyHex = document.createElement('input').css('white-space: pre-line');
+    var copyHex = document.createElement('input');
+    copyText.css('white-space: pre-line');
     copyHex.value = newText;
     document.body.appendChild(copyHex);
     copyHex.select();
