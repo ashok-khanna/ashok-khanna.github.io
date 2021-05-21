@@ -415,10 +415,7 @@ var highlight_lisp = function() {
 		for(var i = 0, n = codes.length; i < n; i++)
 		{
 			var code = codes[i];
-			if(code.className.match(classname))
-			{
-				this.highlight_element(code);
-			}
+			this.highlight_element(code);
 		}
 	},
 
