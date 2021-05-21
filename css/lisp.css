@@ -28,7 +28,6 @@ figcaption { caption-side: top; padding-bottom: 0.75rem;
 pre {
 	background-color: #f0f0f0; font-family: 'Courier', monospace;
 	padding: 1rem; white-space: pre-wrap; }
-}
 
 .copy-btn {
   display: none;
@@ -39,6 +38,8 @@ pre {
 
 .code-div:hover > .copy-btn {
   display: block;
+    top: 5px;
+  right: 5px;
 }
 
 code { margin-bottom: 1.5rem; display: block; }
