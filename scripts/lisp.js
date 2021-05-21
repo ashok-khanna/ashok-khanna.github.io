@@ -9,6 +9,9 @@ $(document).ready(function() {
     if (text.substring(0, 1) == '\n'){
       newText = text.substring(1);
     }
+    if (newText.substring(newText.length -1) == '\n') {
+      newText = newText.substring(0, newText.length - 1);
+    }
 
     var copyHex = document.createElement('textarea');
     // copyHex.style.whiteSpace = "pre";
