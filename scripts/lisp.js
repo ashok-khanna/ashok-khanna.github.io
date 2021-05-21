@@ -2,6 +2,7 @@ $(document).ready(function() {
   $('pre').append('<button class="copy-btn">Copy to Clipboard</btn>');
 
   $('pre copy-btn').click(function(e) {
+    console.log("hellow");
     text = $(this).parent().select(); //.text();
     copiedText = $.trim(text);
     document.execCommand("copy");
