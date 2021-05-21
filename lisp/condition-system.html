@@ -8,7 +8,7 @@
 <body>
 <main>
 <h1>Overview & Tutorial of the Common Lisp Condition System</h1>
-<p>By Ashok Khanna</p>
+<p class="author">By Ashok Khanna</p>
 <p>Sunday, 23 May 2021</p>
 <br />
 <p>This article provides a non-exhaustive introduction to the Common Lisp Condition System, with the aim to get quickly get you comfortable with error handling in Common Lisp and writing robust code. We will use a contrived example (refer starting notes below) and all code is self-sufficient and has been tested in SBCL. The example repo is available on GitHub as part of <a href="https://github.com/ashok-khanna/common-lisp-by-example">my ongoing tutorial series Common Lisp by Example</a>, and if you like this guide, please do star the repo!</p>
@@ -34,7 +34,7 @@
 <p></p>
 
 <h2>Starting Notes</h2>
-<p>For the rest of this guide, we will use a contrived example of calculating the width from a rectangle when its area and height are known. The "normal" definition of this function would be to return the width of a rectangle when its area and height are known, and possible exceptional situations include non-numerical inputs for either of area and height, passing a value of zero for height (i.e. divide by zero error) or passing in negative values for either of area and height. A simple version of this function is as follows.</p>
+<p>For the rest of this guide, we will use a contrived example of calculating the width from a rectangle when its area and height are known. The "normal" definition of this function would be the preceding sentence, and possible exceptional situations would include non-numerical inputs for either of area and height, passing a value of zero for height (i.e. divide by zero error) or passing in negative values for either of area and height. A simple version of this function is as follows.</p>
 
 <code>
 (defun rect-width (area height)
