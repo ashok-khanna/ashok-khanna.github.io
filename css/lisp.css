@@ -36,7 +36,7 @@ pre {
   right: 5px;
 }
 
-.code-div:hover > .copy-btn {
+.pre:hover > .copy-btn {
   display: block;
     top: 5px;
   right: 5px;
