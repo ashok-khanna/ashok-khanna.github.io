@@ -30,19 +30,9 @@ pre {
 	padding: 1rem; white-space: pre-wrap; }
 
 .copy-btn {
-  display: none;
-  position: relative;
-  top: 5px;
-  right: 5px;
-}
-
-code:hover > .copy-btn {
   display: block;
-  top: 5px;
-  right: 5px;
+  text-align:  right;
 }
 
 code { margin-bottom: 1.5rem; display: block; white-space: pre; }
-
-input { white-space: pre; }
 

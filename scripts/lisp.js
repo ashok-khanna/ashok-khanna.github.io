@@ -1,7 +1,7 @@
 // https://stackoverflow.com/questions/62857743/how-to-copy-to-clipboard-text-from-code-and-pre-tags-using-jquery-and-js
 
 $(document).ready(function() {
-  $('code').append('<button class="copy-btn">Copy to Clipboard</button>');
+  $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
 
   $('code button.copy-btn').click(function(e) {
     var text = $(this).parent().text(); //.text();
@@ -13,5 +13,6 @@ $(document).ready(function() {
     copyHex.select();
     document.execCommand('copy');
     console.log(copyHex.value)
+    document.body.removeChild(copyHex);
   });
 })
