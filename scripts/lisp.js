@@ -14,6 +14,6 @@ $(document).ready(function() {
     copyHex.select();
     document.execCommand('copy');
     console.log(copyHex.value)
-    document.body.removeChild(copyHex);
+    // document.body.removeChild(copyHex);
   });
 })
