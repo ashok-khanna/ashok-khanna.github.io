@@ -11,8 +11,7 @@
 <p>By Ashok Khanna</p>
 <p>Sunday, 23 May 2021</p>
 <br />
-<p>This guide introduces the Common Lisp Condition System</p>
-
+<p>This article provides a non-exhaustive introduction to the Common Lisp Condition System, with the aim to get quickly get you comfortable with error handling in Common Lisp and writing robust code. We will use a contrived example (refer starting notes below) and all code is self-sufficient and has been tested in SBCL. The example repo is available on GitHub as part of <a href="https://github.com/ashok-khanna/common-lisp-by-example">my ongoing tutorial series Common Lisp by Example</a>, and if you like this guide, please do star the repo!</p>
 
 <h2>Conceptual Background</h2>
 
@@ -29,15 +28,13 @@
 	<li><b>Efficiency</b>: In some cases, there may be efficiency reasons for considering some cases to be exceptional. For example, the compiled code for + will be less efficient if it must contain explicit checks for its arguments being non-numbers. Thus, an implementation may choose the interpreted + function to "signal an error" if invoked with bad arguments, but allow compiled calls to + to do just "do the wrong thing" if that situation arises.</li>
 </ul>
 
-<p>In this article, we will describe how to define conditions in Common Lisp, how to signal and handle them, and how to recover from scenarios where exceptional situations occur (such as through restarting).</p>
+<p>The Common Lisp Condition System (CLCS) encapsulate and formalise useful patterns of data and control flow that are useful in dealing with exceptional situations. In this article, we will describe how to define conditions in Common Lisp, how to signal and handle them, and how to recover from scenarios where exceptional situations occur (such as through restarting).</p>
 
 
 <p></p>
 
 <h2>Starting Notes</h2>
-<p>We will use a contrived example of calculating the width from a rectangle when its area and height are known to illustrate the main concepts of the Common Lisp Condition System.</p>
-
-<p>A simple version of this function is as follows.</p>
+<p>We will use a contrived example of calculating the width from a rectangle when its area and height are known to illustrate the main concepts of the Common Lisp Condition System. A simple version of this function is as follows.</p>
 
 <code>
 (defun rect-width (area height)
