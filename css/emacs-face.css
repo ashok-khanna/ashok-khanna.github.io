@@ -13,18 +13,18 @@ code.hl-highlighted .keyword {color: #0432fe;}
 code.hl-highlighted .keyword.known {color: #0432fe;}
 code.hl-highlighted .symbol {color: #75a;}
 code.hl-highlighted .lambda-list {color: #0432fe;}
-code.hl-highlighted .number {color: #f00;}
+code.hl-highlighted .number {color: #8b2252;}
 code.hl-highlighted .variable.known {color: #c3c;}
 code.hl-highlighted .variable.global {color: #939;}
 code.hl-highlighted .variable.constant {color: #229;}
 code.hl-highlighted .nil {color: #f00;}
 code.hl-highlighted .list {color: #222;}
 
-code.hl-highlighted .string, code.hl-highlighted .string * {color: #f00 !important;} /* Should be #8b2252 */
+code.hl-highlighted .string, code.hl-highlighted .string * {color: #8b2252 !important;} /* Should be #8b2252 */
 code.hl-highlighted .comment,
 code.hl-highlighted .comment *,
 code.hl-highlighted .comment .string
-code.hl-highlighted .comment .string * {color: #f00 !important;}
+code.hl-highlighted .comment .string * {color: #8b2252 !important;}
 code.hl-highlighted .string .comment {color: #8b2252 !important;}
 
 code.hl-highlighted .list.active {display: inline-block; background: #aefff7;}
