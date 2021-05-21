@@ -27,12 +27,11 @@
 /* Main Typography and Layout */
 
 html { font-family: sans-serif; }
-body { padding: 2rem; margin: 0px auto; max-width: 1200px; }
+body { padding: 2rem; margin: 0px auto; max-width: 900px; }
 .note { background-color: #f0f0f0; padding:  0.5rem; }
-p, li, .note {	line-height: 1.4rem; }
+p, li, .note {	text-align: justify; line-height: 1.4rem; }
 a { text-decoration: none; }
 
-p {	text-align: justify; line-height: 1.4rem; }
 a { color: #347dbd; }
 a:hover { color: #FC814A; }
 
