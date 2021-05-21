@@ -8,7 +8,7 @@ $(document).ready(function() {
     var newText = text.substring(0, text.length - 18);
     console.log(newText);
     var copyHex = document.createElement('input');
-    copyHex.style.whiteSpace = "pre-line";
+    copyHex.style.whiteSpace = "pre";
     copyHex.value = newText;
     document.body.appendChild(copyHex);
     copyHex.select();
