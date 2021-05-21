@@ -42,7 +42,7 @@ code:hover > .copy-btn {
   right: 5px;
 }
 
-code { margin-bottom: 1.5rem; display: block; }
+code { margin-bottom: 1.5rem; display: block; white-space: pre; }
 
 
 
