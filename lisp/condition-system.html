@@ -16,6 +16,8 @@
 
 <mark>The below are extracts from Chapter 29 of <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node312.html">Common Lisp the Language, 2nd Edition</a> and <a href="https://www.nhplace.com/kent/Papers/Exceptional-Situations-1990.html">Exceptional Situations in Lisp</a>, both written by <a href="https://en.wikipedia.org/wiki/Kent_Pitman">Kent M. Pitman</a>, and only lightly edited to conform to the style of this guide.</mark>
 
+<p>It is useful to partition the description of a program's behavior into two parts - what happens in normal situations, and what happens in exceptional situations. For example, consider a function <i>f</i> defined to allow only integer arguments but also guaranteed to detect and signal an error for non-integer arguments. Such a description would be internally inconsistent (that is, paradoxical) because the function's behavior is well-defined for non-integers. Yet we would not want this annoying paradox to force description of <i>f</i> as a function that accepts any kind of argument (just in case <i>f</i> is being called only as a quick way to signal an error, for example). Using the normal/exceptional distinction, we can say clearly that f accepts integers in the normal situation and signals an error in exceptional situations. Moreover, we can say that when we refer to the definition of a function informally, it is acceptable to speak only of its normal behavior. For example, we can speak informally about <i>f</i> as a function that accepts only integers without feeling that we are committing some awful fraud.</p>
+
 <p>The separation of normal and exceptional situations is useful for a number of reasons, including the following:</p>
 
 <ul>
@@ -25,7 +27,10 @@
 	<li><b>Efficiency</b>: In some cases, there may be efficiency reasons for considering some cases to be exceptional. For example, the compiled code for + will be less efficient if it must contain explicit checks for its arguments being non-numbers. Thus, an implementation may choose the interpreted + function to "signal an error" if invoked with bad arguments, but allow compiled calls to + to do just "do the wrong thing" if that situation arises.</li>
 </ul>
 
+<p>In this article, we will describe how to define conditions in Common Lisp, how to signal and handle them, and how to recover from scenarios where exceptional situations occur (such as through restarting).</p>
 
+<h2>Comparison to Other Languages</h2>
+<p></p>
 
 <h2>Starting Notes</h2>
 <p>We will use a contrived example of calculating the width from a rectangle when its area and height are known to illustrate the main concepts of the Common Lisp Condition System.</p>
