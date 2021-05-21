@@ -24,6 +24,37 @@
   (let ((structural-form (structural-form text))
 	(word-list (helper::string-to-list text)))
     (math-structural-form word-list structural-form)))
+
+(defun math-structural-form (word-list structural-form &key (prior-list nil) (prior-struct nil))
+  "Returns a list of the math objects that exist within a string"
+  (cond ((null structural-form) prior-list)
+	(t (let* ((word (car word-list))
+		  (struct (car structural-form))
+		  (current-list (cond
+				  ((not (find #\% struct)) prior-list)
+				  ((null prior-list) (list word))
+				  ((or (equal prior-struct "%,")
+				       (equal prior-struct "%;")
+				       (equal prior-struct "%.")
+				       (not (find #\% prior-struct)))
+				   (append prior-list (list (if (or (equal struct "%,")
+								      (equal struct "%;")
+								      (equal struct "%."))
+								  (subseq word 0 (- (length word) 1))
+								  word))))
+				  (t
+				   (append (butlast prior-list)
+					   (list (concatenate 'string (car (last prior-list))
+							      (if (or (equal struct "%,")
+								      (equal struct "%;")
+								      (equal struct "%."))
+								  (subseq word 0 (- (length word) 1))
+								  word))))))))
+	     (math-structural-form (rest word-list)
+				   (rest structural-form)
+				   :prior-list current-list
+				   :prior-struct struct)))))
+
     </code>
 	    <br />
 		<br />

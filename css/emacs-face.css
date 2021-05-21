@@ -7,8 +7,8 @@ code.hl-highlighted {margin: 0 2px; padding: 0 5px; white-space: nowrap; border:
 
 code.hl-highlighted {color: #008080;} /* Done Should be #0432fe for function names */
 code.hl-highlighted .function {color: black;} 
-code.hl-highlighted .function.known {color: #932092; font-weight: bold;} /* Done */
-code.hl-highlighted .function.known.special {color: #932092; font-weight: bold;}
+code.hl-highlighted .function.known {color: #932092; } /* Done */
+code.hl-highlighted .function.known.special {color: #932092; }
 code.hl-highlighted .keyword {color: #990073;}
 code.hl-highlighted .keyword.known {color: #990073;}
 code.hl-highlighted .symbol {color: #75a;}
