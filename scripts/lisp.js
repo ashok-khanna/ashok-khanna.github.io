@@ -22,7 +22,4 @@ $(document).ready(function() {
     console.log(copyHex.value)
     document.body.removeChild(copyHex);
   });
-
-  HighlightLisp.highlight_auto({className: null});
-  HighlightLisp.paren_match();
 })
