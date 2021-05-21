@@ -27,11 +27,36 @@ figcaption { caption-side: top; padding-bottom: 0.75rem;
 
 pre {
 	background-color: #f0f0f0; font-family: 'Courier', monospace;
-	padding: 1rem; font-size: smaller; white-space: pre-wrap; }
+	padding: 1rem; white-space: pre-wrap; }
 }
 
-code { margin-bottom: 1.5rem; display: block;}
+pre:hover > .copy-btn {
+  display: block;
+}
 
+.copy-btn {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+code { margin-bottom: 1.5rem; display: block; }
+
+
+/* Copy to Clipboard */
+
+code, pre { position: relative; }
+
+code, pre {
+  display: block; padding: 20px; background: #f2f2f2; color: #555755; }
+
+span.command-copy {
+  position: absolute; top: 10px; right: 10px;  opacity: .6; font-size: 20px; color: #555755; }
+
+span.command-copy:hover {
+  cursor: pointer;
+}
 
 
 /* Alternate Fonts 
@@ -49,7 +74,7 @@ code { margin-bottom: 1.5rem; display: block;}
 	font-weight: bold; font-style: normal; }
 
 @font-face { font-family: 'Roboto';
-	src: url('/fonts/roboto/Roboto-MediumLight.ttf') format('truetype');
+	src: url('/fonts/roboto/Roboto-MediumItalic.ttf') format('truetype');
 	font-weight: bold; font-style: italic; }
 
 
