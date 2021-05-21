@@ -5,6 +5,7 @@ $(document).ready(function() {
   const codes = document.getElementsByTagName("code");
 
   for (code of codes){
+    console.log(code.textContent.trim());
     code.value = code.textContent.trim();
   }
 
