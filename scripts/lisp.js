@@ -6,6 +6,10 @@ $(document).ready(function() {
   $('code button.copy-btn').click(function(e) {
     var text = $(this).parent().text().substring(18); //.text();
     var newText = text;
+    if (text.substring(0, 1) == '\n'){
+      newText = text.substring(1);
+    }
+
     var copyHex = document.createElement('textarea');
     // copyHex.style.whiteSpace = "pre";
     copyHex.value = newText;
