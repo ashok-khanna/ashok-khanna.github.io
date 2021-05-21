@@ -4,8 +4,8 @@ $(document).ready(function() {
   $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
 
   $('code button.copy-btn').click(function(e) {
-    var text = $(this).parent().text(); //.text();
-    var newText = text.substring(0, text.length - 18);
+    var text = $(this).parent().text().substring(18); //.text();
+    var newText = text;
     var copyHex = document.createElement('textarea');
     // copyHex.style.whiteSpace = "pre";
     copyHex.value = newText;
