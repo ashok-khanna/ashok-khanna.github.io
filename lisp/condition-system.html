@@ -235,7 +235,7 @@ If an exit occurs before completion of the incf operation the decf operation wil
 <h2>Notes</h2>
 <h3>Comparison to Other Languages</h3>
 <p>One of the main distinctions between Common Lisp's error handling from that of other programming languages is that Common Lisp decouples the act of signalling an error and handling one. This is well explained by Peter Seibel in <a href="http://www.gigamonkeys.com/book/beyond-exception-handling-conditions-and-restarts.html">Chapter 19 Beyond Error Handling of Practical Common Lisp</a>, so let us re-use some extracts from that chapter:</p>
-<div class="note"><p>The condition system is more flexible than exception systems because instead of providing a two-part division between the code that signals an error1 and the code that handles it,2 the condition system splits the responsibilities into three parts--signaling a condition, handling it, and restarting.</p>
+<div class="note"><p>The condition system is more flexible than exception systems because instead of providing a two-part division between the code that signals an error and the code that handles it, the condition system splits the responsibilities into three parts--signaling a condition, handling it, and restarting.</p>
 
 <p>...</p>
 
@@ -243,7 +243,7 @@ If an exit occurs before completion of the incf operation the decf operation wil
 
 <p>...</p>
 
-<p>Consider the hypothetical call chain of high, medium, low. If low fails and medium can't recover, the ball is in high's court. For high to handle the error, it must either do its job without any help from medium or somehow change things so calling medium will work and call it again. The first option is theoretically clean but implies a lot of extra code--a whole extra implementation of whatever it was medium was supposed to do. And the further the stack unwinds, the more work that needs to be redone. The second option--patching things up and retrying--is tricky; for high to be able to change the state of the world so a second call into medium won't end up causing an error in low, it'd need an unseemly knowledge of the inner workings of both medium and low, contrary to the notion that each function is a black box.</p>
+<p>Consider the hypothetical call chain of <i>high</i>, <i>medium</i>, <i>low</i>. If <i>low</i> fails and <i>medium</i> can't recover, the ball is in <i>high's</i> court. For <i>high</i> to handle the error, it must either do its job without any help from <i>medium</i> or somehow change things so calling <i>medium</i> will work and call it again. The first option is theoretically clean but implies a lot of extra code--a whole extra implementation of whatever it was <i>medium</i> was supposed to do. And the further the stack unwinds, the more work that needs to be redone. The second option--patching things up and retrying--is tricky; for <i>high</i> to be able to change the state of the world so a second call into <i>medium</i> won't end up causing an error in <i>low</i>, it'd need an unseemly knowledge of the inner workings of both <i>medium</i> and <i>low</i>, contrary to the notion that each function is a black box.</p>
 
 <p>...</p>
 
