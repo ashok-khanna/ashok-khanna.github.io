@@ -10,7 +10,7 @@ $(document).ready(function() {
 
   for (code of codes){
     code.textContent = code.textContent.trim();
-    code.prepend(copyButton);
+    code.insertBefore(copyButton);
   }
 
   HighlightLisp.highlight_auto();
