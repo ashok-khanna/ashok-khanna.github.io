@@ -14,13 +14,7 @@
   copyButton.classList.add("copy-btn");
   copyButton.textContent = "Copy to Clipboard"
 
-  for (code of codes){
-    code.prepend(copyButton);
-  }
-
-  // $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
-
-  $('code button.copy-btn').click(function(e) {
+  copyButton.click = function(e) {
     var text = $(this).parent().text().substring(17); //.text();
     var newText = text.trim();
     var copyHex = document.createElement('textarea');
@@ -31,4 +25,13 @@
     document.execCommand('copy');
     console.log(copyHex.value)
     document.body.removeChild(copyHex);
-  });
+  }
+
+  for (code of codes){
+    code.prepend(copyButton);
+    $('code button.copy-btn')
+  }
+
+  // $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
+
+
