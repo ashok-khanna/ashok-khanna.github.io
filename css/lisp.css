@@ -30,7 +30,7 @@ pre {
 	padding: 1rem; white-space: pre-wrap; }
 }
 
-pre:hover > .copy-btn {
+.code-div:hover > .copy-btn {
   display: block;
 }
 

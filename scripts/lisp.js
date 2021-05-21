@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('pre').append('<button class="copy-btn">Copy to Clipboard</btn>');
+  $('code-div').append('<button class="copy-btn">Copy to Clipboard</btn>');
 
   $('.copy-btn').click(function(e) {
     console.log("hellow")
