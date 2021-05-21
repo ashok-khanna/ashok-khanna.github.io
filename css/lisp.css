@@ -92,3 +92,30 @@ button:focus {
 button:active {
     transform: scale(0.95);
 }
+
+/* Automatic Counters */
+body {
+    counter-reset: sectionNumber;
+    counter-reset: subsectionNumber;
+    counter-reset: figureNumber;
+}
+
+h2:not(.no-counter) { counter-increment: sectionNumber; }
+h2 { counter-reset: subsectionNumber; }
+
+h3:not(.no-counter) { counter-increment: subsectionNumber; }
+h3 { counter-reset: figureNumber; }
+
+figure:not(.no-counter) { counter-increment: figureNumber; }
+
+h2:not(.no-counter):before {
+    content: counter(sectionNumber) ". ";
+}
+
+h3:not(.no-counter)::before {
+    content: counter(sectionNumber) "." counter(subsectionNumber) " ";
+}
+
+figcaption:not(.no-counter)::before {
+    content: "Fig. " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
+}
