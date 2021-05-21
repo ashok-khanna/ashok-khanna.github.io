@@ -30,15 +30,15 @@ pre {
 	padding: 1rem; white-space: pre-wrap; }
 }
 
-.code-div:hover > .copy-btn {
-  display: block;
-}
-
 .copy-btn {
   display: none;
   position: relative;
   top: 5px;
   right: 5px;
+}
+
+.code-div:hover + .copy-btn {
+  display: block;
 }
 
 code { margin-bottom: 1.5rem; display: block; }
