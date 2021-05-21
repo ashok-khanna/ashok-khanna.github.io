@@ -1,7 +1,7 @@
 /* Main Typography and Layout */
 
 html { font-family: 'Times New Roman', Serif; }
-body { padding: 4rem; margin: 0px auto; max-width: 800px; }
+body { padding: 2rem; margin: 0px auto; max-width: 1200px; }
 p {	line-height: 1.4rem; }
 a { text-decoration: none; }
 
