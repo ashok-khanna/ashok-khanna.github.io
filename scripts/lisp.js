@@ -4,6 +4,7 @@ $(document).ready(function() {
   $('.copy-btn').click(function(e) {
     console.log("hellow")
     text = $(this).parent().select(); //.text();
+    console.log(text);
     copiedText = $.trim(text);
     document.execCommand("copy");
   });
