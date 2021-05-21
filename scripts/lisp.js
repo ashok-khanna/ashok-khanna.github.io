@@ -5,7 +5,7 @@ $(document).ready(function() {
   const codes = document.getElementsByTagName("code");
 
   for (code of codes){
-    code.value = code.value.trim();
+    code.value = code.textContent.trim();
   }
 
   $('code').prepend('<button class="copy-btn">Copy to Clipboard</button>');
