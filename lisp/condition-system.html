@@ -41,7 +41,34 @@
  </code>
 
 <h2>Conditions</h2>
-<p>Conditions are interesting situations in a program that have been detected and announced. </p>
+<p>Conditions are <i>interesting</i> situations in a program, one may say "exceptional" to keep in line with the terminology we used earlier, but it would also be good to keep our mind open and think of conditions as a general construct and not one limited to errors or only most exceptional situations. Errors can be defined as conditions in which normal program execution may not continue without some form of intervention (either interactively by the user or under some sort of program control). Our primary objective in most cases is to detect and handle errors.</p>
+
+<p>Common Lisp takes an object-oriented approach to condition handling, as it allows for a more organised sharing of information related to condition handling. This approach has the following benefits over a more primitive text-based approach (per 29.3.4 of CLTL2e):</p>
+<ul>
+	<li>Conditions are classified according to subtype relationships, making it easy to test for categories of conditions</li>
+	<li>Conditions have named slot values through which parameters are conveyed from the program that signals the condition to the program that handles it</li>
+	<li>Inheritance of methods and slots reduces the amount of explicit specification necessary to achieve various interesting effects</li>
+</ul>
+
+<p>If the above is confusing, it is probably because you have not had much experience with the Common Lisp Object System (CLOS). It is well worth gaining proficiency in CLOS, but that is beyond the scope of this article. Consequently, we will try and keep our introduction of Common Lisp Conditions relativley simple and leave a more detailed purview to the reader.</p>
+
+<p>In Common Lisp, all conditions are instances of the <mark>CONDITION</mark> class or one of its subclassses. Note that conditions are not standard objects, thus the treatment of condition objects is slightly different to CLOS objects and the standard more frequently talks about condition <i>types</i> as opposed to condition classes. Without labouring over this point too much, the main point here is that not all of mechanisms available to CLOS objects transfer over to CL condition types.</p>
+
+<p>We can create condition types with the <mark>DEFINE-CONDITION</mark> macro and instances of condition types with the <mark>MAKE-INSTANCE</mark> function. To illustrate with an example, let us define two conditions type <mark>divide-by-zero</mark> and <mark>negative-value</mark>, the former being a simple condition of type error, the latter being a more complex example that has an attributes <mark>desc</mark> and <mark>sender</mark>where we can store pertinent information about the condition when it is detected.</p>
+
+<code>
+(define-condition divide-by-zero (error) ())
+
+(define-condition negative-value ()
+  ((desc :initarg :desc :reader desc))
+  ((sender :initarg :sender :reader sender))
+  (:report (lambda (condition stream)
+             (format stream "Condition ~a sent by ~a."
+                     (desc condition)
+                     (sender condition)))))
+</code>
+
+
 
 <h2>Signalling Conditions</h2>
 <p>
@@ -80,13 +107,7 @@
 
 ;; Define Conditions
 
-(define-condition divide-by-zero (error) ())
 
-(define-condition negative-value ()
-  ((desc :initarg :desc :reader desc))
-  (:report (lambda (condition stream)
-             (format stream "Condition: ~a."
-                     (desc condition)))))
 
 
 ;; Function with Signalling:
