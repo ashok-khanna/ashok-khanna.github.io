@@ -93,7 +93,8 @@
 <code>
 (defun rect-width-v2 (area height)
   (cond ((< height 0)
-         (signal (make-condition 'negative-value :desc "Height is Negative" :sender "Ashok")))
+         (signal (make-condition 'negative-value :desc "Height is Negative"
+                                                 :sender "Ashok")))
         ((< area 0)
          (signal 'negative-value :desc "Area is Negative" :sender "Ashok"))
         ((equal height 0)
@@ -103,10 +104,7 @@
 
 <p>It is worth re-iterating that the SIGNAL function does not require the condition signalled to be handled, while the ERROR function requires it to be handled or otherwise will throw us into the debugger.</p>
 
-
-
-
-<h3>CERROR & WARNING (Optional)</h3>
+<h3>CERROR & WARNING (Optional Reading)</h3>
 <p><mark>CERROR</mark> is an alternative to the error function, which allows the programmer to specifiy a <i>single</i> well-defined recovery strategy. Below is an example. <mark>WARN</mark> does not enter the debugger but as a side effect apply the aforementioned condition reporter to the *ERROR-OUTPUT* stream. Warn only works with conditions of type WARNING. We won't discuss CERROR or WARN here further, they are included here for completeness. Note that SIGNAL is the primitive mechanism for signalling conditions, and ERROR, CERROR and WARN are useful abstractions build over SIGNAL.</p>
 
 <code>
@@ -121,7 +119,19 @@
 
 
 <h2>Handling Conditions</h2>
+<h3>Introduction</h3>
+<p>Once an exceptional situation is detected and a condition is signalled, it should be handled as not to cause errors or unintended consequences during the overall program's execution. In general it is not a good idea to ignore errors, because the whole point of errors is that they signal a deviation from the normal execution of a program and thus some action should be taken to ensure the intended evaluation of the program takes place (in line with user expectations). Indeed, condition handling is centerpiece of developing robust, fault-tolerant computer software, being able to cope with errors during execution and with erroneous input. </p>
 
+<p>The basic idea behind condition handling is as follows:</p>
+
+
+<h3>The Handler-Case Macro</h3>
+
+
+<h3>The Handler-Bind Macro</h3>
+
+
+<h2>Non-Local Transfer of Control</h2>
 
 
 <h2>Restarts</h2>
