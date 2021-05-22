@@ -68,7 +68,14 @@
                      (sender condition)))))
 </code>
 
+<p>In the above, the <mark>:INITARG</mark> keyword is used to name the keyword parameter used for setting the values of desc and sender (:desc and :sender respectively - refer below make-condition example), while the <mark>:reader</mark> keyword is used to define the accessor functions for getting the values of desc and sender respectively (desc and reader). Thus, the form <mark3>(desc condition)</mark3> is used to access the value stored in desc for the condition passed-in. The <mark>:report</mark> option allows for printing with the condition reporter (when <mark>*PRINT-ESCAPE*</mark> is NIL - refer below examples), which is the lambda function in the above.</p>
 
+<p>To make an instance of a condition, we use the <mark>MAKE-CONDITION</mark> function:</p>
+
+<code>
+	(make-condition 'divide-by-zero)
+	(make-condition 'negative-value :desc "Height is Negative" :sender "the RECT-WIDTH function")
+</code>
 
 <h2>Signalling Conditions</h2>
 <p>
