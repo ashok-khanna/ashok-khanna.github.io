@@ -160,7 +160,7 @@
       (values nil var))))
 </code>
 
-<p>If the condition signalled by the expression matches any of the error-clauses, the dynamic state is unwound appropriately and control is transferred to the body of the error-clause, after binding the condition object to var. If no match is found, handler-case has effectively declined to handle the condition (by simply returning). When a handler declines, any returned values are ignored and the effect is the same as if the handler had been invisible to the mechanism seeking to find a handler. The next handler in line (i.e. higher up the call stack) will be tried, or if no such handler exists, the condition will go unhandled.</p>
+<p>If the condition signalled by the expression matches any of the error-clauses, <b>the dynamic state is unwound appropriately and control is transferred to the body of the error-clause, after binding the condition object to var</b>. If no match is found, handler-case has effectively declined to handle the condition (by simply returning). When a handler declines, any returned values are ignored and the effect is the same as if the handler had been invisible to the mechanism seeking to find a handler. The next handler in line (i.e. higher up the call stack) will be tried, or if no such handler exists, the condition will go unhandled.</p>
 
 <h3>The Handler-Bind Macro</h3>
 
