@@ -204,10 +204,38 @@
 </code>
 
 <h2>Non-Local Transfer of Control</h2>
+<h3>Block/Return-From: Structural Lexical Non-Local Exits</h3>
+<div class="note">The below is an extract from <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node85.html#BLOCKRETURNSECTION">Chapter 7</a> of Common Lisp the Language, 2nd Edition, and only very lightly edited to conform to the style of this guide.</div>
+<p>The <mark>BLOCK</mark> and <mark>RETURN-FROM</mark> provide a structured <u>lexical</u> non-local exit facility. At any point lexically within a block construct, a return-from wit the same name may be used to perform an immediate transfer of control that exists from the block. In most common cases, this mechanism is more efficient than the dynamic non-local exist facility provided by catch and throw (discussed below).</p>
 
+<p>Below are the relevant forms associated with this construct. The block construct executes each form from left to right, returning whatever is returned by the last form. If however a return or return-form form that specifies the same name is executed during the execution of some form within the block, then the results specified by the return or return-form are immediately returned as the value of the block construct and execution proceeds as if the block had terminated normally. In this, block differs from progn, the progn construct has nothing to do with return. Note that (return form) is identical in meaning to (return-from nil form), and returns from a block named nil. Blocks established implicitly by iteration constructs such as do are named nil, so that return will exit properly from such constructs.</p>
 
-<h3>Expressing Handler-Case through Handler-Bind</h3>
+<code class="hypothetical">
+;; Special Form:
+(block name {form}*)
 
+;; Special Form:
+(return-from name [result])
+
+;; Macro Form:
+(return [result])
+</code>
+
+<p>The above handler-bind examples illustrates the block/return-from exit facility.</p>
+
+<h3>Catch/Throw: Dynamic Non-Local Exists</h3>
+
+<p>Catches and throws provide the facility to exit from complex processes in a non-local, dynamically scoped manner. A catch form evaluates subforms in such a way that if a throw form is executed during such an evaluation, the evaluation is aborted at that point and the catch form immediately returns a value specified by the throw. Unlike block and return, which allow for exiting a block form from any point lexically within the body of the block, the catch/throw mechanism works even if the throw form is not textually within the body of the catch form. The throw need only occur within the extent (time span) of the evaluation of the body of the catch. This is analogous to the distinction between dynamically bound (special) variables and lexically bound (local) variables.</p>
+
+<code class="hypothetical">
+;; Special Form:
+(catch tag {form}*)
+
+;; Special Form:
+(throw tag result)
+</code>
+
+<p>The throw special form transfers control to a matching catch construct. The tag is evaluated first to produce an object called the throw tag; then the result form is evaluated, and its results are saved (if the result form produces multiple values, then all the values are saved). The most recent outstanding catch whose tag matches the throw tag is exited; the saved results are returned as the value(s) of the catch. A catch matches only if the catch tag is eq to the throw tag. In the process, dynamic variable bindings are undone back to the point of the catch, and any intervening unwind-protect cleanup code is executed. The result form is evaluated before the unwinding process commences, and whatever results it produces are returned from the catch. If there is no outstanding catcher whose tag matches the throw tag, no unwinding of the stack is performed, and an error is signalled. When the error is signalled, the outstanding catchers and the dynamic variable bindings are those in force at the point of the throw. Note that catch tags are compared using eq, not eql; therefore numbers and characters should not be used as catch tags.</p>
 
 <h3>Unwind Protect Mechanisms</h3>
 <div class="note">The below is an from <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node96.html">Chapter 7</a> of Common Lisp the Language, 2nd Edition, and only very lightly edited to conform to the style of this guide.</div>
@@ -237,6 +265,8 @@
            (drill-hole)) 
     (if motor-running stop-motor)))
 </code>
+
+<h3>Expressing Handler-Case through Handler-Bind</h3>
 
 <h2>Restarts</h2>
 
