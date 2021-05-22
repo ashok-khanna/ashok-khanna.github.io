@@ -163,7 +163,45 @@
 <p>If the condition signalled by the expression matches any of the error-clauses, <b>the dynamic state is unwound appropriately and control is transferred to the body of the error-clause, after binding the condition object to var</b>. If no match is found, handler-case has effectively declined to handle the condition (by simply returning). When a handler declines, any returned values are ignored and the effect is the same as if the handler had been invisible to the mechanism seeking to find a handler. The next handler in line (i.e. higher up the call stack) will be tried, or if no such handler exists, the condition will go unhandled.</p>
 
 <h3>The Handler-Bind Macro</h3>
+<p>The Handler-Case Macro is easy(ier) to understand and works in many cases. However, it has one limitation in that the dynamic state of the program is unwound before the condition is handled. This is not a big issue if you pass-in all the required data through the condition object, however we did mention earlier that Common Lisp had the powerful ability to handle exceptional situations prior to unwinding the call stack. The Handler-Bind Macro is required for this.</p>
 
+<code>
+(defun example-handler-function (condition)
+  (let ((*print-escape* nil))
+    (values 0 (write condition))))
+
+(defun rect-width-handler-bind-bad (area height)
+  (handler-bind
+      ((divide-by-zero #'(lambda (condition)
+                           (declare (ignore condition))
+                          (values nil condition)))
+       (negative-value #'example-handler-function)
+       (error (lambda (condition)
+                (values nil condition))))
+    (rect-width-v2 area height)))
+
+
+(defun rect-width-handler-bind-good (area height)
+  (let ((tag (gensym)))
+    (block tag
+      (handler-bind
+          ((divide-by-zero #'(lambda (condition)
+                               (return-from tag
+                                 (values nil condition))))
+           (negative-value #'example-handler-function)
+           (error #'(lambda (condition)
+                      (return-from tag (values nil condition)))))
+        (rect-width-v3 area height)))))
+
+(defun rect-width-v3 (area height)
+  (cond ((equal height 0)
+         (signal 'divide-by-zero))
+        ((< height 0)
+         (signal (make-condition 'negative-value :desc "Height is Negative")))
+        ((< area 0)
+         (signal 'negative-value :desc "Area is Negative"))
+        (t (/ area height))))
+</code>
 
 <h2>Non-Local Transfer of Control</h2>
 
@@ -235,42 +273,7 @@
 
 ;; Wrapped within a handler-bind:
 
-(defun example-handler-function (condition)
-  (let ((*print-escape* nil))
-    (values 0 (write condition))))
 
-
-(defun rect-width-handler-bind-bad (area height)
-  (handler-bind
-      ((divide-by-zero #'(lambda (condition)
-                           (declare (ignore condition))
-                          (values nil condition)))
-       (negative-value #'example-handler-function)
-       (error (lambda (condition)
-                (values nil condition))))
-    (rect-width-v2 area height)))
-
-
-(defun rect-width-handler-bind-good (area height)
-  (let ((tag (gensym)))
-    (block tag
-      (handler-bind
-          ((divide-by-zero #'(lambda (condition)
-                               (return-from tag
-                                 (values nil condition))))
-           (negative-value #'example-handler-function)
-           (error #'(lambda (condition)
-                      (return-from tag (values nil condition)))))
-        (rect-width-v3 area height)))))
-
-(defun rect-width-v3 (area height)
-  (cond ((equal height 0)
-         (signal 'divide-by-zero))
-        ((< height 0)
-         (signal (make-condition 'negative-value :desc "Height is Negative")))
-        ((< area 0)
-         (signal 'negative-value :desc "Area is Negative"))
-        (t (/ area height))))
 
 
 ;; Example of Restart Case:
