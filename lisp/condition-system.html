@@ -178,7 +178,6 @@
 	<li>We first define an example-handler-function, which returns 0 and also writes the condition to stream. Note that handlers can be any function. Note also that this handler does not perform any non-local transfer of control, so by itself, it cannot actually handler any condition signalled to it</li>
 	<li>We then illustrate a "bad" example of a handler-bind macro. The issue here is that none of the handlers perform a non-local exit. If you were to test this out, for example by evaluating <mark4>(rect-width-v2 40 0)</mark4>, you will be thrown into the debugger as our handler-bind does not handle the error</li>
 	<li>At the same time, try evaluating <mark4>(rect-width-v2 40 -5)</mark4>. Note how this does not throw you into the debugger. The reason for this is that in <mark3>rect-width-v2</mark3> we only signal the condition <mark4>negative-value</mark4>, and do not send it as an error. As you will recall, signal does not automatically require the condition to be handled, and accordingly we do not get thrown into the debugger here</li>
-	<li>
 </ul>
 
 <code>
