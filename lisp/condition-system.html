@@ -133,6 +133,8 @@
 
 <p>It is worth carefully reading and re-reading the above process. The key insight here is that a function announcing an exceptional situation or error is not automatically unwound, but rather initiates a process of identifying the best approach to handling the situations. The programmer has control over the timing of unwinding the exceptional situation and we will later discuss how one can access the local state to deploy the appropriate recovery strategy to an exceptional situation. This is one of the key differences of the Common Lisp approach versus other languages where the act of signalling an error and unwinding the stack are not decoupled, and is discussed more in section 8.1 below.</p>
 
+<p>As part of this approach, note that the lexical environment of the signaller may not be available to handlers. This is one of the reasons we take an objected-oriented approach to conditions, as it to allow us to expressively and explicitly represent the relevant state of the exceptional situations through a flexible data structure.</p>
+
 <p>In the following section, we will discuss Common Lisps' mechanisms for non-local transfer of control, including go to a tag in tagbody, return from a block and throw to a catch. Structured abstractions of these primitives are provided for convenience in exception handling, and we will now introduce one of the main such abstractions, the HANDLER-CASE macro.</p>
 
 <h3>The Handler-Case Macro</h3>
