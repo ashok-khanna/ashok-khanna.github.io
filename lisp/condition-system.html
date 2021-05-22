@@ -54,7 +54,7 @@
 
 <p>In Common Lisp, all conditions are instances of the <mark>CONDITION</mark> class or one of its subclassses. Note that conditions are not standard objects, thus the treatment of condition objects is slightly different to CLOS objects and the standard more frequently talks about condition <i>types</i> as opposed to condition classes. Without labouring over this point too much, the main point here is that not all of mechanisms available to CLOS objects transfer over to CL condition types.</p>
 
-<p>We can create condition types with the <mark>DEFINE-CONDITION</mark> macro and instances of condition types with the <mark>MAKE-INSTANCE</mark> function. To illustrate with an example, let us define two conditions type <mark>divide-by-zero</mark> and <mark>negative-value</mark>, the former being a simple condition of type error, the latter being a more complex example that has an attributes <mark>desc</mark> and <mark>sender</mark>where we can store pertinent information about the condition when it is detected.</p>
+<p>We can create condition types with the <mark>DEFINE-CONDITION</mark> macro and instances of condition types with the <mark>MAKE-INSTANCE</mark> function. To illustrate with an example, let us define two conditions type <mark2>divide-by-zero</mark2> and <mark2>negative-value</mark2>, the former being a simple condition of type error, the latter being a more complex example that has an attributes <mark2>desc</mark2> and <mark2>sender</mark> where we can store pertinent information about the condition when it is detected.</p>
 
 <code>
 (define-condition divide-by-zero (error) ())
