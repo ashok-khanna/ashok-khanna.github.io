@@ -237,6 +237,9 @@
 
 <p>The throw special form transfers control to a matching catch construct. The tag is evaluated first to produce an object called the throw tag; then the result form is evaluated, and its results are saved (if the result form produces multiple values, then all the values are saved). The most recent outstanding catch whose tag matches the throw tag is exited; the saved results are returned as the value(s) of the catch. A catch matches only if the catch tag is eq to the throw tag. In the process, dynamic variable bindings are undone back to the point of the catch, and any intervening unwind-protect cleanup code is executed. The result form is evaluated before the unwinding process commences, and whatever results it produces are returned from the catch. If there is no outstanding catcher whose tag matches the throw tag, no unwinding of the stack is performed, and an error is signalled. When the error is signalled, the outstanding catchers and the dynamic variable bindings are those in force at the point of the throw. Note that catch tags are compared using eq, not eql; therefore numbers and characters should not be used as catch tags.</p>
 
+
+<h3>Expressing Handler-Case through Handler-Bind</h3>
+
 <h3>Unwind Protect Mechanisms</h3>
 <div class="note">The below is an from <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node96.html">Chapter 7</a> of Common Lisp the Language, 2nd Edition, and only very lightly edited to conform to the style of this guide.</div>
 <p>Sometimes it is necessary to evaluate a form and make sure that certain side effects take place after the form is evaluated. An example would be</p>
@@ -266,7 +269,8 @@
     (if motor-running stop-motor)))
 </code>
 
-<h3>Expressing Handler-Case through Handler-Bind</h3>
+<h3>Go/Tagbody (Optional Reading)</h3>
+<p>Finally, for sake of completeness, Common Lisp also provides the Go/Tagbody construct to permit the use of the <mark>GO</mark> construct. If (go tag) is evaluated within a tagbody, control jumps to the part of th ebody labelled with the tag. As a matter of style, it is recommended that the user think twice before using a go. Most purposes of go can be accomplished with one of the iteration primitives, nested conditional forms, or return-from. If the use of go seems to be unavoidable, perhaps the control structure implemented by go should be packaged as a macro definition. For more details, refer to <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node91.html">7.8.5 The "Program Feature" of CLTL2e</a>.
 
 <h2>Restarts</h2>
 
