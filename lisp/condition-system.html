@@ -163,7 +163,7 @@
 <p>If the condition signalled by the expression matches any of the error-clauses, <b>the dynamic state is unwound appropriately and control is transferred to the body of the error-clause, after binding the condition object to var</b>. If no match is found, handler-case has effectively declined to handle the condition (by simply returning). When a handler declines, any returned values are ignored and the effect is the same as if the handler had been invisible to the mechanism seeking to find a handler. The next handler in line (i.e. higher up the call stack) will be tried, or if no such handler exists, the condition will go unhandled.</p>
 
 <h3>The Handler-Bind Macro</h3>
-<p>The Handler-Case Macro is easy(ier) to understand and works in many cases. However, it has one limitation in that the dynamic state of the program is unwound before the condition is handled. This is not a big issue if you pass-in all the required data through the condition object, however we did mention earlier that Common Lisp had the powerful ability to handle exceptional situations prior to unwinding the call stack. The Handler-Bind Macro is required for this.</p>
+<p>The Handler-Case Macro is easy(ier) to understand and works in many cases. However, it has one limitation in that the dynamic state of the program is unwound before the condition is handled. This is not a big issue if you pass-in all the required data through the condition object, however we did mention earlier that Common Lisp had the powerful ability to handle exceptional situations prior to unwinding the call stack. The Handler-Bind Macro is required to access this functionality.</p>
 
 <code>
 (defun example-handler-function (condition)
@@ -210,6 +210,33 @@
 
 
 <h3>Unwind Protect Mechanisms</h3>
+<div class="note">The below is an from <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node96.html">Chapter 7</a> of Common Lisp the Language, 2nd Edition, and only very lightly edited to conform to the style of this guide.</div>
+<p>Sometimes it is necessary to evaluate a form and make sure that certain side effects take place after the form is evaluated. An example would be</p>
+
+<code class="hypothetical">
+(progn (start-motor) 
+       (drill-hole) 
+       (stop-motor))
+</code>
+
+<p>The non-local exit facility of Common Lisp creates a situation in which the above code won't work, however: if drill-hole should do a throw to a catch that is outside of the progn form (perhaps because the drill bit broke), then (stop-motor) will never be evaluated (and the motor will presumably be left running). This is particularly likely if drill-hole causes a Lisp error and the user tells the error-handler to give up and abort the computation. In order to allow the example hole-drilling program to work, it can be rewritten using unwind-protect as follows:</p>
+
+<code class="hypthetical">
+(unwind-protect 
+  (progn (start-motor) 
+         (drill-hole)) 
+  (stop-motor))
+</code>
+
+<p>This example assumes that it is correct to call stop-motor even if the motor has not yet been started. Remember that an error or interrupt may cause an exit even before any initialization forms have been executed. Any state restoration code should operate correctly no matter where in the protected code an exit occurred. A better way for the above would be:</p>
+
+<code class="hypothetical">
+(let ((motor-running nil)) 
+  (unwind-protect 
+    (progn (start-motor) ;; This function set motor-running to t
+           (drill-hole)) 
+    ((if motor-running stop-motor))))
+</code>
 
 <h2>Restarts</h2>
 
