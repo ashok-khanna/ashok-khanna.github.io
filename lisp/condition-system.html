@@ -107,6 +107,9 @@
 <h3>CERROR & WARNING (Optional Reading)</h3>
 <p><mark>CERROR</mark> is an alternative to the error function, which allows the programmer to specifiy a <i>single</i> well-defined recovery strategy. Below is an example. <mark>WARN</mark> does not enter the debugger but as a side effect apply the aforementioned condition reporter to the *ERROR-OUTPUT* stream. Warn only works with conditions of type WARNING. We won't discuss CERROR or WARN here further, they are included here for completeness. Note that SIGNAL is the primitive mechanism for signalling conditions, and ERROR, CERROR and WARN are useful abstractions build over SIGNAL.</p>
 
+<h3>Predefined Condition & their Automatic Signalling (Optional Reading)</h3>
+
+
 <code>
 (defun example-divide-fn (numerator denominator)
    (cond ((equal denominator 0)
@@ -163,7 +166,20 @@
 <p>If the condition signalled by the expression matches any of the error-clauses, <b>the dynamic state is unwound appropriately and control is transferred to the body of the error-clause, after binding the condition object to var</b>. If no match is found, handler-case has effectively declined to handle the condition (by simply returning). When a handler declines, any returned values are ignored and the effect is the same as if the handler had been invisible to the mechanism seeking to find a handler. The next handler in line (i.e. higher up the call stack) will be tried, or if no such handler exists, the condition will go unhandled.</p>
 
 <h3>The Handler-Bind Macro</h3>
-<p>The Handler-Case Macro is easy(ier) to understand and works in many cases. However, it has one limitation in that the dynamic state of the program is unwound before the condition is handled. This is not a big issue if you pass-in all the required data through the condition object, however we did mention earlier that Common Lisp had the powerful ability to handle exceptional situations prior to unwinding the call stack. The Handler-Bind Macro is required to access this functionality.</p>
+<p>The Handler-Case Macro is easy(ier) to understand and works in many cases. However, it has one limitation in that the dynamic state of the program is unwound before the condition is handled. This is not a big issue if you pass-in all the required data through the condition object, however we did mention earlier that Common Lisp had the powerful ability to handle exceptional situations prior to unwinding the call stack. The Handler-Bind Macro is required to access this functionality. A fantastic example illustrating the differences is contained in <a href="http://weitz.de/cl-recipes/">Chapter 12 of Common Lisp Recipes</a>.</p>
+
+<p>The handler-bind macro takes a slightly different form: the first argument is a list of handlers (e.g. three in the below, with condition types divide-by-zero, negative-value and error), followed by one or more forms to evaluate (just one form in the below - calculating rect-width). Thus, the handler-bind can wrap handlers around more than one form.</p>
+
+<p>Another important note is that while in handler-case we integrate the handlers into the macro's body, we need to fully write these ourselves within a handler-bind macro. Thus, in our handler functions, we need to be able to perform non-local transfer of control if we want our handler to handle the condition (remember from earlier that a handler that does not provide this is said to decline the condition and any values returned by it are ignored).</p>
+
+<p>We illustrate these concepts with the below example. Bear with us, it is a bit complicated, so carefully step through it.</p>
+
+<ul>
+	<li>We first define an example-handler-function, which returns 0 and also writes the condition to stream. Note that handlers can be any function. Note also that this handler does not perform any non-local transfer of control, so by itself, it cannot actually handler any condition signalled to it</li>
+	<li>We then illustrate a "bad" example of a handler-bind macro. The issue here is that none of the handlers perform a non-local exit. If you were to test this out, for example by evaluating <mark4>(rect-width-v2 40 0)</mark4>, you will be thrown into the debugger as our handler-bind does not handle the error</li>
+	<li>At the same time, try evaluating <mark4>(rect-width-v2 40 -5)</mark4>. Note how this does not throw you into the debugger. The reason for this is that in <mark3>rect-width-v2</mark3> we only signal the condition <mark4>negative-value</mark4>, and do not send it as an error. As you will recall, signal does not automatically require the condition to be handled, and accordingly we do not get thrown into the debugger here</li>
+	<li>
+</ul>
 
 <code>
 (defun example-handler-function (condition)
@@ -179,7 +195,24 @@
        (error (lambda (condition)
                 (values nil condition))))
     (rect-width-v2 area height)))
+</code>
 
+<p>Now lets look at a better implementation of this handler-bind:</p>
+<ul>
+	<li>First, lets define a new rect-width function that is a bit more descriptive than the last (explicitly specifying divide-by-zero error in particular)</li>
+	<li>Note now with the "good" version of our handler-bind macro, we have enclosed the form within a block construct and perform non-local exits within the first and last handler</li>
+	<li>Thus this function can successfully handle divide-by-zero and general errors, and declines to handle negative-value conditions (which as we mentioned earlier does not automatically throw us into the debugger)</li>
+</ul>
+
+<code>
+(defun rect-width-v3 (area height)
+  (cond ((equal height 0)
+         (signal 'divide-by-zero))
+        ((< height 0)
+         (signal (make-condition 'negative-value :desc "Height is Negative")))
+        ((< area 0)
+         (signal 'negative-value :desc "Area is Negative"))
+        (t (/ area height))))
 
 (defun rect-width-handler-bind-good (area height)
   (let ((tag (gensym)))
@@ -192,16 +225,28 @@
            (error #'(lambda (condition)
                       (return-from tag (values nil condition)))))
         (rect-width-v3 area height)))))
-
-(defun rect-width-v3 (area height)
-  (cond ((equal height 0)
-         (signal 'divide-by-zero))
-        ((< height 0)
-         (signal (make-condition 'negative-value :desc "Height is Negative")))
-        ((< area 0)
-         (signal 'negative-value :desc "Area is Negative"))
-        (t (/ area height))))
 </code>
+
+<p>Finally, let us rewrite the above, but this time use Catch/Throw to allow us to perform non-local exists within handler functions that are not in the lexical scope of the handler-bind (i.e. when we split out our handler functions into their own lexical scopes via defining them in new functions via defun, such as example-handler-function). The following section provides a bit more detail on lexical vs. dynamic transfer of controls.</p>
+
+<code>
+(defun example-handler-function (condition)
+  (let ((*print-escape* nil))
+    (throw tag (values 0 (write condition)))))
+
+(defun rect-width-handler-bind-good (area height)
+  (let ((tag (gensym)))
+    (catch tag
+      (handler-bind
+          ((divide-by-zero #'(lambda (condition)
+                               (throw tag
+                                 (values nil condition))))
+           (negative-value #'example-handler-function)
+           (error #'(lambda (condition)
+                      (throw tag (values nil condition)))))
+        (rect-width-v3 area height)))))
+</code>
+
 
 <h3>Ignore-Errors Macro</h3>
 <p>To conclude this section, note that the Common Lisp standard provides a shortcut way, the <mark>IGNORE-ERRORS</mark> macro to ignore any errors and simply return nil. This is generally not advisable to do in complete program, but something that may be useful during prototyping and to reduce the overall complexity of the program. Below is an example. Use with caution.</p>
@@ -231,7 +276,7 @@
 (return [result])
 </code>
 
-<p>The above handler-bind examples illustrates the block/return-from exit facility.</p>
+<p>The second handler-bind example above illustrates the block/return-from exit facility.</p>
 
 <h3>Catch/Throw: Dynamic Non-Local Exists</h3>
 
@@ -247,6 +292,7 @@
 
 <p>The throw special form transfers control to a matching catch construct. The tag is evaluated first to produce an object called the throw tag; then the result form is evaluated, and its results are saved (if the result form produces multiple values, then all the values are saved). The most recent outstanding catch whose tag matches the throw tag is exited; the saved results are returned as the value(s) of the catch. A catch matches only if the catch tag is eq to the throw tag. In the process, dynamic variable bindings are undone back to the point of the catch, and any intervening unwind-protect cleanup code is executed. The result form is evaluated before the unwinding process commences, and whatever results it produces are returned from the catch. If there is no outstanding catcher whose tag matches the throw tag, no unwinding of the stack is performed, and an error is signalled. When the error is signalled, the outstanding catchers and the dynamic variable bindings are those in force at the point of the throw. Note that catch tags are compared using eq, not eql; therefore numbers and characters should not be used as catch tags.</p>
 
+<p>The third handler-bind example above illustrates the block/return-from exit facility.</p>
 
 <h3>Expressing Handler-Case through Handler-Bind (Optional Reading)</h3>
 <p>The <a href="http://clhs.lisp.se/Body/m_hand_1.htm">Common Lisp HyperSpec</a> provides an example of how to replicate the handler-case macro through handler-bind. Below is the relevant extract of this. It's a bit too complicated for now, but something worth re-visting once you understand these concepts better.</p>
