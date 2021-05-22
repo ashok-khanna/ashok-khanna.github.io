@@ -33,6 +33,7 @@ p, li, .note {	text-align: justify; line-height: 1.4rem; }
 a { text-decoration: none; }
 a { color: #008080; }
 a:hover { color: #FC814A; }
+mark { background-color: inherit; color: #932092; font-family: monospace; }
 
 img { max-width: calc(100% - 3rem); }
 .img-75mm { height: 75mm; }
