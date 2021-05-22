@@ -235,7 +235,7 @@
   (unwind-protect 
     (progn (start-motor) ;; This function set motor-running to t
            (drill-hole)) 
-    ((if motor-running stop-motor))))
+    (if motor-running stop-motor)))
 </code>
 
 <h2>Restarts</h2>
