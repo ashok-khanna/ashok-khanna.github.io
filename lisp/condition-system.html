@@ -205,6 +205,7 @@
 
 <h2>Non-Local Transfer of Control</h2>
 <div class="note">The below is mostly an extract from <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node76.html">Chapter 7 Control Structure</a> of Common Lisp the Language, 2nd Edition.</div>
+
 <h3>Block/Return-From: Structural Lexical Non-Local Exits</h3>
 <p>The <mark>BLOCK</mark> and <mark>RETURN-FROM</mark> provide a structured <u>lexical</u> non-local exit facility. At any point lexically within a block construct, a return-from wit the same name may be used to perform an immediate transfer of control that exists from the block. In most common cases, this mechanism is more efficient than the dynamic non-local exist facility provided by catch and throw (discussed below).</p>
 
@@ -238,9 +239,47 @@
 <p>The throw special form transfers control to a matching catch construct. The tag is evaluated first to produce an object called the throw tag; then the result form is evaluated, and its results are saved (if the result form produces multiple values, then all the values are saved). The most recent outstanding catch whose tag matches the throw tag is exited; the saved results are returned as the value(s) of the catch. A catch matches only if the catch tag is eq to the throw tag. In the process, dynamic variable bindings are undone back to the point of the catch, and any intervening unwind-protect cleanup code is executed. The result form is evaluated before the unwinding process commences, and whatever results it produces are returned from the catch. If there is no outstanding catcher whose tag matches the throw tag, no unwinding of the stack is performed, and an error is signalled. When the error is signalled, the outstanding catchers and the dynamic variable bindings are those in force at the point of the throw. Note that catch tags are compared using eq, not eql; therefore numbers and characters should not be used as catch tags.</p>
 
 
-<h3>Expressing Handler-Case through Handler-Bind</h3>
+<h3>Expressing Handler-Case through Handler-Bind (Optional Reading)</h3>
+<p>The <a href="http://clhs.lisp.se/Body/m_hand_1.htm">Common Lisp HyperSpec</a> provides an example of how to replicate the handler-case macro through handler-bind. Below is the relevant extract of this. It's a bit too complicated, but something worth re-visting once you understand these concepts better.</p>
 
-<h3>Unwind Protect Mechanisms</h3>
+<code>
+(handler-case form
+   (type1 (var1) . body1)
+   (type2 (var2) . body2) ...)
+
+;; is approximately equivalent to:
+
+(block #1=#:g0001
+  (let ((#2=#:g0002 nil))
+    (tagbody
+      (handler-bind ((type1 #'(lambda (temp)
+                                      (setq #1# temp)
+                                      (go #3=#:g0003)))
+                    (type2 #'(lambda (temp)
+                                     (setq #2# temp)
+                                     (go #4=#:g0004))) ...)
+      (return-from #1# form))
+        #3# (return-from #1# (let ((var1 #2#)) . body1))
+        #4# (return-from #1# (let ((var2 #2#)) . body2)) ...)))
+
+;; and
+
+(handler-case form
+  (type1 (var1) . body1)
+  ...
+  (:no-error (varN-1 varN-2 ...) . bodyN))
+
+;; is approximately equivalent to:
+
+(block #1=#:error-return
+ (multiple-value-call #'(lambda (varN-1 varN-2 ...) . bodyN)
+    (block #2=#:normal-return
+      (return-from #1#
+        (handler-case (return-from #2# form)
+          (type1 (var1) . body1) ...)))))
+</code>
+
+<h3>Unwind Protect Mechanisms (Optional Reading)</h3>
 <p>Sometimes it is necessary to evaluate a form and make sure that certain side effects take place after the form is evaluated. An example would be</p>
 
 <code class="hypothetical">
