@@ -203,6 +203,15 @@
         (t (/ area height))))
 </code>
 
+<h3>Ignore-Errors Macro</h3>
+<p>To conclude this section, note that the Common Lisp standard provides a shortcut way, the <mark>IGNORE-ERRORS</mark> macro to ignore any errors and simply return nil. This is generally not advisable to do in complete program, but something that may be useful during prototyping and to reduce the overall complexity of the program. Below is an example. Use with caution.</p>
+
+<code>
+;; Returns Nil:
+
+(ignore-errors (/ 40 0))
+</code>
+
 <h2>Non-Local Transfer of Control</h2>
 <div class="note">The below is mostly an extract from <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node76.html">Chapter 7 Control Structure</a> of Common Lisp the Language, 2nd Edition.</div>
 
