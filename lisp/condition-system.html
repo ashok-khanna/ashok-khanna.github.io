@@ -68,22 +68,50 @@
                      (sender condition)))))
 </code>
 
-<p>In the above, the <mark>:INITARG</mark> keyword is used to name the keyword parameter used for setting the values of desc and sender (:desc and :sender respectively - refer below make-condition example), while the <mark>:reader</mark> keyword is used to define the accessor functions for getting the values of desc and sender respectively (desc and reader). Thus, the form <mark3>(desc condition)</mark3> is used to access the value stored in desc for the condition passed-in. The <mark>:report</mark> option allows for printing with the condition reporter (when <mark>*PRINT-ESCAPE*</mark> is NIL - refer below examples), which is the lambda function in the above.</p>
+<p>In the above, the <mark>:INITARG</mark> keyword is used to name the keyword parameter used for setting the values of desc and sender (:desc and :sender respectively - refer below make-condition example), while the <mark>:reader</mark> keyword is used to define the accessor functions for getting the values of desc and sender respectively (desc and reader). Thus, the form <mark3>(desc condition)</mark3> is used to access the value stored in desc for the condition passed-in. The <mark>:report</mark> option allows for printing with the condition reporter (when <mark>*PRINT-ESCAPE*</mark> is NIL - refer below examples), which is the lambda function in the above. Note that we can use a constant string in place of the lambda function above.</p>
 
-<p>To make an instance of a condition, we use the <mark>MAKE-CONDITION</mark> function:</p>
+<p>To make an instance of a condition, we can use the <mark>MAKE-CONDITION</mark> function:</p>
 
 <code>
 	(make-condition 'divide-by-zero)
 	(make-condition 'negative-value :desc "Height is Negative"
 	                                :sender "the RECT-WIDTH function")
 </code>
+<p>To end this section, note that useful further reading is <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node346.html">29.5. Condition Types of CLTL2e</a>, which is a listing of the predefined condition types.</p>
 
 <h2>Signalling Conditions</h2>
-<p>
+<p>Conceptually, signalling an error in a program is an admission by that program that is does not know how to continue and requires external intervention. Once an error is singled, any decision about how to continue must come from the outside. The <mark>SIGNAL</mark> function signals a condition without requiring it to be handled by a condition handler. On the other hand, we use the <mark>ERROR</mark> function if we want to signal an error and require the debugger to be entered if the condition is not handled. Below are examples.</p>
 
+<code>
+(defun rect-width-v2 (area height)
+  (cond ((< height 0)
+         (signal (make-condition 'negative-value :desc "Height is Negative" :sender "Ashok")))
+        ((< area 0)
+         (signal 'negative-value :desc "Area is Negative"))
+        ((equal height 0)
+         (error "You divided by zero"))
+        (t (/ area height))))
+</code>
 
+<p>In the above example, we show three ways to specify conditions:</p>
+<ul>
+	<li>Supplying one argument - a condition object, as in the form (signal (make-condition ... )) in the above</li>
+	<li>Supplying arguments as one would for make-condition, as in the second example above</li>
+	<li>Supplying arguments as one would do for the FORMAT function, but without the stream details, such as in (error "You divided by Zero") in the third example above (or as another illustrative example, one could do (warn "You divided by ~a" 0)). In such approaches, the condition is of the default type as specified by the function called (e.g. error or warning)</li>
+</ul>
 
+<h3>CERROR & WARNING (Optional)</h3>
+<p><mark>CERROR</mark> is an alternative to the error function, which allows the programmer to specifiy a <i>single</i> well-defined recovery strategy. Below is an example. <mark>WARN</mark> does not enter the debugger but as a side effect apply the aforementioned condition reporter to the *ERROR-OUTPUT* stream. Warn only works with conditions of type WARNING. We won't discuss CERROR or WARN here further, they are included here for completeness. Note that SIGNAL is the primitive mechanism for signalling conditions, and ERROR, CERROR and WARN are useful abstractions build over SIGNAL.</p>
 
+<code>
+(defun example-divide-fn (numerator denominator)
+   (cond ((equal denominator 0)
+          (cerror
+            "Divide by 1 instead"
+            "~a cannot be zero." denominator)
+           (/ numerator 1))
+         (t (/ numerator denominator))))
+</code>
 
 
 <h2>Handling Conditions</h2>
