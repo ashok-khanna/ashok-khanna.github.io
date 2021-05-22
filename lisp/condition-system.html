@@ -327,40 +327,6 @@
       :interactive (lambda () (prompt-value "Please enter a new area"))
       (rect-width-v2 value height))))
 
-
-;; Unwind-Protect Example
-
-(defun rect-width-unwind-protect (area height)
-  ((unwind-protect (rect-width-v4 area height))))
-
-(unwind-protect 
-     (progn (start-motor) 
-            (drill-hole)) 
-  (stop-motor))
-If drill-hole does a throw that attempts to quit out of the unwind-protect, then (stop-motor) will be executed.
-
-This example assumes that it is correct to call stop-motor even if the motor has not yet been started. Remember that an error or interrupt may cause an exit even before any initialization forms have been executed. Any state restoration code should operate correctly no matter where in the protected code an exit occurred. For example, the following code is not correct:
-
-(unwind-protect 
-     (progn (incf *access-count*) 
-            (perform-access)) 
-  (decf *access-count*))
-
-This example assumes that it is correct to call stop-motor even if the motor has not yet been started. Remember that an error or interrupt may cause an exit even before any initialization forms have been executed. Any state restoration code should operate correctly no matter where in the protected code an exit occurred. For example, the following code is not correct:
-
-(unwind-protect 
-     (progn (incf *access-count*) 
-            (perform-access)) 
-  (decf *access-count*))
-If an exit occurs before completion of the incf operation the decf operation will be executed anyway, resulting in an incorrect value for *access-count*. The correct way to code this is as follows:
-
-(let ((old-count *access-count*)) 
-  (unwind-protect 
-       (progn (incf *access-count*) 
-              (perform-access)) 
-    (setq *access-count* old-count)))
-
-
     </code>
 <h2>Notes</h2>
 <h3>Comparison to Other Languages</h3>
