@@ -125,8 +125,6 @@ table {
     text-align: left;
     table-layout: fixed;
     border-spacing:  0px;
-    border-radius:  10px;
-    border:  solid 2px black;
 }
 
 /* Add black border to all table cells */
@@ -161,7 +159,6 @@ a.lisp-definition {
     color:  blue;
 }
 
-/*
 th:first-of-type {
   border-top-left-radius: 10px;
 }
@@ -174,7 +171,6 @@ tr:last-of-type td:first-of-type {
 tr:last-of-type td:last-of-type {
   border-bottom-right-radius: 10px;
 }
-*/
 
 /* Automatic Counters */
 body {
