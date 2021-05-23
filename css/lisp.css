@@ -126,6 +126,7 @@ table {
     table-layout: fixed;
     border-spacing:  0px;
     border-radius:  10px;
+    border:  solid 2px black;
 }
 
 /* Add black border to all table cells */
