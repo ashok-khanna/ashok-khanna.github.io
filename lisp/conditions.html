@@ -24,8 +24,23 @@
 
 <div class="note"><b>Important Disclaimer</b>: Much of this guide is extracted ad verbatim Chapter 29 of <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node312.html">Common Lisp the Language, 2nd Edition</a> and <a href="https://www.nhplace.com/kent/Papers/Exceptional-Situations-1990.html">Exceptional Situations in Lisp</a>, both written by <a href="https://en.wikipedia.org/wiki/Kent_Pitman">Kent M. Pitman</a>, together with specifications from the Common Lisp HyperSpec. For the sake of readability, each passage is not directly referenced, but you can assume most of the article is from these sources and most of my efforts have been to organise the material in a form that helped me understand this topic. Other sources are referenced as they appear.</div>
 
+<h2>Conceptual Background</h2>
+
+<p>It is useful to partition the description of a program's behavior into two parts - what happens in normal situations, and what happens in exceptional situations. For example, consider a function <i>f</i> defined to allow only integer arguments but also guaranteed to detect and signal an error for non-integer arguments. Such a description would be internally inconsistent (that is, paradoxical) because the function's behavior is well-defined for non-integers. Yet we would not want this annoying paradox to force description of <i>f</i> as a function that accepts any kind of argument (just in case <i>f</i> is being called only as a quick way to signal an error, for example). Using the normal/exceptional distinction, we can say clearly that <i>f</i> accepts integers in the normal situation and signals an error in exceptional situations. Moreover, we can say that when we refer to the definition of a function informally, it is acceptable to speak only of its normal behavior. For example, we can speak informally about <i>f</i> as a function that accepts only integers without feeling that we are committing some awful fraud.</p>
+
+<p>The separation of normal and exceptional situations is useful for a number of reasons, including the following:</p>
+
+<ul>
+	<li><b>Simplifying Assumptions</b>: A programmer may speed the development of a program by assuming that the program will be needed only for some normal case. In so doing, the programmer pushes off worrying about a level of detail that would only be distracting during the prototyping phase. Later, after it has been shown that the program works satisfactorily in normal situations, the programmer can "tighten up" the program to handle exceptional situations</li>
+	<li><b>Presentation</b>: Simplifying assumptions can also be important after a program has been developed--when it is being read by another programmer. The person reading the code may want to first understand what it does in the normal situation and then later refine his understanding of it by inspecting its behavior in exceptional situations. If the code for dealing with the normal situation is thickly interspersed with code attempting to recognize and deal with exceptional situations, the reader's ability to decipher the intent of the program may be greatly diminished</li>
+	<li><b>Modularity</b>: It frequently happens that the same exceptional situation can occur in many different places in a program; and, in many cases, the way it should be handled is the same throughout the program. For example, consider a program which is compiling a file from a remote machine. If the remote machine crashes, the compilation will probably want to simply fail no matter what routine was running. Languages should provide some way of centralizing the information about a program's behavior in such an exceptional situation so that it doesn't have to be needlessly repeated throughout the code for the program</li>
+	<li><b>Efficiency</b>: In some cases, there may be efficiency reasons for considering some cases to be exceptional. For example, the compiled code for + will be less efficient if it must contain explicit checks for its arguments being non-numbers. Thus, an implementation may choose the interpreted + function to "signal an error" if invoked with bad arguments, but allow compiled calls to + to do just "do the wrong thing" if that situation arises.</li>
+</ul>
+
+<p>The Common Lisp Condition System encapsulates and formalises useful patterns of data and control flow that are useful in dealing with exceptional situations. Armed with the preceding conceptual background, we will now describe how to define conditions in Common Lisp, how to signal and handle them, and how to recover from scenarios where exceptional situations occur (such as through restarting).</p>
+
 <h2>Starting Notes</h2>
-<p>In this guide, we will use a contrived example of calculating the width from a rectangle when its area and height are known. A simple example of this function is below. In this contrived example, we will consider six scenarios, 1 normal and 4 erroneous, as noted below.</p>
+<p>In this guide, we will use a contrived example of calculating the width from a rectangle when its area and height are known. A simple example of this function is below. In this contrived example, we will consider five scenarios, 1 normal and 4 erroneous, as noted in the table below. Try out each scenario to get a feel for this function.</p>
 
 <code>
 (defun rect-width-simple (area height)
@@ -65,24 +80,6 @@
 </table>
 
 <p>Note that the above table is not an exhaustive list of errors. For example it is missing the error of entering a negative area. I did this delibrately to stress that it is difficult to capture all possible errors and one should be mindful and not overconfidence of his or her ability's to do so. A careful, considered appraoch will lead to more errors captured and overall greater reliability of one's programs.</p>
-
-<h2>Conceptual Background</h2>
-
-<p>It is useful to partition the description of a program's behavior into two parts - what happens in normal situations, and what happens in exceptional situations. For example, consider a function <i>f</i> defined to allow only integer arguments but also guaranteed to detect and signal an error for non-integer arguments. Such a description would be internally inconsistent (that is, paradoxical) because the function's behavior is well-defined for non-integers. Yet we would not want this annoying paradox to force description of <i>f</i> as a function that accepts any kind of argument (just in case <i>f</i> is being called only as a quick way to signal an error, for example). Using the normal/exceptional distinction, we can say clearly that <i>f</i> accepts integers in the normal situation and signals an error in exceptional situations. Moreover, we can say that when we refer to the definition of a function informally, it is acceptable to speak only of its normal behavior. For example, we can speak informally about <i>f</i> as a function that accepts only integers without feeling that we are committing some awful fraud.</p>
-
-<p>The separation of normal and exceptional situations is useful for a number of reasons, including the following:</p>
-
-<ul>
-	<li><b>Simplifying Assumptions</b>: A programmer may speed the development of a program by assuming that the program will be needed only for some normal case. In so doing, the programmer pushes off worrying about a level of detail that would only be distracting during the prototyping phase. Later, after it has been shown that the program works satisfactorily in normal situations, the programmer can "tighten up" the program to handle exceptional situations</li>
-	<li><b>Presentation</b>: Simplifying assumptions can also be important after a program has been developed--when it is being read by another programmer. The person reading the code may want to first understand what it does in the normal situation and then later refine his understanding of it by inspecting its behavior in exceptional situations. If the code for dealing with the normal situation is thickly interspersed with code attempting to recognize and deal with exceptional situations, the reader's ability to decipher the intent of the program may be greatly diminished</li>
-	<li><b>Modularity</b>: It frequently happens that the same exceptional situation can occur in many different places in a program; and, in many cases, the way it should be handled is the same throughout the program. For example, consider a program which is compiling a file from a remote machine. If the remote machine crashes, the compilation will probably want to simply fail no matter what routine was running. Languages should provide some way of centralizing the information about a program's behavior in such an exceptional situation so that it doesn't have to be needlessly repeated throughout the code for the program</li>
-	<li><b>Efficiency</b>: In some cases, there may be efficiency reasons for considering some cases to be exceptional. For example, the compiled code for + will be less efficient if it must contain explicit checks for its arguments being non-numbers. Thus, an implementation may choose the interpreted + function to "signal an error" if invoked with bad arguments, but allow compiled calls to + to do just "do the wrong thing" if that situation arises.</li>
-</ul>
-
-<p>The Common Lisp Condition System encapsulates and formalises useful patterns of data and control flow that are useful in dealing with exceptional situations. In this article, we will describe how to define conditions in Common Lisp, how to signal and handle them, and how to recover from scenarios where exceptional situations occur (such as through restarting).</p>
-
-
-<p></p>
 
 
 <h2>Conditions</h2>
