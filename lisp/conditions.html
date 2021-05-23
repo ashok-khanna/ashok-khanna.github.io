@@ -375,9 +375,6 @@
     (if motor-running stop-motor)))
 </code>
 
-<h3>Go/Tagbody (Optional Reading)</h3>
-<p>Finally, for sake of completeness, Common Lisp also provides the Go/Tagbody construct to permit the use of the <mark>GO</mark> construct. If (go tag) is evaluated within a tagbody, control jumps to the part of the body labelled with the tag. As a matter of style, it is recommended that the user think twice before using a go. Most purposes of go can be accomplished with one of the iteration primitives, nested conditional forms, or return-from. If the use of go seems to be unavoidable, perhaps the control structure implemented by go should be packaged as a macro definition. For more details, refer to <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node91.html">7.8.5 The "Program Feature" of CLTL2e</a>.
-
 <h2>Restarts</h2>
 <p>We mentioned earlier that the handler-bind macro does not unwind the stack when handling exceptional situations. We can take this one step further with restarts, and be able to split the decision on how to handle a situation (handler-bind) from the actual code that performs the recovery (restarts). Thus, we have a piece of code deep down in the call stack signal a condition, have the decision on how to handle it at a higher level in the stack, and the actual code which performs the recovery somewhere in between. If this sounds all to complicated, you are in good company (with myself). However, for completeness of this article, lets go through the concepts and perhaps this level of complexity will prove worthwhile sometime in the future.</p>
 
