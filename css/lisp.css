@@ -26,7 +26,7 @@
 
 /* Main Typography and Layout */
 
-html { font-family: sans-serif; background-color:  oldlace; }
+html { font-family: sans-serif; background-color:  navajowhite; }
 body { padding: 2rem; margin: 0px auto; max-width: 900px; }
 .note { background-color: #f0f0f0; padding:  1rem; }
 p, li, .note {	text-align: justify; line-height: 1.4rem; contenteditable:  true; }
