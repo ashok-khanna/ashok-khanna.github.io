@@ -145,7 +145,7 @@ table.lisp-definition tbody>tr>:nth-child(1) {
 
 table.lisp-definition tbody>tr>:nth-child(2) {
     background-color:  lightgray;
-    right: 1px solid black;
+    border-right: 1px solid black;
 }
 
 table.lisp-definition thead>tr:nth-child(1) {
