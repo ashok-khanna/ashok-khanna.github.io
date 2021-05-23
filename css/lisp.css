@@ -133,7 +133,7 @@ th, td { border: 0.5px solid black; padding: 10px; }
 /* Add blue background to table headers */
 th { background-color: #268bd2; color: white; }
 
-table.lisp-definition td:nth-child(1) {
+table.lisp-definition th:nth-child(1) {
     width:  150px;
 }
 
