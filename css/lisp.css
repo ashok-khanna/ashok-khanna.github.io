@@ -62,7 +62,7 @@ code {
 }
 .copy-btn { float: right; }
 
-.pseudo { background-color: lightyellow; border: 0px; }
+.pseudo { background-color: lightyellow; border: none !important; }
 
 .pseudoLabel { float: right; 
     border-radius:  0px;
