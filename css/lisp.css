@@ -62,7 +62,7 @@ code {
 }
 .copy-btn { float:  right; }
 
-.pseudo { background-color: lightyellow; }
+.pseudo { background-color: lightyellow; border: 0px; }
 
 .pseudoButton { float: right; 
     border-radius:  0px;
@@ -80,7 +80,7 @@ code {
 
 /* From CSS Tricks:  https://css-tricks.com/overriding-default-button-styles/ */
 
-button {
+button :not(.pseudo) {
     border-radius:  0px;
     border:  solid 1px #008080;
     padding: 0.5rem;
@@ -96,18 +96,18 @@ button {
     -moz-appearance: none;
 }
 
-button:hover,
-button:focus {
+button:hover:not(.pseudo),
+button:focus:not(.pseudo) {
     background: #007373;
     border:  solid 1px #007373;
 }
 
-button:focus {
+button:focus:not(.pseudo) {
     outline: 0;
     /* outline-offset: -4px; */
 }
 
-button:active {
+button:active:not(.pseudo) {
     transform: scale(0.95);
 }
 

@@ -26,9 +26,8 @@
         console.log(copyHex.value)
         document.body.removeChild(copyHex);
       }
-      console.log(code.classList);
-    if (code.classList.contains("pseudo")) {
-      var pseudoLabel = document.createElement("div");
+  if (code.classList.contains("pseudo")) {
+      var pseudoLabel = document.createElement("button");
       pseudoLabel.classList.add("pseudoLabel");
       pseudoLabel.textContent = "Pseudocode";
       code.prepend(pseudoLabel);
