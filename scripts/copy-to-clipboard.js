@@ -27,6 +27,13 @@
         document.body.removeChild(copyHex);
       }
 
-    code.prepend(copyButton);
+    if (code.classList -= "pseudo") {
+      var pseudoLabel = document.createElement("div");
+      pseudoLabel.classList.add("pseudoLabel");
+      pseudoLabel.textContent = "Pseudocode";
+      code.prepend(pseudoLabel);
+    } else {
+      code.prepend(copyButton);
+    }
   }
 
