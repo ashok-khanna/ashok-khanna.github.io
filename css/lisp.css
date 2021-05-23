@@ -29,7 +29,7 @@
 html { font-family: sans-serif; }
 body { padding: 2rem; margin: 0px auto; max-width: 900px; }
 .note { background-color: #f0f0f0; padding:  1rem; }
-p, li, .note {	text-align: justify; line-height: 1.4rem; margin-bottom:  2rem; }
+p, li, .note {	text-align: justify; line-height: 1.4rem; }
 a { text-decoration: none; }
 a { color: #008080; }
 a:hover { color: #FC814A; }
@@ -50,7 +50,7 @@ figcaption { caption-side: top; padding-bottom: 0.75rem;
 	border-bottom: 0.5px solid gray; margin-bottom: 1.5rem;
 	color: gray; font-weight: bold;} 
 
-.author {text-align:  right; }
+.author {text-align:  right; margin-bottom:  2rem; font-style: italic; }
 
 /* Code Typography */
 code {
