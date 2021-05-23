@@ -150,6 +150,14 @@ table.lisp-definition thead>tr:nth-child(1) {
     color:  white;
 }
 
+i.lisp-definition {
+    color: lightskyblue;
+}
+
+a.lisp-definition {
+    color:  blue;
+}
+
 th:first-of-type {
   border-top-left-radius: 10px;
 }
