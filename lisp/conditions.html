@@ -43,23 +43,23 @@
 	<tbody>
 		<tr>
 			<td>Normal</td>
-			<td>(rect-width 40 8)</td>
+			<td>(rect-width-simple 40 8)</td>
 			<td>Returns 5</td>
 		</tr>
 		<tr>
 			<td>Error - Divide by Zero</td>
-			<td>(rect-width 40 0)</td>
-			<td>Returns an Error and throws us into the Debugger. Note the type of the error is "divis<b>ion</b>-by-zero" and not "divide-by-zero". In our example later, we will create a custom "divide-by-zero" condition type, but want to remind readers here that this differs slightly in naming to the standard error type for the same</td>
+			<td>(rect-width-simple 40 0)</td>
+			<td>Returns a DIVISION-BY-ZERO error and throws us into the Debugger. Note the type of the error is "divis<b>ion</b>-by-zero" and not "divide-by-zero". In our example later, we will create a custom "divide-by-zero" condition type, but want to remind readers here that this differs slightly in naming to the standard error type for the same</td>
 		</tr>
 		<tr>
 			<td>Error - Negative Height</td>
-			<td>(rect-width 40 -8)</td>
-			<td>Returns -5: While the function successfully executes, this is an error as neither height nor width can be negative. Without instructing our programs to pick up on such implicit assumptions, we cannot expect them to catch such errors</td>
+			<td>(rect-width-simple 40 -8)</td>
+			<td>Returns -5. While the function successfully executes, this is an error as neither height nor width can be negative. Without instructing our programs to pick up on such implicit assumptions, we cannot expect them to catch such errors</td>
 		</tr>
 		<tr>
 			<td>Error - Not a Number</td>
-			<td>(rect-width 40 "asdf")</td>
-			<td>Returns error and throws us into the debugger.</td>
+			<td>(rect-width-simple 40 "asdf")</td>
+			<td>Returns a TYPE-ERROR (The value "asdf" is not of type NUMBER) and throws us into the debugger</td>
 		</tr>
 	</tbody>
 </table>
