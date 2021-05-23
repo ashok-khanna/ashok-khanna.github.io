@@ -123,46 +123,27 @@
 <p>To end this section, note that a useful further reading is <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node346.html">29.5. Condition Types of CLTL2e</a>, which is a listing of the predefined condition types used by CL implementations and ones that you can use or subclass.</p>
 
 <h2>Signalling Conditions</h2>
-<p>Conceptually, signalling an error in a program is an admission by that program that is does not know how to continue and requires external intervention. Once an error is singled, any decision about how to continue must come from the outside. The <mark>SIGNAL</mark> function signals a condition without requiring it to be handled by a condition handler. On the other hand, we use the <mark>ERROR</mark> function if we want to signal an error and require the debugger to be entered if the condition is not handled.</p>
+<p>Conceptually, signalling an error in a program is an admission by that program that it does not know how to continue and requires external intervention. Once an error is signalled, any decision about how to continue must come from the outside. The <mark>SIGNAL</mark> function signals a condition without requiring it to be handled by a condition handler. The <mark>ERROR</mark> function signals an error and requires the debugger to be entered if the condition is not handled.</p>
 
-<p>Below is an example of rewriting our contrived RECT-WIDTH function to analyse its inputs and detect negative value and zero value inputs. Note that we do not detect non-numerical inputs in the below (we will catch them later in this article). In the below example, we illustrate three ways to specify conditions, noting the second or third way is what you will most likely use:</p>
+<p>Below is an example of rewriting our contrived RECT-WIDTH function to analyse its inputs and detect negative value and zero value inputs. In the below example, we illustrate three ways to specify conditions, noting the second or third way is what you will most likely use:</p>
 
 <ul>
-	<li>Supplying one argument - a condition object, as in the form <mark4>(signal (make-condition ... ))</mark4> in the above</li>
-	<li>Supplying arguments as one would for make-condition, as in the second example above</li>
-	<li>Supplying arguments as one would do for the FORMAT function, but without the stream details, such as in <mark4>(error "You divided by Zero")</mark4> in the third example above (or as another illustrative example, one could do <mark4>(warn "You divided by ~a" 0)</mark4>). In such approaches, the condition is of the default type as specified by the function called (e.g. error or warning)</li>
+	<li>Supplying one argument - a condition object, as in the form <mark4>(signal (make-condition ... ))</mark4> below</li>
+	<li>Supplying arguments as one would for make-condition, as in the second example below</li>
+	<li>Supplying arguments as one would do for the FORMAT function, but without the stream details, such as in <mark4>(error "You divided by Zero")</mark4> in the third example below. In such approaches, the condition is of the default type as specified by the function called (e.g. error or warning)</li>
 </ul>
 
 <code>
-(defun rect-width-v2 (area height)
-  (cond ((< height 0)
-         (signal (make-condition 'negative-value :desc "Height is Negative"
-                                                 :sender "Ashok")))
-        ((< area 0)
-         (signal 'negative-value :desc "Area is Negative" :sender "Ashok"))
-        ((equal height 0)
-         (error "You divided by zero"))
-        (t (/ area height))))
+(defun rect-width (area height)
+  (cond ((equal height 0)
+	 (signal (make-condition 'divide-by-zero)))
+	((< height 0)
+	 (signal 'negative-value :desc "negative number"
+		 :param "height parameter"))
+	((not (numberp height))
+	 (error "Not a Number"))
+	(t (/ area height))))
 </code>
-
-<p>It is worth re-iterating that the SIGNAL function does not require the condition signalled to be handled, while the ERROR function requires it to be handled or otherwise will throw us into the debugger.</p>
-
-<h3>CERROR & WARNING (Optional Reading)</h3>
-<p><mark>CERROR</mark> is an alternative to the error function, which allows the programmer to specifiy a <i>single</i> well-defined recovery strategy. Below is an example. <mark>WARN</mark> does not enter the debugger but as a side effect apply the aforementioned condition reporter to the *ERROR-OUTPUT* stream. Warn only works with conditions of type WARNING. We won't discuss CERROR or WARN here further, they are included here for completeness. Note that SIGNAL is the primitive mechanism for signalling conditions, and ERROR, CERROR and WARN are useful abstractions build over SIGNAL.</p>
-
-<h3>Predefined Condition & their Automatic Signalling (Optional Reading)</h3>
-
-
-<code>
-(defun example-divide-fn (numerator denominator)
-   (cond ((equal denominator 0)
-          (cerror
-            "Divide by 1 instead"
-            "~a cannot be zero." denominator)
-           (/ numerator 1))
-         (t (/ numerator denominator))))
-</code>
-
 
 <h2>Handling Conditions</h2>
 <h3>Introduction</h3>
@@ -335,7 +316,7 @@
 </code>
 
 <h3>Expressing Handler-Case through Handler-Bind (Optional Reading)</h3>
-<p>The <a href="http://clhs.lisp.se/Body/m_hand_1.htm">Common Lisp HyperSpec</a> provides an example of how to replicate the handler-case macro through handler-bind. Below is the relevant extract of this. It's a bit too complicated for now, but something worth re-visting once you understand these concepts better.</p>
+<p>The <a href="http://clhs.lisp.se/Body/m_hand_1.htm">Common Lisp HyperSpec</a> provides an example of how to replicate the handler-case macro through handler-bind. Below is the relevant extract of this. It's a bit too complicated for now, but something worth revisting once you understand these concepts better.</p>
 
 <code class="pseudo">
 (handler-case form
@@ -397,13 +378,13 @@
 <code class="pseudo">
 (let ((motor-running nil)) 
   (unwind-protect 
-    (progn (start-motor) ;; This function set motor-running to t
+    (progn (start-motor) ;; This function should set motor-running to t
            (drill-hole)) 
     (if motor-running stop-motor)))
 </code>
 
 <h3>Go/Tagbody (Optional Reading)</h3>
-<p>Finally, for sake of completeness, Common Lisp also provides the Go/Tagbody construct to permit the use of the <mark>GO</mark> construct. If (go tag) is evaluated within a tagbody, control jumps to the part of th ebody labelled with the tag. As a matter of style, it is recommended that the user think twice before using a go. Most purposes of go can be accomplished with one of the iteration primitives, nested conditional forms, or return-from. If the use of go seems to be unavoidable, perhaps the control structure implemented by go should be packaged as a macro definition. For more details, refer to <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node91.html">7.8.5 The "Program Feature" of CLTL2e</a>.
+<p>Finally, for sake of completeness, Common Lisp also provides the Go/Tagbody construct to permit the use of the <mark>GO</mark> construct. If (go tag) is evaluated within a tagbody, control jumps to the part of the body labelled with the tag. As a matter of style, it is recommended that the user think twice before using a go. Most purposes of go can be accomplished with one of the iteration primitives, nested conditional forms, or return-from. If the use of go seems to be unavoidable, perhaps the control structure implemented by go should be packaged as a macro definition. For more details, refer to <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node91.html">7.8.5 The "Program Feature" of CLTL2e</a>.
 
 <h2>Restarts</h2>
 <p>We mentioned earlier that the handler-bind macro does not unwind the stack when handling exceptional situations. We can take this one step further with restarts, and be able to split the decision on how to handle a situation (handler-bind) from the actual code that performs the recovery (restarts). Thus, we have a piece of code deep down in the call stack signal a condition, have the decision on how to handle it at a higher level in the stack, and the actual code which performs the recovery somewhere in between. If this sounds all to complicated, you are in good company (with myself). However, for completeness of this article, lets go through the concepts and perhaps this level of complexity will prove worthwhile sometime in the future.</p>
