@@ -152,10 +152,9 @@ table.lisp-definition thead>tr:nth-child(1) {
 }
 
 table.lisp-definition { 
-    border: 1px solid #ddd;
     border-collapse: separate;
     border-left: 0;
-    border-spacing: 2px;
+    border-spacing: 4px;
 }
 thead.lisp-definition  {
     display: table-header-group;
