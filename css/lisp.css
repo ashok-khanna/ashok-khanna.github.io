@@ -33,9 +33,9 @@ p, li, .note {	text-align: justify; line-height: 1.4rem; contenteditable:  true;
 a { text-decoration: none; }
 a { color: #008080; }
 a:hover { color: #FC814A; }
-mark { background-color: inherit; color: #932092; font-family: monospace; }
-mark2 { color: #008080; font-family: monospace; }
-mark3 { color: #0432fe; font-family: monospace; }
+mark { background-color: inherit; color: #932092; font-family: monospace, monospace; }
+mark2 { color: #008080; font-family: monospace, monospace; }
+mark3 { color: #0432fe; font-family: monospace, monospace; }
 
 img { max-width: calc(100% - 3rem); }
 .img-75mm { height: 75mm; }
@@ -58,7 +58,7 @@ code {
 	white-space: pre !important;
 	padding:  1rem !important;
     background:  #f0f0f0;
-    font-family:  monospace;
+    font-family:  monospace, monospace;
 }
 .copy-btn { float: right; }
 

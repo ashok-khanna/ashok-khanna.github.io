@@ -376,12 +376,12 @@
 </code>
 
 <h2>Restarts</h2>
-<p>We mentioned earlier that the handler-bind macro does not unwind the stack when handling exceptional situations. We can take this one step further with restarts, and be able to split the decision on how to handle a situation (handler-bind) from the actual code that performs the recovery (restarts). Thus, we have a piece of code deep down in the call stack signal a condition, have the decision on how to handle it at a higher level in the stack, and the actual code which performs the recovery somewhere in between. If this sounds all to complicated, you are in good company (with myself). However, for completeness of this article, lets go through the concepts and perhaps this level of complexity will prove worthwhile sometime in the future.</p>
+<p>We can get even greater control over our recovery strategies through the use of restarts. We can then split the decision on how to handle a situation (handler-bind) from the actual code that performs the recovery (restarts). Thus, we can have a piece of code deep down in the call stack signal a condition, have the decision on how to handle it at a higher level in the stack, and the actual code which performs the recovery somewhere in between. If this sounds all to complicated, you are in good company. However, for completeness of this article, lets go through the concepts and perhaps this level of complexity will prove worthwhile sometime in the future.</p>
 
 <h3>The Restart-Case Macro</h3>
-<p>First lets introduce the restart-case macro, which takes a similar form to handler-case. The first argument is a <b>restartable-form</b> to be evaluated. If this form finishies executing and returns any values (i.e. without signalling any conditions), its values are returned by restart-case and the macro's evaluation completes. The remainder of the arguments to the restart-case macro are restart clauses, whose first element names them (e.g. return-zero, new-height and new-width below), whose second argument are the parameters the clause accept & bind. We then have the option of specifying any of three optional parameters (:interactive, :report and :test), and then remaining forms form the body of the clause.</p>
+<p>First let's introduce the restart-case macro, which takes a similar form to handler-case. The first argument is a <b>restartable-form</b> to be evaluated. If this form finishies executing and returns any values (i.e. without signalling any conditions), its values are returned by restart-case and the macro's evaluation completes. The remainder of the arguments to the restart-case macro are restart clauses, whose first element names them (e.g. return-zero, new-height and new-width below), whose second argument are the parameters the clause accept & bind. We then have the option of specifying any of three optional parameters (:interactive, :report and :test), and then remaining forms form the body of the clause.</p>
 
-<p>While the restartable-form is executing, any code make transfer control to one of the clauses (via <mark>INVOKE-RESTART</mark>, to be discussed shortly). If such a transfer occurs, the forms in the body of that clause is evaluated any values returned by the last such form is returned by the restart-case macro. In this case, the dynamic state is unwound appropriately (so that the restarts established around the restartable-form are no longer active) prior to execution of the clause.</p>
+<p>While the restartable-form is executing, any code make transfer control to one of the clauses (via <mark>INVOKE-RESTART</mark>, to be discussed shortly). If such a transfer occurs, the forms in the body of that clause is evaluated and any values returned by the last such form is returned by the restart-case macro. In this case, the dynamic state is unwound appropriately (so that the restarts established around the restartable-form are no longer active) prior to execution of the clause.</p>
 
 <p>Below is an example. The restartable-form is <mark4>rect-width-v2</mark4>. The :report option allows us to provide text to display at a debugger, while :interactive allows us to collect information (e.g. a correct input) from the user. Note that we use the helper function <mark2>prompt-value</mark2> to help collect this input, this is a useful function to keep on hand.</p>
 
@@ -414,7 +414,10 @@
 
 <h3>Invoke-Restart and Find-Restart</h3>
 
-<p>Now that we have our restart cases defined, we need to find and invoke them. We will use handler-bind here.</p> 
+<p>Now that we have our restart cases defined, we need to find and invoke them. To achieve this, we will wrap our restart-case within a handler-bind. Schematically, the structure looks as follows.</p> 
+
+
+<p>In terms of code, below is an example. If you have made it this far, hopefully this is not too difficult to digest.
 
 <code>
 </code>
