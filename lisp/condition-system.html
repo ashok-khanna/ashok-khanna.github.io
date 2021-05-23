@@ -9,8 +9,16 @@
 <main>
 <h1>Overview & Tutorial of the Common Lisp Condition System</h1>
 <p class="author">By Ashok Khanna</p>
-<p>Sunday, 23 May 2021</p>
-<p>This article provides a non-exhaustive introduction to the Common Lisp Condition System, with the aim to get quickly get you comfortable with error handling in Common Lisp and writing robust code. We will use a contrived example (refer starting notes below) and all code is self-sufficient and has been tested in SBCL. The example repo is available on GitHub as part of <a href="https://github.com/ashok-khanna/common-lisp-by-example">my ongoing tutorial series Common Lisp by Example</a>, and if you like this guide, please do star the repo!</p>
+
+<p>The robustness of a computer system can be characterised by its ability to cope with errors during execution and with erroneous input. It is one of the important requirements for programmers to fulfill in their code as they evolve from developing applications for their own-use, an environment that they can personally control, to developing applications for the greater population or for use in larger teams, both scenarios in which they must relinquish control over the environment their programs operate under and scenarios where there is a much higher expectation of reliability, the ability to provide failure-free software operation for extended periods of time.</p>
+
+<p>Error handling is managed in Common Lisp through its Condition System, a powerful and abstract approach that generalises the concept of an error and seperates the act of detecting and announcing an error from the act of handling it. In the latter Common Lisp differs from other languages, providing greater ability to finely control the recovery strategy in the face of exceptional situations. This is covered towards the end of this article in Section 8.1 Comparison to Other Languages.</p>
+
+<p>This article provides a non-exhaustive introduction to the Common Lisp Condition System, a topic of intermediate to advanced difficulty, thus assuming some level of proficiency in Common Lisp. For beginners, I recommend reading my tutorial Common Lisp by Example, and also ANSI Common Lisp by Paul Graham and then Common Lisp the Language, 2nd Edition by Guy Steele.</p>
+
+<p>Whilst this guide is prescriptive to some degree, it would take too much time to cover all the nuances of the Common Lisp Condition System. Thus, the aim is to discuss the main concepts, and the reader is heavily recommended to carefully read the Common Lisp HyperSpec and challenge their understanding by writing their own examples that test the boundaries of the language specification and their own understanding. Whilst this topic is not for the faint-hearted, with a reasonable amount of effort (1 week), you should be able to gain a strong understanding of error handling in Lisp and your code will be better off for it.</p>
+
+<p>In this article, we will begin with some conceptual background (which can be skimmed over), then define conditions, the act of detecting and signalling them, the process for handling them and finally the facility for invoking restarts and recovery strategies. The example repo is available on GitHub as part of <a href="https://github.com/ashok-khanna/common-lisp-by-example">my ongoing tutorial series Common Lisp by Example</a>. If you like this guide, please do star the repo! And without further ado, let's get started.</p>
 
 <h2>Conceptual Background</h2>
 
