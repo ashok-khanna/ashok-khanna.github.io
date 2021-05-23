@@ -128,7 +128,7 @@ table {
 }
 
 /* Add black border to all table cells */
-th, td { border: 1px solid black; padding: 10px; }
+th:not(.lisp-definition), td:not(.lisp-definition) { border: 1px solid black; padding: 10px; }
 
 /* Add blue background to table headers */
 th { background-color: #268bd2; color: white; }
@@ -142,15 +142,15 @@ table.lisp-definition {
     border-radius:  4px;
 }
 
-table.lisp-definition tr>:nth-child(1) {
+table.lisp-definition tbody>tr>:nth-child(1) {
     background-color:  lightskyblue;
 }
 
-table.lisp-definition tr>:nth-child(2) {
+table.lisp-definition tbody>tr>:nth-child(2) {
     background-color:  lightgray;
 }
 
-table.lisp-definition tr:nth-child(1) {
+table.lisp-definition thead>tr:nth-child(1) {
     background-color:  gray;
     color:  white;
 }
