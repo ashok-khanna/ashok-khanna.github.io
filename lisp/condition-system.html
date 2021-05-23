@@ -17,15 +17,56 @@
 
 <p>This is not to say you cannot replicate the error handling behaviour of other languages in Common Lisp - you can. The main point here is that Common Lisp provides greater diversity in the range of responses you can implement to manage exceptional situations. The benefits of this greater flexibility will be for you to decide as you write your own programs (there is a brief note on this topic in Section 8.1 below); today's article aims to introduce you to the implementation in Common Lisp and not to enter into a discussion of the correct approach. Such a discussion should require a deeper understanding of language design and error handling and is not appropriate for this relatively introductory article.</p>
 
-<p>This article provides a non-exhaustive introduction to the Common Lisp Condition System, a topic of intermediate to advanced difficulty, thus assumes some level of proficiency in Common Lisp. We will begin with some conceptual background, then progress to defining condition objects and the act of detecting and signalling them. After this, we will inspect the process for handling them and end with an introduction of the facilities for invoking restarts. The example repo is available on GitHub as part of <a href="https://github.com/ashok-khanna/common-lisp-by-example">my ongoing tutorial series Common Lisp by Example</a>.</p>
-
 <p>Whilst this guide is prescriptive to some degree, it would take too much time to cover all the nuances of the Common Lisp Condition System. Thus, the aim is to discuss the main concepts, and the reader is persuasively recommended to carefully read the Common Lisp HyperSpec and challenge their understanding by writing their own examples that test the boundaries of the language specification and their own understanding. Whilst this topic is not for the faint-hearted, with a reasonable amount of effort (1 week), you should be able to gain a strong understanding of error handling in Lisp and your code will be better off for it.</p>
 
-<p>If you like this guide, please do star the repo! And without further ado, let's get started.</p>
+<p>The example repo is available on GitHub as part of <a href="https://github.com/ashok-khanna/common-lisp-by-example">my ongoing tutorial series Common Lisp by Example</a>. If you like this guide, please do star the repo! And without further ado, let's get started.</p>
+
+
+<div class="notes"><b>Important Disclaimer</b>: Much of this guide is extracted ad verbatim Chapter 29 of <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node312.html">Common Lisp the Language, 2nd Edition</a> and <a href="https://www.nhplace.com/kent/Papers/Exceptional-Situations-1990.html">Exceptional Situations in Lisp</a>, both written by <a href="https://en.wikipedia.org/wiki/Kent_Pitman">Kent M. Pitman</a>, together with specifications from the Common Lisp HyperSpec. For the sake of readability, each passage is not directly referenced, but you can assume most of the article is from these sources and most of my efforts have been to organise the material in a form that helped me understand this topic. Other sources are referenced as they appear.</div>
+
+<h2>Starting Notes</h2>
+<p>In this guide, we will use a contrived example of calculating the width from a rectangle when its area and height are known. A simple example of this function is below. In this contrived example, we will consider six scenarios, 1 normal and 4 erroneous, as noted below.</p>
+
+<code>
+(defun rect-width-simple (area height)
+  (/ area height))
+ </code>
+
+<table>
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>Function Call</th>
+			<th>Output</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Normal</td>
+			<td>(rect-width 40 8)</td>
+			<td>Returns 5</td>
+		</tr>
+		<tr>
+			<td>Error - Divide by Zero</td>
+			<td>(rect-width 40 0)</td>
+			<td>Returns an Error and throws us into the Debugger. Note the type of the error is "divis<b>ion</b>-by-zero" and not "divide-by-zero". In our example later, we will create a custom "divide-by-zero" condition type, but want to remind readers here that this differs slightly in naming to the standard error type for the same</td>
+		</tr>
+		<tr>
+			<td>Error - Negative Height</td>
+			<td>(rect-width 40 -8)</td>
+			<td>Returns -5: While the function successfully executes, this is an error as neither height nor width can be negative. Without instructing our programs to pick up on such implicit assumptions, we cannot expect them to catch such errors</td>
+		</tr>
+		<tr>
+			<td>Error - Not a Number</td>
+			<td>(rect-width 40 "asdf")</td>
+			<td>Returns error and throws us into the debugger.</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Note that the above table is not an exhaustive list of errors. For example it is missing the error of entering a negative area. I did this delibrately to stress that it is difficult to capture all possible errors and one should be mindful and not overconfidence of his or her ability's to do so. A careful, considered appraoch will lead to more errors captured and overall greater reliability of one's programs.</p>
 
 <h2>Conceptual Background</h2>
-
-<div class="note">The below are extracts from Chapter 29 of <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node312.html">Common Lisp the Language, 2nd Edition</a> and <a href="https://www.nhplace.com/kent/Papers/Exceptional-Situations-1990.html">Exceptional Situations in Lisp</a>, both written by <a href="https://en.wikipedia.org/wiki/Kent_Pitman">Kent M. Pitman</a>, and only lightly edited to conform to the style of this guide.</div>
 
 <p>It is useful to partition the description of a program's behavior into two parts - what happens in normal situations, and what happens in exceptional situations. For example, consider a function <i>f</i> defined to allow only integer arguments but also guaranteed to detect and signal an error for non-integer arguments. Such a description would be internally inconsistent (that is, paradoxical) because the function's behavior is well-defined for non-integers. Yet we would not want this annoying paradox to force description of <i>f</i> as a function that accepts any kind of argument (just in case <i>f</i> is being called only as a quick way to signal an error, for example). Using the normal/exceptional distinction, we can say clearly that <i>f</i> accepts integers in the normal situation and signals an error in exceptional situations. Moreover, we can say that when we refer to the definition of a function informally, it is acceptable to speak only of its normal behavior. For example, we can speak informally about <i>f</i> as a function that accepts only integers without feeling that we are committing some awful fraud.</p>
 
@@ -38,18 +79,11 @@
 	<li><b>Efficiency</b>: In some cases, there may be efficiency reasons for considering some cases to be exceptional. For example, the compiled code for + will be less efficient if it must contain explicit checks for its arguments being non-numbers. Thus, an implementation may choose the interpreted + function to "signal an error" if invoked with bad arguments, but allow compiled calls to + to do just "do the wrong thing" if that situation arises.</li>
 </ul>
 
-<p>The Common Lisp Condition System (CLCS) encapsulate and formalise useful patterns of data and control flow that are useful in dealing with exceptional situations. In this article, we will describe how to define conditions in Common Lisp, how to signal and handle them, and how to recover from scenarios where exceptional situations occur (such as through restarting).</p>
+<p>The Common Lisp Condition System encapsulates and formalises useful patterns of data and control flow that are useful in dealing with exceptional situations. In this article, we will describe how to define conditions in Common Lisp, how to signal and handle them, and how to recover from scenarios where exceptional situations occur (such as through restarting).</p>
 
 
 <p></p>
 
-<h2>Starting Notes</h2>
-<p>For the rest of this guide, we will use a contrived example of calculating the width from a rectangle when its area and height are known. The "normal" definition of this function would be the preceding sentence, and possible exceptional situations would include non-numerical inputs for either of area and height, passing a value of zero for height (i.e. divide by zero error) or passing in negative values for either of area and height. A simple version of this function is as follows.</p>
-
-<code>
-(defun rect-width (area height)
-  (/ area height))
- </code>
 
 <h2>Conditions</h2>
 <p>Conditions are <i>interesting</i> situations in a program, one may say "exceptional" to keep in line with the terminology we used earlier, but it would also be good to keep our mind open and think of conditions as a general construct and not one limited to errors or only most exceptional situations. Errors can be defined as conditions in which normal program execution may not continue without some form of intervention (either interactively by the user or under some sort of program control). Our primary objective in most cases is to detect and handle errors.</p>
