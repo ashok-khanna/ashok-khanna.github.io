@@ -27,7 +27,7 @@
         document.body.removeChild(copyHex);
       }
 
-    if (code.classList -= "pseudo") {
+    if (code.classList == "pseudo") {
       var pseudoLabel = document.createElement("div");
       pseudoLabel.classList.add("pseudoLabel");
       pseudoLabel.textContent = "Pseudocode";
