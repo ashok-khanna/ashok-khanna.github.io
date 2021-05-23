@@ -196,7 +196,7 @@
 <p>We illustrate these concepts with the below example. Bear with us, it is a bit complicated, so carefully step through it.</p>
 
 <ul>
-	<li>We first define an example-handler-function, which returns 0 and also writes the condition to stream. Note that handlers can be any function. Note also that this handler does not perform any non-local transfer of control, so by itself, it cannot actually handler any condition signalled to it</li>
+	<li>We first define an example-handler-function, which returns 5 and also writes the condition to stream. Note that handlers can be any function. Note also that this handler does not perform any non-local transfer of control, so by itself, it cannot actually handle any condition signalled to it</li>
 	<li>We then illustrate a "bad" example of a handler-bind macro. The issue here is that none of the handlers perform a non-local exit. If you were to test this out, for example by evaluating <mark4>(rect-width-v2 40 0)</mark4>, you will be thrown into the debugger as our handler-bind does not handle the error</li>
 	<li>At the same time, try evaluating <mark4>(rect-width-v2 40 -5)</mark4>. Note how this does not throw you into the debugger. The reason for this is that in <mark3>rect-width-v2</mark3> we only signal the condition <mark4>negative-value</mark4>, and do not send it as an error. As you will recall, signal does not automatically require the condition to be handled, and accordingly we do not get thrown into the debugger here</li>
 </ul>
@@ -217,12 +217,7 @@
     (rect-width-v2 area height)))
 </code>
 
-<p>Now lets look at a better implementation of this handler-bind:</p>
-<ul>
-	<li>First, lets define a new rect-width function that is a bit more descriptive than the last (explicitly specifying divide-by-zero error in particular)</li>
-	<li>Note now with the "good" version of our handler-bind macro, we have enclosed the form within a block construct and perform non-local exits within the first and last handler</li>
-	<li>Thus this function can successfully handle divide-by-zero and general errors, and declines to handle negative-value conditions (which as we mentioned earlier does not automatically throw us into the debugger)</li>
-</ul>
+<p>Now lets look at a better implementation of this handler-bind. With the "good" version of our handler-bind macro, we have enclosed the form within a block construct and perform non-local exits within the first and last handler. Thus this function can successfully handle divide-by-zero and general errors, and declines to handle negative-value conditions (which as we mentioned earlier does not automatically throw us into the debugger).</p>
 
 <code>
 (defun rect-width-v3 (area height)
