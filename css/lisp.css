@@ -120,7 +120,7 @@ li {
 /* Generic Table formatting */
 table {
     margin-top: 2rem;
-    border-collapse: collapse;
+    border-collapse: separate;
     width: 100%;
     text-align: left;
     table-layout: fixed;
