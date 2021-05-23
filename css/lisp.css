@@ -105,7 +105,7 @@ li {
 table {
     border: 1px solid black;
     border-collapse: collapse;
-    width: 75%;
+    width: 100%;
     text-align: left;
     table-layout: fixed;
 }
