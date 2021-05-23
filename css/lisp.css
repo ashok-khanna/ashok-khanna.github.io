@@ -58,7 +58,7 @@ code {
 	white-space: pre !important;
 	padding:  1rem !important;
     background:  #f0f0f0;
-    font-family:  monospace, monospace;
+    font-family:  monospace;
 }
 .copy-btn { float: right; }
 
