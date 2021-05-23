@@ -117,10 +117,10 @@
 
 <code>
 	(make-condition 'divide-by-zero)
-	(make-condition 'negative-value :desc "Height is Negative"
-	                                :sender "the RECT-WIDTH function")
+	(make-condition 'negative-value :desc "negative number"
+	                                :param "height parameter")
 </code>
-<p>To end this section, note that useful further reading is <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node346.html">29.5. Condition Types of CLTL2e</a>, which is a listing of the predefined condition types.</p>
+<p>To end this section, note that a useful further reading is <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node346.html">29.5. Condition Types of CLTL2e</a>, which is a listing of the predefined condition types used by CL implementations and ones that you can use or subclass.</p>
 
 <h2>Signalling Conditions</h2>
 <p>Conceptually, signalling an error in a program is an admission by that program that is does not know how to continue and requires external intervention. Once an error is singled, any decision about how to continue must come from the outside. The <mark>SIGNAL</mark> function signals a condition without requiring it to be handled by a condition handler. On the other hand, we use the <mark>ERROR</mark> function if we want to signal an error and require the debugger to be entered if the condition is not handled.</p>
