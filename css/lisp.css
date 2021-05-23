@@ -66,7 +66,6 @@ code {
 
 .pseudoLabel { float: right; 
     border-radius:  0px;
-    border:  solid 1px #008080;
     padding: 0.5rem;
     margin: 0;
     text-decoration: none;
@@ -80,7 +79,7 @@ code {
 
 /* From CSS Tricks:  https://css-tricks.com/overriding-default-button-styles/ */
 
-button :not(.pseudo) {
+button:not(.pseudoLabel) {
     border-radius:  0px;
     border:  solid 1px #008080;
     padding: 0.5rem;
@@ -96,18 +95,18 @@ button :not(.pseudo) {
     -moz-appearance: none;
 }
 
-button:not(.pseudo):hover,
-button:not(.pseudo):focus {
+button:not(.pseudoLabel):hover,
+button:not(.pseudoLabel):focus {
     background: #007373;
     border:  solid 1px #007373;
 }
 
-button:not(.pseudo):focus {
+button:not(.pseudoLabel):focus {
     outline: 0;
     /* outline-offset: -4px; */
 }
 
-button:not(.pseudo):active {
+button:not(.pseudoLabel):active {
     transform: scale(0.95);
 }
 
