@@ -120,7 +120,6 @@ li {
 /* Generic Table formatting */
 table {
     margin-top: 2rem;
-    border: 1px solid black;
     border-collapse: collapse;
     width: 100%;
     text-align: left;
@@ -128,7 +127,7 @@ table {
 }
 
 /* Add black border to all table cells */
-th:not(.lisp-definition), td:not(.lisp-definition) { border: 1px solid black; padding: 10px; }
+th, td { border: 1px solid black; padding: 10px; }
 
 /* Add blue background to table headers */
 th { background-color: #268bd2; color: white; }
@@ -151,38 +150,12 @@ table.lisp-definition thead>tr:nth-child(1) {
     color:  white;
 }
 
-table.lisp-definition { 
-    border-collapse: separate;
-    border-left: 0;
-    border-spacing: 4px;
-}
-thead.lisp-definition  {
-    display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
-    border-collapse: separate;
-}
-tr.lisp-definition  {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
-}
-th.lisp-definition , td.lisp-definition  {
-    padding: 5px 4px 6px 4px; 
-    text-align: left;
-    vertical-align: top;
-    border-left: 1px solid #ddd;    
-}
-td.lisp-definition  {
-    border-top: 1px solid #ddd;    
+table.lisp-definition thead>tr:nth-child(2) {
+    border-top-right-radius: 6px;
 }
 
-i.lisp-definition {
-    color:  lightskyblue;
-}
-
-a.lisp-definition {
-    color:  blue;
+table.lisp-definition thead>tr:nth-child(1) {
+    border-top-left-radius:  6px;
 }
 
 /* Automatic Counters */
