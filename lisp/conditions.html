@@ -92,26 +92,26 @@
 	<li>Inheritance of methods and slots reduces the amount of explicit specification necessary to achieve various interesting effects</li>
 </ul>
 
-<p>If the above is confusing, it is probably because you have not had much experience with the Common Lisp Object System (CLOS). It is well worth gaining proficiency in CLOS, but that is beyond the scope of this article. Consequently, we will try and keep our introduction of Common Lisp Conditions relatively simple and leave a more detailed purview to the reader.</p>
+<p>If the above (or below) is confusing, it is probably because you have not had much experience with the Common Lisp Object System (CLOS). It is well worth gaining proficiency in CLOS, but that is beyond the scope of this article. Consequently, we will try and keep our introduction of Common Lisp Conditions relatively simple and leave a more detailed purview to the reader.</p>
 
 <h3>Code Examples</h3>
 <p>In Common Lisp, all conditions are instances of the <mark>CONDITION</mark> class or one of its subclassses. Note that conditions are not standard objects, thus the treatment of condition objects is slightly different to CLOS objects and the standard more frequently talks about condition <i>types</i> as opposed to condition classes. Without labouring over this point too much, the main point here is that not all of mechanisms available to CLOS objects transfer over to CL condition types.</p>
 
-<p>We can create condition types with the <mark>DEFINE-CONDITION</mark> macro and instances of condition types with the <mark>MAKE-INSTANCE</mark> function. To illustrate with an example, let us define two conditions type <mark2>divide-by-zero</mark2> and <mark2>negative-value</mark2>, the former being a simple condition of type error, the latter being a more complex example that has an attributes <mark2>desc</mark2> and <mark2>sender</mark2> where we can store pertinent information about the condition when it is detected.</p>
+<p>We can create condition types with the <mark>DEFINE-CONDITION</mark> macro and instances of condition types with the <mark>MAKE-INSTANCE</mark> function. To illustrate with an example, let us define two conditions type <mark2>divide-by-zero</mark2> and <mark2>negative-value</mark2>, the former being a simple condition of type error, the latter being a more complex example that has an attributes <mark2>desc</mark2> and <mark2>param</mark2> where we can store pertinent information about the condition when it is detected.</p>
 
 <code>
 (define-condition divide-by-zero (error) ())
 
 (define-condition negative-value ()
-  ((desc :initarg :desc :reader desc))
-  ((sender :initarg :sender :reader sender))
+  ((desc :initarg :desc :reader desc)
+   (param :initarg :param :reader param))
   (:report (lambda (condition stream)
-             (format stream "Condition ~a sent by ~a."
-                     (desc condition)
-                     (sender condition)))))
+	     (format stream "Condition ~a detected for ~a."
+		     (desc condition)
+		     (param condition)))))
 </code>
 
-<p>In the above, the <mark>:INITARG</mark> keyword is used to name the keyword parameter used for setting the values of desc and sender (:desc and :sender respectively - refer below make-condition example), while the <mark>:reader</mark> keyword is used to define the accessor functions for getting the values of desc and sender respectively (desc and reader). Thus, the form <mark3>(desc condition)</mark3> is used to access the value stored in desc for the condition passed-in. The <mark>:report</mark> option allows for printing with the condition reporter (when <mark>*PRINT-ESCAPE*</mark> is NIL - refer below examples), which is the lambda function in the above. Note that we can use a constant string in place of the lambda function above.</p>
+<p>In the above, the <mark>:INITARG</mark> keyword is used to name the keyword parameter used for setting the values of desc and param (:desc and :param respectively - refer below make-condition example), while the <mark>:reader</mark> keyword is used to define the accessor functions for getting the values of desc and param respectively (desc and param). Thus, the form <mark3>(desc condition)</mark3> is used to access the value stored in desc for the condition passed-in. The <mark>:report</mark> option allows for printing with the condition reporter (when <mark>*PRINT-ESCAPE*</mark> is NIL - refer below examples), which is the lambda function in the above. Note that we can use a constant string in place of the lambda function above.</p>
 
 <p>To make an instance of a condition, we can use the <mark>MAKE-CONDITION</mark> function:</p>
 
