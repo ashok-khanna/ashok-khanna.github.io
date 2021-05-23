@@ -128,7 +128,7 @@ table {
 }
 
 /* Add black border to all table cells */
-th, td { border: 1px solid black; padding: 10px; }
+th, td { border: 0.5px solid black; padding: 10px; }
 
 /* Add blue background to table headers */
 th { background-color: #268bd2; color: white; }
@@ -140,10 +140,12 @@ table.lisp-definition td:nth-child(1) {
 
 table.lisp-definition tbody>tr>:nth-child(1) {
     background-color:  lightskyblue;
+    border-left:  1px;
 }
 
 table.lisp-definition tbody>tr>:nth-child(2) {
     background-color:  lightgray;
+    right: 1px solid black;
 }
 
 table.lisp-definition thead>tr:nth-child(1) {
@@ -161,15 +163,19 @@ a.lisp-definition {
 
 th:first-of-type {
   border-top-left-radius: 10px;
+  border-top:  1px solid black;
 }
 th:last-of-type {
   border-top-right-radius: 10px;
+  border-top:  1px solid black;
 }
 tr:last-of-type td:first-of-type {
   border-bottom-left-radius: 10px;
+  border-bottom:  1px solid black;
 }
 tr:last-of-type td:last-of-type {
   border-bottom-right-radius: 10px;
+  border-bottom:  1px solid black;
 }
 
 /* Automatic Counters */
