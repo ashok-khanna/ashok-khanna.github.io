@@ -101,6 +101,21 @@ li {
     margin-bottom:  1rem;
 }
 
+/* Generic Table formatting */
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 75%;
+    text-align: left;
+    table-layout: fixed;
+}
+
+/* Add black border to all table cells */
+th, td { border: 1px solid black; padding: 10px; }
+
+/* Add blue background to table headers */
+th { background-color: #268bd2; color: white; }
+
 /* Automatic Counters */
 body {
     counter-reset: sectionNumber;
