@@ -178,12 +178,12 @@ th.lisp-definition , td.lisp-definition  {
 td.lisp-definition  {
     border-top: 1px solid #ddd;    
 }
-thead.lisp-definition :first-child tr.lisp-definition :first-child th.lisp-definition :first-child,
-tbody.lisp-definition :first-child tr.lisp-definition :first-child td.lisp-definition :first-child {
+thead.lisp-definition:first-child tr.lisp-definition:first-child th.lisp-definition:first-child,
+tbody.lisp-definition :first-child tr.lisp-definition:first-child td.lisp-definition:first-child {
     border-radius: 4px 0 0 0;
 }
-thead.lisp-definition :last-child tr.lisp-definition :last-child th.lisp-definition :first-child,
-tbody.lisp-definition :last-child tr.lisp-definition :last-child td.lisp-definition :first-child {
+thead.lisp-definition:last-child tr.lisp-definition:last-child th.lisp-definition:first-child,
+tbody.lisp-definition:last-child tr.lisp-definition:last-child td.lisp-definition:first-child {
     border-radius: 0 0 0 4px;
 }
 
