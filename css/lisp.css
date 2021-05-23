@@ -60,9 +60,9 @@ code {
     background:  #f0f0f0;
     font-family:  monospace;
 }
-.copy-btn { float:  right; }
+.copy-btn { float: right; }
 
-.pseudo { background-color: lightyellow; border: 0px; }
+.pseudo { float:  right; background-color: lightyellow; border: 0px; }
 
 .pseudoButton { float: right; 
     border-radius:  0px;
@@ -96,18 +96,18 @@ button :not(.pseudo) {
     -moz-appearance: none;
 }
 
-button:hover:not(.pseudo),
-button:focus:not(.pseudo) {
+button:not(.pseudo):hover,
+button:not(.pseudo):focus {
     background: #007373;
     border:  solid 1px #007373;
 }
 
-button:focus:not(.pseudo) {
+button:not(.pseudo):focus {
     outline: 0;
     /* outline-offset: -4px; */
 }
 
-button:active:not(.pseudo) {
+button:not(.pseudo):active {
     transform: scale(0.95);
 }
 
