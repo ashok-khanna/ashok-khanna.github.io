@@ -178,6 +178,14 @@ td.lisp-definition  {
     border-top: 1px solid #ddd;    
 }
 
+i.lisp-definition {
+    color:  lightskyblue;
+}
+
+a.lisp-definition {
+    color:  blue;
+}
+
 /* Automatic Counters */
 body {
     counter-reset: sectionNumber;
