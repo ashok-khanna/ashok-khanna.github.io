@@ -269,7 +269,7 @@
         (rect-width-v3 area height)))))
 </code>
 
-<p>Finally, let us rewrite the above, but this time use Catch/Throw to allow us to perform non-local exists within handler functions that are not in the lexical scope of the handler-bind (i.e. when we split out our handler functions into their own lexical scopes via defining them in new functions via defun, such as example-handler-function). The following section provides a bit more detail on lexical vs. dynamic transfer of controls.</p>
+<p>Finally, let us rewrite the above, but this time use Catch/Throw to allow us to perform non-local exits within handler functions that are not in the lexical scope of the handler-bind (i.e. when we split out our handler functions into their own lexical scopes via defining them in new functions via defun, such as example-handler-function). The following section provides a bit more detail on lexical vs. dynamic transfer of controls.</p>
 
 <code>
 (defun example-handler-function (condition)
@@ -300,7 +300,7 @@
 </code>
 
 <h2>Non-Local Transfer of Control</h2>
-<div class="note">The below is mostly an extract from <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node76.html">Chapter 7 Control Structure</a> of Common Lisp the Language, 2nd Edition.</div>
+<p>In the preceding section, we made frequent mention of the requirement for non-local transfer of control for a handler to handle a condition. We will now take a brief detour to expand on these concepts as they are required for developing condition systems in Lisp.</p>
 
 <h3>Block/Return-From: Structural Lexical Non-Local Exits</h3>
 <p>The <mark>BLOCK</mark> and <mark>RETURN-FROM</mark> provide a structured <u>lexical</u> non-local exit facility. At any point lexically within a block construct, a return-from wit the same name may be used to perform an immediate transfer of control that exists from the block. In most common cases, this mechanism is more efficient than the dynamic non-local exist facility provided by catch and throw (discussed below).</p>
