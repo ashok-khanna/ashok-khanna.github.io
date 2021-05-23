@@ -127,11 +127,11 @@
 
 <p>Below is an example of rewriting our contrived RECT-WIDTH function to analyse its inputs and detect negative value and zero value inputs. In the below example, we illustrate three ways to specify conditions, noting the second or third way is what you will most likely use:</p>
 
-<ul>
-	<li>Supplying one argument - a condition object, as in the form <mark4>(signal (make-condition ... ))</mark4> below</li>
+<ol>
+	<li>Supplying one argument - a condition object, as in the first example below</li>
 	<li>Supplying arguments as one would for make-condition, as in the second example below</li>
-	<li>Supplying arguments as one would do for the FORMAT function, but without the stream details, such as in <mark4>(error "You divided by Zero")</mark4> in the third example below. In such approaches, the condition is of the default type as specified by the function called (e.g. error or warning)</li>
-</ul>
+	<li>Supplying arguments as one would do for the FORMAT function, but without the stream details, as in the third example below. In such approaches, the condition is of the default type as specified by the function called (e.g. error or warning)</li>
+</ol>
 
 <code>
 (defun rect-width (area height)
