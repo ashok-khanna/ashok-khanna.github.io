@@ -66,6 +66,7 @@ code {
 
 .pseudoLabel { float: right; 
     border-radius:  0px;
+    border:  none !important;
     padding: 0.5rem;
     margin: 0;
     text-decoration: none;
