@@ -62,6 +62,8 @@ code {
 }
 .copy-btn { float:  right; }
 
+.pseudo { background-color: lightyellow; }
+
 .pseudoButton { float: right; 
     border-radius:  0px;
     border:  solid 1px #008080;
