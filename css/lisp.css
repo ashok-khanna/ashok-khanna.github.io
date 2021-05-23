@@ -50,7 +50,7 @@ figcaption { caption-side: top; padding-bottom: 0.75rem;
 	border-bottom: 0.5px solid gray; margin-bottom: 1.5rem;
 	color: gray; font-weight: bold;} 
 
-.author {text-align:  right; margin-bottom:  2rem; font-style: italic; }
+.author {text-align:  right; margin-bottom:  2rem; }
 
 /* Code Typography */
 code {
