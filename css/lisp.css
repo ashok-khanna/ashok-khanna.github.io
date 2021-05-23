@@ -137,10 +137,6 @@ table.lisp-definition td:nth-child(1) {
     width:  150px;
 }
 
-table.lisp-definition {
-    border:  1px solid black;
-    border-radius:  4px;
-}
 
 table.lisp-definition tbody>tr>:nth-child(1) {
     background-color:  lightskyblue;
@@ -157,7 +153,7 @@ table.lisp-definition thead>tr:nth-child(1) {
 
 table.lisp-definition { 
     border: 1px solid #ddd;
-    border-collapse: collapse;
+    border-collapse: separate;
     border-left: 0;
     border-radius: 4px;
     border-spacing: 0px;
