@@ -81,9 +81,8 @@
 
 <p>Note that the above table is not an exhaustive list of errors. For example it is missing the error of entering a negative area. I did this delibrately to stress that it is difficult to capture all possible errors and one should be mindful and not overconfidence of his or her ability's to do so. A careful, considered appraoch will lead to more errors captured and overall greater reliability of one's programs.</p>
 
-
 <h2>Conditions</h2>
-<p>Conditions are <i>interesting</i> situations in a program, one may say "exceptional" to keep in line with the terminology we used earlier, but it would also be good to keep our mind open and think of conditions as a general construct and not one limited to errors or only most exceptional situations. Errors can be defined as conditions in which normal program execution may not continue without some form of intervention (either interactively by the user or under some sort of program control). Our primary objective in most cases is to detect and handle errors.</p>
+<p>Let us formalise and codify the above table of errors through the concept of conditions and condition objects. Conditions are <i>interesting</i> situations in a program, one may say "exceptional" to keep in line with the terminology we used earlier, but it would also be good to keep our mind open and think of conditions as a general construct and not one limited to errors or only most exceptional situations. Errors can be defined as conditions in which normal program execution may not continue without some form of intervention (either interactively by the user or under some sort of program control). Our primary objective in most cases is to detect and handle errors.</p>
 
 <p>Common Lisp takes an object-oriented approach to condition handling, as it allows for a more organised sharing of information related to condition handling. This approach has the following benefits over a more primitive text-based approach (per 29.3.4 of CLTL2e):</p>
 <ul>
