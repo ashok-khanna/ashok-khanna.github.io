@@ -175,9 +175,17 @@ a.lisp-definition {
 
 th:first-of-type {
   border-top-left-radius: 10px;
+  border-top:  1px solid black;
+  border-left:  1px solid black;
+  border-right:  1px solid black;
+  border-bottom:  0px solid black;
 }
 th:last-of-type {
   border-top-right-radius: 10px;
+  border-top:  1px solid black;
+  border-left:  0px solid black;
+  border-right:  1px solid black;
+  border-bottom:  0px solid black;
 }
 tr:last-of-type td:first-of-type {
   border-bottom-left-radius: 10px;
