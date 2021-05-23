@@ -381,7 +381,7 @@
 <h3>The Restart-Case Macro</h3>
 <p>First let's introduce the restart-case macro, which takes a similar form to handler-case. The first argument is a <b>restartable-form</b> to be evaluated. If this form finishies executing and returns any values (i.e. without signalling any conditions), its values are returned by restart-case and the macro's evaluation completes. The remainder of the arguments to the restart-case macro are restart clauses, whose first element names them (e.g. return-zero, new-height and new-width below), whose second argument are the parameters the clause accept & bind. We then have the option of specifying any of three optional parameters (:interactive, :report and :test), and then remaining forms form the body of the clause.</p>
 
-<table class="lisp-definition">
+<table class="lisp-definition" title="Summary Card for Restart-Case Macro">
 	<tbody>
 		<tr>
 			<td>Disclaimer</td>
