@@ -1,0 +1,309 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"inli",
+				"inline-block\tdisplay"
+			],
+			[
+				"curS",
+				"curStepSID"
+			],
+			[
+				"cur",
+				"curInputCID"
+			],
+			[
+				"th",
+				"th\tTag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"color sch",
+				"UI: Select Color Scheme"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/ashokkhanna/ashok-khanna.github.io/coder-pro/index.sublime-workspace",
+		"/Users/ashokkhanna/math-dev/www_/scripts/hunchen-content.js",
+		"/Users/ashokkhanna/math-dev/www_/css/style.css",
+		"/Users/ashokkhanna/math-dev/www_/scripts/live-preview.js",
+		"/Users/ashokkhanna/math-dev/www_/scripts/hunchen-theorem.js",
+		"/Users/ashokkhanna/math-dev/www_/scripts/hunchen-theorem-tv.js",
+		"/Users/ashokkhanna/math-dev/www_/index.html",
+		"/Users/ashokkhanna/ashok-khanna.github.io/css/lisp.css",
+		"/Users/ashokkhanna/math-dev/www_/scripts/math-writer.js",
+		"/Users/ashokkhanna/ashok-khanna.github.io/lisp/conditions.html",
+		"/Users/ashokkhanna/ashok-khanna.github.io/css/emacs-face.css",
+		"/Users/ashokkhanna/ashok-khanna.github.io/scripts/copy-to-clipboard.js",
+		"/Users/ashokkhanna/ashok-khanna.github.io/style.css",
+		"/Users/ashokkhanna/ashok-khanna.github.io/scripts/highlight-lisp.js",
+		"/Users/ashokkhanna/ashok-khanna.github.io/scripts/lisp.js",
+		"/Users/ashokkhanna/.Trash/themes/github.css",
+		"/Users/ashokkhanna/ashok-khanna.github.io/lisp/condition-system.html",
+		"/Users/ashokkhanna/ashok-khanna.github.io/index.html",
+		"/Users/ashokkhanna/ashok-khanna.github.io/scripts/themes/emacs-customize-face.css",
+		"/Users/ashokkhanna/ashok-khanna.github.io/scripts/themes/github.css",
+		"/Users/ashokkhanna/ashok-khanna.github.io/css/highlight-lisp-github.css",
+		"/Users/ashokkhanna/ashok-khanna.github.io/lisp/lisp-script.js",
+		"/Users/ashokkhanna/ashok-khanna.github.io/lisp/lisp-style.css",
+		"/Users/ashokkhanna/math-dev/www_/div-loads/tv-section-dropdown.html",
+		"/Users/ashokkhanna/math-dev/www_/div-loads/tv-function-dropdown.html",
+		"/Users/ashokkhanna/math-dev/www_/div-loads/function-dropdown.html",
+		"/Users/ashokkhanna/math-dev/www_/div-loads/chapter-dropdown.html",
+		"/Users/ashokkhanna/math-dev/Archive/style copy.css",
+		"/Users/ashokkhanna/math-dev/www_/div-loads/section-dropdown.html",
+		"/Users/ashokkhanna/math-dev/www_/scripts/hunchen.js",
+		"/Users/ashokkhanna/math-dev/www_/scripts/select-dropdowns.js",
+		"/Users/ashokkhanna/math-dev/www_/static/content-writer.html",
+		"/Users/ashokkhanna/math-dev/web/SSG/www_/To Do",
+		"/Users/ashokkhanna/math-dev/www_/dropdown.html",
+		"/Users/ashokkhanna/math-dev/www_/scripts/tab-switcher.js",
+		"/Users/ashokkhanna/math-dev/www_/scripts/select-menu.js",
+		"/Users/ashokkhanna/math-dev/www_/scripts/lisp-console.js",
+		"/Users/ashokkhanna/math-dev/www_/uikit-3/css/uikit.css",
+		"/Users/ashokkhanna/math-dev/www_/SSG/www_/book-table/book-table-1.html",
+		"/Users/ashokkhanna/math-dev/www_/scripts/dropdown.js",
+		"/Users/ashokkhanna/math-dev/www_/uikit-3/css/uikit-rtl.css",
+		"/Users/ashokkhanna/math-dev/www_/shortcuts.html",
+		"/Users/ashokkhanna/math-dev/www_/scripts/math-writer.css",
+		"/Users/ashokkhanna/math-writer/writer.js",
+		"/Users/ashokkhanna/math-writer/writer.css",
+		"/Users/ashokkhanna/math-writer/index.html",
+		"/Users/ashokkhanna/math-dev/www_/symbols.html",
+		"/Users/ashokkhanna/math-writer/shortcuts.html",
+		"/Users/ashokkhanna/math-dev/web/css/mathql.css",
+		"/Users/ashokkhanna/math-dev/web/SSG/www_/writer.css",
+		"/Users/ashokkhanna/math-dev/web/SSG/www_/math-writer.html",
+		"/Users/ashokkhanna/math-dev/web/SSG/content.tmpl",
+		"/Users/ashokkhanna/math-dev/web/SSG/chapter-list.tmpl",
+		"/Users/ashokkhanna/math-dev/web/SSG/book-list.tmpl",
+		"/Users/ashokkhanna/math-dev/web/math-writer/index.html",
+		"/Users/ashokkhanna/math-dev/web/SSG/content.tmpl.html",
+		"/Users/ashokkhanna/math-dev/web/SSG/www_/ddq.tmpl",
+		"/Users/ashokkhanna/math-dev/web/SSG/chapter-list.tmpl.html",
+		"/Users/ashokkhanna/math-dev/web/SSG/www_/index.html",
+		"/Users/ashokkhanna/math-dev/web/SSG/index.html",
+		"/Users/ashokkhanna/e-write-copy/index.html",
+		"/Users/ashokkhanna/e-write/index.js",
+		"/Users/ashokkhanna/e-write/preload.js",
+		"/Users/ashokkhanna/e-write/package.json",
+		"/Users/ashokkhanna/e-write/index.html",
+		"/Users/ashokkhanna/e-write/main.js",
+		"/Users/ashokkhanna/math-dev/web/Scripts/mathql.js",
+		"/Users/ashokkhanna/Documents/GitHub/lisp-blog-server/post.tmpl",
+		"/Users/ashokkhanna/Documents/GitHub/lisp-blog-server/post-form.tmpl",
+		"/Users/ashokkhanna/Documents/GitHub/lisp-blog-server/index.tmpl",
+		"/Users/ashokkhanna/common-lisp-by-example/example-server/www_/index.html",
+		"/Users/ashokkhanna/common-lisp-by-example/example-server/auth-server.lisp",
+		"/Users/ashokkhanna/common-lisp-by-example/example-blog-server/post.tmpl",
+		"/Users/ashokkhanna/Documents/GitHub/lisp-blog-server/blog-server.lisp",
+		"/Users/ashokkhanna/Downloads/prism/prism.html",
+		"/Users/ashokkhanna/pdf/style.css",
+		"/Users/ashokkhanna/paged-js/toc.js",
+		"/Users/ashokkhanna/Documents/GitHub/md-to-html/firm-ddq.html",
+		"/Users/ashokkhanna/paged-js/interface.css",
+		"/Users/ashokkhanna/Learning PHP/hello.php",
+		"/Users/ashokkhanna/abhiline/css/interface.css",
+		"/Users/ashokkhanna/math-writer/landing.html",
+		"/Users/ashokkhanna/Documents/GitHub/md-to-html/a-better-markdown-4.lisp",
+		"/Users/ashokkhanna/ashok-khanna.github.io/rpn30.html",
+		"/Users/ashokkhanna/math-writer/help.html",
+		"/Users/ashokkhanna/math-writer/launch.html",
+		"/Users/ashokkhanna/math-writer/README.md",
+		"/Users/ashokkhanna/ashok-khanna.github.io/editor/editor.css",
+		"/Users/ashokkhanna/math-dev/web/Style Sheets/mathql.css",
+		"/Users/ashokkhanna/ashok-khanna.github.io/editor/editor.js",
+		"/Users/ashokkhanna/ashok-khanna.github.io/editor/editor.html",
+		"/Users/ashokkhanna/math-dev/TODO.txt",
+		"/Users/ashokkhanna/ashok-khanna.github.io/editor/Style Sheets/math-editor.css",
+		"/Users/ashokkhanna/math-dev/web/index.html",
+		"/Users/ashokkhanna/math-dev/web/Scripts/jquery.terminal-2.20.2.js",
+		"/Users/ashokkhanna/math-dev/web/Scripts/jquery.js",
+		"/Users/ashokkhanna/Desktop/scripts.js",
+		"/Users/ashokkhanna/math-dev/web/mathql.js",
+		"/Users/ashokkhanna/math-dev/web/mathql.css",
+		"/Users/ashokkhanna/math-dev/web/css/jquery.terminal.min.css",
+		"/Users/ashokkhanna/math-dev/web/Old but useful",
+		"/Users/ashokkhanna/math-dev/web/styles.css",
+		"/Users/ashokkhanna/math-dev/web/scripts/terminal-settings.js",
+		"/Users/ashokkhanna/math-dev/web/scripts/mathql.js",
+		"/Users/ashokkhanna/math-dev/web/scripts/main.js",
+		"/Users/ashokkhanna/math-dev/web/scripts/terminal.js",
+		"/Users/ashokkhanna/math-dev/web/scripts/rtp.js",
+		"/Users/ashokkhanna/math-dev/web/terminal/jquery.terminal.css",
+		"/Users/ashokkhanna/math-dev/web/scripts.js",
+		"/Users/ashokkhanna/Documents/GitHub/electron-lisp/Quant-Lisp/index-clean.html",
+		"/Users/ashokkhanna/math-dev/web/logic-notes.html",
+		"/Users/ashokkhanna/Documents/GitHub/lisp-blog-server/hunchentoot.org",
+		"/Users/ashokkhanna/Documents/GitHub/quant-lisp/utilities.lisp",
+		"/Users/ashokkhanna/main.lisp",
+		"/Users/ashokkhanna/abhiline/package-lisp-example/quant.lisp",
+		"/Users/ashokkhanna/Documents/Math.Dev/style.css",
+		"/Users/ashokkhanna/Documents/Math.Dev/resources/giam.html",
+		"/Users/ashokkhanna/Documents/Math.Dev/innercity-tiesto.html",
+		"/Users/ashokkhanna/Documents/Math.Dev/thoughts-003.html",
+		"/Users/ashokkhanna/Documents/Math.Dev/resources/logic-notes.txt",
+		"/Users/ashokkhanna/Documents/Math.Dev/thoughts-002.html",
+		"/Users/ashokkhanna/Documents/Math.Dev/Chapter-01/01-001.html",
+		"/Users/ashokkhanna/Documents/Math.Dev/index.html"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
