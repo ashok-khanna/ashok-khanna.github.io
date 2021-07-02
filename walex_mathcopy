@@ -1,0 +1,108 @@
+; has the same key -> character mapping as
+;   https://github.com/ashok-khanna/math-mode
+
+; Copyright (C) 2021 PeterG. This program is free software: you
+; can redistribute it and/or modify it under the terms of the
+; GNU General Public License as published by the Free Software
+; Foundation, either version 2 of the License, or (at your
+; option) any later version. This program is distributed in the
+; hope that it will be useful, but WITHOUT ANY WARRANTY; without
+; even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+; PARTICULAR PURPOSE.
+
+; (setq kbdmathsym-doc-1 nil)
+; (setq kbdmathsym-doc-2 nil)
+; (setq kbdmathsym-list-1 nil)
+; (setq kbdmathsym-list-2 nil)
+
+(static-defconst kbdmathsym-doc-1
+  "Mapping from normal to math character:
+    a -> α    b -> β    c -> ∊    d -> δ
+    e -> ε    f -> φ    g -> γ    h -> θ
+    i -> ι    j -> ξ    k -> κ    l -> λ
+    m -> μ    n -> η    o -> ο    p -> π
+    r -> ρ    s -> σ    t -> τ    u -> υ
+    v -> ν    w -> ω    x -> χ    y -> ψ
+    z -> ζ    , -> ≤      -> ≥    = -> ≠
+    - -> ±    0 -> ∅    1 -> →    2 -> ↔
+    3 -> ↦    4 -> ↑    5 -> ↓    6 -> ↗
+    7 -> ↘    8 -> ∞    9 -> ⋯"
+)
+(static-defconst kbdmathsym-list-1
+  '(
+    (?a . "α")    (?b . "β")    (?c . "∊")    (?d . "δ")
+    (?e . "ε")    (?f . "φ")    (?g . "γ")    (?h . "θ")
+    (?i . "ι")    (?j . "ξ")    (?k . "κ")    (?l . "λ")
+    (?m . "μ")    (?n . "η")    (?o . "ο")    (?p . "π")
+    (?r . "ρ")    (?s . "σ")    (?t . "τ")    (?u . "υ")
+    (?v . "ν")    (?w . "ω")    (?x . "χ")    (?y . "ψ")
+    (?z . "ζ")    (?, . "≤")    (?  . "≥")    (?= . "≠")
+    (?- . "±")    (?0 . "∅")    (?1 . "→")    (?2 . "↔")
+    (?3 . "↦")    (?4 . "↑")    (?5 . "↓")    (?6 . "↗")
+    (?7 . "↘")    (?8 . "∞")    (?9 . "⋯")
+  )
+  kbdmathsym-doc-1
+)
+
+(static-defconst kbdmathsym-doc-1
+  "Mapping from normal to math character:
+    a -> ∀    b -> ∃    c -> ℂ    d -> Δ
+    e -> ∈    f -> Φ    g -> Γ    h -> Θ
+    i -> ∫    j -> ∂    k -> ⊢    l -> Λ
+    m -> ∄    n -> ℕ    o -> ⊕    p -> Π
+    r -> ℝ    s -> Σ    t -> ∴    u -> ∵
+    v -> √    w -> Ω    x -> ∊    y -> Ψ
+    z -> ℤ    , -> ¬      -> ≡    = -> ≈
+    - -> ≠    0 -> ∉    1 -> ℚ    2 -> ⊂
+    3 -> ⊃    4 -> ⋂    5 -> ⋃    6 -> ∧
+    7 -> ∨    8 -> ∘    9 -> ∙"
+)
+(static-defconst kbdmathsym-list-2
+  '(
+    (?a . "∀")    (?b . "∃")    (?c . "ℂ")    (?d . "Δ")
+    (?e . "∈")    (?f . "Φ")    (?g . "Γ")    (?h . "Θ")
+    (?i . "∫")    (?j . "∂")    (?k . "⊢")    (?l . "Λ")
+    (?m . "∄")    (?n . "ℕ")    (?o . "⊕")    (?p . "Π")
+    (?r . "ℝ")    (?s . "Σ")    (?t . "∴")    (?u . "∵")
+    (?v . "√")    (?w . "Ω")    (?x . "∊")    (?y . "Ψ")
+    (?z . "ℤ")    (?, . "¬")    (?  . "≡")    (?= . "≈")
+    (?- . "≠")    (?0 . "∉")    (?1 . "ℚ")    (?2 . "⊂")
+    (?3 . "⊃")    (?4 . "⋂")    (?5 . "⋃")    (?6 . "∧")
+    (?7 . "∨")    (?8 . "∘")    (?9 . "∙")
+  )
+  kbdmathsym-doc-2
+)
+
+; (keymapp (cons 'keymap kbdmathsym-list-1))
+; (keymapp (cons 'keymap kbdmathsym-list-2))
+
+(defvar kbdmathsym-map-1 nil kbdmathsym-doc-1)
+(defvar kbdmathsym-map-2 nil kbdmathsym-doc-2)
+
+(if t
+  (progn
+    ; Disagree with "representation hiding", RMS style.
+    (setq kbdmathsym-map-1 (cons 'keymap kbdmathsym-list-1))
+    (setq kbdmathsym-map-2 (cons 'keymap kbdmathsym-list-2))
+  )
+; else
+  (progn
+    ; Agree with "representation hiding", JWZ style.
+    (setq kbdmathsym-map-1 (make-sparse-keymap))
+    (setq kbdmathsym-map-2 (make-sparse-keymap))
+
+    (mapcar
+      (lambda (pair) (define-key kbdmathsym-map-1
+		       (string (car pair)) (cdr pair)))
+      kbdmathsym-list-1
+    )
+    (mapcar
+      (lambda (pair) (define-key kbdmathsym-map-2
+		       (string (car pair)) (cdr pair)))
+      kbdmathsym-list-2
+    )
+  )
+)
+
+(define-key global-map [f11] kbdmathsym-map-1)
+(define-key global-map [f12] kbdmathsym-map-2)
