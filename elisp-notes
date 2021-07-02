@@ -1,0 +1,3 @@
+[1] To execute elisp commands on every keystore you can use `post-command-hook' and check `last-command' variable.
+But, depending on your needs (i.e., call the function only when the buffer changed), you may use `before-change-functions'
+or `after-change-functions'. 'post-command-hook' is more generic (credits ngz on IRC #Emacs)
