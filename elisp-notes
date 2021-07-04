@@ -4,3 +4,45 @@ or `after-change-functions'. 'post-command-hook' is more generic (credits ngz on
 
 [2] To get the previous line data: (save-excursion (buffer-substring (line-beginning-position 0) (line-end-position 0)))
 (credits ngz & bpalmer on IRC #Emacs)
+
+
+How to isolate a hook to a major mode's buffers?
+lisp123
+e.g. (add-hook 'after-change-functions 'my-function) --> I only want it to work in buffers with the major mode active
+wasamasa
+add-hook has an argument to make the hook local to the buffer
+wasamasa
+so you can use the major mode hook to run a function to make it local to that major mode buffer
+wasamasa
+the easier alternative is to write a function that checks the major mode
+lisp123
+wasasmasa: thanks, let me do that
+wasamasa
+use the tab key for nicknames
+lisp123
+if a function is defined as buffer-local in a major mode - does it only apply to buffers that have that major mode?
+lisp123
+sorry if I'm being confusing as I'm still trying to connect all the dots
+wasamasa
+functions aren't buffer-local
+wasamasa
+they're global
+wasamasa
+variables can have buffer-local values
+wasamasa
+like a hook
+wasamasa
+experiment with add-hook and inspect the hook with F1 v
+lisp123
+so for the hook variable defined to be buffer local - if the "(add-hook ..)" is within the major mode's elisp file, does it apply only to buffers of that major mode?
+wasamasa
+the add-hook has to be run with the major mode being current
+wasamasa
+(defun my-major-mode-setup () (add-hook 'after-change-functions 'my-function nil t))
+wasamasa
+(add-hook 'major-mode-hook 'my-major-mode-setup)
+wasamasa
+if you run it with that major mode's elisp file being current, it's applied to that particular elisp buffer, lol
+zap has left IRC (Ping timeout: 258 seconds)
+wasamasa
+which is not what you want
