@@ -1,0 +1,40 @@
+Ok to write a few paragraphs within a doc string?
+lisp123
+Or should we keep them short. Issue with comments is that they may not be discoverable outside of the file
+beach
+lisp123: The target audience for the two is not the same.
+beach
+lisp123: The documentation string is meant for clients and are mainly useful on protocol functions and classes.  Comments are meant for the same people who read the code.
+beach
+lisp123: And the problem with documentation strings is that they are largely noise to the person reading the code.
+12:36 lisp123
+beach: Ah, so doc strings, I should explain INPUT & OUTPUT and comments I can do whatever is helpful?
+beach
+Input, output, preconditions, side effects, etc.
+wilfred has left IRC (Quit: Connection closed for inactivity)
+lisp123
+thanks, that's a good rule of thumb to follow
+beach
+lisp123: So, ideally the documentation strings should be long-ish, but the problem with that is precisely the noise aspect.
+12:38 lisp123
+beach: i know what you mean, for lisp coders, one can read the code and understand exactly what its doing, doc strings are just repeating oneself in another (inexact) form for that purpose
+beach
+So I tend to use (SETF DOCUMENTATION) in a separate file so as to avoid the noise.  But then there is the problem of keeping them synchronized instead.
+lisp123
+oh so that is possible? not a bad idea, to keep it all in a seperate file.
+lisp123
+or at the bottom of the current file
+beach
+Yes, DOCUMENTATION is an "accessor" generic function, so it works with SETF.
+splittist
+Or have tooling to get them out of the way if they offend you.
+beach
+That works too.
+lisp123
+beach: thanks, that's going to be very helpful. Time to seperate out docstrings and only do them for exported functions :)
+beach
+lisp123: I tend to use #.(format nil "...") for documentation strings, so that I can use ~<newline> with the @ modifier, so that subsequent lines can be indented without changing the output of DOCUMENTATION.
+lisp123
+I will do that as well, it will help make it easier to write multi-line doc strings
+beach
+Exactly.
